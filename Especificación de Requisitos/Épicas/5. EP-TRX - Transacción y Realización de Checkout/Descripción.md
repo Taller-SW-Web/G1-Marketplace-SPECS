@@ -1,0 +1,2 @@
+- **Responsable Principal:** Integrante 5 — Giuliano (UX/UI / Transacción y Checkout).
+- **Descripción:** Funcionalidades enfocadas en guiar al cliente a través del proceso de cierre de compra mediante un formulario multipaso, capturando su dirección de entrega, mostrando el resumen y desglose de costos, revalidando el inventario, simulando la transacción de pago y empaquetando la orden para su transmisión vía API al Módulo de Ventas y Postventa.
