@@ -81,12 +81,15 @@ C4Component
         %% CAPA A: CONTROLADORES REST
         Component(auth_ctrl, "Auth Controller", "@Controller('/auth')", "Maneja peticiones de login, registro y recuperación.")
         Component(catalog_ctrl, "Catalog Controller", "@Controller('/products')", "Recibe peticiones de búsqueda, catálogo, filtros y ficha técnica.")
-        Component(cart_ctrl, "Cart & Wishlist Controller", "@Controller('/cart')", "Maneja la adición, edición, eliminación y favoritos.")
+        Component(cart_ctrl, "Cart Controller", "@Controller('/cart')", "EP-ITC: adición, edición y eliminación de ítems del carrito.")
+        Component(wishlist_ctrl, "Wishlist Controller", "@Controller('/wishlist')", "EP-FAV: guardado, consulta, eliminación y transferencia de favoritos.")
         Component(checkout_ctrl, "Checkout Controller", "@Controller('/checkout')", "Recibe direcciones, cupones y simulación de pago.")
         Component(orders_ctrl, "Orders & Tracking Controller", "@Controller('/orders')", "Recibe solicitudes de historial 'Mis Pedidos' y tracking.")
 
         %% CAPA B: SERVICIOS DE DOMINIO Y ORQUESTADORES
-        Component(cart_srv, "Cart & Wishlist Service", "@Injectable()", "Calcula subtotales en tiempo real, unifica carritos anónimos tras el login y gestiona favoritos.")
+        Component(cart_srv, "Cart Service", "@Injectable()", "EP-ITC / Sebastián: subtotales, unificación de carritos y CartItem.")
+        Component(wishlist_srv, "Wishlist Service", "@Injectable()", "EP-FAV / Alonso: asociaciones únicas de favoritos y WishlistItem.")
+        Component(transfer_srv, "Coordinación de Transferencias", "Capa de aplicación", "Coordina las acciones existentes entre carrito y favoritos utilizando ambos servicios sin dependencias circulares.")
         Component(checkout_orch, "Checkout Orchestrator", "@Injectable()", "Coordina el flujo multipaso: ejecuta la revalidación de stock pre-pago y empaqueta la orden.")
         Component(notif_worker, "Notification Worker", "@Injectable()", "Event Listener que escucha 'order.created' y despacha emails con React Email/Resend SDK.")
         Component(event_emitter, "NestJS Event Emitter", "EventEmitter2", "Bus de eventos interno para desacoplar el envío de correos.")
@@ -112,17 +115,25 @@ C4Component
     Rel(web_app, auth_ctrl, "POST /auth/*", "JSON")
     Rel(web_app, catalog_ctrl, "GET /products/*", "JSON")
     Rel(web_app, cart_ctrl, "GET, POST, DELETE /cart/*", "JSON")
+    Rel(web_app, wishlist_ctrl, "Operaciones /wishlist/*", "JSON")
     Rel(web_app, checkout_ctrl, "POST /checkout/*", "JSON")
     Rel(web_app, orders_ctrl, "GET /orders/*", "JSON")
 
     Rel(auth_ctrl, sec_adapter, "Delega autenticación")
     Rel(catalog_ctrl, prod_adapter, "Delega consultas de catálogo")
     Rel(cart_ctrl, cart_srv, "Delega cálculo e ítems")
+    Rel(wishlist_ctrl, wishlist_srv, "Delega gestión de favoritos")
+    Rel(cart_ctrl, transfer_srv, "Mover a favoritos: HU-ITC-CAR")
+    Rel(wishlist_ctrl, transfer_srv, "Mover al carrito: HU-FAV-CAR")
+    Rel(transfer_srv, cart_srv, "Reutiliza operaciones y validaciones de carrito")
+    Rel(transfer_srv, wishlist_srv, "Reutiliza operaciones de favoritos")
     Rel(checkout_ctrl, checkout_orch, "Delega orquestación de pago")
     Rel(orders_ctrl, sales_adapter, "Consulta historial")
     Rel(orders_ctrl, disp_adapter, "Consulta tracking")
 
-    Rel(cart_srv, prisma_srv, "CRUD CartItem / WishlistItem")
+    Rel(cart_srv, prisma_srv, "CRUD CartItem")
+    Rel(wishlist_srv, prisma_srv, "CRUD WishlistItem")
+    Rel(wishlist_srv, prod_adapter, "Obtiene datos de productos guardados")
     Rel(cart_srv, prod_adapter, "Valida stock de ítems")
     Rel(checkout_orch, prod_adapter, "Ejecuta revalidación pre-pago")
     Rel(checkout_orch, sales_adapter, "Transmite orden empaquetada")
@@ -142,4 +153,3 @@ C4Component
     Rel(http_srv, ext_disp, "Petición REST / Mocks", "HTTPS")
     Rel(notif_worker, ext_resend, "Despacha email en segundo plano", "HTTPS")
 ```
-

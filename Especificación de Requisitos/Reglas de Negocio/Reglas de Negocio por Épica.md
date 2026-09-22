@@ -33,6 +33,7 @@
 - **HU-DDP-FIC: Visualización de la Ficha Técnica, Galería y Ofertas del Producto**
     1. La información mostrada debe ser la versión oficial provista por el Módulo de Productos y Ofertas, dueño legítimo de la entidad producto.
     2. Si el producto cuenta con una promoción o descuento vigente, se debe exhibir el precio original tachado junto al precio final en oferta y el porcentaje de descuento.
+    3. Todos los precios de venta y ofertas se expresan en la moneda oficial de Soles (PEN / S/.).
 - **HU-DDP-ATR: Selección de Atributos y Variantes de Producto**
     1. Se debe exigir la selección de todos los atributos obligatorios antes de habilitar la opción de agregar al carrito.
     2. La selección de una variante debe actualizar dinámicamente la galería visual y el precio asociado a dicha combinación.
@@ -50,13 +51,11 @@
     1. Si un producto ya existe en el carrito y se vuelve a agregar, el sistema incrementará la cantidad seleccionada en lugar de duplicar la línea.
     2. La cantidad solicitada de un producto no podrá superar el límite de stock disponible devuelto por la API de productos.
     3. Al iniciar sesión, los productos acumulados en el carrito anónimo temporal se unificarán automáticamente con la sesión del cliente.
-    4. Se permite mover ítems directamente a la lista de favoritos si el cliente se encuentra autenticado.
+    4. Se permite mover ítems directamente a la lista de favoritos si el cliente se encuentra autenticado, utilizando el servicio de EP-FAV y retirando el ítem del carrito tras confirmar el guardado.
 - **HU-ITC-RES: Visualización del Carrito Flotante y Cálculo de Subtotales en Tiempo Real**
     1. El cálculo de subtotales por producto y el total general acumulado deben actualizarse dinámicamente ante cualquier cambio en el carrito.
     2. La interfaz ofrecerá acceso rápido mediante un panel lateral/flotante o una vista dedicada del carrito.
-- **HU-ITC-FAV: Gestión de Lista de Deseos / Favoritos**
-    1. Las listas de favoritos se almacenan de forma persistente en la base de datos local del Marketplace asociadas de forma exclusiva al ID del cliente.
-    2. Al transferir un producto desde la lista de favoritos al carrito de compras, el sistema debe validar la disponibilidad de stock en tiempo real con la API de productos.
+    3. Todos los importes, subtotales y totales calculados se expresan en Soles (PEN / S/.).
 
 ---
 
@@ -69,6 +68,7 @@
     1. La interfaz exhibirá el desglose transparente del monto final (Subtotal + Costo de envío = Total a pagar).
     2. Antes de procesar el pago, el backend verificará asíncronamente con el Módulo de Productos y Ofertas que el stock siga disponible.
     3. No se almacenarán datos sensibles de tarjetas de crédito en bases de datos locales por motivos de seguridad.
+    4. La simulación de cobro y todos los importes de la transacción se procesan y liquidan en Soles (PEN / S/.).
 - **HU-TRX-ORD: Generación del Pedido y Envío al Módulo de Ventas**
     1. Al aprobarse el pago, el backend empaquetará la orden (cliente, ítems, precios, dirección de entrega) y la enviará vía API al Módulo de Ventas y Postventa, dueño legítimo de la entidad _Pedido_.
     2. Confirmada la creación de la orden, el sistema vaciará el carrito de compras activo del cliente.
@@ -100,3 +100,21 @@
     2. El procesamiento de notificaciones debe ser totalmente asíncrono para no demorar la respuesta de la interfaz del cliente al finalizar su pago.
 - **HU-SNT-DES: Notificación por Correo de Actualización del Estado de Despacho**
     1. Se notificará al cliente vía correo electrónico ante hitos clave del envío ("En Ruta" o "Entregado") consumiendo los eventos del Módulo de Despacho.
+
+---
+
+**8. Épica: EP-FAV - Gestión de Favoritos y Lista de Deseos**
+
+- **HU-FAV-GUA: Guardado de productos en favoritos**
+    1. Guardar requiere autenticación; en ausencia de sesión activa se redirige a iniciar sesión, retornando al origen para completar el guardado tras autenticarse con éxito.
+    2. El favorito se almacena en `WishlistItem` asociado exclusivamente al ID del cliente.
+    3. La combinación cliente/producto es única y el ícono refleja el guardado.
+- **HU-FAV-GES: Consulta y eliminación de favoritos**
+    1. La vista muestra los favoritos del cliente autenticado.
+    2. Quitar un favorito elimina su asociación local y actualiza la lista, sin eliminar el producto del catálogo.
+- **HU-FAV-CAR: Transferencia de favoritos al carrito**
+    1. `WishlistItem` almacena el producto base. Antes de transferir, se valida la disponibilidad con Productos y se reutilizan las reglas del servicio de carrito.
+    2. Para productos que requieren selección de variantes (talla o color), se redirige a la ficha técnica (P7). Para productos simples sin variantes, se añade directamente al carrito.
+    3. El producto se retira de la lista de favoritos únicamente tras una adición exitosa al carrito de compras.
+    4. Si no hay stock disponible, se informa al cliente, no se añade al carrito y se conserva en favoritos.
+    5. EP-FAV no duplica la lógica de cantidades, variantes ni persistencia de `CartItem` de EP-ITC.

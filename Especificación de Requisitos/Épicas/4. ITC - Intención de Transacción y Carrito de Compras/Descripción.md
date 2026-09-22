@@ -1,2 +1,2 @@
-- **Responsable Principal:** Integrante 4 — Sebastián (Documentador / Intención de Compra).
-- **Descripción:** Funcionalidades enfocadas en permitir que el cliente gestione temporalmente los productos que desea adquirir a través del carrito de compras (añadir, modificar cantidades, eliminar e inspeccionar subtotales en tiempo real) y guarde artículos de su interés en su lista de favoritos (con persistencia en la base de datos local del Marketplace asociada al ID del cliente).
+- **Responsable Principal:** Integrante 4 (Sebastián — Intención de Compra / Documentador).
+- **Descripción:** Funcionalidades enfocadas en permitir que el cliente gestione su carrito de compras: adición de artículos, modificación reactiva de cantidades, eliminación de productos, unificación del carrito anónimo tras iniciar sesión y visualización de subtotales en tiempo real.

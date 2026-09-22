@@ -49,7 +49,7 @@
 
 #### **Pantalla 5: Página Principal (Home Comercial)**
 
-- **Historias de Usuario que cumple:** `HU-VEC-HOM` (Visualización de la Página Principal y Secciones Destacadas).
+- **Historias de Usuario que cumple:** `HU-VEC-HOM` (Visualización de la Página Principal y Secciones Destacadas), `HU-FAV-GUA` (Guardado de Productos en Favoritos).
 - **Componentes Visuales:** Encabezado con buscador de texto, menú horizontal de categorías deportivas, insignias contadoras para Favoritos y Bolsa de Compras, carrusel principal de promociones y grilla de productos destacados.
 - **Disposición de Componentes:** Disposición vertical por secciones: encabezado fijo superior, banner promocional deslizante en el bloque central, accesos directos a categorías y grilla de productos en la parte inferior.
 - **Flujos de Usabilidad (Alto Nivel):**
@@ -58,7 +58,7 @@
 
 #### **Pantalla 6: Catálogo de Productos y Resultados de Búsqueda**
 
-- **Historias de Usuario que cumplen:** `HU-VEC-BUS` (Búsqueda por Palabra Clave), `HU-VEC-FIL` (Navegación y Filtrado Dinámico), `HU-VEC-ORD` (Ordenamiento del Catálogo).
+- **Historias de Usuario que cumplen:** `HU-VEC-BUS` (Búsqueda por Palabra Clave), `HU-VEC-FIL` (Navegación y Filtrado Dinámico), `HU-VEC-ORD` (Ordenamiento del Catálogo), `HU-FAV-GUA` (Guardado de Productos en Favoritos).
 - **Componentes Visuales:** Barra de búsqueda, panel lateral de filtros (categorías, marcas, rangos de precio), menú desplegable de ordenamiento ("Precio: Menor a Mayor", "Precio: Mayor a Menor", "Más Recientes"), tarjetas de producto y botón "Limpiar Filtros".
 - **Disposición de Componentes:** Esquema de dos bloques: panel lateral izquierdo para filtros y área principal derecha para la grilla de productos. En dispositivos móviles, los filtros se pliegan en un panel deslizable.
 - **Flujos de Usabilidad (Alto Nivel):**
@@ -69,11 +69,11 @@
 
 ---
 
-### **3. Épica `EP-DPP` / `EP-DDP` — Detalle y Disponibilidad de Producto**
+### **3. Épica `EP-DDP` — Detalle y Disponibilidad de Producto**
 
 #### **Pantalla 7: Ficha Técnica y Detalle del Producto**
 
-- **Historias de Usuario que cumplen:** `HU-DDP-FIC` (Ficha Técnica y Ofertas), `HU-DDP-ATR` (Selección de Variantes), `HU-DDP-STK` (Consulta de Inventario), `HU-DDP-REL` (Productos Relacionados).
+- **Historias de Usuario que cumplen:** `HU-DDP-FIC` (Ficha Técnica y Ofertas), `HU-DDP-ATR` (Selección de Variantes), `HU-DDP-STK` (Consulta de Inventario), `HU-DDP-REL` (Productos Relacionados), `HU-FAV-GUA` (Guardado de Productos en Favoritos).
 - **Componentes Visuales:** Galería de imágenes interactiva, nombre, marca, precio regular tachado, precio oferta con porcentaje de descuento, botones de selección de variantes (talla/color), etiqueta de estado de inventario ("Stock Disponible" / "Agotado"), botón "Agregar al Carrito", ícono de corazón para favoritos y carrusel inferior de productos recomendados.
 - **Disposición de Componentes:** Estructura en dos columnas (galería visual a la izquierda e información comercial/controles de compra a la derecha), con la descripción técnica y artículos recomendados en la sección inferior.
 - **Flujos de Usabilidad (Alto Nivel):**
@@ -85,30 +85,32 @@
 
 ---
 
-### **4. Épica `EP-ITC` — Intención de Transacción y Carrito**
+### **4. Carrito y Favoritos — Épicas `EP-ITC` y `EP-FAV`**
 
-#### **Pantalla 8: Carrito Flotante (Panel Lateral / Drawer)**
+#### **Pantalla 8: Vista Principal del Carrito de Compras (`/carrito`)**
 
+- **Épica y responsable:** `EP-ITC`, Sebastián — Documentador / Desarrollo de Carrito.
 - **Historias de Usuario que cumplen:** `HU-ITC-CAR` (Gestión del Carrito de Compras), `HU-ITC-RES` (Carrito Flotante y Subtotales).
-- **Componentes Visuales:** Panel lateral emergente, lista de productos agregados con miniatura, controles para modificar cantidades (`+` / `-`), botón para eliminar ítem, enlace "Mover a Favoritos", desglose de subtotales, costo estimado de envío, total acumulado y botón "Iniciar Checkout".
-- **Disposición de Componentes:** Panel desplegable sobre el margen derecho de la pantalla con lista desplazable de artículos y el resumen de totales fijo en la franja inferior.
+- **Componentes Visuales:** Lista de productos agregados con miniatura, controles para modificar cantidades (`+` / `-`), botón para eliminar ítem, enlace "Mover a Favoritos", desglose de subtotales, costo estimado de envío, total acumulado y botón "Iniciar Checkout".
+- **Disposición de Componentes:** Vista de página completa estructurada en dos columnas: lista desplazable de artículos a la izquierda y tarjeta fija con resumen de totales y botón de checkout a la derecha.
 - **Flujos de Usabilidad (Alto Nivel):**
     1. Al presionar "Agregar al Carrito" en un producto con talla/color seleccionados, el ítem se añade al carrito y se incrementa el contador visual.
     2. Si el producto ya figuraba en el carrito, se suma la cantidad en lugar de duplicar la línea.
     3. Modificar cantidades o eliminar artículos recalcula automáticamente el subtotal por producto y el total general sin recargar la página.
     4. El incremento de unidades está restringido al límite de existencias disponibles en el inventario.
     5. Un usuario autenticado puede seleccionar "Mover a Favoritos" para trasladar el ítem a su lista de deseos personal.
-    6. Si el carrito no contiene productos, se muestra el mensaje "Tu carrito está vacío" con un enlace para explorar la tienda.
+    6. Si el carrito no contiene productos, se muestra el mensaje "Tu carrito está vacío" con el enlace "Explorar Tienda" para retornar a la vitrina comercial.
 
 #### **Pantalla 9: Vista "Mis Favoritos" (Lista de Deseos)**
 
-- **Historias de Usuario que cumple:** `HU-ITC-FAV` (Gestión de Lista de Deseos / Favoritos).
+- **Historias de Usuario que cumple:** `HU-FAV-GES` (Consulta y Eliminación de Favoritos), `HU-FAV-CAR` (Transferencia de Favoritos al Carrito).
 - **Componentes Visuales:** Grilla de productos guardados, ícono de corazón activo, botón para quitar de la lista y botón "Mover al Carrito".
 - **Disposición de Componentes:** Disposición en catálogo personal en cuadrícula de varias columnas.
 - **Flujos de Usabilidad (Alto Nivel):**
     1. Al presionar "Agregar a Favoritos", el sistema guarda el producto en la lista personal del usuario autenticado.
-    2. Si un visitante no autenticado intenta guardar un favorito, se despliega el modal de inicio de sesión exigiendo identificarse.
-    3. En la sección de favoritos, el usuario puede eliminar productos guardados o presionar "Mover al Carrito", lo cual valida las existencias en tiempo real antes de añadir el artículo a la bolsa de compras.
+    2. Si un visitante no autenticado intenta guardar un favorito, se despliega el modal o vista de inicio de sesión; tras autenticarse con éxito, retorna a la pantalla de origen completando el guardado.
+    3. En la sección de favoritos, el usuario puede eliminar productos guardados o presionar "Mover al Carrito". Si el producto requiere selección de variantes (talla o color), se redirige a la ficha técnica (P7); si es un producto simple sin variantes, valida existencias en tiempo real, lo añade al carrito y lo retira de favoritos.
+    4. Si el producto no cuenta con stock disponible, el sistema informa al cliente y mantiene el artículo en la lista de favoritos.
 
 ---
 

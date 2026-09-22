@@ -31,9 +31,13 @@ flowchart TD
         P7["P7: Ficha Técnica y Variantes"]
     end
 
-    %% SUBGRAPH: CARRITO Y FAVORITOS
-    subgraph ITC["Intención de Transacción y Carrito (EP-ITC)"]
+    %% SUBGRAPH: CARRITO
+    subgraph ITC["Carrito de Compras (EP-ITC / Sebastián)"]
         P8["P8: Vista Principal del Carrito (/carrito)"]
+    end
+
+    %% SUBGRAPH: FAVORITOS (PANTALLA EXISTENTE)
+    subgraph FAV["Favoritos y Lista de Deseos (EP-FAV / Alonso)"]
         P9["P9: Vista 'Mis Favoritos' (/favoritos)"]
     end
 
@@ -69,12 +73,16 @@ flowchart TD
     P6 -.->|"Header: Mis Favoritos"| P9
 
     %% Transferencia entre Carrito y Favoritos
-    P8 <-->|"Mover a Favoritos / Mover a la Bolsa"| P9
+    P8 -->|"Mover a Favoritos (HU-ITC-CAR)"| P9
+    P9 -->|"Mover a la Bolsa: Producto Simple (HU-FAV-CAR)"| P8
+    P9 -->|"Mover a la Bolsa: Requiere Variantes (HU-FAV-CAR)"| P7
     P8 -.->|"Carrito Vacío: 'Explorar Tienda'"| P5
 
     %% Rutas de Autenticación (Pantallas Dedicadas)
     P5 -.->|"Header: 'Mi Cuenta'"| P1
     P6 -.->|"Header: 'Mi Cuenta'"| P1
+    P5 -.->|"Guardar Favorito (Sin Sesión)"| P1
+    P6 -.->|"Guardar Favorito (Sin Sesión)"| P1
     P7 -.->|"Guardar Favorito (Sin Sesión)"| P1
     P8 -.->|"Iniciar Checkout (Sin Sesión)"| P1
     P9 -.->|"Acceso (Sin Sesión)"| P1
@@ -86,6 +94,8 @@ flowchart TD
     P4 -->|"Clave Actualizada"| P1
 
     P1 -.->|"Login Exitoso (Redirección al Origen)"| P5
+    P1 -.->|"Login Exitoso + Guardar Favorito"| P6
+    P1 -.->|"Login Exitoso + Guardar Favorito"| P7
     P1 -.->|"Login Exitoso + Unificación Carrito"| P8
     P1 -.->|"Login Exitoso"| P10
     P1 -.->|"Login Exitoso"| P9
@@ -109,4 +119,4 @@ flowchart TD
 
 ---
 
-🛒 Con esta actualización, tanto la especificación formal del prototipo (**`especificacion-pantallas-prototipo-v5.md`**) como el **Diagrama de Navegación** reflejan la misma estructura para la generación en **Stitch AI**.
+🛒 Con esta actualización, tanto la especificación formal del prototipo (**`Especificación de pantallas del canal.md`**) como el **Diagrama de Navegación** reflejan la misma estructura para la generación en **Stitch AI**.

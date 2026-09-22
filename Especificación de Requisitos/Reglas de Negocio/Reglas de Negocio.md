@@ -13,6 +13,7 @@
 - **RN-GEN-02.3 (Bloqueo por Agotamiento):** Si una variante o producto posee stock igual a cero, la interfaz mostrará la etiqueta "Agotado" e inhabilitará la opción de compra.
 - **RN-GEN-02.4 (Validación de Cupones y Promociones):** Las ofertas, descuentos porcentuales y combos son calculados en tiempo real consultando al Módulo de Productos y Ofertas, quien determina su vigencia.
 - **RN-GEN-02.5 (Disparo de Consumo de Stock):** Confirmada la creación del pedido en el Módulo de Ventas, se notificará vía API/evento al Módulo de Productos y Ofertas para ejecutar el descuento definitivo del inventario.
+- **RN-GEN-02.6 (Moneda Oficial):** Todos los precios del catálogo, subtotales, costos de envío, descuentos y montos totales en la plataforma deben expresarse y procesarse en la moneda oficial de Soles (PEN / S/.).
 
 **3. Seguridad y Manejo de Datos Sensibles**
 

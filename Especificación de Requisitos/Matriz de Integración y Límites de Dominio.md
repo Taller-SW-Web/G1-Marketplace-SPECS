@@ -4,7 +4,7 @@
 - **Entidad Producto y Stock:** El dueño legítimo es el **Módulo de Productos y Ofertas**, incluyendo la propiedad del inventario. El Marketplace actúa como canal de consulta del catálogo, ofertas y revalidación de disponibilidad de stock.
 - **Entidad Pedido:** El dueño legítimo de la entidad pedido es el **Módulo de Ventas y Postventa**. El Marketplace empaqueta y envía la orden aprobada tras el pago, y consume sus APIs como visor de lectura del historial de compras.
 - **Entidad Despacho:** El dueño legítimo de la entidad despacho es el **Módulo de Despacho y Entrega a Domicilio**. El Marketplace consulta el estado actual del paquete para mostrar la barra de seguimiento.
-- **Entidades Locales (Carrito Temporal y Favoritos):** La lista de favoritos y el estado temporal del carrito son gestionados de forma exclusiva por el **Canal Marketplace**10, utilizando su propia base de datos relacional local (MySQL o PostgreSQL).
+- **Entidades Locales (Carrito Temporal y Favoritos):** La lista de favoritos (`WishlistItem`, asignada a `EP-FAV`) y el estado temporal del carrito (`CartItem`, asignado a `EP-ITC`) son gestionados de forma exclusiva por el **Canal Marketplace**, utilizando su propia base de datos relacional local (MySQL o PostgreSQL).
 
 ---
 

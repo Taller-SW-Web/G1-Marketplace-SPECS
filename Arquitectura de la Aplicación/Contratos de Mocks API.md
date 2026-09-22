@@ -5,7 +5,7 @@
 ## **1. Introducción y Matriz de Cobertura Integral**
 Este documento consolida la especificación **100% completa y exhaustiva** de contratos simulados (*Mocks*) que consumirá la **Capa de Adaptadores (Capa D)** en NestJS mediante `@nestjs/axios` y `axios-mock-adapter` durante los Hitos 1 a 3 (Semanas 4 a 8).
 
-Garantiza la cobertura absoluta de los escenarios **BDD (Gherkin)**, **Reglas de Negocio (RN-GEN)** y **Requisitos No Funcionales (RNF)** para las **22 Historias de Usuario (83 PH)** distribuidas en las **7 Épicas** del módulo.
+Estos contratos apoyan los escenarios **BDD (Gherkin)**, **Reglas de Negocio (RN-GEN)** y **Requisitos No Funcionales (RNF)** de las **25 Historias de Usuario (91 PH)** distribuidas en las **8 Épicas** del módulo.
 
 ---
 

@@ -1,4 +1,4 @@
-Este plan establece los pasos ordenados para conmutar la simulación de `contratos-mocks-api-v3.md` hacia las integraciones reales con los 4 microservicios externos (Seguridad, Productos, Ventas y Despacho) durante el **Hito 4 (Semana 11)**, garantizando un impacto cero en el Frontend y en la base de datos local.
+Este plan establece los pasos ordenados para conmutar la simulación de `Contratos de Mocks API.md` hacia las integraciones reales con los 4 microservicios externos (Seguridad, Productos, Ventas y Despacho) durante el **Hito 4 (Semana 11)**, garantizando un impacto cero en el Frontend y en la base de datos local.
 
 ---
 
@@ -6,7 +6,7 @@ Este plan establece los pasos ordenados para conmutar la simulación de `contrat
 
 1. **Recopilación de Especificaciones Oficiales:** Obtener los documentos Swagger/OpenAPI o colecciones de Postman definitivas publicadas por los equipos de Seguridad, Productos, Ventas y Despacho.
 
-2. **Análisis de Discrepancias (_Diff Analysis_):**  Comparar endpoint por endpoint las APIs reales contra nuestro catálogo `contratos-mocks-api-v3.md`:
+2. **Análisis de Discrepancias (_Diff Analysis_):**  Comparar endpoint por endpoint las APIs reales contra nuestro catálogo `Contratos de Mocks API.md`:
     - **Endpoints y Rutas:** Mapear variaciones en las URLs base o paths (ejemplo: `/api/v1/products` vs `/api/v2/catalogo`).
     - **Nombres de Atributos JSON:** Identificar diferencias de clave en el payload (ejemplo: `codProducto` \(\rightarrow\) `sku_id`, `precioOferta` \(\rightarrow\) `discount_price`).
     - **Encabezados HTTP:** Verificar la firma requerida para la autenticación delegada por token JWT (`Authorization: Bearer <token>`).
@@ -17,7 +17,7 @@ Este plan establece los pasos ordenados para conmutar la simulación de `contrat
 
 3. **Ajuste de Mapeadores en la Capa D (Adaptadores NestJS):** Modificar **únicamente** las funciones de traducción/mapeo (`mapToInternalDTO()`) dentro de los 4 adaptadores del backend (`SecurityAdapter`, `ProductsAdapter`, `SalesAdapter`, `DispatchAdapter`).
     - _Garantía:_ Los controladores REST internos (`@Controller`) y los DTOs consumidos por Next.js no se modifican.
-4. **Actualización del Archivo de Mocks de Respaldo (`v3` \(\rightarrow\) `v4`):** Actualizar `contratos-mocks-api-v3.md` con los esquemas reales para mantenerlo como un _fallback_ simulado en el entorno de desarrollo local y pruebas unitarias.
+4. **Actualización del Archivo de Mocks de Respaldo (`v3` \(\rightarrow\) `v4`):** Actualizar `Contratos de Mocks API.md` con los esquemas reales para mantenerlo como un _fallback_ simulado en el entorno de desarrollo local y pruebas unitarias.
 5. **Conmutación de Variables de Entorno (`.env`):**
     - Cambiar la bandera de control `USE_MOCKS=true` a `USE_MOCKS=false` en el panel de producción de Render.
     - Inyectar las URLs finales de los servidores Nube de los otros módulos (`SEC_SERVICE_URL`, `PROD_SERVICE_URL`, `SALES_SERVICE_URL`, `DISPATCH_SERVICE_URL`) a través de `@nestjs/config`.

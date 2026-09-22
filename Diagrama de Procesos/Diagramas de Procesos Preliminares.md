@@ -170,7 +170,7 @@ flowchart TD
 
 ---
 
-### **5. Proceso de Gestión de Lista de Deseos / Favoritos (EP-ITC)**
+### **5. Proceso de Gestión de Lista de Deseos / Favoritos (EP-FAV)**
 
 Detalla cómo el cliente registrado guarda artículos de interés en su espacio personal y los traslada a la bolsa de compras tras validar su disponibilidad.
 

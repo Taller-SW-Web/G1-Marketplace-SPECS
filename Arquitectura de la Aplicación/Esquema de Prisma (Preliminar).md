@@ -30,11 +30,12 @@ model CartItem {
 }
 
 /// Lista de favoritos persistente asociada exclusivamente al ID del cliente
-/// Épica: EP-ITC | Historia de Usuario: HU-ITC-FAV
+/// Épica: EP-FAV | Historias de Usuario: HU-FAV-GUA, HU-FAV-GES, HU-FAV-CAR
+/// Responsable: Alonso — Backend (EP-FAV)
 model WishlistItem {
   id         String   @id @default(uuid())
   customerId String   // ID del cliente autenticado (Módulo Seguridad)
-  productId  String   // ID del producto/variante guardado (Módulo Productos)
+  productId  String   // ID del producto guardado (Módulo Productos)
   createdAt  DateTime @default(now())
 
   @@unique([customerId, productId]) // Evita duplicar el mismo favorito por cliente

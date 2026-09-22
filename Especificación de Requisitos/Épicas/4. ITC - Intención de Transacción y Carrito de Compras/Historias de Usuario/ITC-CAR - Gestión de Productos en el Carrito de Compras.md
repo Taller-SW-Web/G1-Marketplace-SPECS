@@ -12,7 +12,7 @@
     1. Si un producto ya existe en el carrito y se vuelve a agregar, el sistema incrementará la cantidad seleccionada en lugar de duplicar la línea.
     2. La cantidad solicitada de un producto no podrá superar el límite de stock disponible devuelto por la API de productos.
     3. Al iniciar sesión, los productos acumulados en el carrito anónimo temporal se unificarán automáticamente con la sesión del cliente.
-    4. Se permite mover ítems directamente a la lista de favoritos si el cliente se encuentra autenticado.
+    4. Se permite mover ítems directamente a la lista de favoritos si el cliente se encuentra autenticado, retirando el ítem del carrito tras confirmar el guardado.
 
 - **Criterios de Aceptación (Sintaxis Gherkin):**
 
@@ -48,8 +48,8 @@ Y actualiza la vista del listado y los totales.
 ```
 Dado que un cliente autenticado tiene un producto en su carrito de compras,
 Cuando selecciona la opción "Guardar para después" o "Mover a Favoritos",
-Entonces el sistema remueve el artículo del carrito temporal,
-Y lo registra en la base de datos local dentro de su lista de favoritos.
+Entonces el sistema confirma el guardado mediante el servicio de favoritos de EP-FAV,
+Y remueve el artículo del carrito temporal tras confirmar dicho guardado.
 ```
 
 - **Escenario 5: Sincronización de carrito anónimo al iniciar sesión**

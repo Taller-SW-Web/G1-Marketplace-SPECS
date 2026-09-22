@@ -18,6 +18,6 @@
 
 **4. Disponibilidad, Arquitectura e Infraestructura (RNF-DIS)**
 
-- **RNF-DIS-01 (Aislamiento de Persistencia):** El Canal Marketplace dispondrá únicamente de una base de datos relacional local (MySQL o PostgreSQL) para almacenar el carrito temporal y las listas de favoritos, respetando el principio de no acceder directamente a las bases de datos de otros módulos.
+- **RNF-DIS-01 (Aislamiento de Persistencia):** El Canal Marketplace dispondrá únicamente de una base de datos relacional local (PostgreSQL 16) para almacenar el carrito temporal y las listas de favoritos, respetando el principio de no acceder directamente a las bases de datos de otros módulos.
 - **RNF-DIS-02 (Integración mediante APIs Desacopladas):** La comunicación con los microservicios externos (Productos, Ventas, Despacho y Seguridad) se realizará estrictamente mediante APIs de forma asíncrona.
 - **RNF-DIS-03 (Despliegue Cloud):** El sistema estará alojado y operativo en una infraestructura de servidor en la Nube.
