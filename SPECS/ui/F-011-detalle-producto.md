@@ -134,6 +134,6 @@ No hay formularios ni entradas editables en `F-011`.
 
 - Fuente: Pantalla 7 de `Wireframes y Prototipo/Especificación de pantallas del canal.md`.
 - Fuente: `F-011` del catálogo de funcionalidades y la spec funcional relacionada.
-- Fuente: `SPECS/SPEC-03-EP-DDP-Detalle-y-Disponibilidad-Producto.md` como referencia histórica; sus regiones de precio, variantes, stock y recomendados se separaron en funcionalidades distintas.
+- Fuente: `../specs-depreciadas/SPEC-03-EP-DDP-Detalle-y-Disponibilidad-Producto.md` como referencia histórica; sus regiones de precio, variantes, stock y recomendados se separaron en funcionalidades distintas.
 - Pendiente: crear y enlazar el prototipo oficial de la Pantalla 7 en Figma.
 - Pendiente `I-01` / `OPEN-03`: homologar la ruta, autenticación de canal y payload OpenAPI de Productos y Ofertas. Las reglas de producto activo, imágenes y atributos ya fueron confirmadas en sus specs y modelo conceptual.

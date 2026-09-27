@@ -2,6 +2,9 @@
 
 El **Canal Marketplace** es el módulo cliente dedicado a la exploración, selección y compra de productos deportivos dentro del ecosistema multicanal. El sistema está diseñado bajo una arquitectura de **Microservicios Desacoplados**, operando con total autonomía en su capa de presentación (frontend), backend de aplicación y persistencia relacional local aislada. La construcción del módulo sigue el enfoque de **Spec-Driven Development (SDD)** con desarrollo asistido por Inteligencia Artificial, asegurando trazabilidad total desde las Historias de Usuario escritas en sintaxis BDD (Gherkin) hasta la ejecución final.
 
+> [!WARNING]
+> **Nota de vigencia de persistencia:** las referencias de este documento a `CartItem` y `WishlistItem` como las únicas tablas locales pertenecen a la arquitectura preliminar y no deben implementarse como diseño final. La fuente de verdad vigente es el [modelo lógico de datos](./Base%20de%20Datos/01-Modelo-logico-inicial.md). El modelo físico en Prisma se derivará incrementalmente de ese documento y de las specs aprobadas. Se mantiene la decisión tecnológica: PostgreSQL 16, Prisma y Render para producción.
+
 ```mermaid.js
 graph TD
 

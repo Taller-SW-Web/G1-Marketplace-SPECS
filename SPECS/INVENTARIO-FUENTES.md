@@ -27,7 +27,7 @@ Este inventario identifica la documentación existente que se utilizará como fu
 | `Especificación de Requisitos/Matriz de Integración y Límites de Dominio.md` | Límites de responsabilidad del Marketplace e integraciones requeridas. |
 | `Especificación de Requisitos/Trazabilidad Completa de Especificación de Requisitos.md` | Relación entre capacidades, validaciones, dependencias y responsables históricos. |
 | `Especificación de Requisitos/Épicas/` | Descripciones y comportamiento detallado existente de acceso, catálogo, detalle de producto, carrito, checkout, seguimiento, notificaciones y favoritos. |
-| `SPECS/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Especificaciones técnicas existentes; sirven como fuente de comportamiento, reglas, casos y criterios. |
+| `SPECS/specs-depreciadas/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/specs-depreciadas/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Especificaciones técnicas históricas; sirven como fuente de comportamiento, reglas, casos y criterios, pero no son la fuente de verdad vigente. |
 
 ## 3. Fuentes de interfaz y experiencia de usuario
 
@@ -36,7 +36,7 @@ Este inventario identifica la documentación existente que se utilizará como fu
 | `Wireframes y Prototipo/Especificación de pantallas del canal.md` | Pantallas, navegación, contenidos y comportamiento de interfaz. |
 | `Wireframes y Prototipo/Diagrama de Navegación.md` | Rutas, relaciones entre pantallas y recorridos de usuario. |
 | `Especificación de Requisitos/Épicas/` | Detalles de interacción, mensajes y validaciones incluidos en documentos existentes. |
-| `SPECS/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Diseño técnico de frontend existente, componentes y estados de interfaz de referencia. |
+| `SPECS/specs-depreciadas/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/specs-depreciadas/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Diseño técnico de frontend existente, componentes y estados de interfaz de referencia histórica. |
 
 ## 4. Fuentes para contratos API e integraciones
 
@@ -44,7 +44,7 @@ Este inventario identifica la documentación existente que se utilizará como fu
 |---|---|
 | `Arquitectura de la Aplicación/Contratos de Mocks API.md` | Endpoints, payloads, mocks y acuerdos de integración existentes. |
 | `Especificación de Requisitos/Matriz de Integración y Límites de Dominio.md` | Servicios externos que debe consumir el Marketplace y límites entre módulos. |
-| `SPECS/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Contratos, DTOs, validaciones y flujos de integración previamente descritos. |
+| `SPECS/specs-depreciadas/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/specs-depreciadas/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Contratos, DTOs, validaciones y flujos de integración previamente descritos. |
 | `Arquitectura de la Aplicación/Plan de Acción para la Transición de Mocks a APIs Reales.md` | Estrategia para sustituir mocks por servicios integrados. |
 
 ## 5. Fuentes de arquitectura y componentes React
@@ -54,7 +54,7 @@ Este inventario identifica la documentación existente que se utilizará como fu
 | `Arquitectura de la Aplicación/Arquitectura.md` | Capas, servicios, decisiones técnicas e integración general. |
 | `Arquitectura de la Aplicación/Modelo C4.md` | Contexto, contenedores y componentes de la solución. |
 | `Arquitectura de la Aplicación/Esquema de Prisma (Preliminar).md` | Persistencia local y modelos de datos previstos. |
-| `SPECS/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Componentes React, hooks, estado, endpoints y persistencia descritos de forma preliminar. |
+| `SPECS/specs-depreciadas/SPEC-01-EP-GAC-Gestion-de-Accesos.md` a `SPECS/specs-depreciadas/SPEC-08-EP-FAV-Gestion-de-Favoritos.md` | Componentes React, hooks, estado, endpoints y persistencia descritos de forma preliminar. |
 
 ## 6. Fuentes de procesos y calidad
 

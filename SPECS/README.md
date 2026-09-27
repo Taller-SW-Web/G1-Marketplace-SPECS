@@ -9,6 +9,9 @@ El desarrollo del **Canal Marketplace** se rige bajo la metodología **Spec-Driv
 
 Un **SPEC** actúa como la **única fuente de verdad (*Single Source of Truth*)**, cerrando la brecha entre los requerimientos de producto (Historias de Usuario BDD en Gherkin, Reglas de Negocio) y el diseño de ingeniería de software (Frontend en Next.js, Backend en NestJS, Esquemas de Persistencia Relacional con Prisma y Contratos de Integración de Microservicios).
 
+> [!WARNING]
+> **Nota de vigencia de persistencia:** las menciones heredadas a un modelo local compuesto solo por `CartItem` y `WishlistItem` están depreciadas. Para el diseño y las futuras migraciones se usa el [modelo lógico de datos](../Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/01-Modelo-logico-inicial.md); PostgreSQL 16, Prisma y Render se mantienen como plataforma.
+
 ```mermaid
 flowchart LR
     A["Requerimiento de Negocio / Épica"] --> B["SPEC Técnico (SDD Document)"]
@@ -51,14 +54,14 @@ El sistema se compone de **8 SPECS**, totalizando **25 Historias de Usuario** y 
 
 | Código SPEC | Épica Asociada | Nombre de la Especificación | HUs Cubiertas | PH | Responsable Técnico & Rol | Enlace al Documento |
 | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
-| **`SPEC-01`** | **`EP-GAC`** | Gestión de Accesos del Cliente | 3 | 11 | **Andrés** — DevOps / Seguridad | [SPEC-01-EP-GAC](./SPEC-01-EP-GAC-Gestion-de-Accesos.md) |
-| **`SPEC-02`** | **`EP-VEC`** | Vitrina y Exploración del Catálogo | 4 | 13 | **Leonidas Garcia** — Arquitecto / Backend | [SPEC-02-EP-VEC](./SPEC-02-EP-VEC-Vitrina-y-Exploracion-Catalogo.md) |
-| **`SPEC-03`** | **`EP-DDP`** | Detalle y Disponibilidad de Producto | 4 | 11 | **Jim** — Product Owner | [SPEC-03-EP-DDP](./SPEC-03-EP-DDP-Detalle-y-Disponibilidad-Producto.md) |
-| **`SPEC-04`** | **`EP-ITC`** | Intención de Transacción y Carrito de Compras | 2 | 8 | **Sebastián** — Documentador / Carrito | [SPEC-04-EP-ITC](./SPEC-04-EP-ITC-Carrito-y-Favoritos.md) |
-| **`SPEC-05`** | **`EP-TRX`** | Transacción y Realización de Checkout | 3 | 13 | **Giuliano** — UX/UI | [SPEC-05-EP-TRX](./SPEC-05-EP-TRX-Checkout-y-Pago.md) |
-| **`SPEC-06`** | **`EP-SHP`** | Seguimiento e Historial de Pedidos | 3 | 11 | **Diego** — JP / QA | [SPEC-06-EP-SHP](./SPEC-06-EP-SHP-Seguimiento-y-Pedidos.md) |
-| **`SPEC-07`** | **`EP-SNT`** | Sistema de Notificaciones por Correo | 3 | 13 | **Saire** — QA / Cloud | [SPEC-07-EP-SNT](./SPEC-07-EP-SNT-Sistema-de-Notificaciones.md) |
-| **`SPEC-08`** | **`EP-FAV`** | Gestión de Favoritos y Lista de Deseos | 3 | 11 | **Leonidas** — Arquitecto / Backend | [SPEC-08-EP-FAV](./SPEC-08-EP-FAV-Gestion-de-Favoritos.md) |
+| **`SPEC-01`** | **`EP-GAC`** | Gestión de Accesos del Cliente | 3 | 11 | **Andrés** — DevOps / Seguridad | [SPEC-01-EP-GAC](./specs-depreciadas/SPEC-01-EP-GAC-Gestion-de-Accesos.md) |
+| **`SPEC-02`** | **`EP-VEC`** | Vitrina y Exploración del Catálogo | 4 | 13 | **Leonidas Garcia** — Arquitecto / Backend | [SPEC-02-EP-VEC](./specs-depreciadas/SPEC-02-EP-VEC-Vitrina-y-Exploracion-Catalogo.md) |
+| **`SPEC-03`** | **`EP-DDP`** | Detalle y Disponibilidad de Producto | 4 | 11 | **Jim** — Product Owner | [SPEC-03-EP-DDP](./specs-depreciadas/SPEC-03-EP-DDP-Detalle-y-Disponibilidad-Producto.md) |
+| **`SPEC-04`** | **`EP-ITC`** | Intención de Transacción y Carrito de Compras | 2 | 8 | **Sebastián** — Documentador / Carrito | [SPEC-04-EP-ITC](./specs-depreciadas/SPEC-04-EP-ITC-Carrito-y-Favoritos.md) |
+| **`SPEC-05`** | **`EP-TRX`** | Transacción y Realización de Checkout | 3 | 13 | **Giuliano** — UX/UI | [SPEC-05-EP-TRX](./specs-depreciadas/SPEC-05-EP-TRX-Checkout-y-Pago.md) |
+| **`SPEC-06`** | **`EP-SHP`** | Seguimiento e Historial de Pedidos | 3 | 11 | **Diego** — JP / QA | [SPEC-06-EP-SHP](./specs-depreciadas/SPEC-06-EP-SHP-Seguimiento-y-Pedidos.md) |
+| **`SPEC-07`** | **`EP-SNT`** | Sistema de Notificaciones por Correo | 3 | 13 | **Saire** — QA / Cloud | [SPEC-07-EP-SNT](./specs-depreciadas/SPEC-07-EP-SNT-Sistema-de-Notificaciones.md) |
+| **`SPEC-08`** | **`EP-FAV`** | Gestión de Favoritos y Lista de Deseos | 3 | 11 | **Leonidas** — Arquitecto / Backend | [SPEC-08-EP-FAV](./specs-depreciadas/SPEC-08-EP-FAV-Gestion-de-Favoritos.md) |
 | **TOTAL** | **8 Épicas** | **Solución Integral Canal Marketplace** | **25** | **91** | **7 Integrantes** | — |
 
 ---

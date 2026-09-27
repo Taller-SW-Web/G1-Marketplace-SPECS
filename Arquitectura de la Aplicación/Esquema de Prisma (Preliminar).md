@@ -3,6 +3,9 @@
 // Canal Marketplace - Prisma ORM (PostgreSQL 16)
 // ==========================================
 
+> [!CAUTION]
+> **Esquema depreciado:** este borrador de Prisma, basado solo en `CartItem` y `WishlistItem`, no debe usarse para crear migraciones nuevas. La fuente de verdad es el [modelo lógico de datos](./Base%20de%20Datos/01-Modelo-logico-inicial.md). Leonidas y Andrés derivarán el modelo físico desde allí cuando las specs correspondientes estén aprobadas. PostgreSQL 16, Prisma y Render siguen siendo la decisión de plataforma.
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

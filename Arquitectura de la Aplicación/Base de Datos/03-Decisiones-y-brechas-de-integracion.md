@@ -13,7 +13,7 @@
 
 ## 2. Brechas que requieren homologación externa
 
-El detalle ejecutable, los payloads mínimos y los criterios de aceptación están consolidados en `SPECS/CONTRATOS-PENDIENTES-HOMOLOGACION.md`. Estas brechas no se dan por cerradas hasta que el módulo dueño publique el contrato/configuración y se valide una prueba de contrato.
+El detalle ejecutable, los payloads mínimos y los criterios de aceptación se gestiona como material de coordinación fuera del repositorio, en el Almacén de Contexto. Estas brechas no se dan por cerradas hasta que el módulo dueño publique el contrato/configuración y se valide una prueba de contrato.
 
 | ID | Brecha detectada | Funcionalidades afectadas | Resolución requerida |
 | --- | --- | --- | --- |

@@ -1,5 +1,8 @@
 **1. Límites de Dominio y Propiedad de Entidades (Ownership)**
 
+> [!WARNING]
+> **Nota de vigencia de persistencia:** cualquier referencia en este documento a `CartItem` y `WishlistItem` como único modelo local es histórica. Para el diseño vigente se debe consultar el [modelo lógico de datos](../Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/01-Modelo-logico-inicial.md), que mantiene los límites entre microservicios y guía el futuro esquema Prisma.
+
 - **Entidad Usuario (Cliente/Vendedor):** El dueño legítimo de la entidad usuario es el **Módulo de Seguridad y Usuarios**. El Canal Marketplace no almacena credenciales ni contraseñas localmente; la autenticación y validación de usuarios se delega a este módulo mediante tokens (JWT).
 - **Entidad Producto y Stock:** El dueño legítimo es el **Módulo de Productos y Ofertas**, incluyendo la propiedad del inventario. El Marketplace actúa como canal de consulta del catálogo, ofertas y revalidación de disponibilidad de stock.
 - **Entidad Pedido:** El dueño legítimo de la entidad pedido es el **Módulo de Ventas y Postventa**. El Marketplace empaqueta y envía la orden aprobada tras el pago, y consume sus APIs como visor de lectura del historial de compras.

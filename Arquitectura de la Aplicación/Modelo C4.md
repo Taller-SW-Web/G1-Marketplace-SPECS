@@ -1,5 +1,8 @@
 A continuación se presenta el **Modelo C4 Completo** para el **Canal Marketplace**, formalizado en sus tres primeros niveles de abstracción (Contexto, Contenedores y Componentes) en sintaxis **Mermaid C4** [70, 71, 73–76].
 
+> [!WARNING]
+> **Nota de vigencia de persistencia:** los diagramas que muestran únicamente `CartItem` y `WishlistItem` describen el diseño preliminar y quedan como referencia histórica. Para nuevas decisiones o implementación se debe usar el [modelo lógico de datos](./Base%20de%20Datos/01-Modelo-logico-inicial.md). PostgreSQL 16, Prisma y Render continúan como la plataforma prevista.
+
 ---
 
 ### **Nivel 1: Diagrama de Contexto del Sistema (System Context)**

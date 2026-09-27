@@ -1,5 +1,8 @@
 Este plan establece los pasos ordenados para conmutar la simulación de `Contratos de Mocks API.md` hacia las integraciones reales con los 4 microservicios externos (Seguridad, Productos, Ventas y Despacho) durante el **Hito 4 (Semana 11)**, garantizando un impacto cero en el Frontend y en la base de datos local.
 
+> [!WARNING]
+> **Nota de vigencia de persistencia:** las menciones a una base local limitada a `CartItem` y `WishlistItem` responden al modelo preliminar. La implementación nueva debe seguir el [modelo lógico de datos](./Base%20de%20Datos/01-Modelo-logico-inicial.md); se conserva PostgreSQL 16 con Prisma y despliegue en Render.
+
 ---
 
 ### **Fase 1: Auditoría y Mapeo de Diferencias (Pre-Conexión)**
