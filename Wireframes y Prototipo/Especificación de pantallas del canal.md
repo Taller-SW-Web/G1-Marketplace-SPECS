@@ -183,4 +183,4 @@
 
 ---
 
-🎯 ¿Deseas que preparemos las secuencias de comandos y guías de maquetación para generar estas 15 pantallas en **Stitch AI**?
+🎯 Los prototipos y guías de maquetación de estas 15 pantallas se elaborarán en **Figma**.

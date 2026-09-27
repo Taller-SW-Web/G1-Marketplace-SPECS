@@ -37,7 +37,7 @@ flowchart TD
     end
 
     %% SUBGRAPH: FAVORITOS (PANTALLA EXISTENTE)
-    subgraph FAV["Favoritos y Lista de Deseos (EP-FAV / Alonso)"]
+    subgraph FAV["Favoritos y Lista de Deseos (EP-FAV / Leonidas)"]
         P9["P9: Vista 'Mis Favoritos' (/favoritos)"]
     end
 
@@ -119,4 +119,4 @@ flowchart TD
 
 ---
 
-🛒 Con esta actualización, tanto la especificación formal del prototipo (**`Especificación de pantallas del canal.md`**) como el **Diagrama de Navegación** reflejan la misma estructura para la generación en **Stitch AI**.
+🛒 Con esta actualización, tanto la especificación formal del prototipo (**`Especificación de pantallas del canal.md`**) como el **Diagrama de Navegación** reflejan la misma estructura para su diseño en **Figma**.

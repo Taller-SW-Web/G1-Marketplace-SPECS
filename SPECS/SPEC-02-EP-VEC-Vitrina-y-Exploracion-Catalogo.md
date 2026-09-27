@@ -11,7 +11,7 @@
 | **Épica Asociada** | `EP-VEC` — Vitrina y Exploración del Catálogo |
 | **Puntos de Historia (PH)** | **13 PH** (`HU-VEC-BUS`: 3 PH, `HU-VEC-FIL`: 5 PH, `HU-VEC-HOM`: 3 PH, `HU-VEC-ORD`: 2 PH) |
 | **Prioridad Global** | **Alta** |
-| **Responsable Técnico** | **Leo** (Arquitecto de Aplicación) |
+| **Responsable Técnico** | **Leonidas Garcia Lescano** (Arquitecto / Backend) |
 | **Estado** | **Listo para Implementación (Approved)** |
 | **Versión** | `1.0.0` |
 
@@ -268,7 +268,7 @@ export class GetProductsQueryDto {
 - **E2E:**
   - Navegación desde Home -> Búsqueda por texto -> Aplicación de filtro de marca -> Cambio de ordenamiento por precio.
 
-### 7.2. Checklist de Definition of Done (Responsable: Leo)
+### 7.2. Checklist de Definition of Done (Responsable: Leonidas Garcia Lescano)
 - [ ] 100% de los 4 escenarios BDD de vitrina validados en Gherkin.
 - [ ] Renderizado sin recargas de página completas (*SPA Experience*).
 - [ ] Sincronización bidireccional entre filtros de UI y Query String en la barra de URL del navegador.

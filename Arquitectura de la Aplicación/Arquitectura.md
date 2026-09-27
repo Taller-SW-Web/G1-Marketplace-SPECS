@@ -95,7 +95,7 @@ El stack tecnológico elegido combina alto rendimiento, agilidad y las herramien
 | **ORM &amp; BD Local**                        | **Prisma ORM + PostgreSQL**                                | **PaaS (Render DB) / Docker (Dev)** | Mapeo objeto-relacional tipado con migraciones automáticas para las 2 únicas tablas locales: `CartItem` y `WishlistItem`.                                    |
 | **Notificaciones Email**                      | **React Email + Resend**                                   | **SaaS (API REST)**                 | Plantillas HTML en `.tsx` para confirmaciones de orden y despacho de correos en segundo plano (RNF-PER-03).                                                  |
 | **CI/CD y Automatización**                    | **GitHub Actions + semantic-release**                      | Pipeline DevOps                     | Pruebas unitarias/integración, versión semántica automática y despliegue continuo.                                                                           |
-| **Diseño y Prototipado**                      | **Stitch AI**                                              | **SaaS Design (IA)**                | Generación asistida de prototipos UI/UX, wireframes y maquetación visual para React.                                                                         |
+| **Diseño y Prototipado**                      | **Figma**                                                  | **Herramienta de diseño colaborativo** | Elaboración oficial de prototipos UI/UX, wireframes y maquetación visual para React.                                                                      |
 
 
 ---
@@ -116,7 +116,7 @@ La estructura lógica de la aplicación se divide en 4 capas totalmente desacopl
 ###### **B. Capa de Lógica de Negocio y Dominio (NestJS Services)**
 
 - **Cart Service (EP-ITC, Sebastián):** Administración de ítems, cálculo de subtotales y unificación de carritos anónimos al iniciar sesión. Gestiona `CartItem`.
-- **Wishlist Service (EP-FAV, Alonso):** Guardado, consulta y eliminación de favoritos mediante `WishlistItem`. La transferencia a carrito reutiliza `CartService` y sus validaciones. La acción inversa de EP-ITC utiliza `WishlistService`; no se duplican operaciones de persistencia ni reglas de carrito.
+- **Wishlist Service (EP-FAV, Leonidas):** Guardado, consulta y eliminación de favoritos mediante `WishlistItem`. La transferencia a carrito reutiliza `CartService` y sus validaciones. La acción inversa de EP-ITC utiliza `WishlistService`; no se duplican operaciones de persistencia ni reglas de carrito.
 - **Coordinación de transferencias:** Las acciones entre carrito y favoritos se coordinan en la capa de aplicación, utilizando ambos servicios sin crear dependencias circulares entre ellos.
 - **Checkout Orchestrator:** Coordinación del flujo multipaso: revalidación asíncrona de stock pre-pago, empaquetado de la orden y transmisión a Ventas.
 - **Notification Worker:** Event listener que procesa asíncronamente en segundo plano los eventos de orden creada para enviar correos transaccionales.
@@ -223,7 +223,7 @@ RESEND_API_KEY="re_live_production_key"
 - **Usabilidad y UX/UI (RNF-USA):**
   - **Diseño Responsivo (RNF-USA-01):** Adaptable a móviles, tablets y escritorio apoyado por **Tailwind CSS 4** y **shadcn/ui**.
   - **Reactividad Dinámica (RNF-USA-02):** Actualización inmediata de subtotales, inventario, carrito flotante y notificaciones emergentes (**Sonner**) sin recarga completa de página (*page reload*).
-  - **Estándar de Prototipado (RNF-USA-03):** Maquetación de la interfaz web fiel a los esquemas y wireframes visuales diseñados en **Stitch AI**.
+  - **Estándar de Prototipado (RNF-USA-03):** Maquetación de la interfaz web fiel a los esquemas y wireframes visuales diseñados en **Figma**.
 - **Disponibilidad e Infraestructura (RNF-DIS):**
   - **Aislamiento de Persistencia (RNF-DIS-01):** Base de datos PostgreSQL dedicada exclusivamente para carrito y favoritos.
   - **Despliegue Cloud (RNF-DIS-03):** Ejecución operativa en entorno Nube (Vercel + Render).
@@ -245,14 +245,13 @@ RESEND_API_KEY="re_live_production_key"
 | Integrante    | Rol Técnico                         | PH        | Épica Asignada                           | Responsabilidad Clave                                                              |
 | :------------- | :----------------------------------- | :--------- | :---------------------------------------- | :---------------------------------------------------------------------------------- |
 | **Andrés**    | DevOps / Security                   | 11 PH     | **EP-GAC** — Gestión de Accesos          | Formulario Login/Registro, token JWT y pipeline CI/CD.                             |
-| **Leo**       | Arquitecto de Aplicación            | 13 PH     | **EP-VEC** — Vitrina y Catálogo          | Búsqueda, navegación, filtros dinámicos y ordenamiento.                            |
 | **Jim**       | Product Owner                       | 11 PH     | **EP-DDP** — Detalle y Disponibilidad    | Ficha técnica, selección de variantes y validación de stock.                       |
 | **Sebastián** | Documentador | 8 PH      | **EP-ITC** — Carrito de Compras          | Gestión del carrito, unificación, subtotales y `CartItem`.                         |
-| **Giuliano**  | UX/UI Designer                      | 13 PH     | **EP-TRX** — Transacción y Checkout      | Checkout multipaso, prototipado en Stitch AI, simulación de pago y envío a Ventas. |
+| **Giuliano**  | UX/UI Designer                      | 13 PH     | **EP-TRX** — Transacción y Checkout      | Checkout multipaso, prototipado en Figma, simulación de pago y envío a Ventas.     |
 | **Diego**     | JP / QA                             | 11 PH     | **EP-SHP** — Historial y Seguimiento     | Visor "Mis Pedidos", opción Reorder y barra de tracking.                           |
 | **Saire**     | QA / Cloud                          | 13 PH     | **EP-SNT** — Notificaciones + Cloud      | React Email, Resend y despliegue unificado en Vercel/Render.                       |
-| **Alonso**    |Backend | 11 PH     | **EP-FAV** — Favoritos y Lista de Deseos | P9, guardado desde catálogo/ficha, `WishlistItem` e integración con carrito.       |
-| **TOTAL**     | **8 Integrantes**                   | **91 PH** | **25 Historias de Usuario / 8 Épicas**   | **Solución Completa Canal Marketplace**.                                           |
+| **Leonidas**  | Arquitecto / Backend                | 24 PH     | **EP-VEC** y **EP-FAV**                  | Vitrina, catálogo, filtros, favoritos, `WishlistItem` e integración con carrito.   |
+| **TOTAL**     | **7 Integrantes**                   | **91 PH** | **25 Historias de Usuario / 8 Épicas**   | **Solución Completa Canal Marketplace**.                                           |
 
 
 ---

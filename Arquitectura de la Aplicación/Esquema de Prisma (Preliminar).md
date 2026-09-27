@@ -31,7 +31,7 @@ model CartItem {
 
 /// Lista de favoritos persistente asociada exclusivamente al ID del cliente
 /// Épica: EP-FAV | Historias de Usuario: HU-FAV-GUA, HU-FAV-GES, HU-FAV-CAR
-/// Responsable: Alonso — Backend (EP-FAV)
+/// Responsable: Leonidas — Arquitecto / Backend (EP-FAV)
 model WishlistItem {
   id         String   @id @default(uuid())
   customerId String   // ID del cliente autenticado (Módulo Seguridad)

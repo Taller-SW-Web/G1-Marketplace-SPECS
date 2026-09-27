@@ -1,2 +1,2 @@
-- **Responsable Principal:** Integrante 8 (Alonso — Backend).
+- **Responsable Principal:** Integrante 2 (Leonidas — Arquitecto / Backend).
 - **Descripción:** Funcionalidades enfocadas en permitir que el cliente guarde productos de su interés en una lista de deseos, consulte y administre sus favoritos, y transfiera artículos disponibles directamente al carrito de compras.

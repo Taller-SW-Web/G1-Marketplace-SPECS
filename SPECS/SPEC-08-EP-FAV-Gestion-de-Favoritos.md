@@ -11,7 +11,7 @@
 | **Épica Asociada** | `EP-FAV` — Gestión de Favoritos y Lista de Deseos |
 | **Puntos de Historia (PH)** | **11 PH** (`HU-FAV-GUA`: 3 PH, `HU-FAV-GES`: 3 PH, `HU-FAV-CAR`: 5 PH) |
 | **Prioridad Global** | **Media (Deseable / Conversión Diferida)** |
-| **Responsable Técnico** | **Alonso** (Backend / Persistencia Relacional Local) |
+| **Responsable Técnico** | **Leonidas** (Arquitecto / Backend / Persistencia Relacional Local) |
 | **Rol de Integración** | Integración con `CartService` (EP-ITC) y `ProductsAdapterService` (Capa D) |
 | **Estado** | **Listo para Implementación (Approved)** |
 | **Versión** | `1.0.0` |
@@ -425,7 +425,7 @@ El modelo `WishlistItem` en `schema.prisma` rige la persistencia de favoritos:
 ```prisma
 /// Lista de favoritos persistente asociada exclusivamente al ID del cliente
 /// Épica: EP-FAV | Historias de Usuario: HU-FAV-GUA, HU-FAV-GES, HU-FAV-CAR
-/// Responsable: Alonso — Backend (EP-FAV)
+/// Responsable: Leonidas — Arquitecto / Backend (EP-FAV)
 model WishlistItem {
   id         String   @id @default(uuid())
   customerId String   // ID del cliente autenticado (Módulo Seguridad)
@@ -500,7 +500,7 @@ model WishlistItem {
 
 ---
 
-### 7.2. Checklist de Definition of Done (Responsable: Alonso — Backend)
+### 7.2. Checklist de Definition of Done (Responsable: Leonidas — Arquitecto / Backend)
 
 - [ ] **Nivel 1 (Funcional y BDD):** 100% de los escenarios Gherkin de `HU-FAV-GUA`, `HU-FAV-GES` y `HU-FAV-CAR` pasando satisfactoriamente.
 - [ ] **Nivel 2 (Arquitectura y Seguridad):** Persistencia exclusiva en modelo `WishlistItem` de Prisma ORM. Cero consultas directas a bases de datos ajenas. Verificación estricta de token JWT (`customerId`).

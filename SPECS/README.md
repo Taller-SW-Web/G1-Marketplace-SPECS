@@ -52,14 +52,14 @@ El sistema se compone de **8 SPECS**, totalizando **25 Historias de Usuario** y 
 | Código SPEC | Épica Asociada | Nombre de la Especificación | HUs Cubiertas | PH | Responsable Técnico & Rol | Enlace al Documento |
 | :--- | :--- | :--- | :---: | :---: | :--- | :--- |
 | **`SPEC-01`** | **`EP-GAC`** | Gestión de Accesos del Cliente | 3 | 11 | **Andrés** — DevOps / Seguridad | [SPEC-01-EP-GAC](./SPEC-01-EP-GAC-Gestion-de-Accesos.md) |
-| **`SPEC-02`** | **`EP-VEC`** | Vitrina y Exploración del Catálogo | 4 | 13 | **Leo** — Arquitecto de Aplicación | [SPEC-02-EP-VEC](./SPEC-02-EP-VEC-Vitrina-y-Exploracion-Catalogo.md) |
+| **`SPEC-02`** | **`EP-VEC`** | Vitrina y Exploración del Catálogo | 4 | 13 | **Leonidas Garcia** — Arquitecto / Backend | [SPEC-02-EP-VEC](./SPEC-02-EP-VEC-Vitrina-y-Exploracion-Catalogo.md) |
 | **`SPEC-03`** | **`EP-DDP`** | Detalle y Disponibilidad de Producto | 4 | 11 | **Jim** — Product Owner | [SPEC-03-EP-DDP](./SPEC-03-EP-DDP-Detalle-y-Disponibilidad-Producto.md) |
 | **`SPEC-04`** | **`EP-ITC`** | Intención de Transacción y Carrito de Compras | 2 | 8 | **Sebastián** — Documentador / Carrito | [SPEC-04-EP-ITC](./SPEC-04-EP-ITC-Carrito-y-Favoritos.md) |
 | **`SPEC-05`** | **`EP-TRX`** | Transacción y Realización de Checkout | 3 | 13 | **Giuliano** — UX/UI | [SPEC-05-EP-TRX](./SPEC-05-EP-TRX-Checkout-y-Pago.md) |
 | **`SPEC-06`** | **`EP-SHP`** | Seguimiento e Historial de Pedidos | 3 | 11 | **Diego** — JP / QA | [SPEC-06-EP-SHP](./SPEC-06-EP-SHP-Seguimiento-y-Pedidos.md) |
 | **`SPEC-07`** | **`EP-SNT`** | Sistema de Notificaciones por Correo | 3 | 13 | **Saire** — QA / Cloud | [SPEC-07-EP-SNT](./SPEC-07-EP-SNT-Sistema-de-Notificaciones.md) |
-| **`SPEC-08`** | **`EP-FAV`** | Gestión de Favoritos y Lista de Deseos | 3 | 11 | **Alonso** — Backend | [SPEC-08-EP-FAV](./SPEC-08-EP-FAV-Gestion-de-Favoritos.md) |
-| **TOTAL** | **8 Épicas** | **Solución Integral Canal Marketplace** | **25** | **91** | **8 Integrantes** | — |
+| **`SPEC-08`** | **`EP-FAV`** | Gestión de Favoritos y Lista de Deseos | 3 | 11 | **Leonidas** — Arquitecto / Backend | [SPEC-08-EP-FAV](./SPEC-08-EP-FAV-Gestion-de-Favoritos.md) |
+| **TOTAL** | **8 Épicas** | **Solución Integral Canal Marketplace** | **25** | **91** | **7 Integrantes** | — |
 
 ---
 

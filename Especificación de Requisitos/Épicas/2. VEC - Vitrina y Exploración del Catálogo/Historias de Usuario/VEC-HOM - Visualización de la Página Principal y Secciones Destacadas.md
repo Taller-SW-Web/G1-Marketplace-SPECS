@@ -1,7 +1,7 @@
 - **Épica Relacionada:** `EP-VEC` - Vitrina y Exploración del Catálogo
 - **Prioridad:** Alta
 - **Puntos de Historia (Estimación):** 3 pts
-- **Responsable / Rol:** Integrante 2 - Leo (Vitrina y Exploración / Arquitecto de Aplicación)
+- **Responsable / Rol:** Leonidas Garcia Lescano (Vitrina y Exploración / Arquitecto y Backend)
 - **Precondiciones:**
     1. El cliente ingresa a la URL principal del Marketplace.
     2. La API de Productos y Ofertas está disponible para entregar las categorías e ítems destacados.

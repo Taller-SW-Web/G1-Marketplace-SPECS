@@ -1,7 +1,7 @@
 - **Épica Relacionada:** `EP-FAV` - Gestión de Favoritos y Lista de Deseos
 - **Prioridad:** Media
 - **Puntos de Historia:** 3 pt
-- **Responsable / Rol:** Integrante 8 - Alonso (Backend)
+- **Responsable / Rol:** Integrante 2 - Leonidas (Arquitecto / Backend)
 - **Precondiciones:**
     1. El cliente se encuentra autenticado con su sesión activa en el Marketplace.
     2. La base de datos local para gestión de favoritos se encuentra operativa.

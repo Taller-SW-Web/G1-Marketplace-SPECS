@@ -1,7 +1,7 @@
 - **Épica Relacionada:** `EP-VEC` - Vitrina y Exploración del Catálogo
 - **Prioridad:** Alta
 - **Puntos de Historia (Estimación):** 5 pts
-- **Responsable / Rol:** Integrante 2 - Leo (Vitrina y Exploración / Arquitecto de Aplicación)
+- **Responsable / Rol:** Leonidas Garcia Lescano (Vitrina y Exploración / Arquitecto y Backend)
 - **Precondiciones:**
     1. El catálogo de productos se despliega en la interfaz del Marketplace.
     2. Las categorías y marcas activas son provistas por la API de Productos y Ofertas.

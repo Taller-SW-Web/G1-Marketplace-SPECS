@@ -79,7 +79,7 @@ Escenario: Recálculo automático de subtotales al modificar cantidad
 
 #### `HU-ITC-FAV` — Coordinación con Lista de Deseos / Favoritos (`EP-FAV`)
 > [!NOTE]
-> La especificación técnica exhaustiva, modelo relacional `WishlistItem` y lógica de dominio de Favoritos residen en el documento maestro **[`SPEC-08: Gestión de Favoritos y Lista de Deseos (EP-FAV)`](./SPEC-08-EP-FAV-Gestion-de-Favoritos.md)** a cargo de **Alonso (Backend)**.
+> La especificación técnica exhaustiva, modelo relacional `WishlistItem` y lógica de dominio de Favoritos residen en el documento maestro **[`SPEC-08: Gestión de Favoritos y Lista de Deseos (EP-FAV)`](./SPEC-08-EP-FAV-Gestion-de-Favoritos.md)** a cargo de **Leonidas (Arquitecto / Backend)**.
 > 
 > En este módulo (`EP-ITC`), el carrito proporciona la interoperabilidad para recibir productos transferidos desde favoritos y la acción de "Mover a Favoritos" desde la vista del carrito (`/carrito`), invocando a `WishlistService` sin acoplamiento circular.
 

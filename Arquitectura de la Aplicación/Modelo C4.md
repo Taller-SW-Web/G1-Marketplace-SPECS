@@ -88,7 +88,7 @@ C4Component
 
         %% CAPA B: SERVICIOS DE DOMINIO Y ORQUESTADORES
         Component(cart_srv, "Cart Service", "@Injectable()", "EP-ITC / Sebastián: subtotales, unificación de carritos y CartItem.")
-        Component(wishlist_srv, "Wishlist Service", "@Injectable()", "EP-FAV / Alonso: asociaciones únicas de favoritos y WishlistItem.")
+        Component(wishlist_srv, "Wishlist Service", "@Injectable()", "EP-FAV / Leonidas: asociaciones únicas de favoritos y WishlistItem.")
         Component(transfer_srv, "Coordinación de Transferencias", "Capa de aplicación", "Coordina las acciones existentes entre carrito y favoritos utilizando ambos servicios sin dependencias circulares.")
         Component(checkout_orch, "Checkout Orchestrator", "@Injectable()", "Coordina el flujo multipaso: ejecuta la revalidación de stock pre-pago y empaqueta la orden.")
         Component(notif_worker, "Notification Worker", "@Injectable()", "Event Listener que escucha 'order.created' y despacha emails con React Email/Resend SDK.")
