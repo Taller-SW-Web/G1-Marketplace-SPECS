@@ -4,7 +4,7 @@
 
 Este modelo representa exclusivamente datos que Marketplace necesita controlar para sus 40 funcionalidades: el carrito, favoritos, la protección contra órdenes duplicadas y el estado local de presentación de la encuesta postentrega. No replica clientes, direcciones, productos, inventario, precios, pedidos, despachos ni calificaciones CSAT.
 
-Es un modelo lógico, no un `schema.prisma` ni una migración. Los tipos, índices y nombres físicos se concretarán de manera incremental cuando las specs afectadas estén aprobadas.
+Este documento continúa siendo el modelo lógico, no un `schema.prisma` ni una migración. La línea base física derivada está en [`04-esquema-inicial-postgresql.sql`](04-esquema-inicial-postgresql.sql); su existencia no habilita integraciones externas que mantengan brechas abiertas.
 
 ## 2. Límites de propiedad
 
