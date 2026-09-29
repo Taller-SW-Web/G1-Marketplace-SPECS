@@ -1,5 +1,8 @@
 # Decisiones y brechas de integración — Fase 2.6
 
+> [!NOTE]
+> **Actualización del 28 de septiembre de 2026:** la sección 5 registra la autorización posterior de una línea base física con las seis entidades. Esta decisión reemplaza únicamente las restricciones de las secciones 3 y 4 sobre crear el DDL inicial; no cierra ni habilita las integraciones `I-02`, `I-04` o `I-05`.
+
 ## 1. Decisiones refinadas por la revisión cruzada
 
 | Tema | Decisión para el modelo de Marketplace | Evidencia revisada |
@@ -35,3 +38,15 @@ La base lógica ya permite iniciar la elaboración incremental de specs. No auto
 ## 4. Criterio para pasar a modelo físico
 
 Una entidad del modelo lógico se lleva a Prisma únicamente cuando la spec correspondiente esté aprobada. El primer lote físico razonable es `Cart`, `CartItem` y `WishlistItem`; `CheckoutOperation` y `PostDeliveryPrompt` se añaden cuando se hayan cerrado `I-02` y `I-04`, respectivamente.
+
+## 5. Actualización posterior: línea base física
+
+Se autoriza crear y mantener [`04-esquema-inicial-postgresql.sql`](04-esquema-inicial-postgresql.sql) como línea base física ejecutable de las seis entidades locales para desarrollo, revisión y documentación técnica.
+
+Esta autorización:
+
+- reemplaza la indicación de la sección 3 que no autorizaba código y la secuencia de primer lote descrita en la sección 4;
+- permite materializar `Cart`, `CartItem`, `WishlistItem`, `CheckoutOperation`, `PostDeliveryPrompt` y `NotificationDelivery` en PostgreSQL 16;
+- no declara homologados los contratos externos ni autoriza activar consumidores bloqueados;
+- mantiene `I-02`, `I-04` e `I-05` como condiciones obligatorias antes de activar checkout hacia Ventas, CSAT y actualizaciones de despacho, respectivamente;
+- exige que cualquier cambio posterior al esquema se implemente mediante una migración incremental y actualice la documentación física.
