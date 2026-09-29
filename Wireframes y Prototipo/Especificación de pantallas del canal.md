@@ -1,3 +1,40 @@
+# Antecedente — Especificación de 15 pantallas del canal
+
+> [!CAUTION]
+> **Documento histórico, no vigente para diseñar los mockups del próximo hito.** Conserva la descripción de los wireframes iniciales para trazabilidad. El inventario vigente está en [`SPECS/ui/vistas/README.md`](../SPECS/ui/vistas/README.md), los elementos superpuestos en [`SPECS/ui/overlays/README.md`](../SPECS/ui/overlays/README.md) y las comunicaciones en [`SPECS/ui/comunicaciones/README.md`](../SPECS/ui/comunicaciones/README.md).
+
+## Correspondencia con el catálogo vigente
+
+| Pantalla histórica | Entregable vigente | Cambio relevante |
+|---|---|---|
+| P1 Login | `V-001` Inicio de sesión | Es una ruta; `O-003` sólo intercepta y conserva el retorno. |
+| P2 Registro | `V-002` Registro | Se mantiene como ruta dedicada. |
+| P3 Recuperación | `V-003` Recuperación de contraseña | Se mantiene como ruta dedicada. |
+| P4 Restablecimiento | `V-004` Restablecimiento de contraseña | Se mantiene como ruta dedicada. |
+| P5 Home | `V-005` Inicio | Se integra con favoritos y navegación global. |
+| P6 Catálogo | `V-006` Catálogo y resultados | Los filtros mobile se separan como `O-001`. |
+| P7 Producto | `V-007` Ficha del producto | El visor se separa como `O-002` y el feedback de carrito como `O-005`. |
+| P8 Carrito | `V-008` Carrito | Se mantiene como ruta `/carrito`; deshacer eliminación usa `O-006`. |
+| P9 Favoritos | `V-009` Favoritos | Comparte `O-006` y autenticación requerida `O-003`. |
+| P10 Checkout dirección | `V-010` Dirección de envío | Primer tramo del checkout vigente. |
+| P11 Resumen y pago | `V-011` Resumen, envío y beneficio + `V-012` Pago simulado | Se divide en dos vistas. No existen campos de tarjeta ni CVV. |
+| P12 Confirmación | `V-013` Creación de orden + `V-014` Pedido confirmado | Se separa el envío de la orden de su resultado final. |
+| P13 Mis pedidos | `V-015` Historial de pedidos | Mantiene filtrado y estados vacíos. |
+| P14 Detalle | `V-016` Detalle y reordenado | El resultado de reordenar se separa como `O-008`. |
+| P15 Tracking | `V-017` Seguimiento | Se mantiene como ruta de seguimiento. |
+
+## Inconsistencias conocidas del antecedente
+
+- Las referencias a “modal o vista” para login, registro y recuperación fueron resueltas como rutas `V-001` a `V-004`.
+- El formulario histórico de tarjeta quedó eliminado: `F-025` define una simulación explícita, sin número de tarjeta, titular, vencimiento ni código de seguridad.
+- Agregar un producto no obliga a navegar inmediatamente al carrito; `O-005` proporciona feedback y permite continuar o abrir `V-008`.
+- “Volver a comprar” ahora se presenta como “Agregar productos al carrito”; el resultado parcial se detalla en `O-008` y no implica una compra confirmada.
+- La evaluación postentrega `O-009` y los correos `C-001`/`C-002` no formaban parte del inventario inicial.
+
+---
+
+## Contenido histórico preservado
+
 ### **1. Épica `EP-GAC` — Gestión de Accesos del Cliente**
 
 #### **Pantalla 1: Modal / Vista de Inicio de Sesión (Login)**
@@ -183,4 +220,4 @@
 
 ---
 
-🎯 Los prototipos y guías de maquetación de estas 15 pantallas se elaborarán en **Figma**.
+> Este cierre pertenecía al alcance preliminar de 15 pantallas. Para el trabajo actual se deben diseñar los entregables `V-###`, `O-###` y `C-###` del catálogo vigente.

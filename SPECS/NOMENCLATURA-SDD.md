@@ -39,6 +39,24 @@ Los documentos que definen reglas visuales aplicables a más de una funcionalida
 |---|---|
 | `DS-001` | Sistema de diseño transversal del Marketplace. |
 
+### Identificadores de entregables visuales
+
+Las funcionalidades `F-###` describen capacidades del sistema, pero no equivalen necesariamente a una pantalla de Figma. Para especificar los entregables visuales se usan los siguientes identificadores:
+
+| Prefijo | Significado | Cuándo se usa | Ejemplo |
+|---|---|---|---|
+| `V-###` | Vista o ruta principal | Pantalla completa con ruta propia o estado principal claramente navegable | `V-007-ficha-producto.md` |
+| `O-###` | Overlay o feedback superpuesto | Modal, drawer, toast, visor, confirmación o interacción que aparece sobre una vista | `O-002-visor-galeria.md` |
+| `C-###` | Comunicación visual externa | Pieza que se diseña fuera de la interfaz navegable, como un correo transaccional | `C-001-correo-confirmacion-pedido.md` |
+
+Reglas de uso:
+
+- Una vista puede agrupar varias funcionalidades `F-###`.
+- Una funcionalidad puede afectar más de una vista, overlay o comunicación.
+- No se crea una vista independiente cuando el comportamiento corresponde a un estado, una variante responsive o un overlay.
+- Cada documento `V-###`, `O-###` o `C-###` debe declarar las funcionalidades relacionadas y enlazar sus specs UI de origen.
+- Los frames de Figma deben conservar el identificador del documento correspondiente para mantener la trazabilidad.
+
 ## 3. Nombres de archivos
 
 Cada tipo de documento usa el mismo ID y nombre corto:
@@ -49,6 +67,9 @@ SPECS/ui/F-011-detalle-producto.md
 SPECS/contrato-api/F-011-detalle-producto.md
 SPECS/componentes-react/F-011-detalle-producto.md
 SPECS/ui/DS-001-sistema-diseno-marketplace.md
+SPECS/ui/vistas/V-007-ficha-producto.md
+SPECS/ui/overlays/O-002-visor-galeria.md
+SPECS/ui/comunicaciones/C-001-correo-confirmacion-pedido.md
 
 plan/F-011-detalle-producto.md
 tareas/F-011-detalle-producto.md
@@ -65,6 +86,9 @@ No se deben agregar nombres de integrantes, fechas o tecnologías al nombre del 
 | `API-F###-###` | Endpoint o elemento del contrato API | `API-F011-001` |
 | `CMP-F###-###` | Componente React | `CMP-F011-001` |
 | `DS-###` | Documento transversal de sistema de diseño | `DS-001` |
+| `V-###` | Vista o ruta principal | `V-007` |
+| `O-###` | Overlay o feedback superpuesto | `O-002` |
+| `C-###` | Comunicación visual externa | `C-001` |
 | `TASK-F###-FE-###` | Tarea de frontend | `TASK-F011-FE-001` |
 | `TASK-F###-BE-###` | Tarea de backend | `TASK-F011-BE-001` |
 | `TASK-F###-DB-###` | Tarea de persistencia | `TASK-F011-DB-001` |
