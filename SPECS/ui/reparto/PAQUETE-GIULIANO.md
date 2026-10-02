@@ -30,52 +30,52 @@
 ### `V-001`
 
 - `V-001 / Desktop / Principal`
-- `V-001 / Mobile / Principal`
 - `V-001 / Desktop / Validación`
-- `V-001 / Mobile / Credenciales inválidas`
+- `V-001 / Desktop / Credenciales inválidas`
 - `V-001 / Desktop / MFA`
-- `V-001 / Mobile / MFA error`
+- `V-001 / Desktop / MFA error`
 - `V-001 / Desktop / Fusionando carrito`
 - `V-001 / Desktop / Fusión fallida`
-- `V-001 / Mobile / Fusión fallida`
+- `V-001 / Mobile / ...`
 
 ### `V-002`
 
 - `V-002 / Desktop / Principal`
-- `V-002 / Mobile / Principal`
 - `V-002 / Desktop / Validación`
-- `V-002 / Mobile / Política contraseña`
+- `V-002 / Desktop / Política contraseña`
 - `V-002 / Desktop / Enviando`
-- `V-002 / Mobile / Correo no disponible`
+- `V-002 / Desktop / Correo no disponible`
 - `V-002 / Desktop / Política rechazada`
-- `V-002 / Mobile / Solicitud aceptada`
+- `V-002 / Desktop / Solicitud aceptada`
+- `V-002 / Mobile / ...`
 
 ### `V-003`
 
 - `V-003 / Desktop / Principal`
-- `V-003 / Mobile / Principal`
 - `V-003 / Desktop / Validación`
-- `V-003 / Mobile / Enviando`
+- `V-003 / Desktop / Enviando`
 - `V-003 / Desktop / Confirmación uniforme`
-- `V-003 / Mobile / Límite temporal`
+- `V-003 / Desktop / Límite temporal`
+- `V-003 / Mobile / ...`
 
 ### `V-004`
 
 - `V-004 / Desktop / Validando enlace`
-- `V-004 / Mobile / Principal`
 - `V-004 / Desktop / Principal`
-- `V-004 / Mobile / Validación`
+- `V-004 / Desktop / Validación`
 - `V-004 / Desktop / Política rechazada`
-- `V-004 / Mobile / Enlace inválido`
+- `V-004 / Desktop / Enlace inválido`
 - `V-004 / Desktop / Enlace vencido`
-- `V-004 / Mobile / Actualizada`
+- `V-004 / Desktop / Actualizada`
+- `V-004 / Mobile / ...`
 
 ### `O-003`
 
 - `O-003 / Desktop / Favorito`
-- `O-003 / Mobile / Checkout`
+- `O-003 / Desktop / Checkout`
 - `O-003 / Desktop / Área privada`
-- `O-003 / Mobile / Sesión vencida`
+- `O-003 / Desktop / Sesión vencida`
+- `O-003 / Mobile / ...`
 
 ### `O-004`
 
@@ -83,13 +83,14 @@
 - `O-004 / Mobile / Pago preparado`
 - `O-004 / Desktop / Orden verificándose`
 - `O-004 / Mobile / Error al cerrar`
+- `O-004 / Mobile / ...`
 
 ### `C-001`
 
 - `C-001 / Desktop / Principal`
-- `C-001 / Mobile / Principal`
 - `C-001 / Desktop / Con recomendados`
-- `C-001 / Mobile / Sin imágenes`
+- `C-001 / Desktop / Sin imágenes`
+- `C-001 / Mobile / ...`
 
 ## 4. Dependencias compartidas
 
@@ -126,10 +127,10 @@ La pregunta completa, su responsable y su fecha/estado están en cada spec. Las 
 
 ## 7. Definition of Ready del paquete
 
-- [ ] Giuliano acepta alcance, carga y revisor.
+- [x] Giuliano acepta alcance, carga y revisor.
 - [ ] Las decisiones abiertas bloqueantes están resueltas o tienen supuesto aprobado.
-- [ ] Los componentes compartidos tienen nombre y dueño en la biblioteca.
-- [ ] Todos los frames de la sección 3 existen con esos nombres exactos.
-- [ ] Cada spec enlaza su sección o frame de Figma.
+- [x] Los componentes compartidos tienen nombre y dueño en la biblioteca.
+- [x] Todos los frames de la sección 3 existen con esos nombres exactos.
+- [x] Cada spec enlaza su sección o frame de Figma.
 - [ ] Desktop, mobile, teclado, foco, errores y contraste fueron comprobados.
 - [ ] Jim revisó el paquete y Giuliano cerró las observaciones.
