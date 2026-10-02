@@ -41,8 +41,9 @@ Contrato consultado: [`API F-001`](../../contrato-api/F-001-registrar-cliente.md
 | “Ya tengo una cuenta” | `V-001` | Usuario decide iniciar sesión | Retorno interno seguro; nunca la contraseña. |
 | Enlace del correo | Pantalla de verificación de Seguridad | Registro originado con `canalOrigen=MARKETPLACE` | Seguridad recibe y valida el token; Marketplace no lo procesa. |
 | Seguridad → `V-001` | Verificación completada correctamente | URL de inicio de sesión de Marketplace configurada por Seguridad | No se transfiere una sesión ni el token de verificación. |
+| Seguridad → `V-001` | Enlace ya usado; usuario elige “Iniciar sesión” en la pantalla de Seguridad | URL de inicio de sesión de Marketplace configurada por Seguridad | Login normal, sin token ni sesión transferida. |
 
-La vista no debe conservar la contraseña al navegar, recargar o volver desde otra ruta. Los enlaces vencidos o ya usados se resuelven en la pantalla de Seguridad, incluido el reenvío; `V-002` no duplica ese flujo.
+La vista no debe conservar la contraseña al navegar, recargar o volver desde otra ruta. Los enlaces vencidos o ya usados se resuelven en la pantalla de Seguridad, incluido el reenvío. El enlace nuevo conserva `canalOrigen=MARKETPLACE` y, al terminar la verificación, vuelve al `/login` configurado. `V-002` no duplica ese flujo.
 
 ## 5. Jerarquía y composición visual
 
@@ -196,5 +197,5 @@ El error temporal puede anotarse como variante del frame “Correo no disponible
 | `V-002-OPEN-02` | Confirmar formato, país por defecto y restricciones del celular. | Producto + Seguridad | Antes del diseño final | Abierta |
 | `V-002-OPEN-03` | Registrar URLs y versión aprobada de términos y política de privacidad. | Producto | Antes del diseño final | Abierta |
 | `V-002-OPEN-04` | Confirmar si el correo puede precargarse en `V-001` tras el registro aceptado. | Andrés / Seguridad | Antes del diseño final | Abierta |
-| `V-002-OPEN-05` | Confirmar con Seguridad que el regreso a `/login` no incluya el token del enlace y que su pantalla resuelva enlaces vencidos o ya usados con opción de reenvío. | Producto + Seguridad | Antes de integrar el flujo | Abierta |
+| `V-002-OPEN-05` | Seguridad confirmó que el regreso a `/login` no incluye el token, que su pantalla resuelve enlaces vencidos o ya usados, y que el reenvío conserva el canal original. | Producto + Seguridad | Confirmado el 2026-10-02 por el PO de Seguridad | Cerrada |
 | `V-002-OPEN-06` | Entregar a Seguridad las URL base de desarrollo y producción de Marketplace para configurar el regreso a `/login`. | PO Marketplace + Dev/Ops | Antes de integrar el flujo | Abierta |

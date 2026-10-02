@@ -42,6 +42,7 @@ Contratos consultados: [`API F-002`](../../contrato-api/F-002-iniciar-sesion.md)
 | `V-001` → “Crear cuenta” | `V-002` | Usuario sin cuenta | Retorno seguro, si existe. Nunca contraseña ni errores. |
 | `V-001` → “Olvidé mi contraseña” | `V-003` | Recuperación solicitada | Correo sólo si la política de privacidad y seguridad lo permite. |
 | Seguridad → `V-001` | Correo verificado correctamente tras un registro con `canalOrigen=MARKETPLACE` | Destino `/login` configurado por Seguridad | Formulario de inicio de sesión; no llega el token de verificación ni una sesión iniciada. |
+| Seguridad → `V-001` | Enlace de verificación ya usado; usuario pulsa “Iniciar sesión” en Seguridad | Destino `/login` configurado por Seguridad | El mismo formulario principal, sin token ni sesión transferida; no se afirma un nuevo éxito. |
 | Inicio exitoso | Ruta de origen | Existe retorno interno válido | Intención pendiente, filtros y scroll cuando puedan restaurarse. |
 | Inicio exitoso | `V-005` | No existe retorno válido | Sesión y carrito autenticado. |
 
@@ -183,7 +184,7 @@ Los estados de límite temporal y contraseña caducada pueden documentarse como 
 - [ ] `UI-V001-005`: La falla de fusión no invalida visualmente la sesión ya iniciada y ofrece reintento.
 - [ ] `UI-V001-006`: Desktop y mobile incluyen estados de validación, error y MFA con foco y anuncios definidos.
 - [ ] `UI-V001-007`: No se muestran tokens, causas técnicas ni datos sensibles en alertas o URLs visibles.
-- [ ] `UI-V001-008`: El regreso desde la verificación de Seguridad muestra el login normal; no crea sesión automáticamente ni recibe el token del correo.
+- [ ] `UI-V001-008`: El regreso desde Seguridad, tras verificar o desde un enlace ya usado, muestra el login normal; no crea sesión automáticamente ni recibe el token del correo.
 - [ ] La vista utiliza componentes y estilos de `DS-001`.
 
 ## 14. Decisiones y pendientes
