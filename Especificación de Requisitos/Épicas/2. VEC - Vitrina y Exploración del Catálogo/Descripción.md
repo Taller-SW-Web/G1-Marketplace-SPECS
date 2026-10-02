@@ -1,2 +1,0 @@
-- **Responsable Principal:** Leonidas Garcia Lescano (Vitrina y Exploración / Arquitecto y Backend).
-- **Descripción:** Funcionalidades enfocadas en permitir que el cliente explore la página principal, oferta de productos deportivos, busque artículos mediante términos clave, aplique filtros dinámicos por categorías y marcas, y ordene la vitrina comercial para localizar productos de su interés.
