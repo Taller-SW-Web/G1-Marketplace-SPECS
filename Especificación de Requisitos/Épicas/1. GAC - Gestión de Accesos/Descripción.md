@@ -1,0 +1,2 @@
+- **Responsable Principal:** Integrante 1 (Andrés — Gestión de Accesos / DevOps).
+- **Descripción:** Funcionalidades enfocadas en permitir que el cliente interactúe con el Marketplace de forma identificada y segura, gestionando la creación de su cuenta, el ciclo de vida de sus sesiones y el flujo completo de recuperación de sus accesos.

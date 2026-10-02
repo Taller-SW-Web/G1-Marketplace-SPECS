@@ -1,0 +1,2 @@
+- **Responsable Principal:** Integrante 4 (Sebastián — Intención de Compra / Documentador).
+- **Descripción:** Funcionalidades enfocadas en permitir que el cliente gestione su carrito de compras: adición de artículos, modificación reactiva de cantidades, eliminación de productos, unificación del carrito anónimo tras iniciar sesión y visualización de subtotales en tiempo real.

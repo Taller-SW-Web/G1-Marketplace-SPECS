@@ -1,0 +1,2 @@
+- **Responsable Principal:** Integrante 3 — Jim (Product Owner).
+- **Descripción:** Funcionalidades enfocadas en presentar la ficha técnica completa del producto deportivo (galería, características, precios y ofertas), permitir la configuración de sus variantes (talla, color) y consultar la disponibilidad de stock en tiempo real mediante peticiones asíncronas al Módulo de Productos y Ofertas.

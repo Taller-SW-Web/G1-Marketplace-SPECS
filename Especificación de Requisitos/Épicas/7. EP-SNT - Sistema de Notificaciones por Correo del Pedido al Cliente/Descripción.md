@@ -1,0 +1,2 @@
+- **Responsable Principal:** Integrante 7 — Saire (Notificaciones / QA).
+- **Descripción:** Funcionalidades enfocadas en diseñar y ejecutar el envío automático y asíncrono de correos electrónicos transaccionales al cliente tras la generación de un pedido o actualización de envío, incluyendo recomendaciones personalizadas del catálogo de productos.

@@ -1,0 +1,2 @@
+- **Responsable Principal:** Integrante 6 — Diego (JP / QA / Seguimiento e Historial).
+- **Descripción:** Funcionalidades enfocadas en proporcionar al cliente un panel de lectura ("Mis Pedidos") para consultar el historial completo de sus compras pasadas, filtrar por estado, reordenar artículos de pedidos previos y realizar el seguimiento en tiempo real del estado de entrega de sus paquetes mediante barras de progreso.
