@@ -21,7 +21,7 @@
 - **Objetivo del usuario:** acceder a su cuenta con correo y contraseña para continuar navegando o retomar una acción protegida.
 - **Actor principal:** cliente registrado sin sesión activa.
 - **Permiso:** público; si ya existe una sesión válida, la ruta no debe volver a solicitar credenciales y redirige al destino seguro disponible.
-- **Condiciones de entrada:** acceso directo, enlace “Iniciar sesión” o redirección desde una acción que requiere autenticación.
+- **Condiciones de entrada:** acceso directo, enlace “Iniciar sesión”, redirección desde una acción que requiere autenticación o regreso desde la pantalla de Seguridad tras verificar el correo.
 - **Resultado esperado:** sesión iniciada, carrito anónimo fusionado cuando exista y retorno a la ruta o acción de origen; si no existe origen, navegación a `V-005`.
 
 ## 3. Trazabilidad
@@ -41,10 +41,11 @@ Contratos consultados: [`API F-002`](../../contrato-api/F-002-iniciar-sesion.md)
 | `O-003` Autenticación requerida | `V-001` | Acción protegida sin sesión | Ruta de origen, intención pendiente y parámetros no sensibles. |
 | `V-001` → “Crear cuenta” | `V-002` | Usuario sin cuenta | Retorno seguro, si existe. Nunca contraseña ni errores. |
 | `V-001` → “Olvidé mi contraseña” | `V-003` | Recuperación solicitada | Correo sólo si la política de privacidad y seguridad lo permite. |
+| Seguridad → `V-001` | Correo verificado correctamente tras un registro con `canalOrigen=MARKETPLACE` | Destino `/login` configurado por Seguridad | Formulario de inicio de sesión; no llega el token de verificación ni una sesión iniciada. |
 | Inicio exitoso | Ruta de origen | Existe retorno interno válido | Intención pendiente, filtros y scroll cuando puedan restaurarse. |
 | Inicio exitoso | `V-005` | No existe retorno válido | Sesión y carrito autenticado. |
 
-El retorno sólo admite rutas internas permitidas. Nunca se muestra ni se navega a una URL externa recibida como parámetro.
+El retorno después de iniciar sesión sólo admite rutas internas permitidas. Nunca se muestra ni se navega a una URL externa recibida como parámetro. El regreso desde Seguridad utiliza el formulario principal y requiere autenticación normal; no se interpreta un parámetro de URL como prueba de cuenta verificada.
 
 ## 5. Jerarquía y composición visual
 
@@ -182,6 +183,7 @@ Los estados de límite temporal y contraseña caducada pueden documentarse como 
 - [ ] `UI-V001-005`: La falla de fusión no invalida visualmente la sesión ya iniciada y ofrece reintento.
 - [ ] `UI-V001-006`: Desktop y mobile incluyen estados de validación, error y MFA con foco y anuncios definidos.
 - [ ] `UI-V001-007`: No se muestran tokens, causas técnicas ni datos sensibles en alertas o URLs visibles.
+- [ ] `UI-V001-008`: El regreso desde la verificación de Seguridad muestra el login normal; no crea sesión automáticamente ni recibe el token del correo.
 - [ ] La vista utiliza componentes y estilos de `DS-001`.
 
 ## 14. Decisiones y pendientes

@@ -1,6 +1,6 @@
 # Vista — V-002 Registro
 
-> Pantalla pública para solicitar la creación de una cuenta de cliente y explicar el paso de verificación por correo antes de iniciar sesión.
+> Pantalla pública para solicitar una cuenta y explicar que el enlace del correo se abre en Seguridad; tras la verificación, el usuario vuelve al inicio de sesión de Marketplace.
 
 ## 1. Metadatos
 
@@ -22,7 +22,7 @@
 - **Actor principal:** visitante sin sesión.
 - **Permiso:** público; una sesión activa redirige a un destino seguro y evita registrar otra cuenta por error.
 - **Condiciones de entrada:** acceso directo o enlace “Crear cuenta” desde `V-001`.
-- **Resultado esperado:** solicitud enviada una sola vez, explicación de verificación por correo y acceso a `V-001`; el registro no inicia sesión automáticamente.
+- **Resultado esperado:** solicitud enviada una sola vez, cuenta pendiente de verificación y explicación del recorrido correo → pantalla de Seguridad → `V-001`; el registro no inicia sesión automáticamente.
 
 ## 3. Trazabilidad
 
@@ -39,9 +39,10 @@ Contrato consultado: [`API F-001`](../../contrato-api/F-001-registrar-cliente.md
 | Acceso directo | `V-002` | Visitante sin sesión | Ninguno. |
 | `V-001` → “Crear cuenta” | `V-002` | Visitante decide registrarse | Retorno interno seguro, si existía. |
 | “Ya tengo una cuenta” | `V-001` | Usuario decide iniciar sesión | Retorno interno seguro; nunca la contraseña. |
-| Registro aceptado → “Ir a iniciar sesión” | `V-001` | Usuario comprende que debe verificar su correo | Correo sólo si Seguridad permite precargarlo; retorno seguro. |
+| Enlace del correo | Pantalla de verificación de Seguridad | Registro originado con `canalOrigen=MARKETPLACE` | Seguridad recibe y valida el token; Marketplace no lo procesa. |
+| Seguridad → `V-001` | Verificación completada correctamente | URL de inicio de sesión de Marketplace configurada por Seguridad | No se transfiere una sesión ni el token de verificación. |
 
-La vista no debe conservar la contraseña al navegar, recargar o volver desde otra ruta.
+La vista no debe conservar la contraseña al navegar, recargar o volver desde otra ruta. Los enlaces vencidos o ya usados se resuelven en la pantalla de Seguridad, incluido el reenvío; `V-002` no duplica ese flujo.
 
 ## 5. Jerarquía y composición visual
 
@@ -85,9 +86,9 @@ V-002 Registro
 | Términos | “Acepto los términos y la política de privacidad” | Marcar consentimiento y abrir documentos | Estado de formulario. |
 | CTA | “Crear cuenta” | Enviar solicitud | Formulario válido y no ocupado. |
 | Alternativa | “Ya tengo una cuenta. Iniciar sesión” | Abrir `V-001` | Estado de formulario. |
-| Confirmación | “Revisa tu correo para verificar tu cuenta” | Informar siguiente paso | Solicitud aceptada. |
+| Confirmación | “Revisa tu correo para verificar tu cuenta” y explicación de que el enlace abre Seguridad y luego regresa al login de Marketplace | Informar siguiente paso | Solicitud aceptada; la cuenta aún no está activa. |
 
-`canalOrigen=MARKETPLACE` es un dato técnico fijo: no se presenta ni se permite editar.
+`canalOrigen=MARKETPLACE` es un dato técnico fijo: no se presenta ni se permite editar. Tampoco se ofrece un campo de URL de retorno.
 
 ## 7. Estados de la vista
 
@@ -101,7 +102,7 @@ V-002 Registro
 | Correo no disponible | Respuesta `409` | Mensaje neutral que no confirma una cuenta existente | Usar otro correo, iniciar sesión o recuperar acceso | Sí |
 | Política rechazada | Respuesta `422` | Reglas incumplidas marcadas sin borrar los demás campos | Corregir contraseña | Sí |
 | Error recuperable | Servicio temporalmente no disponible | Mensaje general; datos no sensibles permanecen | Reintentar | Sí |
-| Solicitud aceptada | Respuesta `201/202` | Confirmación, correo parcialmente oculto si se muestra y siguiente paso | Abrir correo o ir a login | Sí |
+| Solicitud aceptada | Respuesta `201` | Confirmación, correo parcialmente oculto si se muestra y recorrido de verificación en Seguridad | Abrir correo; iniciar sesión después de verificar | Sí |
 
 El estado de éxito no afirma que la cuenta esté activa ni que la sesión haya comenzado.
 
@@ -111,7 +112,7 @@ El estado de éxito no afirma que la cuenta esté activa ni que la sesión haya 
 |---|---|---|---|
 | `O-010` | Alertas y feedback global | Error del servicio o aviso que no pertenece a un campo | Reintentar o cerrar con foco controlado. |
 
-La verificación de cuenta enviada por Seguridad no forma parte de `C-001` o `C-002`; esos IDs están reservados para pedidos y despacho.
+Seguridad es dueña del correo y de la pantalla de verificación de cuenta, incluidos los enlaces vencidos o ya usados. Esta vista no muestra ni recibe el token de verificación. Ese correo no forma parte de `C-001` o `C-002`; esos IDs están reservados para pedidos y despacho.
 
 ## 9. Formularios y validación visual
 
@@ -170,7 +171,7 @@ Los errores del servicio se mapean al campo sólo cuando la respuesta permite ha
 | `V-002 / Desktop / Enviando` | Desktop | Progreso | CTA no repetible. |
 | `V-002 / Mobile / Correo no disponible` | Mobile | Error neutral | Mensaje y alternativas. |
 | `V-002 / Desktop / Política rechazada` | Desktop | Error `422` | Reglas externas incumplidas. |
-| `V-002 / Mobile / Solicitud aceptada` | Mobile | Éxito | Verificación por correo y login. |
+| `V-002 / Mobile / Solicitud aceptada` | Mobile | Solicitud aceptada | Cuenta pendiente, verificación en Seguridad y regreso a login. |
 
 El error temporal puede anotarse como variante del frame “Correo no disponible” si conserva el layout, pero debe usar copy y acciones diferentes.
 
@@ -183,6 +184,8 @@ El error temporal puede anotarse como variante del frame “Correo no disponible
 - [ ] `UI-V002-005`: Las variantes desktop y mobile preservan etiquetas, ayudas, errores y términos sin ocultarlos.
 - [ ] `UI-V002-006`: La contraseña se descarta al abandonar la vista y nunca se expone en mensajes o URLs.
 - [ ] `UI-V002-007`: `canalOrigen` no aparece como campo editable.
+- [ ] `UI-V002-008`: El estado de solicitud aceptada explica la verificación en Seguridad y no muestra la cuenta como activa ni el login como automático.
+- [ ] `UI-V002-009`: Ningún frame presenta una pantalla local de verificación, solicita el token del correo o acepta una URL de retorno libre.
 - [ ] La vista utiliza componentes y estilos de `DS-001`.
 
 ## 14. Decisiones y pendientes
@@ -193,3 +196,5 @@ El error temporal puede anotarse como variante del frame “Correo no disponible
 | `V-002-OPEN-02` | Confirmar formato, país por defecto y restricciones del celular. | Producto + Seguridad | Antes del diseño final | Abierta |
 | `V-002-OPEN-03` | Registrar URLs y versión aprobada de términos y política de privacidad. | Producto | Antes del diseño final | Abierta |
 | `V-002-OPEN-04` | Confirmar si el correo puede precargarse en `V-001` tras el registro aceptado. | Andrés / Seguridad | Antes del diseño final | Abierta |
+| `V-002-OPEN-05` | Confirmar con Seguridad que el regreso a `/login` no incluya el token del enlace y que su pantalla resuelva enlaces vencidos o ya usados con opción de reenvío. | Producto + Seguridad | Antes de integrar el flujo | Abierta |
+| `V-002-OPEN-06` | Entregar a Seguridad las URL base de desarrollo y producción de Marketplace para configurar el regreso a `/login`. | PO Marketplace + Dev/Ops | Antes de integrar el flujo | Abierta |

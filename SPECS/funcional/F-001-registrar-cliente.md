@@ -8,7 +8,11 @@ Autorregistro de cliente desde Marketplace: correo, contraseña, nombres, apelli
 
 - Correo repetido recibe mensaje neutro para no enumerar cuentas.
 - Contraseña sigue política publicada por Seguridad; validación final externa.
-- Registro requiere verificación por correo antes de asumir cuenta activa.
+- La respuesta de registro deja la cuenta en `PENDIENTE_VERIFICACION`; no se asume activa ni se inicia sesión.
+- El enlace del correo abre la pantalla de verificación de Seguridad. Tras verificar correctamente, Seguridad redirige a la ruta `/login` de Marketplace configurada en su servicio; los enlaces vencidos o ya usados se atienden en Seguridad.
+- Marketplace no envía una URL de destino en el registro, no recibe ni procesa el token de verificación y no ofrece una segunda pantalla de verificación de correo.
 
 - [ ] **CA-F001-01:** Datos válidos envían un único registro a Seguridad.
 - [ ] **CA-F001-02:** Correo repetido no confirma existencia.
+- [ ] **CA-F001-03:** El registro usa `canalOrigen=MARKETPLACE` y no incluye una URL de retorno enviada por el cliente.
+- [ ] **CA-F001-04:** La confirmación explica que el usuario debe verificar su correo antes de iniciar sesión; Marketplace no interpreta el enlace de verificación.
