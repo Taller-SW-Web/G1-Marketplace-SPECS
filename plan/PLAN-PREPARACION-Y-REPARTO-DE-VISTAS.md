@@ -9,6 +9,7 @@
 | Versión | `0.2.0` |
 | Estado | Preparado para validación y aceptación del equipo |
 | Fecha | 2026-09-28 |
+| Última actualización | 2026-10-01 |
 | Equipo | Diego Espinoza, Leonidas Garcia, Giuliano Macchiavello, Sebastián Malca y Jim Segovia |
 | Punto de inicio | `DS-001` v0.2.0 consolidado de forma preliminar, tres logos incorporados, enlaces de Figma registrados, 40 specs UI por funcionalidad y documentación histórica de 15 pantallas |
 | Estado alcanzado | Inventario de 29 piezas validado documentalmente y cinco paquetes equilibrados preparados; faltan aceptación, decisiones abiertas, enlaces de frames y revisión humana |
@@ -38,6 +39,7 @@ Al cerrar este plan, cada integrante debe conocer:
 | Rutas, overlays y comunicaciones | **Resuelto:** identificadores `V`, `O` y `C` separados y navegación actualizada. | Mantener trazabilidad al diseñar. |
 | Estimación visual | **Resuelto:** 226 puntos visuales + 4 de gobernanza, con factores auditables. | Ajustar sólo si el equipo modifica el alcance. |
 | Paquetes individuales | **Preparados:** cinco documentos ejecutables, entre 42 y 49 puntos. | Cada integrante debe aceptar su paquete y completar su Definition of Ready. |
+| Figma de mockups | [Carpeta de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) registrada, distinta del archivo de la biblioteca `DS-001`. El enlace recibido lleva a una carpeta, no al archivo de pantallas. | Registrar URL directa del archivo, páginas y frames cuando estén disponibles. |
 
 ## 4. Principios para organizar la documentación
 

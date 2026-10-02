@@ -2,6 +2,8 @@
 
 Este directorio contiene las especificaciones visuales por pantalla o ruta principal. Una vista puede reunir varias funcionalidades `F-###`; las specs funcionales y UI atómicas continúan siendo las fuentes del comportamiento, mientras que cada documento `V-###` define cómo se compone el entregable que se diseñará en Figma.
 
+Los mockups de estas vistas se ubicarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394), separada del archivo de la biblioteca del sistema de diseño enlazado en [`DS-001`](../DS-001-sistema-diseno-marketplace.md). El enlace recibido es de carpeta; falta registrar la URL directa del archivo de pantallas y los enlaces específicos de páginas y frames.
+
 ## Reglas
 
 - Cada archivo representa una pantalla completa, no una funcionalidad aislada.
@@ -10,6 +12,8 @@ Este directorio contiene las especificaciones visuales por pantalla o ruta princ
 - Los correos transaccionales se enlazan desde `../comunicaciones/`.
 - Desktop y mobile son variantes obligatorias de la misma vista, salvo que la spec justifique una excepción.
 - El nombre del frame de Figma debe comenzar con el ID `V-###`.
+
+El diseño puede avanzar por etapas sin cambiar ese alcance. En el paquete de checkout (`V-010` a `V-014`), Jim está trabajando primero los frames desktop; los frames mobile se diseñarán después. Los estados de la sección 7 siguen vigentes en ambas etapas. Al incorporar un frame desktop adicional, se registra con su nombre exacto en la sección 12 de la spec correspondiente y se enlaza el frame final de Figma.
 
 ## Estados documentales
 

@@ -7,6 +7,7 @@
 | Responsable | Jim Segovia |
 | Revisor principal | Leonidas Garcia |
 | Sistema de diseño | [`DS-001` v0.2.0](../DS-001-sistema-diseno-marketplace.md) |
+| Carpeta de mockups en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394); enlace directo al archivo y a los frames pendiente |
 | Alcance | 5 vistas del flujo completo de checkout |
 | Carga | **42 puntos** |
 | Estado | Preparado para aceptación del integrante |
@@ -98,6 +99,8 @@
 | `V-014` | `V-014-OPEN-01` a `V-014-OPEN-04` |
 
 ## 6. Orden de ejecución recomendado
+
+**Secuencia actual (2026-10-01):** Jim está diseñando primero las variantes desktop de `V-010` a `V-014`. Las variantes mobile se trabajarán después y permanecen dentro del alcance del paquete. Los nuevos frames desktop de estados ya descritos en las specs se incorporarán a la sección 12 de cada vista y se enlazarán individualmente cuando estén definidos en Figma. Esta secuencia no equivale a aprobar los mockups ni a cerrar las decisiones abiertas.
 
 1. Definir el shell de checkout, indicador de progreso y resumen persistente.
 2. Diseñar `V-010` y validar edición, guardado y errores.

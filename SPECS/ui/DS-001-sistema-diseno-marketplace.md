@@ -14,10 +14,11 @@
 | Revisor principal | Jim Segovia |
 | Marca | Inka Athletics |
 | Herramienta oficial | Figma |
-| Archivo central de Figma | [Sistema de Diseño](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=57-15&t=eO6m1Plz1xQ5sFgn-1) |
+| Biblioteca del sistema de diseño en Figma | [Sistema de Diseño](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=57-15&t=eO6m1Plz1xQ5sFgn-1) |
 | Sección de logos en Figma | [Logos de Inka Athletics](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=56-7&t=0TSK36SaklUJeiyS-4) |
+| Carpeta de mockups de vistas en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) (enlace a carpeta; URL directa del archivo y de sus páginas pendiente) |
 | Implementación descrita por la guía preliminar | React + TypeScript + Mantine `9.6.2` + Tabler Icons |
-| Última actualización | 2026-09-28 |
+| Última actualización | 2026-10-01 |
 | Alcance | Canal Marketplace web responsive y componentes compartidos |
 
 ### 1.1 Vigencia y decisión técnica preliminar
@@ -361,9 +362,9 @@ El skeleton aproxima la estructura final. Se requieren patrones para tarjeta, li
 
 ## 10. Organización y versionado de Figma
 
-El archivo central enlazado contiene Foundations, marca, componentes y patrones. Las pantallas del Marketplace pueden vivir en un archivo de módulo que consuma esa biblioteca.
+El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. Su enlace actual abre una carpeta de Figma, no un archivo de diseño ni un frame; queda pendiente registrar la URL directa del archivo de pantallas y los enlaces a sus páginas y frames. Las vistas `V-001` a `V-017` se organizarán por páginas dentro de ese archivo, respetando el catálogo vigente.
 
-Páginas mínimas sugeridas:
+Páginas mínimas sugeridas para la biblioteca del sistema de diseño:
 
 1. `00 — Readme y changelog`
 2. `01 — Foundations`
@@ -375,7 +376,7 @@ Páginas mínimas sugeridas:
 Frames de pantalla:
 
 ```text
-V-### / Estado / Desktop|Mobile
+V-### / Desktop|Mobile / Estado
 ```
 
 Componentes:
@@ -385,6 +386,8 @@ Categoría / Componente / Variante
 ```
 
 Cada frame indica `DS-001 v0.2.0` y enlaza su spec.
+
+El diseño de checkout (`V-010` a `V-014`) avanza primero en desktop y después en mobile. Este orden de producción no reduce los estados ni las variantes requeridas por las specs. Los nombres y enlaces definitivos de los frames se registran en la sección 12 de cada `V-###` cuando el diseño esté definido.
 
 ## 11. Gobernanza
 
@@ -431,7 +434,7 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 | `DS-OPEN-04` | Completar diez tonalidades de Volt, Signal, Ink y Cloud. | Tema Mantine |
 | `DS-OPEN-05` | Enlazar `src/theme/theme.ts` en el frontend. | Código-diseño |
 | `DS-OPEN-06` | Completar ProductCard, navegación, modales, filtros y skeletons desde specs por vista. | Mockups |
-| `DS-OPEN-07` | Registrar archivo de pantallas/prototipo del Marketplace. | Trazabilidad Figma |
+| `DS-OPEN-07` | La carpeta de mockups ya está registrada; falta la URL directa del archivo de pantallas/prototipo y los enlaces de páginas y frames. | Trazabilidad Figma |
 | `DS-OPEN-08` | Definir changelog y proceso de publicación. | Mantenimiento |
 
 ## 14. Fuentes

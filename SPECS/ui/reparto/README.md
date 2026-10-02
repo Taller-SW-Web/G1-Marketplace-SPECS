@@ -2,12 +2,15 @@
 
 Esta carpeta convierte el inventario visual aprobado documentalmente en cinco paquetes ejecutables. Cada paquete reúne las specs, los frames exactos, las dependencias compartidas, las decisiones abiertas y el orden de trabajo de una persona.
 
+Los mockups se trabajarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394). La biblioteca visual permanece en el archivo [Sistema de Diseño](../DS-001-sistema-diseno-marketplace.md). La carpeta de vistas todavía no sustituye los enlaces directos al archivo y a cada frame que deben incorporarse a las specs.
+
 ## Reglas comunes
 
 1. Usar [`DS-001` v0.2.0](../DS-001-sistema-diseno-marketplace.md) como base visual y registrar cualquier excepción antes de diseñarla.
 2. Leer la spec enlazada antes de crear sus frames; la lista de este paquete es un índice de ejecución, no un reemplazo de la spec.
 3. Mantener literalmente el nombre de cada frame para conservar trazabilidad entre Markdown y Figma.
 4. Crear desktop y mobile como composiciones propias; no reducir mecánicamente una versión para obtener la otra.
+   El paquete de Jim (`V-010` a `V-014`) se está produciendo primero en desktop; mobile seguirá después y continúa dentro del alcance.
 5. Reutilizar instancias de la biblioteca compartida. Un componente transversal se define una sola vez y su dueño coordina los cambios con los consumidores.
 6. No inventar una respuesta para una decisión `OPEN`: resolverla con su responsable o tratarla como supuesto explícito y reversible.
 7. El autor realiza la primera verificación; el revisor cruza spec, estados, responsive, accesibilidad y nombres de frames.
