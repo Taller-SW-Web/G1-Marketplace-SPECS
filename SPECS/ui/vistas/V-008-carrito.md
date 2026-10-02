@@ -90,6 +90,7 @@ V-008 Carrito
 | Quitar | “Quitar {producto}” | Eliminar línea | Siempre por línea. |
 | Mover | “Mover a favoritos” | F-021 o autenticar | Por línea; operación sólo con sesión. |
 | Atención | Motivo comprensible | Reintentar, quitar o volver a producto | Línea no comprable/incompleta. |
+| Aviso de fusión pendiente | “El carrito de invitado no se combinó con el de tu cuenta” | Reintentar F-020 | Tras continuar sin combinar y mientras el carrito anónimo siga disponible. |
 | Subtotal | Suma de cantidades × precio vigente | — | Todas las líneas tienen precio. |
 | Nota | “No incluye envío ni descuentos” | — | Con subtotal. |
 | CTA | “Iniciar checkout” | Abrir `V-010` o autenticar | Carrito con líneas válidas. |
@@ -114,7 +115,7 @@ V-008 Carrito
 | Error al mover | Favorito o catálogo falla | Línea permanece y mensaje de reintento | Reintentar | Sí |
 | Fusionando | Regreso de login con carrito anónimo | Mensaje “Actualizando tu carrito”; no aparecen dos carritos | Esperar | Sí |
 | Fusión ajustada | Cantidades limitadas | `O-007` resume ajustes; líneas resaltadas una vez | Revisar | Se diseña en `O-007` |
-| Fusión fallida | Error antes del commit | Sesión activa, mensaje y reintento; no se afirma pérdida | Reintentar | Sí |
+| Fusión fallida | Error antes del commit o continuación sin combinar desde `V-001` | Sesión activa; sólo se muestra el carrito autenticado y un aviso de que el invitado no se combinó, sin afirmar pérdida | Reintentar fusión mientras el carrito anónimo siga disponible / seguir navegando | Sí |
 | Error de carga | No hay representación coherente | Mensaje general; no se borra visualmente por asumir vacío | Reintentar/explorar | Sí |
 
 ## 8. Overlays y comunicaciones asociadas
@@ -179,7 +180,7 @@ Cantidad cero nunca elimina: en 1, disminuir queda deshabilitado y la acción �
 | `V-008 / Desktop / Cantidad ajustada` | Desktop | Límite | Solicitado vs confirmado. |
 | `V-008 / Mobile / Error de cantidad` | Mobile | Error local | Valor restaurado y reintento. |
 | `V-008 / Desktop / Moviendo a favoritos` | Desktop | Progreso | Línea conservada hasta confirmación. |
-| `V-008 / Mobile / Fusión fallida` | Mobile | Error recuperable | Sesión activa y reintento. |
+| `V-008 / Mobile / Fusión fallida` | Mobile | Error recuperable | Carrito autenticado, aviso de no combinación y reintento disponible. |
 | `V-008 / Desktop / Error de carga` | Desktop | Error total | Reintento sin falso vacío. |
 
 Los overlays `O-003`, `O-006` y `O-007` se diseñan en sus propias specs.
@@ -192,7 +193,7 @@ Los overlays `O-003`, `O-006` y `O-007` se diseñan en sus propias specs.
 - [ ] `UI-V008-004`: Cantidad admite 1–99, usa reemplazo absoluto y nunca convierte cero en eliminación.
 - [ ] `UI-V008-005`: Quitar permite deshacer, restaura la línea si falla y mantiene el foco en un elemento existente.
 - [ ] `UI-V008-006`: Mover a favoritos no retira la línea hasta confirmar ambas mutaciones y autentica antes de cambiar el carrito.
-- [ ] `UI-V008-007`: Tras login existe un único carrito visible; ajustes y fallos de fusión son comprensibles.
+- [ ] `UI-V008-007`: Tras login existe un único carrito visible; si se continúa sin combinar, el aviso distingue el carrito autenticado del invitado pendiente y ofrece reintento mientras éste siga disponible.
 - [ ] `UI-V008-008`: Desktop y mobile mantienen controles accesibles y el resumen no oculta líneas ni avisos.
 - [ ] La vista aplica `DS-001`, `CartLine`, `QuantityStepper` y `OrderSummary`.
 

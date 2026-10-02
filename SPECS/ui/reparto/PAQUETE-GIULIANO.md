@@ -36,6 +36,7 @@
 - `V-001 / Desktop / MFA`
 - `V-001 / Mobile / MFA error`
 - `V-001 / Desktop / Fusionando carrito`
+- `V-001 / Desktop / Fusión fallida`
 - `V-001 / Mobile / Fusión fallida`
 
 ### `V-002`

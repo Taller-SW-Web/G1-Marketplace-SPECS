@@ -45,6 +45,7 @@ Contratos consultados: [`API F-002`](../../contrato-api/F-002-iniciar-sesion.md)
 | Seguridad → `V-001` | Enlace de verificación ya usado; usuario pulsa “Iniciar sesión” en Seguridad | Destino `/login` configurado por Seguridad | El mismo formulario principal, sin token ni sesión transferida; no se afirma un nuevo éxito. |
 | Inicio exitoso | Ruta de origen | Existe retorno interno válido | Intención pendiente, filtros y scroll cuando puedan restaurarse. |
 | Inicio exitoso | `V-005` | No existe retorno válido | Sesión y carrito autenticado. |
+| Fusión fallida → “Continuar sin combinar” | Ruta de origen o `V-005` | Sesión ya iniciada; el cliente decide no reintentar ahora | Retorno interno seguro y carrito autenticado; el anónimo no se presenta como fusionado. |
 
 El retorno después de iniciar sesión sólo admite rutas internas permitidas. Nunca se muestra ni se navega a una URL externa recibida como parámetro. El regreso desde Seguridad utiliza el formulario principal y requiere autenticación normal; no se interpreta un parámetro de URL como prueba de cuenta verificada.
 
@@ -91,6 +92,8 @@ Cuando Seguridad devuelve un desafío MFA, la tarjeta conserva el contexto de ac
 | Registro | “¿Aún no tienes cuenta? Crear cuenta” | Abrir `V-002` | Estado de credenciales. |
 | Desafío MFA | Instrucción neutral y campo de código | Verificar segundo factor | Sólo tras desafío válido. |
 | Reenvío MFA | Texto con espera y acción “Reenviar código” | Solicitar nuevo código | Sólo si el método permite reenvío. |
+| Reintentar fusión | “Reintentar” | Repetir F-020 sin duplicar cantidades | Sólo después de una fusión fallida. |
+| Continuar sin combinar | “Continuar sin combinar” | Navegar al retorno interno seguro o a `V-005` sin ejecutar F-020 | Sólo después de una fusión fallida; la sesión sigue iniciada. |
 
 Los mensajes no deben revelar si el correo existe, qué credencial falló, tokens, IDs de solicitud ni causas internas.
 
@@ -109,7 +112,7 @@ Los mensajes no deben revelar si el correo existe, qué credencial falló, token
 | Sesión iniciada, sin fusión | Autenticación exitosa y `merged:false` | Confirmación breve accesible | Retornar al origen o inicio | No; documentar como transición |
 | Fusionando carrito | Existe carrito anónimo | Mensaje “Actualizando tu carrito” sin bloquear innecesariamente toda la vista | Esperar | Sí |
 | Fusión con ajustes | Cantidades o SKU fueron ajustados | `O-007` resume producto y cantidad, sin datos internos | Ver carrito o cerrar | Se diseña en `O-007` |
-| Fusión fallida | Fallo antes del commit | Sesión permanece iniciada; mensaje “No pudimos actualizar tu carrito” | Reintentar | Sí |
+| Fusión fallida | Fallo antes del commit | Sesión iniciada; “No pudimos combinar tus carritos” y aclaración de que los artículos invitados no se agregaron al carrito de la cuenta | Reintentar / Continuar sin combinar | Sí |
 
 ## 8. Overlays y comunicaciones asociadas
 
@@ -171,7 +174,8 @@ La tecla Enter envía el paso activo cuando es válido. El error de autenticaci�
 | `V-001 / Desktop / MFA` | Desktop | MFA requerido | Segundo factor sin formulario de contraseña. |
 | `V-001 / Mobile / MFA error` | Mobile | MFA inválido | Mensaje, reintento y reenvío si aplica. |
 | `V-001 / Desktop / Fusionando carrito` | Desktop | Progreso posterior al login | Confirmación de sesión y fusión en curso. |
-| `V-001 / Mobile / Fusión fallida` | Mobile | Error recuperable | Sesión activa y acción de reintento. |
+| `V-001 / Desktop / Fusión fallida` | Desktop | Error recuperable | Sesión activa; Reintentar y Continuar sin combinar. |
+| `V-001 / Mobile / Fusión fallida` | Mobile | Error recuperable | Las mismas dos acciones, sin bloquear la navegación. |
 
 Los estados de límite temporal y contraseña caducada pueden documentarse como variantes anotadas del frame de error si el layout no cambia; el copy debe quedar visible en la spec o en Figma.
 
@@ -181,7 +185,7 @@ Los estados de límite temporal y contraseña caducada pueden documentarse como 
 - [ ] `UI-V001-002`: El error de credenciales es genérico y no identifica si falló el correo o la contraseña.
 - [ ] `UI-V001-003`: El CTA no puede ejecutarse dos veces mientras la solicitud está en curso.
 - [ ] `UI-V001-004`: Un acceso originado por una acción protegida conserva un retorno interno seguro y comprensible.
-- [ ] `UI-V001-005`: La falla de fusión no invalida visualmente la sesión ya iniciada y ofrece reintento.
+- [ ] `UI-V001-005`: La falla de fusión no invalida visualmente la sesión ya iniciada y ofrece Reintentar y Continuar sin combinar, sin afirmar que los carritos se fusionaron.
 - [ ] `UI-V001-006`: Desktop y mobile incluyen estados de validación, error y MFA con foco y anuncios definidos.
 - [ ] `UI-V001-007`: No se muestran tokens, causas técnicas ni datos sensibles en alertas o URLs visibles.
 - [ ] `UI-V001-008`: El regreso desde Seguridad, tras verificar o desde un enlace ya usado, muestra el login normal; no crea sesión automáticamente ni recibe el token del correo.
