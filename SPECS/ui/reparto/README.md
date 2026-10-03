@@ -21,9 +21,9 @@ Los mockups se trabajarán en la [carpeta de vistas de Figma](https://www.figma.
 | Integrante | Paquete | Revisor | Visual | Gobernanza | Total |
 |---|---|---|---:|---:|---:|
 | [Giuliano Macchiavello](./PAQUETE-GIULIANO.md) | Acceso, confirmación y sistema de diseño | Jim Segovia | 45 | 4 | **49** |
-| [Leonidas Garcia](./PAQUETE-LEONIDAS.md) | Descubrimiento, producto y feedback global | Giuliano Macchiavello | 49 | 0 | **49** |
+| [Fernando José Saire Tello](./PAQUETE-FERNANDO-SAIRE.md) | Descubrimiento, producto y feedback global | Giuliano Macchiavello | 49 | 0 | **49** |
 | [Sebastián Malca](./PAQUETE-SEBASTIAN.md) | Carrito, favoritos y filtros mobile | Diego Espinoza | 43 | 0 | **43** |
-| [Jim Segovia](./PAQUETE-JIM.md) | Checkout | Leonidas Garcia | 42 | 0 | **42** |
+| [Jim Segovia](./PAQUETE-JIM.md) | Checkout | Fernando José Saire Tello | 42 | 0 | **42** |
 | [Diego Espinoza](./PAQUETE-DIEGO.md) | Pedidos, postentrega y despacho | Sebastián Malca | 47 | 0 | **47** |
 | **Total** | 29 entregables | — | **226** | **4** | **230** |
 

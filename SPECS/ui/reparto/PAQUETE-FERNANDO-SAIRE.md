@@ -1,10 +1,10 @@
-# Paquete de Leonidas — descubrimiento, producto y feedback global
+# Paquete de Fernando Saire — descubrimiento, producto y feedback global
 
 ## 1. Control del paquete
 
 | Campo | Valor |
 |---|---|
-| Responsable | Leonidas Garcia |
+| Responsable | Fernando José Saire Tello |
 | Revisor principal | Giuliano Macchiavello |
 | Sistema de diseño | [`DS-001` v0.2.0](../DS-001-sistema-diseno-marketplace.md) |
 | Alcance | 5 entregables visuales |
@@ -108,10 +108,10 @@
 
 ## 7. Definition of Ready del paquete
 
-- [ ] Leonidas acepta alcance, carga y revisor.
+- [ ] Fernando acepta alcance, carga y revisor.
 - [ ] Las decisiones abiertas bloqueantes están resueltas o tienen supuesto aprobado.
 - [ ] `ProductCard` y `O-010` están publicados como componentes reutilizables.
 - [ ] Todos los frames de la sección 3 existen con esos nombres exactos.
 - [ ] Cada spec enlaza su sección o frame de Figma.
 - [ ] Filtros, imágenes, precios, disponibilidad, foco y responsive fueron comprobados.
-- [ ] Giuliano revisó el paquete y Leonidas cerró las observaciones.
+- [ ] Giuliano revisó el paquete y Fernando cerró las observaciones.

@@ -92,7 +92,7 @@ La reserva de 4 puntos de gobernanza no representa un frame aislado: cubre revis
 | Integrante | Entregables | Visual | Gobernanza | Total |
 |---|---|---:|---:|---:|
 | **Giuliano Macchiavello** | `V-001`–`V-004`, `O-003`, `O-004`, `C-001`; custodia de `DS-001` | 45 | 4 | **49** |
-| **Leonidas Garcia** | `V-005`–`V-007`, `O-002`, `O-010` | 49 | 0 | **49** |
+| **Fernando José Saire Tello** | `V-005`–`V-007`, `O-002`, `O-010` | 49 | 0 | **49** |
 | **Sebastián Malca** | `V-008`, `V-009`, `O-001`, `O-005`–`O-007` | 43 | 0 | **43** |
 | **Jim Segovia** | `V-010`–`V-014` | 42 | 0 | **42** |
 | **Diego Espinoza** | `V-015`–`V-017`, `O-008`, `O-009`, `C-002` | 47 | 0 | **47** |
@@ -113,7 +113,7 @@ El reparto cumple el umbral del plan: la diferencia entre carga máxima y mínim
 | Dueño | Entregable compartido | Consumidores |
 |---|---|---|
 | Giuliano | `DS-001`, marca y correo `C-001` | Los cinco paquetes |
-| Leonidas | `ProductCard`, galería y patrón global `O-010` | Inicio, catálogo, producto, carrito y favoritos |
+| Fernando | `ProductCard`, galería y patrón global `O-010` | Inicio, catálogo, producto, carrito y favoritos |
 | Sebastián | Filtros mobile `O-001`, feedback de carrito | `V-006`, `V-008`, `V-009`, `V-015` |
 | Jim | Progreso y resumen de checkout | `V-010`–`V-014` y consistencia con `V-008` |
 | Diego | Timeline, postentrega y correo `C-002` | `V-014`–`V-017` |

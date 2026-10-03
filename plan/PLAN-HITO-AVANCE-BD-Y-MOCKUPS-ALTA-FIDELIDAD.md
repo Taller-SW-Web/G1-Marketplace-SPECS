@@ -11,8 +11,8 @@
 | Fecha de elaboración | 2026-09-28 |
 | Fecha de presentación | Próxima semana; fecha exacta por confirmar |
 | Alcance | Base de datos, sistema de diseño, especificaciones por vista y mockups de alta fidelidad |
-| Equipo de base de datos | Andrés Fernando Morales Usca y Fernando José Saire Tello |
-| Equipo de UI/Figma | Diego Espinoza, Leonidas Garcia, Giuliano Macchiavello, Sebastián Malca y Jim Segovia |
+| Equipo de base de datos | Andrés Fernando Morales Usca y Leonidas Garcia Lescano |
+| Equipo de UI/Figma | Diego Espinoza, Fernando José Saire Tello, Giuliano Macchiavello, Sebastián Malca y Jim Segovia |
 
 ## 2. Resultado esperado del hito
 
@@ -251,17 +251,17 @@ El reparto se organiza por vistas completas, no por componentes aislados. Cada r
 | Responsable | Bloque principal | Artefactos |
 |---|---|---|
 | Giuliano Macchiavello | Sistema de diseño y acceso | Coordinación de `DS-001`, biblioteca Figma, `V-001`–`V-004`, `O-003`, `O-004` |
-| Leonidas Garcia | Descubrimiento y producto | `V-005`–`V-007`, `O-001`, `O-002`, revisión de coherencia técnica con F-006–F-016 |
-| Sebastián Malca | Carrito y favoritos | `V-008`, `V-009`, `O-005`–`O-007`, estados vacío/conflicto/deshacer |
+| Fernando José Saire Tello | Descubrimiento y producto | `V-005`–`V-007`, `O-002`, `O-010`, componentes `ProductCard` y galería |
+| Sebastián Malca | Carrito y favoritos | `V-008`, `V-009`, `O-001`, `O-005`–`O-007`, estados vacío/conflicto/deshacer |
 | Jim Segovia | Checkout | `V-010`–`V-014`, cotización, cupón, pago simulado y confirmación |
-| Diego Espinoza | Pedidos, comunicaciones y QA | `V-015`–`V-017`, `O-008`–`O-010`, `C-001`, `C-002`, navegación y trazabilidad final |
+| Diego Espinoza | Pedidos, comunicaciones y QA | `V-015`–`V-017`, `O-008`, `O-009`, `C-002`, navegación y trazabilidad final |
 
 Revisión cruzada propuesta:
 
 - Giuliano revisa consistencia visual y uso de componentes.
 - Jim revisa claridad de producto, contenido y alcance.
 - Diego revisa criterios de aceptación, estados y trazabilidad.
-- Leonidas revisa consistencia con contratos y límites de dominio.
+- Leonidas asesora desde Arquitectura/BD en contratos y límites de dominio; no tiene paquete de mockups.
 - Sebastián revisa documentación, responsive y continuidad de flujos.
 
 ### 7.2 Equipo de base de datos
@@ -269,7 +269,7 @@ Revisión cruzada propuesta:
 | Responsable | Bloque principal | Evidencia esperada |
 |---|---|---|
 | Andrés Morales | Esquema físico, seguridad e integridad | `schema.prisma`, migración, restricciones, índices y decisiones de privacidad |
-| Fernando Saire | ERD, datos de prueba y validación | Diagrama ER, seed, pruebas de restricciones, guía de ejecución y evidencia |
+| Leonidas Garcia | ERD, datos de prueba y validación | Diagrama ER, seed, pruebas de restricciones, guía de ejecución y evidencia |
 
 Ambos deben revisar juntos los límites de ownership: no crear tablas locales para usuario, dirección, producto, precio, inventario, pedido, despacho ni CSAT.
 
@@ -316,14 +316,14 @@ Ambos deben revisar juntos los límites de ownership: no crear tablas locales pa
 |---|---|---|---|---|
 | Recursos y marca inventariados | Giuliano | Pendiente | — | Jim |
 | `DS-001` v0.2.0 | Giuliano | Pendiente | — | Equipo UI |
-| Catálogo `V/O/C` | Diego + Leonidas | Pendiente | — | Jim |
+| Catálogo `V/O/C` | Diego + Fernando | Pendiente | — | Jim |
 | Specs por vista | Equipo UI | Pendiente | — | Revisión cruzada |
 | Biblioteca Figma | Giuliano | Pendiente | — | Sebastián |
 | Mockups desktop/mobile | Equipo UI | Pendiente | — | Revisión cruzada |
 | Prototipo navegable | Diego + Jim | Pendiente | — | Equipo UI |
-| Esquema Prisma | Andrés | Pendiente | — | Fernando |
-| ERD y seed | Fernando | Pendiente | — | Andrés |
-| Migración reproducible | Andrés + Fernando | Pendiente | — | Leonidas |
+| Esquema Prisma | Andrés | Pendiente | — | Leonidas |
+| ERD y seed | Leonidas | Pendiente | — | Andrés |
+| Migración reproducible | Andrés + Leonidas | Pendiente | — | Diego |
 | Presentación y trazabilidad | Diego + Jim | Pendiente | — | Todo el equipo |
 
 ## 11. Riesgos y decisiones que deben cerrarse pronto
@@ -347,5 +347,5 @@ Ambos deben revisar juntos los límites de ownership: no crear tablas locales pa
 3. Se aprueba el catálogo `V-001` a `V-017`, overlays y correos.
 4. Se redactan las specs por vista y se actualiza navegación.
 5. Sólo entonces se asignan y producen los frames web/mobile.
-6. En paralelo, Andrés y Fernando derivan y prueban el modelo físico.
+6. En paralelo, Andrés y Leonidas derivan y prueban el modelo físico.
 7. El último día se congela versión, se completa la trazabilidad y se prepara la demostración.

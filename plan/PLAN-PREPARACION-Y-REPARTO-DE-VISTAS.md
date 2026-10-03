@@ -9,8 +9,8 @@
 | Versión | `0.2.0` |
 | Estado | Preparado para validación y aceptación del equipo |
 | Fecha | 2026-09-28 |
-| Última actualización | 2026-10-01 |
-| Equipo | Diego Espinoza, Leonidas Garcia, Giuliano Macchiavello, Sebastián Malca y Jim Segovia |
+| Última actualización | 2026-10-02 |
+| Equipo | Diego Espinoza, Fernando José Saire Tello, Giuliano Macchiavello, Sebastián Malca y Jim Segovia |
 | Punto de inicio | `DS-001` v0.2.0 consolidado de forma preliminar, tres logos incorporados, enlaces de Figma registrados, 40 specs UI por funcionalidad y documentación histórica de 15 pantallas |
 | Estado alcanzado | Inventario de 29 piezas validado documentalmente y cinco paquetes equilibrados preparados; faltan aceptación, decisiones abiertas, enlaces de frames y revisión humana |
 | Punto de cierre | Cinco paquetes de diseño aceptados, revisados y con Definition of Ready completada |
@@ -241,7 +241,7 @@ Este reparto se ajustó después de estimar las 29 piezas. Mantiene flujos coher
 | Integrante | Paquete | Vistas y elementos | Puntos |
 |---|---|---|---:|
 | Giuliano Macchiavello | Sistema de diseño, acceso y confirmación | Custodia de `DS-001`; `V-001`–`V-004`; `O-003`, `O-004`; `C-001` | **49** |
-| Leonidas Garcia | Descubrimiento, producto y feedback global | `V-005`–`V-007`; `O-002`, `O-010` | **49** |
+| Fernando José Saire Tello | Descubrimiento, producto y feedback global | `V-005`–`V-007`; `O-002`, `O-010` | **49** |
 | Sebastián Malca | Carrito, favoritos y filtros mobile | `V-008`, `V-009`; `O-001`, `O-005`–`O-007` | **43** |
 | Jim Segovia | Checkout | `V-010`–`V-014` | **42** |
 | Diego Espinoza | Pedidos, postentrega y despacho | `V-015`–`V-017`; `O-008`, `O-009`; `C-002` | **47** |
@@ -251,9 +251,9 @@ Este reparto se ajustó después de estimar las 29 piezas. Mantiene flujos coher
 | Autor | Revisor principal | Aspecto |
 |---|---|---|
 | Giuliano | Jim | Claridad de flujos de acceso y producto |
-| Leonidas | Giuliano | Consistencia visual y componentes |
+| Fernando | Giuliano | Consistencia visual y componentes |
 | Sebastián | Diego | Estados, accesibilidad y trazabilidad |
-| Jim | Leonidas | Coherencia con contratos y flujo de checkout |
+| Jim | Fernando | Coherencia visual y continuidad del flujo de checkout |
 | Diego | Sebastián | Responsive, contenido y continuidad de pedidos |
 
 Resultado: mínimo 42, máximo 49 y diferencia conservadora de `16.7 %` respecto al paquete menor. El reparto cumple el límite del 20 %. Los cálculos y factores están en el inventario enlazado.

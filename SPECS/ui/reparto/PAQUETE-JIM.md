@@ -5,7 +5,7 @@
 | Campo | Valor |
 |---|---|
 | Responsable | Jim Segovia |
-| Revisor principal | Leonidas Garcia |
+| Revisor principal | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001` v0.2.0](../DS-001-sistema-diseno-marketplace.md) |
 | Carpeta de mockups en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394); enlace directo al archivo y a los frames pendiente |
 | Alcance | 5 vistas del flujo completo de checkout |
@@ -107,7 +107,7 @@
 3. Diseñar `V-011` para fijar cotización, promoción, cupón y cobertura.
 4. Diseñar `V-012` y `V-013` juntos por su continuidad transaccional.
 5. Diseñar `V-014` y coordinar continuidad con Diego y correo con Giuliano.
-6. Completar enlaces de Figma y solicitar revisión de Leonidas.
+6. Completar enlaces de Figma y solicitar revisión de Fernando.
 
 ## 7. Definition of Ready del paquete
 
@@ -117,4 +117,4 @@
 - [ ] Todos los frames de la sección 3 existen con esos nombres exactos.
 - [ ] Cada spec enlaza su sección o frame de Figma.
 - [ ] Cálculo, validación, incertidumbre, regreso seguro, foco y responsive fueron comprobados.
-- [ ] Leonidas revisó el paquete y Jim cerró las observaciones.
+- [ ] Fernando revisó el paquete y Jim cerró las observaciones.

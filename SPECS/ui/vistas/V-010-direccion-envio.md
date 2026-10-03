@@ -12,7 +12,7 @@
 | Versión | `0.1.0` |
 | Estado | En revisión |
 | Responsable | Jim Segovia |
-| Revisor | Leonidas Garcia |
+| Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
 | Enlace de Figma | Pendiente |
 

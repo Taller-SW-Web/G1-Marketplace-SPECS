@@ -11,7 +11,7 @@
 | Tipo | Visor modal; pantalla completa en mobile |
 | Versión | `0.1.0` |
 | Estado | En revisión |
-| Responsable | Leonidas Garcia |
+| Responsable | Fernando José Saire Tello |
 | Revisor | Giuliano Macchiavello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
 | Enlace de Figma | Pendiente |

@@ -82,8 +82,8 @@
 
 ## 4. Dependencias compartidas
 
-- Reutilizar `ProductCard` de Leonidas y acordar la variante compacta de línea de carrito/favorito.
-- `O-001` es consumido por `V-006` de Leonidas y `V-015` de Diego; acordar un patrón único con configuración por contexto.
+- Reutilizar `ProductCard` de Fernando y acordar la variante compacta de línea de carrito/favorito.
+- `O-001` es consumido por `V-006` de Fernando y `V-015` de Diego; acordar un patrón único con configuración por contexto.
 - La autenticación para favoritos usa `O-003` de Giuliano y debe preservar retorno/intención.
 - `V-008` entrega contexto a `V-010`–`V-014` de Jim; alinear resumen, importes, alertas de stock y CTA de checkout.
 - `O-007` debe corresponder con los estados de fusión documentados en `V-001` de Giuliano.
@@ -105,7 +105,7 @@
 2. Diseñar `V-008`, porque define la mayor parte de los componentes del paquete.
 3. Diseñar `O-005`, `O-006` y `O-007` sobre los estados ya fijados del carrito.
 4. Diseñar `V-009` reutilizando los componentes compartidos.
-5. Diseñar `O-001` con Leonidas y Diego para los dos contextos de uso.
+5. Diseñar `O-001` con Fernando y Diego para los dos contextos de uso.
 6. Completar enlaces de Figma y solicitar revisión de Diego.
 
 ## 7. Definition of Ready del paquete
