@@ -50,8 +50,8 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 
 - **Local:** Contacto transitorio, clave y fingerprint asociados a mismo intento; ninguna edición silenciosa de payload enviado.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
-- **Remoto / caché:** Invalidate operaciones/pedidos/cart después de SUCCEEDED; no reconstruir pedido a partir de carrito.
-- **Flujo específico:** POST BFF envía snapshot transitorio dirección a Ventas con idempotencia homologada. 503 podría ser incierto: consultar operación original; corrección de contacto sólo si servidor garantiza no envío y protocolo de clave aceptado.
+- **Remoto / caché:** Conservar operación y `orderId` tras `CREADO`; invalidar operaciones/pedidos/cart sólo después de `SUCCEEDED` respaldado por `PAGADO`, sin reconstruir pedido desde carrito.
+- **Flujo específico:** POST BFF envía snapshot/dirección homologados a Ventas. `CREADO` permanece `SUBMITTED` mientras Ventas prepara reserva/cupón y habilita pago; el adaptador de simulación aún requiere acuerdo. 503 podría ser incierto: consultar operación original; no repetir como compra nueva.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -73,7 +73,7 @@ Auth y rutas `/password` se traducen mediante el límite de integración aprobad
 
 ## 7. Estados, errores y recuperación
 
-PREPARED → SUBMITTING → SUCCEEDED | SUBMITTED | FIELD_ERROR | FAILED; SUBMITTED → VERIFYING → SUCCEEDED | SUBMITTED | FAILED.
+PREPARED → SUBMITTING → SUBMITTED (`CREADO`) | FIELD_ERROR | FAILED; SUBMITTED → VERIFYING → SUCCEEDED sólo con `PAGADO` de Ventas | SUBMITTED | FAILED.
 
 - **Carga:** skeleton de la región que consulta, o progreso local de mutación; nunca datos o importes de ejemplo.
 - **Vacío / no aplicable:** sólo ante respuesta válida o condición explícita; errores nunca se convierten en colección vacía, precio cero o stock agotado.

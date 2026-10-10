@@ -1,6 +1,6 @@
 # Vista — V-012 Pago simulado
 
-> Pantalla autenticada para confirmar explícitamente una simulación de pago y ejecutar la última revalidación antes de crear la orden. No solicita tarjeta ni realiza un cobro real.
+> Pantalla autenticada para registrar el consentimiento de una futura operación simulada y revalidar el resumen antes de crear la orden. No solicita tarjeta ni confirma un pago en este paso.
 
 ## 1. Metadatos
 
@@ -22,7 +22,7 @@
 - **Actor principal:** cliente autenticado con cotización vigente.
 - **Permiso:** privado.
 - **Condiciones de entrada:** `quoteId`, versión de carrito, dirección y beneficio aún válidos desde `V-011`.
-- **Resultado esperado:** una única `CheckoutOperation` en estado `PREPARED`; todavía no existe pedido, cobro, consumo de cupón ni descuento de stock.
+- **Resultado esperado:** una única `CheckoutOperation` en estado `PREPARED`; todavía no existe pedido, pago aprobado, consumo de cupón ni reserva o descuento de stock.
 
 > [!IMPORTANT]
 > El wireframe histórico que solicitaba número de tarjeta, titular, vencimiento y CVV quedó reemplazado por F-025. Esos campos y cualquier iconografía que sugiera un pago real están fuera del diseño vigente.
@@ -31,7 +31,7 @@
 
 | Funcionalidad | Spec funcional | Spec UI de origen | Aporte a esta vista |
 |---|---|---|---|
-| `F-025` | [`Simular pago y revalidar stock`](../../funcional/F-025-simular-pago-revalidar-stock.md) | [`UI F-025`](../F-025-simular-pago-revalidar-stock.md) | Confirmación explícita, revalidación, idempotencia y estado preparado. |
+| `F-025` | [`Simular pago y revalidar stock`](../../funcional/F-025-simular-pago-revalidar-stock.md) | [`UI F-025`](../F-025-simular-pago-revalidar-stock.md) | Consentimiento explícito, revalidación, idempotencia y estado preparado sin pago confirmado. |
 
 Contrato consultado: [`API F-025`](../../contrato-api/F-025-simular-pago-revalidar-stock.md).
 
@@ -65,7 +65,7 @@ V-012 Pago simulado
 │   └── Total estimado
 ├── Confirmación explícita
 │   └── Checkbox no preseleccionado
-├── Volver / “Confirmar pago simulado”
+├── Volver / “Preparar compra simulada”
 └── Resultado preparado + CTA separado a V-013
 ```
 
@@ -74,8 +74,8 @@ V-012 Pago simulado
 | Aviso | Naturaleza simulada | Primaria | Visible antes de la confirmación y del CTA; no se reduce a una nota legal. |
 | Resumen | Cotización vigente | Primaria | Sólo lectura; editar vuelve a `V-011`. |
 | Confirmación | Checkbox explícito | Primaria | No preseleccionado; declara que se comprende la simulación. |
-| CTA de preparación | Confirmar pago simulado | Primaria | Habilitado sólo con confirmación y contexto vigente. |
-| Resultado | Pago simulado aprobado | Primaria | Diferencia preparación de creación del pedido y ofrece CTA separado. |
+| CTA de preparación | Preparar compra simulada | Primaria | Habilitado sólo con consentimiento y contexto vigente. |
+| Resultado | Preparación lista | Primaria | Aclara que todavía no hay pago aprobado y ofrece CTA separado para crear el pedido. |
 
 ## 6. Contenido y acciones
 
@@ -86,8 +86,8 @@ V-012 Pago simulado
 | Ayuda | “Volveremos a validar precios, promociones, envío y disponibilidad.” | — | Estado listo. |
 | Resumen | Dirección, líneas, descuentos, envío y total estimado | Volver a revisar | Contexto vigente. |
 | Checkbox | “Entiendo que este pago es una simulación.” | Confirmar intención | Listo; nunca marcado por defecto. |
-| CTA | “Confirmar pago simulado” | Crear/reutilizar preparación idempotente | Checkbox marcado y no procesando. |
-| Preparado | “Pago simulado aprobado” | Informar que aún falta crear pedido | `PREPARED`. |
+| CTA | “Preparar compra simulada” | Crear/reutilizar preparación idempotente | Checkbox marcado y no procesando. |
+| Preparado | “Preparación lista; todavía no se confirmó ningún pago” | Informar que falta crear el pedido y esperar la confirmación de Ventas | `PREPARED`. |
 | CTA siguiente | “Continuar a crear pedido” | Abrir `V-013` | Sólo `PREPARED`. |
 
 No se muestran marcas de tarjeta, candados asociados a cobro, teclado numérico financiero, número de tarjeta, vencimiento, titular, CVV ni mensajes de “cargo”.
@@ -99,7 +99,7 @@ No se muestran marcas de tarjeta, candados asociados a cobro, teclado numérico 
 | Listo | Quote vigente | Aviso, resumen, checkbox y CTA inicialmente inactivo | Confirmar | Sí |
 | Confirmado localmente | Checkbox marcado | CTA habilitado; ningún cobro iniciado | Enviar/desmarcar | Anotado en principal |
 | Procesando | POST de preparación | CTA bloqueado, progreso y navegación destructiva desaconsejada | Esperar | Sí |
-| Preparado | Respuesta `201` o repetición idempotente equivalente | Confirmación diferenciada y CTA separado | Continuar a `V-013` | Sí |
+| Preparado | Respuesta `201` o repetición idempotente equivalente | Estado intermedio sin icono/copy de pago aprobado y CTA separado | Continuar a `V-013` | Sí |
 | Confirmación ausente | `400 SIMULATION_NOT_CONFIRMED` | Error asociado al checkbox | Marcar y reenviar | Sí |
 | Cotización vencida | `409 QUOTE_EXPIRED` | Resumen marcado no vigente; preparación no creada | Volver a `V-011` y recalcular | Sí |
 | Revisión requerida | `409 REVALIDATION_CHANGED` | Lista de categorías de cambio sin datos técnicos | Volver a `V-011` | Sí |
@@ -151,7 +151,7 @@ No existen otros campos. El resumen es de sólo lectura y cualquier corrección 
 - Procesando usa estado ocupado y anuncio moderado; el CTA evita doble activación.
 - El foco llega al encabezado del resultado preparado o del error/revisión requerida.
 - Cambios de revalidación se presentan como lista y enlazan a la corrección apropiada.
-- “Preparado” y “pedido creado” nunca comparten icono, título o texto que los vuelva indistinguibles.
+- “Preparado”, “pedido creado” y “pagado” no comparten icono, título ni texto que los vuelva indistinguibles.
 - Movimiento/progreso respeta preferencias de reducción.
 
 ## 12. Frames requeridos en Figma
@@ -173,7 +173,7 @@ No existen otros campos. El resumen es de sólo lectura y cualquier corrección 
 - [ ] `UI-V012-002`: El aviso de simulación aparece antes del checkbox y del CTA en desktop y mobile.
 - [ ] `UI-V012-003`: El checkbox no está preseleccionado y el CTA no puede repetirse durante el procesamiento.
 - [ ] `UI-V012-004`: Cotización vencida, cambios de revalidación y stock no disponible no dejan una operación preparada.
-- [ ] `UI-V012-005`: “Pago simulado aprobado” se distingue de “Pedido creado” y conduce mediante una acción separada a `V-013`.
+- [ ] `UI-V012-005`: “Preparación lista” aclara que no hay pago aprobado y conduce mediante una acción separada a `V-013`.
 - [ ] `UI-V012-006`: Reintentar conserva la idempotencia sin mostrar claves o identificadores técnicos.
 - [ ] La vista aplica `DS-001`, foco, contraste y reducción de movimiento.
 

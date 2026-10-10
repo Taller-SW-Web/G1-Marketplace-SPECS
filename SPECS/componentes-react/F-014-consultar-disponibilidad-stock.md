@@ -49,7 +49,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Sólo estado de presentación; no umbral ni saldo de almacenes.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** ['catalog','availability',slug,sku]; máximo 30s, query sin SKU no ejecuta.
-- **Flujo específico:** BFF adapta Inventario. F-016 recibe capacidad de acción confirmada por selección/precio/disponibilidad; consulta no reserva.
+- **Flujo específico:** BFF adapta el estado comercial publicado por Productos. F-016 puede usarlo como indicio para la selección, pero no como prueba de que hay N unidades; la consulta no reserva y la operación cuantitativa `X-P0-03` está pendiente.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones

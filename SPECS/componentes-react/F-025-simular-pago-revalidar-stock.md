@@ -42,7 +42,7 @@ El contenedor coordina transporte/estado; los componentes presentacionales no ll
 | ID / componente | Responsabilidad | Props tipadas (propuesta) | Eventos |
 |---|---|---|---|
 | `CMP-F025-001` · `PaymentSimulationForm` | Único checkbox: entiende que no hay cobro. | `quote: CheckoutQuoteDTO; confirmed: boolean; busy: boolean` | onConfirmationChange(value); onPrepare() |
-| `CMP-F025-002` · `PreparationOutcome` | PREPARED es preparación, no pedido. | `state: PreparationState; operationId?: string` | onReviewSummary(); onContinue() |
+| `CMP-F025-002` · `PreparationOutcome` | PREPARED es consentimiento y preparación, no pedido ni pago aprobado. | `state: PreparationState; operationId?: string` | onReviewSummary(); onContinue() |
 
 Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuevos campos de la API. Su estructura se deriva exclusivamente del contrato enlazado; aplicar las convenciones de tipos de [ARQUITECTURA-REACT](ARQUITECTURA-REACT.md#3-tipos-y-contratos). Props con `busy` no habilitan dobles mutaciones. Eventos se invocan una vez y devuelven control al contenedor.
 
@@ -51,7 +51,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Consentimiento en memoria; clave opaca estable por intento/payload, sin PII persistida.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** CheckoutOperation del BFF es autoridad; almacenar referencia opaca según estrategia de recuperación aún abierta.
-- **Flujo específico:** 201 continúa a creación separada V-013. 409 QUOTE_EXPIRED/REVALIDATION_CHANGED vuelve resumen; STOCK_NOT_AVAILABLE carrito. No tarjeta/CVV ni reserva stock.
+- **Flujo específico:** 201 continúa a creación separada V-013. 409 QUOTE_EXPIRED/REVALIDATION_CHANGED vuelve resumen; STOCK_NOT_AVAILABLE sólo con evidencia para la cantidad pedida. No tarjeta/CVV, reserva stock ni pago aprobado en este paso.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -72,7 +72,7 @@ Auth y rutas `/password` se traducen mediante el límite de integración aprobad
 
 ## 7. Estados, errores y recuperación
 
-READY → PREPARING → PREPARED | NEEDS_REVIEW | NO_STOCK | ERROR; respuesta incierta consulta operación cuando hay ID, nunca marca aprobado por timeout.
+READY → PREPARING → PREPARED | NEEDS_REVIEW | NO_STOCK | ERROR; respuesta incierta consulta operación cuando hay ID, nunca marca pago aprobado por timeout o por `PREPARED`.
 
 - **Carga:** skeleton de la región que consulta, o progreso local de mutación; nunca datos o importes de ejemplo.
 - **Vacío / no aplicable:** sólo ante respuesta válida o condición explícita; errores nunca se convierten en colección vacía, precio cero o stock agotado.

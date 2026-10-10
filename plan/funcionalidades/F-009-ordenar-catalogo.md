@@ -13,7 +13,7 @@
 ## 2. Objetivo y límites
 
 Entregar ordenar resultados conforme comportamiento/UI/API/React, no una pantalla aislada.
-Cambiar sort reinicia page=0 y conserva q/filtros; backend mantiene orden estable.
+Cambiar sort reinicia page=0 y conserva q/filtros; backend mantiene orden estable. Para el contrato actual sólo se habilita orden por nombre (`NAME_ASC/DESC` → `NOMBRE_ASC/DESC`); precio, novedad y relevancia requieren homologación posterior.
 
 ## 3. Decisiones técnicas
 

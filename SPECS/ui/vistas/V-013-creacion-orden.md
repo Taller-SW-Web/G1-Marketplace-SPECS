@@ -22,7 +22,7 @@
 - **Actor principal:** cliente autenticado propietario de una `CheckoutOperation PREPARED`.
 - **Permiso:** privado.
 - **Condiciones de entrada:** operación preparada desde `V-012`, todavía no enviada con éxito a Ventas.
-- **Resultado esperado:** pedido único en Ventas y navegación a `V-014`, o estado de verificación cuando el resultado sea incierto.
+- **Resultado esperado:** pedido único en Ventas y navegación a `V-014` sólo después de `PAGADO` confirmado; `CREADO`, preparación para pago o resultado incierto permanecen en verificación.
 
 ## 3. Trazabilidad
 
@@ -38,7 +38,8 @@ Contrato consultado: [`API F-026`](../../contrato-api/F-026-crear-orden-ventas.m
 |---|---|---|---|
 | `V-012` → continuar | `V-013` | Operación `PREPARED` | `checkoutOperationId` y resumen transitorio. |
 | “Volver” | `V-012` | Antes de enviar y operación aún preparada | Operación; no duplica preparación. |
-| Orden creada | `V-014` | `SUCCEEDED` con `orderId` | Sólo ID de pedido y resumen permitido. |
+| Pago simulado confirmado por Ventas | `V-014` | `SUCCEEDED`, `orderId` y estado `PAGADO` verificado | Sólo ID de pedido y resumen permitido. |
+| Orden creada, aún no pagada | Misma `V-013` | `CREADO`/`SUBMITTED` | Operación y `orderId` original para verificar sin nuevo POST. |
 | Resultado pendiente | Misma `V-013` | `SUBMITTED`/`ORDER_CREATION_PENDING` | Operación original para consultar; no genera una nueva. |
 | Operación no preparada | `V-012` o `V-011` | `409 OPERATION_NOT_PREPARED` | Retorno seguro según estado vigente. |
 | Sesión vencida | `O-003` → `V-001` | `401` | Después de login se consulta la operación existente antes de permitir acción. |
@@ -53,7 +54,7 @@ V-013 Creación de la orden
 ├── Resumen final de sólo lectura
 │   ├── Líneas e importes revalidados
 │   ├── Dirección resumida
-│   └── Pago simulado preparado
+│   └── Consentimiento de simulación registrado
 ├── Datos de contacto faltantes, condicional
 │   ├── Nombre completo
 │   ├── Tipo/número de documento
@@ -75,7 +76,7 @@ V-013 Creación de la orden
 | Elemento | Texto o dato | Acción | Condición de visibilidad |
 |---|---|---|---|
 | Título | “Confirma y crea tu pedido” | — | Estado listo. |
-| Resumen | Artículos, importes, entrega y simulación preparada | Revisar | Siempre antes del envío. |
+| Resumen | Artículos, importes, entrega y consentimiento de simulación | Revisar | Siempre antes del envío. |
 | Nombre completo | Dato requerido por Ventas | Capturar | Falta en perfil autorizado. |
 | Tipo documento | DNI/RUC/CE/PASAPORTE | Seleccionar | Documento faltante. |
 | Número documento | Según tipo | Capturar | Documento faltante. |
@@ -93,7 +94,8 @@ V-013 Creación de la orden
 | Listo con campos faltantes | Contacto incompleto | Sólo campos necesarios y CTA | Completar | Sí |
 | Validación local | Formato/incompletitud | Errores junto al campo; resto permanece | Corregir | Sí |
 | Enviando | POST iniciado | CTA no repetible, controles bloqueados, mensaje de progreso | Esperar | Sí |
-| Éxito | `201 SUCCEEDED` | Transición a `V-014`; no se repite CTA | Ver pedido confirmado | Se diseña en `V-014` |
+| Pedido creado | `CREADO`/`SUBMITTED` | Estado neutral “Estamos preparando tu pedido”; sin check de éxito ni nuevo CTA de compra | Verificar la operación original | Sí, variante pendiente |
+| Éxito | Ventas confirma `PAGADO` para el `orderId` | Transición a `V-014`; no se repite CTA | Ver pedido confirmado | Se diseña en `V-014` |
 | Resultado incierto | `409 ORDER_CREATION_PENDING` o estado `SUBMITTED` | Mensaje neutral; no icono de fracaso/éxito; sin nuevo envío | Verificar operación | Sí |
 | Contacto rechazado | `400 CONTACT_VALIDATION_ERROR` | Sólo campos inválidos marcados | Corregir | Sí |
 | Operación no preparada | `409 OPERATION_NOT_PREPARED` | Explicación y retorno al paso correcto | Revisar preparación | Sí |
@@ -171,6 +173,7 @@ Los datos son transitorios para crear la orden; la interfaz no afirma que actual
 - [ ] `UI-V013-004`: Los datos de contacto no se presentan como actualización del perfil local.
 - [ ] `UI-V013-005`: Errores validables preservan campos correctos y llevan el foco al primer error.
 - [ ] `UI-V013-006`: No se muestran idempotency keys, request IDs, tokens ni errores internos.
+- [ ] `UI-V013-007`: `CREADO` no activa la confirmación final; la preparación y el pago simulado incierto conservan la operación original.
 - [ ] Desktop y mobile aplican `DS-001` y distinguen creación de orden de pago preparado/confirmación final.
 
 ## 14. Decisiones y pendientes
@@ -181,3 +184,4 @@ Los datos son transitorios para crear la orden; la interfaz no afirma que actual
 | `V-013-OPEN-02` | Confirmar reglas exactas de DNI, RUC, CE y PASAPORTE aceptadas por Ventas. | Ventas + UX | Antes del diseño final | Abierta |
 | `V-013-OPEN-03` | Definir frecuencia, duración y salida del estado “Estamos verificando tu pedido”. | Backend + Producto | Antes del diseño final | Abierta |
 | `V-013-OPEN-04` | Confirmar qué datos de perfil llegan autorizados para decidir los campos faltantes. | Seguridad + Ventas | Antes del diseño final | Abierta |
+| `V-013-OPEN-05` | Homologar con Ventas la señal de aptitud para pagar y el contrato autorizado de pago simulado; no reutilizar el webhook de pasarela. | Ventas + Productos + Arquitectura | Antes de implementar checkout real | Abierta |

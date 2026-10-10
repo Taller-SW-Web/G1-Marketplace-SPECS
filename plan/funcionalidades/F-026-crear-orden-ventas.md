@@ -13,14 +13,14 @@
 ## 2. Objetivo y límites
 
 Entregar crear la orden en ventas y postventa conforme comportamiento/UI/API/React, no una pantalla aislada.
-POST BFF envía snapshot transitorio dirección a Ventas con idempotencia homologada. 503 podría ser incierto: consultar operación original; corrección de contacto sólo si servidor garantiza no envío y protocolo de clave aceptado.
+POST BFF envía snapshot/dirección homologados a Ventas. `CREADO` permanece pendiente hasta la aptitud para pagar y la confirmación simulada autorizada por Ventas. 503 podría ser incierto: consultar operación original; no enviar una compra nueva.
 
 ## 3. Decisiones técnicas
 
 | Área | Trabajo / decisión |
 |---|---|
 | Frontend / render | `OrderCreationForm`, `OrderSubmissionStatus`; hook `useCreateOrder`; arquitectura transversal React. |
-| Backend / adaptador | Orquestar PREPARED→SUBMITTED→SUCCEEDED/FAILED y Ventas idempotente; manejar resultado incierto y contacto transitorio. |
+| Backend / adaptador | Orquestar PREPARED→SUBMITTED (`CREADO`)→SUCCEEDED sólo con `PAGADO` verificable; Ventas idempotente, señal de aptitud, contrato simulado y recuperación incierta siguen bajo I-02. |
 | Persistencia | CheckoutOperation. Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
 | Remoto / caché | Invalidate operaciones/pedidos/cart después de SUCCEEDED; no reconstruir pedido a partir de carrito. |
 | Seguridad específica | Idempotencia real con Ventas, operación/contacto manipulados y ownership; timeout no segundo pedido. |
@@ -62,7 +62,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 ## 7. Riesgos y recuperación
 
-PREPARED → SUBMITTING → SUCCEEDED | SUBMITTED | FIELD_ERROR | FAILED; SUBMITTED → VERIFYING → SUCCEEDED | SUBMITTED | FAILED.
+PREPARED → SUBMITTING → SUBMITTED (`CREADO`) | FIELD_ERROR | FAILED; SUBMITTED → VERIFYING → SUCCEEDED sólo con `PAGADO` | SUBMITTED | FAILED.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
 

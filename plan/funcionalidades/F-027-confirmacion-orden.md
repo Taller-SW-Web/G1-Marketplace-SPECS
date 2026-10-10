@@ -20,7 +20,7 @@ F-026 conserva asociación opaca para navegación; cerrar V-014-OPEN-01 antes de
 | Área | Trabajo / decisión |
 |---|---|
 | Frontend / render | `OrderConfirmationContainer`, `OrderConfirmationSummary`; hook `useOrderConfirmation`; arquitectura transversal React. |
-| Backend / adaptador | GET operación propietaria,200 SUCCEEDED / 202 SUBMITTED / 409 fallo; resolver orden pública versus operationId sin lookup inventado. |
+| Backend / adaptador | GET operación propietaria: 200 SUCCEEDED sólo con `PAGADO` verificable, 202 SUBMITTED para `CREADO`/resultado incierto, 409 fallo inequívoco; resolver orderId frente a operationId sin lookup inventado. |
 | Persistencia | CheckoutOperation (sólo lectura). Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
 | Remoto / caché | ['checkout','operation',sessionScope,operationId]; al montar validar pertenencia; respuestas privadas no caché pública. |
 | Seguridad específica | Operación ajena / ID manipulado no filtra datos,202 no éxito y callback/query no autentica. |
@@ -62,7 +62,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 ## 7. Riesgos y recuperación
 
-LOADING → CONFIRMED | VERIFYING | FAILED | NOT_ACCESSIBLE | ERROR;202 SUBMITTED conserva neutral; CONFIRMED requiere SUCCEEDED+orderId.
+LOADING → CONFIRMED | VERIFYING | FAILED | NOT_ACCESSIBLE | ERROR; 202 SUBMITTED/`CREADO` conserva neutral; CONFIRMED requiere SUCCEEDED + `orderId` + `PAGADO` confirmado por Ventas.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
 

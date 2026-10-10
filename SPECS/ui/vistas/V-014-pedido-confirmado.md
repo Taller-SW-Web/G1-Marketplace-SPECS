@@ -1,6 +1,6 @@
 # Vista — V-014 Pedido confirmado
 
-> Pantalla privada que presenta un pedido creado por Ventas y ofrece los siguientes pasos. El correo de confirmación se procesa por separado y no condiciona el éxito del pedido.
+> Pantalla privada que confirma la compra simulada sólo cuando Ventas informa `PAGADO` para el pedido. Un pedido únicamente `CREADO` continúa en verificación; el correo se procesa por separado.
 
 ## 1. Metadatos
 
@@ -21,8 +21,8 @@
 - **Objetivo del usuario:** confirmar que el pedido existe, conservar su código y elegir entre revisarlo o seguir comprando.
 - **Actor principal:** cliente autenticado propietario del pedido/operación.
 - **Permiso:** privado.
-- **Condición de entrada:** F-026 confirmó `externalOrderId`; una operación `PREPARED` o `SUBMITTED` no permite mostrar éxito.
-- **Resultado esperado:** código, fecha, total, estado inicial y próximos pasos comprensibles, sin exponer documento ni dirección completa.
+- **Condición de entrada:** F-026 conserva `externalOrderId` y verifica `PAGADO` del mismo pedido; `PREPARED`, `CREADO` o `SUBMITTED` no permiten mostrar éxito.
+- **Resultado esperado:** código, fecha, total, estado pagado y próximos pasos comprensibles, sin exponer documento ni dirección completa.
 
 ## 3. Trazabilidad
 
@@ -37,7 +37,7 @@ Contratos consultados: [`API F-027`](../../contrato-api/F-027-confirmacion-orden
 
 | Origen o acción | Destino | Condición | Contexto que se conserva |
 |---|---|---|---|
-| `V-013` después de `SUCCEEDED` | `V-014` | Pedido confirmado | `orderId` y snapshot permitido. |
+| `V-013` después de `SUCCEEDED` | `V-014` | `PAGADO` verificado en Ventas | `orderId` y snapshot permitido. |
 | URL propia | `V-014` | Cliente propietario | Sesión; consulta del pedido/operación. |
 | “Ver mi pedido” | `V-016` | `orderId` válido | Pedido seleccionado. |
 | “Seguir comprando” | `V-005` | Acción explícita | Sesión; carrito anterior ya no se presenta como pendiente. |
@@ -53,7 +53,7 @@ V-014 Pedido confirmado
 │   ├── Icono semántico de éxito
 │   ├── “¡Pedido confirmado!”
 │   ├── Código copiable
-│   └── Fecha y estado CREADO
+│   └── Fecha y estado PAGADO
 ├── Resumen corto
 │   ├── Artículos/cantidad resumida
 │   └── Total confirmado
@@ -68,16 +68,16 @@ El estado de verificación pendiente sustituye el bloque de éxito: usa título,
 
 | Elemento | Texto o dato | Acción | Condición de visibilidad |
 |---|---|---|---|
-| Título de éxito | “¡Pedido confirmado!” | — | Sólo `SUCCEEDED` con `orderId`. |
+| Título de éxito | “¡Pedido confirmado!” | — | Sólo `SUCCEEDED` con `orderId` y `PAGADO` verificado. |
 | Código | “Pedido {orderId}” | Copiar mediante botón etiquetado | Éxito. |
-| Estado | “Creado” | — | Éxito inicial. |
+| Estado | “Pago simulado confirmado” | — | Éxito verificado por Ventas; se aclara que no hubo cargo real. |
 | Fecha | Fecha/hora localizada | — | Éxito. |
 | Total | Importe y moneda del snapshot de Ventas | — | Éxito. |
 | Resumen | Conteo o lista corta autorizada | — | Si contrato lo entrega. |
 | Correo | “Te enviaremos una confirmación al correo registrado.” | — | Éxito; email enmascarado sólo si está autorizado. |
 | Acción primaria | “Ver mi pedido” | Abrir `V-016` | Éxito. |
 | Acción secundaria | “Seguir comprando” | Abrir `V-005` | Éxito. |
-| Pendiente | “Estamos verificando tu pedido” | Consultar operación | `SUBMITTED/202`. |
+| Pendiente | “Estamos preparando o verificando tu pedido” | Consultar operación original | `CREADO`, `SUBMITTED` o respuesta `202`. |
 
 No se muestran documento, dirección completa, contacto, idempotency key, request ID ni estado interno de `NotificationDelivery`.
 
@@ -86,7 +86,8 @@ No se muestran documento, dirección completa, contacto, idempotency key, reques
 | Estado | Disparador | Cambios visibles | Acción o recuperación | Frame requerido |
 |---|---|---|---|---|
 | Cargando | Consulta autorizada | Skeleton del estado/resumen; sin código ficticio | Esperar | Sí |
-| Confirmado | `SUCCEEDED` y pedido `CREADO` | Éxito, código, fecha, total y acciones | Ver pedido/seguir | Sí |
+| Confirmado | `SUCCEEDED` y pedido `PAGADO` verificado | Éxito, código, fecha, total y acciones | Ver pedido/seguir | Sí |
+| Pedido creado pendiente | `CREADO` sin confirmación simulada final | Mensaje neutral, sin check de éxito | Verificar operación original | Sí, variante pendiente |
 | Correo pendiente implícito | Pedido confirmado | Mensaje “Te enviaremos…”; no badge técnico | Ninguna; no bloquea | Anotado en confirmado |
 | Verificación en curso | Respuesta `202/SUBMITTED` | Mensaje neutral, sin éxito ni nuevo CTA de compra | Verificar de nuevo | Sí |
 | Creación fallida recuperable | `409` con salida definida | Mensaje según operación, sin código de pedido | Volver al paso seguro/soporte | Sí |
@@ -154,7 +155,8 @@ No existen formularios. “Copiar código” es un botón, confirma el resultado
 
 ## 13. Criterios de aceptación visual
 
-- [ ] `UI-V014-001`: Sólo `SUCCEEDED` con `orderId` muestra icono/título de pedido confirmado.
+- [ ] `UI-V014-001`: Sólo `SUCCEEDED` con `orderId` y `PAGADO` verificado muestra icono/título de pedido confirmado.
+- [ ] `UI-V014-008`: `CREADO` no se representa como compra pagada; su salida de verificación depende del contrato homologado con Ventas.
 - [ ] `UI-V014-002`: Verificación pendiente es visual y semánticamente distinta y nunca ofrece crear otra compra.
 - [ ] `UI-V014-003`: El código es visible, copiable y accesible; sólo pertenece al cliente autenticado.
 - [ ] `UI-V014-004`: Documento y dirección completa no aparecen en la confirmación.
@@ -171,3 +173,4 @@ No existen formularios. “Copiar código” es un botón, confirma el resultado
 | `V-014-OPEN-02` | Confirmar qué resumen corto de artículos entrega Ventas para esta vista. | Ventas + Producto | Antes del diseño final | Abierta |
 | `V-014-OPEN-03` | Confirmar si se muestra correo enmascarado y cuál es su fuente autorizada. | Seguridad + UX | Antes del diseño final | Abierta |
 | `V-014-OPEN-04` | Definir salida y soporte para estados `FAILED` sin pedido. | Backend + Producto | Antes del diseño final | Abierta |
+| `V-014-OPEN-05` | Confirmar en Ventas el estado `PAGADO`, el snapshot final y la ruta de recuperación antes de actualizar los frames aprobados. | Ventas + Arquitectura + UX | Antes de implementación real | Abierta |

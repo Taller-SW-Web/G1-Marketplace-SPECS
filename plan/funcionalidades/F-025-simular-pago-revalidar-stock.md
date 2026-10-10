@@ -13,14 +13,14 @@
 ## 2. Objetivo y límites
 
 Entregar simular pago y revalidar stock conforme comportamiento/UI/API/React, no una pantalla aislada.
-201 continúa a creación separada V-013. 409 QUOTE_EXPIRED/REVALIDATION_CHANGED vuelve resumen; STOCK_NOT_AVAILABLE carrito. No tarjeta/CVV ni reserva stock.
+201 deja `PREPARED` y continúa a creación separada V-013; no confirma pago. 409 QUOTE_EXPIRED/REVALIDATION_CHANGED vuelve a resumen; STOCK_NOT_AVAILABLE requiere evidencia cuantitativa homologada. No tarjeta/CVV ni reserva stock.
 
 ## 3. Decisiones técnicas
 
 | Área | Trabajo / decisión |
 |---|---|
 | Frontend / render | `PaymentSimulationForm`, `PreparationOutcome`; hook `useCheckoutPreparation`; arquitectura transversal React. |
-| Backend / adaptador | Preparar CheckoutOperation con clave/fingerprint, revalidar todo, PREPARED sin pedido/cobro/reserva. |
+| Backend / adaptador | Preparar CheckoutOperation con clave/fingerprint; PREPARED sólo conserva consentimiento y revalidación permitida, sin pedido/pago aprobado/reserva. Cantidad y snapshot final requieren contrato externo. |
 | Persistencia | CheckoutOperation. Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
 | Remoto / caché | CheckoutOperation del BFF es autoridad; almacenar referencia opaca según estrategia de recuperación aún abierta. |
 | Seguridad específica | Fingerprint/clave reutilizada, replay de POST y concurrencia; no tarjeta/CVV ni reserva. |
@@ -61,7 +61,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 ## 7. Riesgos y recuperación
 
-READY → PREPARING → PREPARED | NEEDS_REVIEW | NO_STOCK | ERROR; respuesta incierta consulta operación cuando hay ID, nunca marca aprobado por timeout.
+READY → PREPARING → PREPARED | NEEDS_REVIEW | NO_STOCK | ERROR; respuesta incierta consulta operación cuando hay ID, nunca marca pago aprobado por timeout o por `PREPARED`.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
 

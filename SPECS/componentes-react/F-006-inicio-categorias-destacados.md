@@ -53,7 +53,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Sin estado de negocio propio; interacción de cards delegada.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** ['catalog','home']; sólo caché pública, sin almacenar datos personalizados aquí.
-- **Flujo específico:** BFF entrega categories y featuredProducts. Favoritos autenticados se resuelven aparte por F-036/037 y no se incrustan en caché pública.
+- **Flujo específico:** BFF entrega categories y featuredProducts. La selección editorial de destacados por Marketplace es propuesta pendiente `F-P1-04`; cada tarjeta se valida contra la proyección comercial de Productos, nunca contra datos editoriales como fuente de precio/estado. Sin selección homologada, sección de destacados vacía. Favoritos autenticados se resuelven aparte por F-036/037 y no se incrustan en caché pública.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones

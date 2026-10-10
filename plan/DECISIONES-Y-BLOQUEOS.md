@@ -1,6 +1,6 @@
 # Decisiones y bloqueos de implementación
 
-Versión 0.1.0 · En revisión · Corte local 2026-10-02. No se han consultado ni actualizado remotos en esta preparación.
+Versión 0.2.0 · En revisión · Revisión intermodular 2026-10-10. Se contrastaron las ramas remotas de Productos y Ventas con el reporte de consistencia del 05/10; esto no equivale a aprobación ni a prueba de integración.
 
 ## Integraciones externas: evidencia pendiente, no solicitudes nuevas
 
@@ -8,8 +8,8 @@ Fuente: [brechas BD/integración](../Arquitectura%20de%20la%20Aplicación/Base%2
 
 | Gate | Funcionalidades | Evidencia que libera | Referente / objetivo |
 |---|---|---|---|
-| I-01 / H-01 | Catálogo F-006–017,019–021,023–026,031,036–037,039 | OpenAPI de Catálogo/Pricing/Inventario/Promociones con rutas/auth/error, payload y prueba de mapeo | Leonidas + Jim, antes S2; fixture local no libera |
-| I-02 / H-02 | F-025–027,034 | Ventas idempotente con misma clave/payload; misma clave con payload distinto se rechaza; pruebas de timeout/concurrencia | Leonidas + Jim, antes S4 |
+| I-01 / H-01 | Catálogo F-006–017,019–021,023–026,031,036–037,039 | OpenAPI de Productos por versión, rutas/auth/error y prueba de mapeo. Ordenamiento vigente sólo por nombre; validación de N unidades y semántica de destacados siguen como brechas, no se deducen del estado comercial. | Leonidas + Jim, antes S2; fixture local no libera |
+| I-02 / H-02 | F-025–027,034 | Ventas: `POST /pedidos` idempotente; señal contractual de aptitud para pagar tras reserva/cupón; vía autorizada para pago **simulado** con referencia/idempotencia y estado `PAGADO` verificable. Probar timeout, expiración, cancelación y concurrencia. El webhook actual es de pasarela y no se reutiliza como cliente Marketplace. | Leonidas + Jim con Ventas y Productos, antes S4 |
 | I-03 / H-03 | F-028–032,040 | Autorización del titular en lista/detalle de Ventas y prueba IDOR; query cliente externo validada contra JWT o /me | Leonidas + Jim, antes S5 |
 | I-04 / H-04 | F-040 | Elegibilidad entregado/ownership, mapeo5/3/1 y motivos/comentario, prueba duplicado | Jim + Leonidas, antes S5 |
 | I-05 / H-05 | F-035 y origen externo de notificaciones si aplica | Emisor/destinatario, evento versionado, autenticación, dedupe/orden/replay y prueba | Leonidas + Andres, preparar S3 cerrar antes S5 |
@@ -29,8 +29,13 @@ Cuando se libere un gate: enlazar evidencia/versiones, fecha, aprobador y prueba
 | G-UNDO | UI exige Deshacer y O-006 reconoce contrato de restauración no aprobado | Carrito: definir operación/restauración concurrencia/stock; F-016 suma y no garantiza restaurar cantidad original. Favoritos: reutilizar F-036 tras DELETE, producto puede no estar activo. Sin resolver no prometer restauración ni marcar F-018/038 completas | Leonidas + Sebastian + Fernando, S3 |
 | G-ADDRESS | label/phone/mapa maestros no completamente definidos | Usar campos contractuales, token titular y memoria; acordar límites y fuente geo. No añadir mapas/SUNAT/RENIEC por mockup | Andres + Jim, antes S4 |
 | G-BENEFIT | Quitar cupón y degradación error no endpoints/política completos | Recotizar F-023 sin cupón; confirmar combinabilidad/formato y validez quote base. Sin monto autoritativo no continuar | Leonidas + Jim, S4 |
+| G-MONEY | Snapshot final y procedencia de descuentos/cupón/envío sin contrato único | Productos/Ventas/Despacho definen precio/versiones, `evaluation_id` o equivalente, beneficios aplicados, quote de envío, vigencias y owner de congelación. Marketplace transporta y muestra, no recalcula. | Jim + Leonidas con owners, antes S4 |
+| G-QUANTITY | Estado comercial por SKU no valida la cantidad solicitada | No inferir N unidades ni máximo disponible desde `DISPONIBLE`/`STOCK_BAJO`; pedir operación comercial `sku` + `quantity` sin saldos internos y mantener reserva final en Ventas. | Jim + Leonidas con Productos, antes S4 |
+| G-SORT | F-009 pedía precio/relevancia/novedad sin contrato del provider | Habilitar sólo `NAME_ASC/DESC` mapeados a `NOMBRE_ASC/DESC`; el resto necesita regla/product-level y nueva homologación antes de exponerse. | Jim + Leonidas con Productos, antes S2 |
+| G-FEATURED | `featuredProducts[]` no tiene owner de selección | Propuesta de curaduría editorial G1 por IDs con datos/elegibilidad de Productos; acordar owner y persistencia o dejar sección vacía. | Jim con Productos, antes S2 |
 | G-CHECKOUT | POST preparación/orden usan distinto payload y misma tabla key/fingerprint; reload/TTL no definido | Definir ámbito/fingerprint por fase y clave estable de operación. GEToperation necesita operación conocida. Recuperación segura y mapeo orderId↔operationId; no inventar lookup ni reenvío nuevo en SUBMITTED | Leonidas + Andres, antes S4 |
 | G-CONFIRM | V-014 pública por orderId, API GET por operationId; resumen artículos/email faltan | Durante flujo conservar asociación opaca; deep link/reload requiere contrato acordado, detalle F-030 sólo confirma pedido autorizado, no sustituye resultado operación. No cart reconstruido | Leonidas + Jim, S4 |
+| G-PAID | G1-P0-01: F-025 `PREPARED` y F-026 `CREADO` se presentaban como pago/compra final | `PREPARED` sólo consentimiento/preparación; `CREADO` queda pendiente. F-027/V-014 requieren `PAGADO` verificado por Ventas. El protocolo de simulación y la señal APTO_PARA_PAGO siguen pendientes; no activar checkout real ni retocar mockups aprobados como si ya estuvieran homologados. | Jim + Leonidas con Ventas y Productos, antes S4 |
 | G-REORDER | POST reorder sin clave; unicidad SKU no impide doble aumento | Homologar garantía de dedupe/idempotencia con backend. Timeout relee carrito y nunca retry automático de POST; cerrar V-016-OPEN-03 | Leonidas, antes S5 |
 | G-PROMPT | CSAT POST existe, leer/elegible/SHOWN/DISMISSED no endpoints en contrato | Diseñar ciclo prompt y políticas ahora no/Escape/superficies V-016/017; ampliar contrato antes persistir transiciones reales. No deducir durable status desde localStorage | Jim + Leonidas + Fernando, antes S5 |
 | G-MAIL | Proveedor/motor/retención/retry y fuente de payload no cerrados | Email server-only, outbox y cifrado/reconciliación provider timeout, URLs seguras. React renderer opcional, no librería instalada por suposición | Andres + Leonidas, preparar S3 cerrar S5 |

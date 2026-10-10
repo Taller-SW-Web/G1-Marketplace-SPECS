@@ -60,11 +60,11 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 | Adaptador tipado | Validar DTO y mapear error público; sin aceptar shape externo no homologado | Contrato API enlazado |
 | Validación local | Ayuda inmediata, nunca reemplaza validación ni autorización del servidor | Reglas siguientes |
 
-RELEVANCE con búsqueda; NEWEST, PRICE_ASC, PRICE_DESC. Relevancia sin q sólo si Catálogo lo publica.
+Sólo `NAME_ASC` y `NAME_DESC` están habilitados; el BFF los mapea a `NOMBRE_ASC` y `NOMBRE_DESC` de Productos. Relevancia, novedades y orden por precio quedan fuera de UI y requests hasta que exista regla contractual publicada.
 
 ### Operaciones documentadas
 
-- `GET /api/v1/catalog/products?sort=PRICE_ASC`
+- `GET /api/v1/catalog/products?sort=NAME_ASC`
 
 Auth y rutas `/password` se traducen mediante el límite de integración aprobado; no se presupone que ya exista proxy BFF ni CORS habilitado. Rutas `/internal` jamás se consumen desde el navegador. Header, request y response exactos pertenecen al contrato API, no a las props.
 
@@ -107,7 +107,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01; definición del orden sin q.
+I-01; cualquier criterio distinto al nombre requiere contrato homologado con Productos antes de activarlo.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

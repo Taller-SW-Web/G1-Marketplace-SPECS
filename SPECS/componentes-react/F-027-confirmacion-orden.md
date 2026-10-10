@@ -72,7 +72,7 @@ Auth y rutas `/password` se traducen mediante el límite de integración aprobad
 
 ## 7. Estados, errores y recuperación
 
-LOADING → CONFIRMED | VERIFYING | FAILED | NOT_ACCESSIBLE | ERROR;202 SUBMITTED conserva neutral; CONFIRMED requiere SUCCEEDED+orderId.
+LOADING → CONFIRMED | VERIFYING | FAILED | NOT_ACCESSIBLE | ERROR; 202 SUBMITTED o `CREADO` conservan presentación neutral; CONFIRMED requiere SUCCEEDED + `orderId` + `PAGADO` verificado por Ventas.
 
 - **Carga:** skeleton de la región que consulta, o progreso local de mutación; nunca datos o importes de ejemplo.
 - **Vacío / no aplicable:** sólo ante respuesta válida o condición explícita; errores nunca se convierten en colección vacía, precio cero o stock agotado.
@@ -110,7 +110,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-02; resolver mapping y resumen de artículos (no presentes en GET operación actual).
+I-02; confirmar `PAGADO` por el mismo `orderId` y resolver mapping y resumen de artículos (no presentes en GET operación actual).
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 
