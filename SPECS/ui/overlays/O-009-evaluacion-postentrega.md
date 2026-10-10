@@ -73,7 +73,7 @@ Formulario
 | Mal | `BAD` | Motivos negativos y aclaración de que no crea reclamo | Sí |
 | Enviando | POST en curso | CTA ocupado y controles no repetibles | Sí, anotado |
 | Enviada | `201` o duplicado `409 CSAT_ALREADY_SUBMITTED` | Agradecimiento y cierre | Sí |
-| Ya no elegible | `409 ORDER_NOT_DELIVERED` o estado cambió | Formulario cierra/explica sin guardar éxito | Sí, variante error |
+| Ya no elegible | `422 ORDER_NOT_DELIVERED` o estado cambió | Formulario cierra/explica sin guardar éxito | Sí, variante error |
 | Error recuperable | Fallo temporal | Selección/comentario se conservan durante la sesión | Reintentar/cerrar | Sí |
 
 ## 6. Responsive y accesibilidad
@@ -113,7 +113,7 @@ Formulario
 
 | ID | Pregunta o decisión | Responsable | Estado |
 |---|---|---|---|
-| `O-009-OPEN-01` | Resolver `I-04`: elegibilidad por ENTREGADO, motivos y adaptación al contrato CSAT de Ventas. | Ventas + Arquitectura | Abierta |
+| `O-009-OPEN-01` | Ventas publicó elegibilidad `ENTREGADO`, mapeo 5/3/1 y comentario de motivos; probar titularidad, `422` y duplicado antes de integrar. | Ventas + Arquitectura | Contrato resuelto; prueba pendiente |
 | `O-009-OPEN-02` | Aprobar catálogo de motivos para Bien/Regular/Mal y si alguno será obligatorio. | Producto + UX | Abierta |
 | `O-009-OPEN-03` | Definir política de `DISMISSED`, cierre/Escape y si puede volver a invitarse. | Producto | Abierta |
 | `O-009-OPEN-04` | Elegir superficies exactas de activación entre `V-016` y `V-017`. | Producto + UX | Abierta |

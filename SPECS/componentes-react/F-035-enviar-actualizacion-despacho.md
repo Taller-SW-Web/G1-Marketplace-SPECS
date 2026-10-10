@@ -49,7 +49,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Sin state interactivo; no conexión browser a event bus ni webhooks.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** Evento versionado alimenta NotificationDelivery, no cache React ni persistencia de tracking.
-- **Flujo específico:** Contrato actual Despacho→Ventas no autoriza Marketplace a consumir. I-05 bloquea integración real; mocks versionados permiten probar composición sin fingir suscripción real.
+- **Flujo específico:** Ventas publicó el webhook externo H-05 hacia Marketplace; el mecanismo de entrega, su autenticación y los reintentos siguen pendientes en I-05. Mocks versionados permiten probar composición sin fingir una suscripción real.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -107,7 +107,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-05/H-05 y F-033/F-034.
+H-05 tiene payload y emisor homologados; el transporte, autenticación y reintentos de I-05 siguen pendientes, así como F-033/F-034. React no recibe ni valida el webhook.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

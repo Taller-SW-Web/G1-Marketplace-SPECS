@@ -62,7 +62,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 | Adaptador tipado | Validar DTO y mapear error público; sin aceptar shape externo no homologado | Contrato API enlazado |
 | Validación local | Ayuda inmediata, nunca reemplaza validación ni autorización del servidor | Reglas siguientes |
 
-Bien5/Regular3/Mal1 los adapta BFF.201 y409 CSAT_ALREADY_SUBMITTED cierran;409 ORDER_NOT_DELIVERED no éxito. No reclamo automático por BAD.
+Bien5/Regular3/Mal1 los adapta BFF. `201` y `409 CSAT_ALREADY_SUBMITTED` cierran sin duplicar; `422 ORDER_NOT_DELIVERED` no es éxito. `403` por pedido ajeno no revela su contenido. No hay reclamo automático por BAD.
 
 ### Operaciones documentadas
 
@@ -112,7 +112,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-04; O-009-OPEN-02/03/04 y contrato del ciclo prompt.
+H-04 tiene contrato publicado; faltan implementación/pruebas de I-04, O-009-OPEN-02/03/04 y contrato del ciclo prompt.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

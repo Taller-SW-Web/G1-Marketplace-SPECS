@@ -22,7 +22,7 @@
 - **Actor principal:** cliente autenticado propietario de una `CheckoutOperation PREPARED`.
 - **Permiso:** privado.
 - **Condiciones de entrada:** operación preparada desde `V-012`, todavía no enviada con éxito a Ventas.
-- **Resultado esperado:** pedido único en Ventas y navegación a `V-014` sólo después de `PAGADO` confirmado; `CREADO`, preparación para pago o resultado incierto permanecen en verificación.
+- **Resultado esperado:** pedido único en Ventas y navegación a `V-014` sólo después de `PAGADO` confirmado; `CREADO` ya incluye reserva/cupón confirmados y permanece en verificación mientras Ventas ejecuta su simulador.
 
 ## 3. Trazabilidad
 
@@ -96,6 +96,7 @@ V-013 Creación de la orden
 | Enviando | POST iniciado | CTA no repetible, controles bloqueados, mensaje de progreso | Esperar | Sí |
 | Pedido creado | `CREADO`/`SUBMITTED` | Estado neutral “Estamos preparando tu pedido”; sin check de éxito ni nuevo CTA de compra | Verificar la operación original | Sí, variante pendiente |
 | Éxito | Ventas confirma `PAGADO` para el `orderId` | Transición a `V-014`; no se repite CTA | Ver pedido confirmado | Se diseña en `V-014` |
+| Simulación rechazada | Ventas informa `ANULADO` por `PAGO_NO_COMPLETADO` | Mensaje de fallo terminal, sin check de éxito | Salida segura; no repetir el pedido anulado | Variante de error por ajustar |
 | Resultado incierto | `409 ORDER_CREATION_PENDING` o estado `SUBMITTED` | Mensaje neutral; no icono de fracaso/éxito; sin nuevo envío | Verificar operación | Sí |
 | Contacto rechazado | `400 CONTACT_VALIDATION_ERROR` | Sólo campos inválidos marcados | Corregir | Sí |
 | Operación no preparada | `409 OPERATION_NOT_PREPARED` | Explicación y retorno al paso correcto | Revisar preparación | Sí |
@@ -180,8 +181,8 @@ Los datos son transitorios para crear la orden; la interfaz no afirma que actual
 
 | ID | Pregunta o decisión | Responsable | Fecha límite | Estado |
 |---|---|---|---|---|
-| `V-013-OPEN-01` | Resolver `I-02`: idempotencia explícita y respuesta repetida de `POST /pedidos` en Ventas. | Ventas + Arquitectura | Antes de implementación; informar diseño | Abierta |
+| `V-013-OPEN-01` | `Idempotency-Key` UUID v4 y replay del mismo pedido publicados en H-02; falta prueba de integración. | Ventas + Arquitectura | Antes de implementación | Contrato resuelto; prueba pendiente |
 | `V-013-OPEN-02` | Confirmar reglas exactas de DNI, RUC, CE y PASAPORTE aceptadas por Ventas. | Ventas + UX | Antes del diseño final | Abierta |
 | `V-013-OPEN-03` | Definir frecuencia, duración y salida del estado “Estamos verificando tu pedido”. | Backend + Producto | Antes del diseño final | Abierta |
 | `V-013-OPEN-04` | Confirmar qué datos de perfil llegan autorizados para decidir los campos faltantes. | Seguridad + Ventas | Antes del diseño final | Abierta |
-| `V-013-OPEN-05` | Homologar con Ventas la señal de aptitud para pagar y el contrato autorizado de pago simulado; no reutilizar el webhook de pasarela. | Ventas + Productos + Arquitectura | Antes de implementar checkout real | Abierta |
+| `V-013-OPEN-05` | El `201/CREADO` confirma reserva/cupón; Ventas inicia el simulador y Marketplace consulta `PAGADO`/`ANULADO`. Sin llamada de pago desde G1. | Ventas + Arquitectura | Acordado el 10/10/2026; probar antes de integrar | Contrato resuelto; prueba pendiente |

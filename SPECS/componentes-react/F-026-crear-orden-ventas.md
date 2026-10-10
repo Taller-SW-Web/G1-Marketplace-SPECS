@@ -51,7 +51,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Contacto transitorio, clave y fingerprint asociados a mismo intento; ninguna edición silenciosa de payload enviado.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** Conservar operación y `orderId` tras `CREADO`; invalidar operaciones/pedidos/cart sólo después de `SUCCEEDED` respaldado por `PAGADO`, sin reconstruir pedido desde carrito.
-- **Flujo específico:** POST BFF envía snapshot/dirección homologados a Ventas. `CREADO` permanece `SUBMITTED` mientras Ventas prepara reserva/cupón y habilita pago; el adaptador de simulación aún requiere acuerdo. 503 podría ser incierto: consultar operación original; no repetir como compra nueva.
+- **Flujo específico:** POST BFF envía snapshot/dirección homologados a Ventas con una clave idempotente estable. Su `201/CREADO` ya confirma reserva/cupón y devuelve total; Ventas inicia el simulador internamente. `CREADO` permanece `SUBMITTED` mientras se consulta el estado. Si se pierde la respuesta antes de recibir `pedidoId`, el BFF recupera el resultado con la misma clave/payload; nunca genera una compra nueva.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -111,7 +111,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-02 bloquea integración real; reglas contacto, idempotencia preparación/orden y recuperación abiertas.
+El flujo externo de pago está documentado por Ventas; antes de integración real faltan implementación y prueba de H-02, mapeo del campo obligatorio `pago.metodoPago`, reglas de contacto y recuperación local. Liberar cupón tras `ANULADO` sigue pendiente entre Ventas y Productos.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

@@ -110,7 +110,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-02; confirmar `PAGADO` por el mismo `orderId` y resolver mapping y resumen de artículos (no presentes en GET operación actual).
+Consultar `GET /api/v1/pedidos/{pedidoId}` y confirmar `PAGADO` para el mismo pedido antes de mostrar éxito. La integración y prueba con Ventas, la recuperación local por operación y el mapeo seguro del resumen de artículos siguen pendientes; `ANULADO` por `PAGO_NO_COMPLETADO` es fallo terminal.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

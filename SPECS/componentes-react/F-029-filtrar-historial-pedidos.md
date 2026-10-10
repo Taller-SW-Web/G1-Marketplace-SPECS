@@ -109,7 +109,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-03; semántica inclusiva de from/to a confirmar.
+H-03 admite filtro externo `estado`; `from/to` no existen en `/pedidos/me` y permanecen deshabilitados hasta un contrato adicional. Faltan implementación/pruebas de I-03.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

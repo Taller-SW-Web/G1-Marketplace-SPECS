@@ -18,13 +18,13 @@
 
 ## 2. Propósito y trazabilidad
 
-- **Evento de envío:** cambio de estado de despacho relevante y homologado, identificado por `shipmentEventId`.
+- **Evento de envío:** webhook `pedidos.envio.estado_actualizado` de Ventas, identificado por `eventId` y mapeado internamente a `shipmentEventId`.
 - **Destinatario:** cliente propietario del pedido, resuelto de forma autorizada.
 - **Funcionalidades:** `F-033` Generar plantilla y `F-035` Enviar actualización de despacho.
 - **Specs de origen:** [`UI F-033`](../F-033-generar-plantilla-correo.md), [`UI F-035`](../F-035-enviar-actualizacion-despacho.md) y [`V-017`](../vistas/V-017-seguimiento.md).
 
 > [!WARNING]
-> No se debe emitir este correo hasta resolver `I-05` y disponer de un origen autorizado de eventos. Marketplace no inventa ni infiere cambios de despacho.
+> Ventas publicó el origen H-05; no se debe emitir este correo hasta definir y probar entrega autenticada, reintentos y deduplicación (`I-05`). Marketplace no inventa ni infiere cambios de despacho.
 
 ## 3. Jerarquía del contenido
 
@@ -121,7 +121,7 @@ Figma debe anotar la variante sin fecha y el contenido de texto plano aunque no 
 
 | ID | Pregunta o decisión | Responsable | Estado |
 |---|---|---|---|
-| `C-002-OPEN-01` | Resolver `I-05`: Ventas reexpone eventos, webhook de Despacho o sondeo autorizado. | Despacho + Ventas + Arquitectura | Abierta |
+| `C-002-OPEN-01` | Ventas publicó webhook H-05; acordar mecanismo de entrega, autenticación, reintentos y responsable para cerrar `I-05`. | Ventas + Arquitectura | Contrato resuelto; transporte pendiente |
 | `C-002-OPEN-02` | Publicar estados que generan correo y sus etiquetas/copy para cliente. | Despacho + Producto | Abierta |
 | `C-002-OPEN-03` | Definir catálogo de incidencias publicables y tratamiento de reprogramaciones. | Despacho + UX | Abierta |
 | `C-002-OPEN-04` | Aprobar ayuda, pie legal, logo y matriz de clientes de correo. | Producto + UX/UI + QA | Abierta |

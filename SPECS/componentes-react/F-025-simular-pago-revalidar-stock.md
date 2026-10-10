@@ -109,7 +109,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01; I-02 para activar creación posterior; recuperación PREPARED al recargar pendiente.
+I-01 y prueba de integración I-02 para activar creación posterior; recuperación de `PREPARED` al recargar pendiente. Ventas inicia el simulador después de crear el pedido: este componente sólo registra consentimiento y preparación.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

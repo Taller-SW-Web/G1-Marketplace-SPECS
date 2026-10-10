@@ -184,4 +184,4 @@ No existen otros campos. El resumen es de sólo lectura y cualquier corrección 
 | `V-012-OPEN-01` | Definir vigencia y recuperación de una `CheckoutOperation PREPARED` si el usuario recarga o abandona la ruta. | Backend + Producto | Antes del diseño final | Abierta |
 | `V-012-OPEN-02` | Definir el detalle seguro que se mostrará para `REVALIDATION_CHANGED` y `STOCK_NOT_AVAILABLE`. | Backend + UX | Antes del diseño final | Abierta |
 | `V-012-OPEN-03` | Confirmar copy institucional para explicar el pago simulado en la entrega académica. | Producto + UX | Antes del diseño final | Abierta |
-| `V-012-OPEN-04` | Homologar integraciones de revalidación `I-01` y dependencia de creación posterior `I-02`. | Arquitectura + módulos dueños | Antes de implementación; informar diseño | Abierta |
+| `V-012-OPEN-04` | La creación posterior y simulación interna de Ventas están documentadas; queda homologar la revalidación `I-01` y probar la integración `I-02`. | Arquitectura + módulos dueños | Antes de implementación; informar diseño | Parcialmente resuelta |

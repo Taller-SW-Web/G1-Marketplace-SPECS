@@ -184,7 +184,7 @@ Los resultados de reordenado se diseñan en `O-008`.
 
 | ID | Pregunta o decisión | Responsable | Fecha límite | Estado |
 |---|---|---|---|---|
-| `V-016-OPEN-01` | Resolver `I-03` para autorización del detalle propio en Ventas. | Ventas + Arquitectura | Antes de implementación; informar diseño | Abierta |
+| `V-016-OPEN-01` | Ventas documentó `403` para pedido ajeno en `GET /api/v1/pedidos/{pedidoId}`; probar autorización y proyección segura del detalle. | Ventas + Arquitectura | Antes de implementación | Contrato resuelto; prueba pendiente |
 | `V-016-OPEN-02` | Publicar estados/hitos y datos mínimos de entrega devueltos por Ventas. | Ventas + Producto | Antes del diseño final | Abierta |
 | `V-016-OPEN-03` | Definir garantía técnica de reintento de reordenado sin duplicar cantidades por SKU. | Backend | Antes del diseño final | Abierta |
 | `V-016-OPEN-04` | Confirmar elegibilidad y punto de activación de `O-009` para pedidos entregados. | Producto + UX | Antes del diseño final | Abierta |

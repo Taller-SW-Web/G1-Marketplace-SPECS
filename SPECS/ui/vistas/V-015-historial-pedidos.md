@@ -18,7 +18,7 @@
 
 ## 2. Propósito, actor y acceso
 
-- **Objetivo del usuario:** localizar pedidos propios por estado o fecha y abrir su detalle o seguimiento.
+- **Objetivo del usuario:** localizar pedidos propios por estado y abrir su detalle o seguimiento. El rango de fechas diseñado queda inactivo hasta que Ventas lo incorpore a `/pedidos/me`.
 - **Actor principal:** cliente autenticado.
 - **Permiso:** privado; la identidad deriva exclusivamente del JWT.
 - **Condición de entrada:** sesión activa desde cabecera, confirmación o enlace autorizado.
@@ -29,7 +29,7 @@
 | Funcionalidad | Spec funcional | Spec UI de origen | Aporte a esta vista |
 |---|---|---|---|
 | `F-028` | [`Consultar historial`](../../funcional/F-028-historial-pedidos.md) | [`UI F-028`](../F-028-historial-pedidos.md) | Pedidos propios, resumen, paginación, vacío y error. |
-| `F-029` | [`Filtrar historial`](../../funcional/F-029-filtrar-historial-pedidos.md) | [`UI F-029`](../F-029-filtrar-historial-pedidos.md) | Estado, rango de fechas, validación y limpieza. |
+| `F-029` | [`Filtrar historial`](../../funcional/F-029-filtrar-historial-pedidos.md) | [`UI F-029`](../F-029-filtrar-historial-pedidos.md) | Estado y limpieza; rango de fechas sólo como diseño pendiente. |
 
 Contratos consultados: [`API F-028`](../../contrato-api/F-028-historial-pedidos.md) y [`API F-029`](../../contrato-api/F-029-filtrar-historial-pedidos.md).
 
@@ -66,7 +66,7 @@ V-015 Historial de pedidos
 
 | Región | Componente o contenido | Prioridad | Comportamiento |
 |---|---|---|---|
-| Filtros desktop | Estado y rango | Primaria | En línea o panel superior; aplicar explícito. |
+| Filtros desktop | Estado; rango diseñado pero inactivo | Primaria | En línea o panel superior; aplicar sólo controles con contrato vigente. |
 | Filtros mobile | Botón/resumen | Primaria | Abre variante de `O-001`; cancelar no cambia resultados. |
 | Lista | Resumen mínimo de pedido | Primaria | Desktop puede usar tabla; mobile siempre tarjetas legibles. |
 | Estado | Badge con texto, icono y color | Primaria | Valores publicados por Ventas, no inventados localmente. |
@@ -78,7 +78,7 @@ V-015 Historial de pedidos
 |---|---|---|---|
 | Título | “Mis pedidos” | — | Siempre. |
 | Estado | Lista publicada por Ventas | Filtrar | Filtros. |
-| Desde/hasta | Fechas locales | Definir intervalo | Filtros. |
+| Desde/hasta | Fechas locales | Definir intervalo | Sólo cuando Ventas publique soporte en `/pedidos/me`; no habilitar ahora. |
 | Aplicar | “Aplicar filtros” | Consultar y volver a página cero | Filtros válidos. |
 | Limpiar | “Limpiar filtros” | Quitar criterios y recuperar historial | Existe criterio/borrador. |
 | Pedido | Código, fecha, total y estado | Abrir `V-016` | Resultado. |
@@ -95,7 +95,7 @@ V-015 Historial de pedidos
 | Con filtros | Criterios aplicados | Chips/resumen y lista filtrada | Quitar/limpiar | Sí |
 | Historial vacío | Total cero sin filtros | Mensaje y CTA a catálogo | Explorar | Sí |
 | Sin coincidencias | Total cero con filtros | Criterios visibles y limpiar | Limpiar/editar | Sí |
-| Rango inválido | Desde posterior a hasta o intervalo > un año | Errores asociados; no consulta Ventas | Corregir | Sí |
+| Rango inválido | Desde posterior a hasta o intervalo > un año | Errores asociados; no consulta Ventas | Corregir | Diseño previsto; no activo sin contrato de fechas |
 | Actualizando | Aplicar/limpiar/paginar | Resultados ocupados sin mezclar página vieja como nueva | Esperar | Sí |
 | Página fuera de rango | URL o historial cambió | Estado controlado y retorno a página válida | Ir a primera/última definida | Sí |
 | Error recuperable | Ventas/BFF no disponible | No se presenta falso vacío; filtros permanecen | Reintentar | Sí |
@@ -117,7 +117,7 @@ V-015 Historial de pedidos
 | Desde | Fecha | No | ISO al enviar; no posterior a Hasta | Mensaje vinculado a ambos campos | Default/foco/error |
 | Hasta | Fecha | No | Intervalo máximo de un año y no anterior a Desde | Mensaje vinculado a ambos campos | Default/foco/error |
 
-Las fechas se muestran en zona local y se convierten al formato del contrato sin cambiar silenciosamente el día elegido.
+Los controles y reglas de fecha son una previsión visual. No hay formato de fecha homologado para `/pedidos/me`; permanecerán inactivos hasta acordar ese filtro sin romper la paginación.
 
 ## 10. Responsive
 
@@ -177,7 +177,8 @@ Las fechas se muestran en zona local y se convierten al formato del contrato sin
 
 | ID | Pregunta o decisión | Responsable | Fecha límite | Estado |
 |---|---|---|---|---|
-| `V-015-OPEN-01` | Resolver `I-03`: endpoint `/me` o validación estricta del cliente contra JWT en Ventas. | Ventas + Arquitectura | Antes de implementación; informar diseño | Abierta |
+| `V-015-OPEN-01` | Ventas publicó `/api/v1/pedidos/me` con identidad JWT; verificar mapeo, paginación desde 1 y autorización en integración. | Ventas + Arquitectura | Antes de implementación | Contrato resuelto; prueba pendiente |
 | `V-015-OPEN-02` | Publicar estados, etiquetas y orden de presentación permitidos por Ventas. | Ventas + Producto | Antes del diseño final | Abierta |
 | `V-015-OPEN-03` | Definir política para página fuera de rango y orden predeterminado. | Backend + Ventas | Antes del diseño final | Abierta |
 | `V-015-OPEN-04` | Confirmar en qué estados se ofrece acceso directo a seguimiento. | Despacho + Producto | Antes del diseño final | Abierta |
+| `V-015-OPEN-05` | Ventas sólo admite `estado` en `/pedidos/me`; acordar rango de fechas antes de activar los controles ya diseñados. | Ventas + Producto | Antes de habilitar filtro de fecha | Abierta |

@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-030` |
-| Estado | Aprobada para planificación; depende de `I-03`. |
+| Estado | Detalle y autorización del titular publicados por Ventas; integración/pruebas de `I-03` pendientes. |
 
 Muestra detalle de un pedido propio: líneas históricas, importes, estado, dirección resumida e historial de estados. Excluye modificar pedido, seguimiento de Despacho (F-032) y datos de pago sensibles.
 

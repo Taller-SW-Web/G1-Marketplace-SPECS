@@ -88,6 +88,7 @@ No se muestran documento, dirección completa, contacto, idempotency key, reques
 | Cargando | Consulta autorizada | Skeleton del estado/resumen; sin código ficticio | Esperar | Sí |
 | Confirmado | `SUCCEEDED` y pedido `PAGADO` verificado | Éxito, código, fecha, total y acciones | Ver pedido/seguir | Sí |
 | Pedido creado pendiente | `CREADO` sin confirmación simulada final | Mensaje neutral, sin check de éxito | Verificar operación original | Sí, variante pendiente |
+| Simulación rechazada | `ANULADO` con motivo `PAGO_NO_COMPLETADO` | Explica que no se confirmó la compra; sin código presentado como éxito | Volver al flujo seguro o consultar el pedido | Ajustar variante de error existente |
 | Correo pendiente implícito | Pedido confirmado | Mensaje “Te enviaremos…”; no badge técnico | Ninguna; no bloquea | Anotado en confirmado |
 | Verificación en curso | Respuesta `202/SUBMITTED` | Mensaje neutral, sin éxito ni nuevo CTA de compra | Verificar de nuevo | Sí |
 | Creación fallida recuperable | `409` con salida definida | Mensaje según operación, sin código de pedido | Volver al paso seguro/soporte | Sí |
@@ -173,4 +174,4 @@ No existen formularios. “Copiar código” es un botón, confirma el resultado
 | `V-014-OPEN-02` | Confirmar qué resumen corto de artículos entrega Ventas para esta vista. | Ventas + Producto | Antes del diseño final | Abierta |
 | `V-014-OPEN-03` | Confirmar si se muestra correo enmascarado y cuál es su fuente autorizada. | Seguridad + UX | Antes del diseño final | Abierta |
 | `V-014-OPEN-04` | Definir salida y soporte para estados `FAILED` sin pedido. | Backend + Producto | Antes del diseño final | Abierta |
-| `V-014-OPEN-05` | Confirmar en Ventas el estado `PAGADO`, el snapshot final y la ruta de recuperación antes de actualizar los frames aprobados. | Ventas + Arquitectura + UX | Antes de implementación real | Abierta |
+| `V-014-OPEN-05` | Ventas publicó `GET /api/v1/pedidos/{pedidoId}` con `estado`, total y snapshot. G1 debe probar el mapeo, recuperación local y presentación de `ANULADO` antes de actualizar los frames aprobados. | Arquitectura + UX | Antes de implementación real | Contrato resuelto; integración pendiente |

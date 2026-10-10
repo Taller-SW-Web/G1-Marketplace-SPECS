@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-028` |
-| Estado | Aprobada para planificación; integración bloqueada por `I-03`. |
+| Estado | Contrato de historial propio H-03 publicado; integración y pruebas de `I-03` pendientes. |
 
 Permite al cliente autenticado ver su lista paginada de pedidos, estado, fecha y total. Ventas es la fuente de verdad; Marketplace no replica el historial.
 
@@ -14,4 +14,4 @@ Permite al cliente autenticado ver su lista paginada de pedidos, estado, fecha y
 - [ ] **CA-F028-01:** Un usuario no puede enumerar pedidos de otro.
 - [ ] **CA-F028-02:** Lista vacía ofrece acceso a catálogo.
 
-Ventas hoy exige `clienteId` en query; se requiere `/me` o validación estricta contra JWT (`I-03`).
+Ventas publicó `GET /api/v1/pedidos/me` con identidad del JWT, `page` desde 1 y lista vacía `200`. El endpoint con `clienteId` queda sólo para backoffice; Marketplace usa `/me` y comprueba autorización en integración.
