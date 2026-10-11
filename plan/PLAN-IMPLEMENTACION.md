@@ -33,7 +33,7 @@ Los números de funciones son **objetivos de cierre**, no permiso para investiga
 
 ## 4. Ruta crítica de semanas 7–8
 
-1. **Entrada inmediata:** confirmar URL/base, versión, ruta pública, payload y datos de prueba de Productos; cerrar el mínimo de I-01 para F-007. Decidir stack G-STACK y diagrama/deploy objetivo. Si el proveedor no tiene entorno alcanzable, escalar ahora: un mock no cumple H3.
+1. **Entrada inmediata:** confirmar URL/base, versión, ruta pública, payload y datos de prueba de Productos; cerrar el mínimo de I-01 para F-007. Frontend decidido: React + TypeScript + Next.js App Router; cerrar UI kit/versiones/lockfile restantes de G-STACK y diagrama/deploy objetivo. Si el proveedor no tiene entorno alcanzable, escalar ahora: un mock no cumple H3.
 2. **Base ejecutable:** inicializar frontend; usar el backend/Prisma remoto como antecedente auditado, sin suponer que `/health` representa el BFF especificado. Configurar BFF público de catálogo con timeout, validación, error y secreto de entorno; CI mínimo build/test. No almacenar catálogo ajeno.
 3. **Corte vertical:** F-006 puede mostrar categorías/enlace de búsqueda sin prometer destacados sin curaduría; F-007 ejecuta búsqueda real desde la web → BFF → Productos, con vacío/error. Probar solicitud real y ruta visible. Si el contrato no permite búsqueda, acordar **antes de implementar** otra lectura pública de Productos y actualizar F-006/F-007/specs/plan.
 4. **Nube y evidencia:** desplegar frontend y backend en entornos propios, configurar CORS/orígenes, URL y secretos, revisar logs sin PII, capturar build, test, deploy y una respuesta intermodular. Diagramas/versiones/enlaces deben corresponder al sistema efectivamente desplegado. Ensayar recuperación si uno de los servicios falla.

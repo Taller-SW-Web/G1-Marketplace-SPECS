@@ -4,7 +4,7 @@
 
 ## Entrega de software
 
-- Acordar con Andres el stack frontend ejecutable y lockfile (G-STACK). Implementar base visual compartida de `V-005/V-006`: tema DS-001, logo aprobado, cabecera comercial, buscador accesible, layout/footer **sólo con enlaces existentes**, regiones de carga/error y responsive. No introducir dos UI kits.
+- Usar React + TypeScript + Next.js App Router (decisión del PO); acordar con Andres versión/lockfile y cerrar el UI kit pendiente de G-STACK. Implementar base visual compartida de `V-005/V-006`: tema DS-001, logo aprobado, cabecera comercial, buscador accesible, layout/footer **sólo con enlaces existentes**, regiones de carga/error y responsive. No introducir dos UI kits.
 - Implementar `SearchBox` tipado de F-007: entrada, validación de 2–120, envío por Enter/botón, manejo de vacío y navegación interna a `/catalogo?q=...`; mostrar query aplicada desde URL sin almacenar tokens. Compartir props/eventos con Sebastian y Fernando antes de fusionar.
 - Traducir mockups aprobados al código respetando jerarquía y estados de [V-005](../../SPECS/ui/vistas/V-005-inicio.md), [V-006](../../SPECS/ui/vistas/V-006-catalogo-resultados.md) y [DS-001](../../SPECS/ui/DS-001-sistema-diseno-marketplace.md). Si el mockup exhibe acciones de S2 aún no implementadas, no crear interacciones ficticias: anotar desviación para Jim.
 - Añadir prueba de componente de validación/foco/navegación del buscador y revisar accesibilidad de las dos vistas. No asumir que diseñar el mockup equivale a implementar toda la vista.

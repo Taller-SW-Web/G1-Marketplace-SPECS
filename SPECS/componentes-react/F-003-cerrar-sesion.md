@@ -14,7 +14,7 @@
 | Contrato API | [F-003](../contrato-api/F-003-cerrar-sesion.md) |
 | Entregables visuales | [V-001](../ui/vistas/V-001-inicio-sesion.md), [V-005](../ui/vistas/V-005-inicio.md), [V-010](../ui/vistas/V-010-direccion-envio.md), [O-004](../ui/overlays/O-004-confirmacion-cierre-checkout.md) |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
-| Stack | React + TypeScript; Next.js App Router propuesto por arquitectura existente; librería UI pendiente de DS-OPEN-03 |
+| Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
 | Responsables de implementación | Propuesta explícita en [plan F-003](../../plan/funcionalidades/F-003-cerrar-sesion.md); no reemplaza el reparto de mockups |
 | Iteración objetivo | Sprint 1, sujeto a puertas de entrada y capacidad confirmada |
 

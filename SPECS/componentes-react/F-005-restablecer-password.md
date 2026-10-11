@@ -14,7 +14,7 @@
 | Contrato API | [F-005](../contrato-api/F-005-restablecer-password.md) |
 | Entregables visuales | [V-004](../ui/vistas/V-004-restablecimiento-contrasena.md) |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
-| Stack | React + TypeScript; Next.js App Router propuesto por arquitectura existente; librería UI pendiente de DS-OPEN-03 |
+| Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
 | Responsables de implementación | Propuesta explícita en [plan F-005](../../plan/funcionalidades/F-005-restablecer-password.md); no reemplaza el reparto de mockups |
 | Iteración objetivo | Sprint 1, sujeto a puertas de entrada y capacidad confirmada |
 

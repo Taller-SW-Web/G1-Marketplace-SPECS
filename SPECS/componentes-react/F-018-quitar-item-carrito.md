@@ -14,7 +14,7 @@
 | Contrato API | [F-018](../contrato-api/F-018-quitar-item-carrito.md) |
 | Entregables visuales | [V-008](../ui/vistas/V-008-carrito.md), [O-006](../ui/overlays/O-006-deshacer-eliminacion.md) |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
-| Stack | React + TypeScript; Next.js App Router propuesto por arquitectura existente; librería UI pendiente de DS-OPEN-03 |
+| Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
 | Responsables de implementación | Propuesta explícita en [plan F-018](../../plan/funcionalidades/F-018-quitar-item-carrito.md); no reemplaza el reparto de mockups |
 | Iteración objetivo | Sprint 3, sujeto a puertas de entrada y capacidad confirmada |
 

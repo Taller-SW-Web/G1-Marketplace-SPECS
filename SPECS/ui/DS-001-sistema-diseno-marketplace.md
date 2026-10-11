@@ -17,7 +17,8 @@
 | Biblioteca del sistema de diseño en Figma | [Sistema de Diseño](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=57-15&t=eO6m1Plz1xQ5sFgn-1) |
 | Sección de logos en Figma | [Logos de Inka Athletics](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=56-7&t=0TSK36SaklUJeiyS-4) |
 | Carpeta de mockups de vistas en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) (enlace a carpeta; URL directa del archivo y de sus páginas pendiente) |
-| Implementación descrita por la guía preliminar | React + TypeScript + Mantine `9.6.2` + Tabler Icons |
+| Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; versión y lockfile por validar |
+| UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; pendiente de aprobación `DS-OPEN-03` |
 | Última actualización | 2026-10-01 |
 | Alcance | Canal Marketplace web responsive y componentes compartidos |
 
@@ -25,11 +26,11 @@
 
 Este documento es la fuente visual vigente para los mockups. La versión `0.2.0` incorpora la identidad Inka Athletics y reemplaza los tokens provisionales de `DS-001` v0.1.0.
 
-La guía recibida define Mantine `9.6.2` y Tabler Icons como base de implementación. Otros documentos todavía mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Para no mezclar dos sistemas:
+El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. Esta decisión no aprueba automáticamente Mantine ni su versión. La guía recibida propone Mantine `9.6.2` y Tabler Icons; otros documentos todavía mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Para no mezclar dos sistemas:
 
 - los mockups y la biblioteca de Figma seguirán los tokens y propiedades documentados aquí;
 - Mantine + Tabler se consideran la dirección técnica preliminar más reciente del UI Kit;
-- antes de implementar frontend, el equipo debe aprobar esa migración y actualizar los documentos que aún indiquen el stack anterior;
+- antes de instalar componentes visuales, el equipo debe aprobar el UI kit y actualizar los documentos que aún indiquen el kit anterior;
 - mientras esa decisión no se cierre, las reglas de comportamiento, accesibilidad, tokens y composición de este documento sí son obligatorias.
 
 ## 2. Propósito y principios

@@ -11,7 +11,7 @@
 | Revisor | [Nombre] |
 | Spec UI relacionada | [Ruta] |
 | Contrato API relacionado | [Ruta] |
-| Stack | Next.js / React / TypeScript |
+| Stack | React + TypeScript + Next.js App Router; versión y UI kit según decisiones vigentes |
 
 ## 2. Rutas y pantallas
 

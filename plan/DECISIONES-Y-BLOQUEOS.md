@@ -21,7 +21,7 @@ Cuando se libere un gate: enlazar evidencia/versiones, fecha, aprobador y prueba
 
 | Gate | Evidencia / problema | Tratamiento para código (sin endpoint inventado) | Límite para el plan |
 |---|---|---|---|
-| G-STACK | DS-001 Mantine/Tabler preliminar vs README Tailwind/shadcn; frontend sólo README | Aprobar una biblioteca, versiones compatibles y lockfile; ajustar docs al decidir, no mantener dos sistemas | Semana 7 |
+| G-STACK | **Framework frontend resuelto por el PO (2026-10-10): React + TypeScript + Next.js App Router.** El frontend aún requiere inicialización; DS-001 propone Mantine/Tabler, mientras fuentes históricas citan Tailwind/shadcn | Pendiente: aprobar un único UI kit, versiones compatibles y lockfile; no interpretar la decisión de Next.js como aprobación de Mantine ni como aplicación ya desplegada | Semana 7 |
 | G-SHELL | Header/footer final aún no aprobado en UI; checkout sólo logo+4 etapas fue preferencia del PO | Diseñar wrappers desacoplados. Validar logo/no salida accidental/progreso y footer antes pixel final; sin rutas legales/ayuda supuestas | Antes del primer layout en S1 |
 | G-AUTH | F-002 abrevia token/desafío, no MFA/refresh/transporte completo; políticas y URLs base pendientes | Tipos de desafío, endpoint MFA, transporte seguro/CORS/CSRF, expiración y PASSWORD_CADUCADA según Seguridad. Registro usa canal fijo y regreso /login sin token | Semana 9, antes de auth real |
 | G-SKU | F-011 no devuelve SKU; ejemplo variantes sólo hasVariants=true | Extender/documentar proyección autorizada de SKU simple de F-013; frontend nunca usa productId como SKU | Antes de F-016, semana 10 |

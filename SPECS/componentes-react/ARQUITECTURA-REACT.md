@@ -10,7 +10,7 @@ Orden de autoridad: funcional para comportamiento, API para operaciones/datos, U
 
 DS-001 v0.2.0 reemplaza los tokens 0.1.0 aún citados por algunas specs. Mantine/Tabler es dirección preliminar, no migración aprobada. No instalar ni fijar Mantine 9.6.2 sólo porque figure en la guía: validar disponibilidad/compatibilidad y aprobar DS-OPEN-03 al preparar el frontend. No mezclar dos UI kits.
 
-Frontend y backend locales sólo contienen README; no hay package.json, aplicación ni pruebas ejecutables verificadas. Next.js App Router/React/TypeScript, TanStack Query, formularios tipados y NestJS/Prisma son diseños de partida, no afirmación de código instalado. Se seleccionan versiones/lockfile al implementar el Sprint 1.
+**Decisión del PO (2026-10-10):** el frontend se implementará con React + TypeScript + Next.js App Router. Esta decisión fija el framework, no una versión ni la biblioteca de componentes. El repositorio frontend aún no acredita una aplicación ejecutable; el backend remoto publica una base Node/Prisma con `/health`, pero no el BFF de catálogo. TanStack Query, formularios tipados y NestJS siguen siendo propuestas sujetas a implementación/validación, no afirmaciones de código instalado. Seleccionar versiones compatibles y registrar el lockfile al iniciar S1.
 
 ## 2. Separación por capas y organización propuesta
 

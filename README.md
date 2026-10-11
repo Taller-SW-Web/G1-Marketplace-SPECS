@@ -1,98 +1,71 @@
-# 🛒 Canal Marketplace Multicanal
+# Marketplace — Grupo 1
 
-> **Taller de Software Web — Grupo 1 (G1)**  
-> Plataforma e-commerce multicanal orientada a microservicios desarrollada bajo la metodología **Spec-Driven Development (SDD)**.
+Repositorio de **especificaciones, arquitectura, diseño visual y planificación** del canal Marketplace de Inka Athletics. El código se desarrolla en repositorios separados: [frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend) y [backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend). Marketplace presenta la experiencia de compra y coordina servicios propietarios de Productos y Ofertas, Seguridad y Gestión de Usuarios, Ventas y Postventa y Despacho; no lee directamente las bases de datos de otros módulos.
 
----
+> **Estado al 10 de octubre de 2026:** los mockups están elaborados y aprobados según el PO, pero eso no equivale a software implementado. El plan de desarrollo de semanas 8–16 es una propuesta de ejecución; cada tarea se cierra únicamente con código, pruebas y evidencia. La integración real con Productos para la semana 8 depende de que ese módulo publique entorno, datos y autorización utilizables.
 
-## 👥 Integrantes del Equipo
+## Por dónde empezar
 
-A continuación se detalla el equipo de desarrollo, roles y responsabilidades técnicas asignadas en el proyecto:
+1. [Plan de implementación](plan/PLAN-IMPLEMENTACION.md): hitos de semanas 8, 11, 14 y 16, alcance y criterios de evidencia.
+2. [Repartición de semana 8](plan/repartición%20por%20integrantes/README.md): paquete individual de cada integrante. Leer también la [guía de colaboración](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) antes de abrir ramas o PR.
+3. [Decisiones y bloqueos](plan/DECISIONES-Y-BLOQUEOS.md): dependencias intermodulares y técnicas pendientes; no asumir que una API o un despliegue está listo porque exista un documento.
+4. [Nomenclatura SDD](SPECS/NOMENCLATURA-SDD.md) y [fuentes](SPECS/INVENTARIO-FUENTES.md): cómo identificar specs y rastrear su origen.
+5. Para una funcionalidad, leer en orden su spec [funcional](SPECS/funcional/), [UI](SPECS/ui/), [contrato API](SPECS/contrato-api/) y [componentes React](SPECS/componentes-react/); después su archivo en [plan/funcionalidades](plan/funcionalidades/) y sus tareas en [plan/seguimiento](plan/seguimiento/).
 
-| # | Integrante | Rol Principal | Módulo / SPEC Asignado |
-| :-: | :--- | :--- | :--- |
-| 1 | **Diego Steven Martin Espinoza Picon** | 🧭 Jefe de Proyecto / QA | [`SPEC-06`: Seguimiento e Historial de Pedidos](./SPECS/specs-depreciadas/SPEC-06-EP-SHP-Seguimiento-y-Pedidos.md) |
-| 2 | **Leonidas Garcia Lescano** | 🏛️ Arquitecto de Software & Backend Developer | [`SPEC-02`: Vitrina y Exploración del Catálogo](./SPECS/specs-depreciadas/SPEC-02-EP-VEC-Vitrina-y-Exploracion-Catalogo.md) y [`SPEC-08`: Favoritos y Lista de Deseos](./SPECS/specs-depreciadas/SPEC-08-EP-FAV-Gestion-de-Favoritos.md) |
-| 3 | **Giuliano Macchiavello Perez** | 🎨 Diseñador UX/UI & Frontend | [`SPEC-05`: Transacción y Realización de Checkout](./SPECS/specs-depreciadas/SPEC-05-EP-TRX-Checkout-y-Pago.md) |
-| 4 | **Sebastian Matias Malca Agüero** | 📝 Documentador & Frontend | [`SPEC-04`: Carrito de Compras](./SPECS/specs-depreciadas/SPEC-04-EP-ITC-Carrito-y-Favoritos.md) |
-| 5 | **Andres Fernando Morales Usca** | 🔒 DevOps & Seguridad | [`SPEC-01`: Gestión de Accesos del Cliente](./SPECS/specs-depreciadas/SPEC-01-EP-GAC-Gestion-de-Accesos.md) |
-| 6 | **Fernando Jose Saire Tello** | ☁️ QA & Cloud Specialist | [`SPEC-07`: Sistema de Notificaciones](./SPECS/specs-depreciadas/SPEC-07-EP-SNT-Sistema-de-Notificaciones.md) |
-| 7 | **Jim Bryan Segovia Valencia** | 📋 Product Owner | [`SPEC-03`: Detalle y Disponibilidad de Producto](./SPECS/specs-depreciadas/SPEC-03-EP-DDP-Detalle-y-Disponibilidad-Producto.md) |
+La documentación en [specs históricas](SPECS/specs-depreciadas/) y las épicas/historias originales es **antecedente**, no sustituto de las specs vigentes F-001–F-040. Ante una contradicción, registrar la decisión y actualizar la fuente vigente antes de implementar.
 
----
+## Equipo
 
-## 📖 Descripción del Proyecto
+Los roles generales no implican que una persona programe todas las funciones de su antiguo bloque documental. La asignación concreta de **H3 / semana 8** está en la [repartición por integrantes](plan/repartición%20por%20integrantes/README.md) y requiere confirmación de capacidad.
 
-El **Canal Marketplace Multicanal** es la interfaz digital y capa de orquestación de comercio electrónico que conecta a clientes finales con el ecosistema de microservicios de la organización (Seguridad, Catálogo de Productos, Ventas, Despacho y Notificaciones).
+| Integrante | Rol general |
+|---|---|
+| Diego Steven Martin Espinoza Picon | Jefe de Proyecto / QA |
+| Leonidas Garcia Lescano | Arquitecto de Software / Backend |
+| Giuliano Macchiavello Perez | UX/UI / Frontend |
+| Sebastian Matias Malca Agüero | Documentación / Frontend |
+| Andres Fernando Morales Usca | DevOps / Seguridad |
+| Fernando Jose Saire Tello | QA / Cloud |
+| Jim Bryan Segovia Valencia | Product Owner |
 
-### Objetivos Clave
-- **Experiencia de Usuario Fluida:** Vitrina de productos reactiva, navegación ágil, checkout intuitivo y gestión de lista de deseos.
-- **Arquitectura Desacoplada:** Comunicación con servicios externos a través de contratos REST estrictamente tipados y adaptadores de integración (Capa D).
-- **Persistencia Aislada:** Cero acceso cruzado a bases de datos ajenas; persistencia local autónoma para sesiones efímeras (carrito y deseos).
-- **Garantía de Calidad:** Especificaciones técnicas rigurosas (SDD) acompañadas de escenarios de prueba BDD en formato Gherkin.
-
----
-
-## 📐 Metodología Spec-Driven Development (SDD)
-
-El proyecto adopta **Spec-Driven Development (SDD)**, donde cada Épica de negocio cuenta con un documento de diseño de software ejecutable (**SPEC**) que actúa como la **única fuente de verdad (*Single Source of Truth*)**.
-
-```mermaid
-flowchart LR
-    A["Requerimiento de Negocio / Épica"] --> B["SPEC Técnico (SDD)"]
-    B --> C["Desarrollo Frontend / Backend"]
-    B --> D["Pruebas Automatizadas BDD"]
-    C --> E["Incremento de Software"]
-    D --> E
-    E --> F["Definition of Done (DoD)"]
-```
-
-### Catálogo de Especificaciones Técnicas
-
-| Código | Épica | Nombre de la Especificación | HUs | PH | Responsable | Documento |
-| :---: | :---: | :--- | :---: | :---: | :--- | :---: |
-| **`SPEC-01`** | `EP-GAC` | Gestión de Accesos del Cliente | 3 | 11 | Andrés Morales | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-01-EP-GAC-Gestion-de-Accesos.md) |
-| **`SPEC-02`** | `EP-VEC` | Vitrina y Exploración del Catálogo | 4 | 13 | Leonidas Garcia | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-02-EP-VEC-Vitrina-y-Exploracion-Catalogo.md) |
-| **`SPEC-03`** | `EP-DDP` | Detalle y Disponibilidad de Producto | 4 | 11 | Jim Segovia | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-03-EP-DDP-Detalle-y-Disponibilidad-Producto.md) |
-| **`SPEC-04`** | `EP-ITC` | Intención de Transacción y Carrito de Compras | 2 | 8 | Sebastián Malca | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-04-EP-ITC-Carrito-y-Favoritos.md) |
-| **`SPEC-05`** | `EP-TRX` | Transacción y Realización de Checkout | 3 | 13 | Giuliano Macchiavello | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-05-EP-TRX-Checkout-y-Pago.md) |
-| **`SPEC-06`** | `EP-SHP` | Seguimiento e Historial de Pedidos | 3 | 11 | Diego Espinoza | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-06-EP-SHP-Seguimiento-y-Pedidos.md) |
-| **`SPEC-07`** | `EP-SNT` | Sistema de Notificaciones por Correo | 3 | 13 | Fernando Saire | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-07-EP-SNT-Sistema-de-Notificaciones.md) |
-| **`SPEC-08`** | `EP-FAV` | Gestión de Favoritos y Lista de Deseos | 3 | 11 | Leonidas Garcia | [Ver SPEC histórico](./SPECS/specs-depreciadas/SPEC-08-EP-FAV-Gestion-de-Favoritos.md) |
-| **TOTAL** | **8 Épicas** | **Solución Integral Marketplace** | **25** | **91** | **7 Integrantes** | [Catálogo SPECS](./SPECS/README.md) |
-
----
-
-## 🛠️ Stack Tecnológico
-
-| Capa | Tecnologías |
-| :--- | :--- |
-| **Frontend** | Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui, TanStack Query, Zustand, React Hook Form, Zod |
-| **Backend** | NestJS, TypeScript, class-validator, Axios, Prisma ORM |
-| **Persistencia** | PostgreSQL (Dockerizado) / Prisma Schema |
-| **Integraciones** | Mock Adapters (`axios-mock-adapter`), Resend Email API, Microservicios externos (Seguridad, Productos, Ventas, Despacho) |
-| **Testing & Calidad** | Jest, Supertest, Playwright, Gherkin BDD |
-
----
-
-## 📂 Estructura del Repositorio
+## Organización vigente
 
 ```text
-Multichannel-Marketplace/
-├── Arquitectura de la Aplicación/    # Diagramas C4, contratos y plan de arquitectura
-├── Diagrama de Procesos/             # Flujos y procesos de negocio
-├── Especificación de Requisitos/     # Épicas, matriz de trazabilidad y reglas de negocio
-├── SPECS/                            # Especificaciones técnicas detalladas (SDD por Épica)
-│   ├── README.md                     # Metodología y catálogo maestro de SPECS
-│   └── SPEC-01 a SPEC-08             # Documentos SDD de cada módulo
-├── Wireframes y Prototipo/           # Navegación y especificación de pantallas
-└── README.md                         # Portada principal del repositorio
+SPECS/
+├── funcional/             comportamiento, reglas y estados por F-###
+├── ui/                    sistema de diseño, vistas V-###, overlays O-### y correos C-###
+├── contrato-api/          datos y operaciones del BFF e integraciones
+├── componentes-react/     composición y estados para implementación React
+├── specs-depreciadas/     ocho SPEC históricos; sólo antecedente
+├── NOMENCLATURA-SDD.md
+└── INVENTARIO-FUENTES.md
+plan/
+├── PLAN-IMPLEMENTACION.md
+├── iteraciones/           S1–S5, alineadas a hitos
+├── funcionalidades/       planes F-001–F-040
+├── seguimiento/           tareas, estados y evidencias
+└── repartición por integrantes/   paquetes y reglas de H3
+Arquitectura de la Aplicación/      diagramas y modelo lógico de base de datos
+Diagrama de Procesos/              procesos de negocio
+Especificación de Requisitos/       fuentes históricas y trazabilidad
+Wireframes y Prototipo/             antecedentes visuales
 ```
 
----
+El [modelo lógico vigente](Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/01-Modelo-logico-inicial.md) guía la persistencia propia. La arquitectura o el esquema históricos de dos tablas no reemplazan ese modelo. **Plan y tareas no son specs**: por eso viven fuera de `SPECS/`.
 
-## 📋 Convenciones y Contribución
+## Primer corte funcional: H3, semana 8
 
-1. **Spec-First:** Antes de implementar cualquier cambio funcional en el código, la modificación debe reflejarse y validarse en su correspondiente documento `SPEC`.
-2. **Branching:** Cada integrante trabaja sobre ramas asociadas a su módulo (e.g. `feat/SPEC-0X-nombre-historia`).
-3. **Definition of Done:** Cada entrega debe cumplir con los criterios de aceptación BDD, tipado estricto, manejo de errores HTTP y cobertura de pruebas estipulada en su SPEC.
+La [iteración S1](plan/iteraciones/S01-semanas-07-08.md) prioriza **F-006** (inicio/categorías) y **F-007** (búsqueda por texto), con un flujo visible `navegador → frontend Marketplace → BFF Marketplace → API real de Productos`. Las pantallas previstas son [V-005 Inicio](SPECS/ui/vistas/V-005-inicio.md) y el alcance de búsqueda de [V-006 Catálogo y resultados](SPECS/ui/vistas/V-006-catalogo-resultados.md), incluidos carga, resultados, vacío y error. Desktop y responsive se validan según sus specs; las funciones de filtros, ordenamiento y paginación completos pertenecen a iteraciones posteriores.
+
+La API de Productos **alimenta** estas vistas: conectarse con otro módulo no crea por sí mismo una pantalla nueva. El frontend no debe llamar a Productos con secretos ni copiar su catálogo a la base Marketplace. Un fixture local puede ayudar al desarrollo, pero **no acredita** la integración ni el despliegue requeridos por H3.
+
+## Diseño, arquitectura y tecnología
+
+- [Sistema de diseño DS-001](SPECS/ui/DS-001-sistema-diseno-marketplace.md) y [catálogo visual](SPECS/ui/INVENTARIO-VISUAL-Y-ESTIMACION.md): fuente de composición, identidad y estados. Los [mockups de Figma](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) están separados de la biblioteca de sistema de diseño.
+- [Arquitectura React](SPECS/componentes-react/ARQUITECTURA-REACT.md): diseño técnico de frontend, no prueba de que el código ya exista.
+- [Arquitectura y base de datos](Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/): PostgreSQL/Prisma y el despliegue previsto se contrastan con el backend real antes de migrar o publicar.
+- **Frontend decidido por el PO (2026-10-10):** React + TypeScript + Next.js App Router. Siguen pendientes la versión/lockfile y el UI kit: DS-001 propone Mantine/Tabler, mientras documentos históricos citan Tailwind/shadcn. NestJS aparece en propuestas anteriores, pero el backend actual es un servidor Node con Prisma y `/health`. [G-STACK](plan/DECISIONES-Y-BLOQUEOS.md) conserva esas decisiones pendientes; la elección del framework no acredita una app ya implementada. La existencia de `render.yaml` tampoco acredita una URL desplegada y funcionando.
+
+## Cómo contribuir
+
+Trabajamos con especificaciones antes de código, contratos versionados y pruebas proporcionales al cambio. Para H3, las ramas personales salen de `develop` **cuando el equipo la cree**, los PR se abren hacia `develop` y el corte verificado pasa a `main`. La [guía colaborativa](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) define revisores, criterios de cierre y Conventional Commits con descripción en español. Cada autor documenta qué specs/mockups usó, qué código generó o modificó con IA, qué revisó personalmente y qué pruebas ejecutó. No subir secretos, datos personales ni afirmar «integrado» por pruebas con mocks.

@@ -10,7 +10,7 @@ La base remota de backend/Prisma y Render se **audita y aprovecha** si correspon
 
 ## Secuencia por semana
 
-- **Semana 7:** cerrar mínimo I-01 para lectura pública de Productos (versión/ruta/auth/datos/prueba), G-STACK, arquitectura de despliegue y dueños de entorno. Auditar migración/DB existente. Crear frontend/BFF ejecutables, contrato tipado y adaptador, estados básicos; pipeline build/test mínimo.
+- **Semana 7:** cerrar mínimo I-01 para lectura pública de Productos (versión/ruta/auth/datos/prueba), UI kit/versiones/lockfile pendientes de G-STACK, arquitectura de despliegue y dueños de entorno. Inicializar el frontend con React + TypeScript + Next.js App Router decidido por el PO. Auditar migración/DB existente. Crear frontend/BFF ejecutables, contrato tipado y adaptador, estados básicos; pipeline build/test mínimo.
 - **Semana 8, antes de presentación:** conectar datos reales de Productos, probar vacío/error/timeout, desplegar FE y BE en nube y verificar la URL desde fuera del equipo. Registrar commit, endpoint, petición/respuesta sanitizada, logs y capturas; diagrama de contexto y arquitectura deben corresponder al despliegue. Ensayar demo/rollback. Si I-01 no se libera, escalar inmediatamente: un fixture no cumple el requisito de integración.
 
 ## Tareas técnicas y evidencia
