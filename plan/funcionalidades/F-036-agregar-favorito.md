@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-036 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 3, semanas 10–11 |
+| Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-036-agregar-favorito.md), [UI](../../SPECS/ui/F-036-agregar-favorito.md), [API](../../SPECS/contrato-api/F-036-agregar-favorito.md), [React](../../SPECS/componentes-react/F-036-agregar-favorito.md) |
-| Ejecución y revisores | [Tareas de F-036](../seguimiento/F-036-agregar-favorito.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-036](../seguimiento/F-036-agregar-favorito.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-028 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 5, semanas 14–15 |
+| Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-028-historial-pedidos.md), [UI](../../SPECS/ui/F-028-historial-pedidos.md), [API](../../SPECS/contrato-api/F-028-historial-pedidos.md), [React](../../SPECS/componentes-react/F-028-historial-pedidos.md) |
-| Ejecución y revisores | [Tareas de F-028](../seguimiento/F-028-historial-pedidos.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-028](../seguimiento/F-028-historial-pedidos.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

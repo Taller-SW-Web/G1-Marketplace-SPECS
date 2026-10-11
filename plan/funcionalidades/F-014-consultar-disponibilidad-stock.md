@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-014 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 2, semanas 8–9 |
+| Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-014-consultar-disponibilidad-stock.md), [UI](../../SPECS/ui/F-014-consultar-disponibilidad-stock.md), [API](../../SPECS/contrato-api/F-014-consultar-disponibilidad-stock.md), [React](../../SPECS/componentes-react/F-014-consultar-disponibilidad-stock.md) |
-| Ejecución y revisores | [Tareas de F-014](../seguimiento/F-014-consultar-disponibilidad-stock.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-014](../seguimiento/F-014-consultar-disponibilidad-stock.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

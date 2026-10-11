@@ -1,234 +1,54 @@
-# Tareas transversales — Base, BD, DevSecOps, QA y coordinación
+# Tareas transversales — hitos de semanas 8, 11, 14 y 16
 
-Fuente: [plan general](../PLAN-IMPLEMENTACION.md) y [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md). Referentes/revisores propuestos, no aceptación humana. Evidencia inicial pendiente.
+Versión 0.2.0 · Replanificación 2026-10-10. Se conservan los 27 IDs para no romper dependencias de F-001–F-040. Sólo S1 tiene responsables/revisores **propuestos** en la [repartición H3](../repartición%20por%20integrantes/README.md), sujetos a estimación y aceptación; S2–S5 siguen sin asignar. Ninguna tarea se declara ejecutada por figurar aquí.
 
 ## Tablero único
 
-| ID | Responsable | Revisor | Prioridad | Depende de | Semana | Estado |
-|---|---|---|---|---|---|---|
-| TASK-TRANS-S01-OPS-001 | Andres | Leonidas | P0 | G-STACK/G-AUTH: cerrar decisiones antes activar | 6 | Pendiente |
-| TASK-TRANS-S01-OPS-002 | Andres | Fernando | P0 | TASK-TRANS-S01-OPS-001 + código/entorno propio o autorizado | 7 | Pendiente |
-| TASK-TRANS-S01-QA-001 | Fernando | Diego | P0 | QA-001/QA-002 funcionales del sprint + OPS-002 + INT reales para prueba externa | 7 | Pendiente |
-| TASK-TRANS-S01-DOC-001 | Sebastian | Jim | P1 | Resultados QA/INT/OPS del sprint; no esperar para registrar bloqueos | 7 | Pendiente |
-| TASK-TRANS-S01-DOC-002 | Diego | Jim | P0 | Plan + capacidad confirmada por cada referente | 6 | Pendiente |
-| TASK-TRANS-S02-OPS-001 | Andres | Leonidas | P0 | TASK-TRANS-S01-OPS-001; base y gates del sprint | 8 | Pendiente |
-| TASK-TRANS-S02-OPS-002 | Andres | Fernando | P0 | TASK-TRANS-S02-OPS-001 + código/entorno propio o autorizado | 9 | Pendiente |
-| TASK-TRANS-S02-QA-001 | Fernando | Diego | P0 | QA-001/QA-002 funcionales del sprint + OPS-002 + INT reales para prueba externa | 9 | Pendiente |
-| TASK-TRANS-S02-DOC-001 | Sebastian | Jim | P1 | Resultados QA/INT/OPS del sprint; no esperar para registrar bloqueos | 9 | Pendiente |
-| TASK-TRANS-S02-DOC-002 | Diego | Jim | P0 | Plan + capacidad confirmada por cada referente | 8 | Pendiente |
-| TASK-TRANS-S03-OPS-001 | Andres | Leonidas | P0 | TASK-TRANS-S01-OPS-001; base y gates del sprint | 10 | Pendiente |
-| TASK-TRANS-S03-OPS-002 | Andres | Fernando | P0 | TASK-TRANS-S03-OPS-001 + código/entorno propio o autorizado | 11 | Pendiente |
-| TASK-TRANS-S03-QA-001 | Fernando | Diego | P0 | QA-001/QA-002 funcionales del sprint + OPS-002 + INT reales para prueba externa | 11 | Pendiente |
-| TASK-TRANS-S03-DOC-001 | Sebastian | Jim | P1 | Resultados QA/INT/OPS del sprint; no esperar para registrar bloqueos | 11 | Pendiente |
-| TASK-TRANS-S03-DOC-002 | Diego | Jim | P0 | Plan + capacidad confirmada por cada referente | 10 | Pendiente |
-| TASK-TRANS-S04-OPS-001 | Andres | Leonidas | P0 | TASK-TRANS-S01-OPS-001; base y gates del sprint | 12 | Pendiente |
-| TASK-TRANS-S04-OPS-002 | Andres | Fernando | P0 | TASK-TRANS-S04-OPS-001 + código/entorno propio o autorizado | 13 | Pendiente |
-| TASK-TRANS-S04-QA-001 | Fernando | Diego | P0 | QA-001/QA-002 funcionales del sprint + OPS-002 + INT reales para prueba externa | 13 | Pendiente |
-| TASK-TRANS-S04-DOC-001 | Sebastian | Jim | P1 | Resultados QA/INT/OPS del sprint; no esperar para registrar bloqueos | 13 | Pendiente |
-| TASK-TRANS-S04-DOC-002 | Diego | Jim | P0 | Plan + capacidad confirmada por cada referente | 12 | Pendiente |
-| TASK-TRANS-S05-OPS-001 | Andres | Leonidas | P0 | TASK-TRANS-S01-OPS-001; base y gates del sprint | 14 | Pendiente |
-| TASK-TRANS-S05-OPS-002 | Andres | Fernando | P0 | TASK-TRANS-S05-OPS-001 + código/entorno propio o autorizado | 15 | Pendiente |
-| TASK-TRANS-S05-QA-001 | Fernando | Diego | P0 | QA-001/QA-002 funcionales del sprint + OPS-002 + INT reales para prueba externa | 15 | Pendiente |
-| TASK-TRANS-S05-DOC-001 | Sebastian | Jim | P1 | Resultados QA/INT/OPS del sprint; no esperar para registrar bloqueos | 15 | Pendiente |
-| TASK-TRANS-S05-DOC-002 | Diego | Jim | P0 | Plan + capacidad confirmada por cada referente | 14 | Pendiente |
-| TASK-TRANS-S01-DB-001 | Leonidas | Andres | P0 | G-DB: artefacto físico no presente; resolver baseline con equipo | 6 | Bloqueado |
-| TASK-TRANS-S05-OPS-003 | Andres | Leonidas | P0 | Regresión S5 + gates reales cerrados + entorno propio autorizado | 15 | Pendiente |
+| ID | Semana objetivo | Estado | Trabajo y evidencia de cierre |
+|---|---:|---|---|
+| TASK-TRANS-S01-OPS-001 | 7 | Pendiente | Base FE/BFF ejecutable; auditar Prisma/Render remotos; build/test mínimo, configuración de entornos, origen/CORS, secretos fuera de Git. Evidencia: commit, build y configuración saneada. |
+| TASK-TRANS-S01-OPS-002 | 8 | Pendiente | Desplegar FE y BE; `/health` y flujo web→BFF→Productos reales; escaneo inicial y humo de seguridad. Evidencia: URLs, deploy, petición/respuesta y logs sanitizados. |
+| TASK-TRANS-S01-QA-001 | 8 | Pendiente | Probar F-006/F-007 en nube: dato real, vacío, error, timeout, responsive y regresión mínima. Evidencia de integración distinta de fixture. |
+| TASK-TRANS-S01-DOC-001 | 8 | Pendiente | Diagrama de contexto/arquitectura conforme despliegue, enlaces de repo/commit/contrato y registro de lo funcional/bloqueado. |
+| TASK-TRANS-S01-DOC-002 | 7 | Pendiente | Estimar S1–S2, registrar capacidad real y decisión de prioridad H3; escalar I-01/entorno si no hay prueba intermodular posible. |
+| TASK-TRANS-S01-DB-001 | 7 | Bloqueado | Auditar esquema/migraciones Prisma publicados contra modelo lógico; resolver G-DB y ensayar migración/rollback en entorno de prueba sin borrar datos. |
+| TASK-TRANS-S02-OPS-001 | 9 | Pendiente | Publicar OpenAPI del BFF; CI/CD build, typecheck, tests y deploy por entorno, versionado/rollback y secretos. Primera corrida reproducible. |
+| TASK-TRANS-S02-OPS-002 | 11 | Pendiente | Ejecutar pipeline con revisión de seguridad, controles SAST/SCA/secret scan y smoke de auth/API; corregir y retestar hallazgos. |
+| TASK-TRANS-S02-QA-001 | 11 | Pendiente | E2E de segundo demo: catálogo/ficha/carrito/favoritos y autenticación UI+API; negativos JWT vencido, ownership y MFA según contrato. |
+| TASK-TRANS-S02-DOC-001 | 11 | Pendiente | Enlazar diseño de APIs, specs, código, contratos externos, pruebas, URL de demo y evidencias CI/CD. |
+| TASK-TRANS-S02-DOC-002 | 9 | Pendiente | Estimar carga S2–S3, revisar capacidad/cuello de botella y escalamiento de I-02/I-05/I-06 antes del hito siguiente. |
+| TASK-TRANS-S03-OPS-001 | 12 | Pendiente | Preparar gateway/API Management, contrato de evento real con otro módulo, outbox/consumer, correlación, retry/deduplicación; entorno de prueba. |
+| TASK-TRANS-S03-OPS-002 | 13 | Pendiente | Probar checkout/idempotencia, seguridad token titular/técnico, CORS/CSRF según transporte; preparar carga/umbrales y traza asíncrona. |
+| TASK-TRANS-S03-QA-001 | 13 | Pendiente | E2E de dirección→cotización→pedido: cupón, timeout, doble clic, resultado incierto; `PREPARED`/`CREADO` nunca pagado. Prueba de F-034 asíncrona. |
+| TASK-TRANS-S03-DOC-001 | 13 | Pendiente | Registrar contrato checkout/worker/evento, arquitectura actualizada, pruebas y gates; preparar evidencia H5. |
+| TASK-TRANS-S03-DOC-002 | 12 | Pendiente | Reestimar S3–S5 y riesgo de H5/H6; confirmar proveedor de evento y autorización de carga antes de semana 14. |
+| TASK-TRANS-S04-OPS-001 | 14 | Pendiente | Mostrar API Management aplicado y mensaje asíncrono entre módulos: productor/consumidor, esquema, correlación, reintento/dedupe y fallo recuperado. |
+| TASK-TRANS-S04-OPS-002 | 14 | Pendiente | Ejecutar CI/CD con revisión de seguridad y prueba de performance autorizada (dataset, concurrencia, p50/p95, tasa de error, umbral); corregir/retest. |
+| TASK-TRANS-S04-QA-001 | 14 | Pendiente | Prueba de integración positiva/negativa y de evento real para F-032/F-035; verificar traza y comportamiento ante timeout/duplicado. |
+| TASK-TRANS-S04-DOC-001 | 14 | Pendiente | Publicar paquete de evidencia H5: versiones, commits, run CI/CD, contrato/proveedor, gateway, pruebas de integración/performance y limitaciones. |
+| TASK-TRANS-S04-DOC-002 | 14 | Pendiente | Revisar gate H5 contra evidencia, registrar desvíos y capacidad restante para H6; no declarar completado un mock. |
+| TASK-TRANS-S05-OPS-001 | 15 | Pendiente | Instalar observabilidad (logs, métricas, trazas) y alerta con owner/umbral; revisar arquitectura as built, backups/migraciones y rollback. |
+| TASK-TRANS-S05-OPS-002 | 16 | Pendiente | Ejecutar dos controles/pruebas OWASP distintos y retest, escaneos de release, E2E/regresión y alerta disparada; archivar evidencia sanitizada. |
+| TASK-TRANS-S05-QA-001 | 16 | Pendiente | Validar F-001–F-040 integradas, multi-módulo, responsive/a11y, seguridad y demo final reproducible; registrar hallazgos pendientes honestamente. |
+| TASK-TRANS-S05-DOC-001 | 16 | Pendiente | Arquitectura final actualizada, trazabilidad specs↔código↔tests, evidencia UX y observabilidad/alertas, runbook y enlaces a repos/commits. |
+| TASK-TRANS-S05-DOC-002 | 15 | Pendiente | Revisar capacidad de cierre, contribuciones Git verificables y riesgo de release; congelar alcance demostrado sin ocultar pendientes. |
+| TASK-TRANS-S05-OPS-003 | 16 | Pendiente | Release final versionado en nube, smoke multi-módulo, rollback ensayado, enlaces/URL y evidencias de contribución y despliegue. |
 
-## Trabajo y criterios de terminado
+## Regla de registro
 
-### TASK-TRANS-S01-OPS-001
+### Responsables propuestos sólo para S1
 
-- **Trabajo:** Inicializar FE/BE, tipado y cliente API, pipeline unit/component/API; auditar baseline de seis entidades, Render/PostgreSQL 16/Prisma sin desplegar con secretos en repo.
-- **DoD:** Pipeline/entorno reproducible, contratos y decisiones enlazados; evidencia sin credenciales ni cambios sobre infraestructura ajena.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
+| ID | Responsable | Revisor |
+|---|---|---|
+| TASK-TRANS-S01-OPS-001 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S01-OPS-002 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S01-QA-001 | Diego Espinoza | Jim Segovia |
+| TASK-TRANS-S01-DOC-001 | Jim Segovia | Diego Espinoza |
+| TASK-TRANS-S01-DOC-002 | Jim Segovia | Diego Espinoza |
+| TASK-TRANS-S01-DB-001 | Andres Morales | Leonidas Garcia |
 
-### TASK-TRANS-S01-OPS-002
+Fernando ejecuta smoke cloud, Giuliano shell/buscador y Sebastian documentación funcional como aportes coordinados a esos IDs y F-006/F-007. Asignación no significa ejecución ni cierre de I-01.
 
-- **Trabajo:** Ejecutar typecheck/lint/build, SAST, SCA/licencias, secret scanning y DAST aplicable; clasificar/corregir/retest hallazgos del incremento. Antienumeración, rate limit, JWT expirado, MFA bypass, retorno interno seguro y tokens fuera de storage/logs. Scans iniciales SAST/SCA/secrets, pruebas CORS/CSRF/cookies según transporte.
-- **DoD:** Reportes sanitizados versionados, reglas/versión/entorno documentados y sin riesgo crítico/alto explotable abierto; controles no ejecutados no aparecen aprobados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
+Para pasar a `En progreso`, asignar persona responsable y revisor distinto, aceptar estimación/alcance y comprobar dependencias. Para `Terminado`, añadir URL/commit/entorno/fecha/comando o caso/resultado y revisión, sin secretos ni PII. Un pipeline configurado sin corrida, un `render.yaml` sin URL verificada o un outbox sin otro módulo no cumplen los hitos. Las integraciones pendientes de contrato permanecen bloqueadas aunque el código local avance con fixtures.
 
-### TASK-TRANS-S01-QA-001
-
-- **Trabajo:** Regresión acumulativa de incrementos previos y nuevo corte vertical; probar navegación/estados/error/timeout, teclado/mobile según specs y pruebas de seguridad. Registro pendiente de verificación en Seguridad, regreso /login sin token; login normal/MFA, recuperación y logout. Mocks etiquetados si transporte aún pendiente.
-- **DoD:** Cuenta y base técnica demostrables, pruebas positivas/negativas; política de sesión y BD baseline trazable o bloqueo explícito. No aprobar MFA inventado. Evidencias incluidas y todos hallazgos con dueño; no usar demo aislada como cobertura completa.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S01-DOC-001
-
-- **Trabajo:** Consolidar specs↔tareas↔código↔pruebas, links Figma y gates, documentación operativa; revisar coherencia con modelo lógico y API vigente.
-- **DoD:** Cada salida tiene evidencia; docs no prometen trabajo no realizado, quedan pendientes/entorno mock/reales identificados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S01-DOC-002
-
-- **Trabajo:** Revisar horas/carga, estimar y confirmar responsables de ejecución sin cambiar paquetes UI; revisar tablero dos veces/semana, escalar gates y medir riesgo para semana 15.
-- **DoD:** Registro de planificación/revisiones con cambios de estado/evidencia, desvíos y decisiones del PO; no agenda ficticia ni aprobación supuesta.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S02-OPS-001
-
-- **Trabajo:** Contrato local con fixture autorizado por cada región; cache policy/ETag/timeouts y observabilidad, preparar recursos DB del carrito sin reserva inventada.
-- **DoD:** Pipeline/entorno reproducible, contratos y decisiones enlazados; evidencia sin credenciales ni cambios sobre infraestructura ajena.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S02-OPS-002
-
-- **Trabajo:** Ejecutar typecheck/lint/build, SAST, SCA/licencias, secret scanning y DAST aplicable; clasificar/corregir/retest hallazgos del incremento. XSS/traversal, medios/URL/SSRF, enums/rangos/pageSize abusivos, producto privado y cantidades/precios no autoritativos. Scans y DAST sobre entorno propio.
-- **DoD:** Reportes sanitizados versionados, reglas/versión/entorno documentados y sin riesgo crítico/alto explotable abierto; controles no ejecutados no aparecen aprobados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S02-QA-001
-
-- **Trabajo:** Regresión acumulativa de incrementos previos y nuevo corte vertical; probar navegación/estados/error/timeout, teclado/mobile según specs y pruebas de seguridad. Buscar, filtrar, ordenar, paginar, abrir galería/variante, precio/oferta y disponibilidad, agregar una unidad con resultado ajustado/error.
-- **DoD:** Catálogo y ficha completa con todos los estados relevantes; ningún error se convierte en agotado/gratis; una pulsación de adición no duplica solicitud. Evidencias incluidas y todos hallazgos con dueño; no usar demo aislada como cobertura completa.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S02-DOC-001
-
-- **Trabajo:** Consolidar specs↔tareas↔código↔pruebas, links Figma y gates, documentación operativa; revisar coherencia con modelo lógico y API vigente.
-- **DoD:** Cada salida tiene evidencia; docs no prometen trabajo no realizado, quedan pendientes/entorno mock/reales identificados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S02-DOC-002
-
-- **Trabajo:** Revisar horas/carga, estimar y confirmar responsables de ejecución sin cambiar paquetes UI; revisar tablero dos veces/semana, escalar gates y medir riesgo para semana 15.
-- **DoD:** Registro de planificación/revisiones con cambios de estado/evidencia, desvíos y decisiones del PO; no agenda ficticia ni aprobación supuesta.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S03-OPS-001
-
-- **Trabajo:** Validar transacciones/constraints Prisma/DB; preparar fixtures del worker/eventos/CSAT y casos negativos para no concentrar preparación en S5.
-- **DoD:** Pipeline/entorno reproducible, contratos y decisiones enlazados; evidencia sin credenciales ni cambios sobre infraestructura ajena.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S03-OPS-002
-
-- **Trabajo:** Ejecutar typecheck/lint/build, SAST, SCA/licencias, secret scanning y DAST aplicable; clasificar/corregir/retest hallazgos del incremento. IDOR carrito/favoritos y cookie ajena, CSRF según transporte, carrera If-Match/merge, rollback y limpieza de caché entre dos cuentas. Scans y DAST autenticado sólo autorizado.
-- **DoD:** Reportes sanitizados versionados, reglas/versión/entorno documentados y sin riesgo crítico/alto explotable abierto; controles no ejecutados no aparecen aprobados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S03-QA-001
-
-- **Trabajo:** Regresión acumulativa de incrementos previos y nuevo corte vertical; probar navegación/estados/error/timeout, teclado/mobile según specs y pruebas de seguridad. Invitado agrega, inicia sesión, merge completo/parcial/error; continuar sólo muestra cuenta, retry seguro; mover entre listas, producto retirado, variante requerida y vacío.
-- **DoD:** Carrito/favoritos y ambas salidas de merge probadas; Deshacer sólo completo si restauración segura contratada. No duplicar carrito ni guardar favoritado por SKU. Evidencias incluidas y todos hallazgos con dueño; no usar demo aislada como cobertura completa.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S03-DOC-001
-
-- **Trabajo:** Consolidar specs↔tareas↔código↔pruebas, links Figma y gates, documentación operativa; revisar coherencia con modelo lógico y API vigente.
-- **DoD:** Cada salida tiene evidencia; docs no prometen trabajo no realizado, quedan pendientes/entorno mock/reales identificados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S03-DOC-002
-
-- **Trabajo:** Revisar horas/carga, estimar y confirmar responsables de ejecución sin cambiar paquetes UI; revisar tablero dos veces/semana, escalar gates y medir riesgo para semana 15.
-- **DoD:** Registro de planificación/revisiones con cambios de estado/evidencia, desvíos y decisiones del PO; no agenda ficticia ni aprobación supuesta.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S04-OPS-001
-
-- **Trabajo:** CheckoutOperation y recuperación, probar timeout con respuesta tardía; preparar NotificationDelivery/outbox con contrato aunque correo final se completa S5.
-- **DoD:** Pipeline/entorno reproducible, contratos y decisiones enlazados; evidencia sin credenciales ni cambios sobre infraestructura ajena.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S04-OPS-002
-
-- **Trabajo:** Ejecutar typecheck/lint/build, SAST, SCA/licencias, secret scanning y DAST aplicable; clasificar/corregir/retest hallazgos del incremento. Token titular vs técnico, IDOR de dirección/quote/operación, alteración montos, cupón sin consumo, fingerprints/idempotencia/replay y no PII/tarjetas. Scans/DAST autorizado y concurrencia controlada.
-- **DoD:** Reportes sanitizados versionados, reglas/versión/entorno documentados y sin riesgo crítico/alto explotable abierto; controles no ejecutados no aparecen aprobados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S04-QA-001
-
-- **Trabajo:** Regresión acumulativa de incrementos previos y nuevo corte vertical; probar navegación/estados/error/timeout, teclado/mobile según specs y pruebas de seguridad. Seleccionar/crear dirección V-010; cotizar/cupón/no cobertura/expiración; preparar; crear pedido o mostrar SUBMITTED y consultar operación original.
-- **DoD:** Un pedido bajo doble click/retry y estado incierto recuperable; deep link/mapping definidos, ningún PREPARED se presenta como pedido. Email envío todavía asíncrono, no afirmación SENT. Evidencias incluidas y todos hallazgos con dueño; no usar demo aislada como cobertura completa.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S04-DOC-001
-
-- **Trabajo:** Consolidar specs↔tareas↔código↔pruebas, links Figma y gates, documentación operativa; revisar coherencia con modelo lógico y API vigente.
-- **DoD:** Cada salida tiene evidencia; docs no prometen trabajo no realizado, quedan pendientes/entorno mock/reales identificados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S04-DOC-002
-
-- **Trabajo:** Revisar horas/carga, estimar y confirmar responsables de ejecución sin cambiar paquetes UI; revisar tablero dos veces/semana, escalar gates y medir riesgo para semana 15.
-- **DoD:** Registro de planificación/revisiones con cambios de estado/evidencia, desvíos y decisiones del PO; no agenda ficticia ni aprobación supuesta.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S05-OPS-001
-
-- **Trabajo:** Semana14 completar/enganchar funciones sobre fixtures preparados; semana 15 cerrar regresión, responsive/a11y, contrato real, reproducibilidad/migraciones/backup/runbook y evidencias.
-- **DoD:** Pipeline/entorno reproducible, contratos y decisiones enlazados; evidencia sin credenciales ni cambios sobre infraestructura ajena.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S05-OPS-002
-
-- **Trabajo:** Ejecutar typecheck/lint/build, SAST, SCA/licencias, secret scanning y DAST aplicable; clasificar/corregir/retest hallazgos del incremento. IDOR pedidos/tracking/CSAT, replay webhook, remitente autenticado, plantilla XSS/header injection/URLs, email cifrado, no secretos/PII. Scans y DAST finales, regresión MFA/checkout y restauración backup propia.
-- **DoD:** Reportes sanitizados versionados, reglas/versión/entorno documentados y sin riesgo crítico/alto explotable abierto; controles no ejecutados no aparecen aprobados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S05-QA-001
-
-- **Trabajo:** Regresión acumulativa de incrementos previos y nuevo corte vertical; probar navegación/estados/error/timeout, teclado/mobile según specs y pruebas de seguridad. Pedido propio/histórico → tracking/202; recomprar sin precio histórico; confirmación email y evento homologado sin duplicados; GOOD/REGULAR/BAD en ENTREGADO, duplicado controlado.
-- **DoD:** Cobertura F-001–F-040 demostrada con evidencia, no hallazgos críticos/altos explotables abiertos; lista honesta de bloqueos/desvíos si algo no cabe. Mock no se reporta como integración real. Evidencias incluidas y todos hallazgos con dueño; no usar demo aislada como cobertura completa.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S05-DOC-001
-
-- **Trabajo:** Consolidar specs↔tareas↔código↔pruebas, links Figma y gates, documentación operativa; revisar coherencia con modelo lógico y API vigente.
-- **DoD:** Cada salida tiene evidencia; docs no prometen trabajo no realizado, quedan pendientes/entorno mock/reales identificados.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S05-DOC-002
-
-- **Trabajo:** Revisar horas/carga, estimar y confirmar responsables de ejecución sin cambiar paquetes UI; revisar tablero dos veces/semana, escalar gates y medir riesgo para semana 15.
-- **DoD:** Registro de planificación/revisiones con cambios de estado/evidencia, desvíos y decisiones del PO; no agenda ficticia ni aprobación supuesta.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-### TASK-TRANS-S01-DB-001
-
-- **Trabajo:** Localizar baseline físico del equipo o formalizar migración inicial en backend; verificar Cart,CartItem,WishlistItem,CheckoutOperation,PostDeliveryPrompt,NotificationDelivery y constraints/triggers frente modelo/diccionario. No reconstruir ni sobrescribir trabajo del equipo sin comparar.
-- **DoD:** Artefacto ejecutable localizado/versionado, esquema Prisma y migraciones probados en PostgreSQL 16 de prueba; cero réplica externa, redacción de logs y revisión por ambos responsables BD.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** G-DB: documentación refiere SQL04 ausente; requiere artefacto/migración verificable antes de aplicar baseline.
-
-### TASK-TRANS-S05-OPS-003
-
-- **Trabajo:** Ensayar entrega/rollback app, migraciones forward compatibles y restore de backup en BD de prueba; Render backend/PostgreSQL y Prisma según arquitectura, frontend Vercel según decisión confirmada. Revisar TLS/secrets/least privilege, logs/alertas y configuración mocks deshabilitada en entorno real.
-- **DoD:** Runbook y restore reproducibles, evidencia release y riesgos, sin secretos en bundle/config/versionado, ni migración destructiva en BD real; aprobación independiente.
-- **Evidencia:** Pendiente; registrar comando/entorno/casos/resultados/revisión reales, sin secretos ni PII.
-- **Bloqueo actual:** Ready y dependencias del tablero; ninguna ejecución constatada.
-
-
-## Revisión
-
-| Semana | Decisión/cambio de estado | Evidencia | Revisó |
-|---|---|---|---|
-| 6, preparación | Creación, sin ejecución | Planes y tareas; baseline física pendiente | Validación humana pendiente |
-
+[Plan maestro](../PLAN-IMPLEMENTACION.md) · [Iteraciones](../iteraciones/README.md) · [Decisiones y bloqueos](../DECISIONES-Y-BLOQUEOS.md).

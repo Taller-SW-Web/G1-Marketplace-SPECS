@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-015 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 2, semanas 8–9 |
+| Objetivo académico | S5, semanas 15–16 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-015-productos-relacionados.md), [UI](../../SPECS/ui/F-015-productos-relacionados.md), [API](../../SPECS/contrato-api/F-015-productos-relacionados.md), [React](../../SPECS/componentes-react/F-015-productos-relacionados.md) |
-| Ejecución y revisores | [Tareas de F-015](../seguimiento/F-015-productos-relacionados.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-015](../seguimiento/F-015-productos-relacionados.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

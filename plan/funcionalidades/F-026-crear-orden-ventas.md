@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-026 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 4, semanas 12–13 |
+| Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-026-crear-orden-ventas.md), [UI](../../SPECS/ui/F-026-crear-orden-ventas.md), [API](../../SPECS/contrato-api/F-026-crear-orden-ventas.md), [React](../../SPECS/componentes-react/F-026-crear-orden-ventas.md) |
-| Ejecución y revisores | [Tareas de F-026](../seguimiento/F-026-crear-orden-ventas.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-026](../seguimiento/F-026-crear-orden-ventas.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

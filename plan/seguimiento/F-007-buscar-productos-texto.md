@@ -4,24 +4,24 @@ Versión 0.1.0 · Planificación inicial · F-007 no está implementada por esto
 
 ## Fuente y control
 
-- [Plan F-007](../funcionalidades/F-007-buscar-productos-texto.md); [sprint 2](../iteraciones/S02-semanas-08-09.md).
+- [Plan F-007](../funcionalidades/F-007-buscar-productos-texto.md); [iteración S1](../iteraciones/S01-semanas-07-08.md).
 - [Funcional](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI](../../SPECS/ui/F-007-buscar-productos-texto.md), [API](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React](../../SPECS/componentes-react/F-007-buscar-productos-texto.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables/revisores **propuestos**, no compromiso aceptado. Semana objetivo no es fecha de calendario; confirmar capacidad en planificación.
+- Responsables y revisores propuestos para S1 en [repartición H3](../repartición%20por%20integrantes/README.md); estimación y aceptación personal pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F007-FE-001 | Frontend | Giuliano | Fernando | P1 | TASK-TRANS-S01-OPS-001 | 8 | Pendiente |
-| TASK-F007-BE-001 | Backend | Leonidas | Andres | P1 | TASK-TRANS-S01-OPS-001 | 8 | Pendiente |
-| TASK-F007-INT-001 | Integración | Leonidas | Andres | P1 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 9 | Bloqueado |
-| TASK-F007-QA-001 | QA funcional | Fernando | Sebastian | P1 | TASK-F007-FE-001 + TASK-F007-BE-001 | 9 | Pendiente |
-| TASK-F007-QA-002 | QA seguridad / DevSecOps | Andres | Fernando | P1 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S02-OPS-002 | 9 | Pendiente |
-| TASK-F007-DOC-001 | Documentación | Sebastian | Jim | P1 | TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 9 | Pendiente |
+| TASK-F007-FE-001 | Frontend | Sebastian Malca | Giuliano Macchiavello | P0 | TASK-TRANS-S01-OPS-001 | 7 | Pendiente |
+| TASK-F007-BE-001 | Backend | Leonidas Garcia | Diego Espinoza | P0 | TASK-TRANS-S01-OPS-001 | 7 | Pendiente |
+| TASK-F007-INT-001 | Integración | Leonidas Garcia | Jim Segovia | P0 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 8 | Bloqueado |
+| TASK-F007-QA-001 | QA funcional | Diego Espinoza | Jim Segovia | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 | 8 | Pendiente |
+| TASK-F007-QA-002 | QA seguridad / DevSecOps | Diego Espinoza | Andres Morales | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S01-OPS-002 | 8 | Pendiente |
+| TASK-F007-DOC-001 | Documentación | Sebastian Malca | Jim Segovia | P0 | TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 8 | Pendiente |
 
-Referentes de BD: Leonidas + Andres; ver [nombres y roles](../PLAN-IMPLEMENTACION.md#4-responsabilidad-sin-confundir-diseño-con-código). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas documentales/operativas, no nuevos IDs funcionales.
+La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs. El buscador compartido de Giuliano se coordina con Sebastian sin duplicar estos IDs.
 
 ## Trabajo, Definition of Done y evidencia
 

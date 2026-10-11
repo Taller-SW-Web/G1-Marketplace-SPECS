@@ -1,10 +1,10 @@
 # DevSecOps y estrategia de pruebas por iteración
 
-Versión 0.1.0 · En revisión · Semana 6–15. Esto especifica trabajo futuro, no escaneos ni pruebas ya ejecutadas.
+Versión 0.2.0 · En revisión · Semanas 7–16. Esto especifica trabajo futuro, no escaneos ni pruebas ya ejecutadas.
 
 ## 1. Responsabilidad y límites
 
-Andres es referente propuesto de pipeline/seguridad; Fernando de QA/verificación; Leonidas de correcciones y arquitectura; FE corrige componentes; Diego controla bloqueos; Jim valida riesgo/alcance. Revisor distinto al autor. Nombres completos en plan general.
+Las funciones de pipeline/seguridad, QA/verificación, corrección técnica y aceptación de riesgo deben tener responsables y revisores distintos; **las personas se asignarán después de estimar capacidad**. El reparto previo por nombres no se hereda del paquete de mockups.
 
 Sólo pruebas sobre entornos propios o expresamente autorizados. No hacer DAST, fuzzing, carga, intentos de autenticación o escaneos al GitHub/Figma/servicios de otros grupos sin permiso. Proveedor simulado prueba contratos, no seguridad de tercero.
 
@@ -25,11 +25,11 @@ Cada sprint incluye tareas OPS de escaneos y QA-002 por funcionalidad. La config
 
 | Sprint | Pruebas funcionales | Seguridad / DevSecOps | Evidencia y salida |
 |---|---|---|---|
-| S1 semanas 6–7 | Registro/login/MFA/recuperación/reset/logout, fixtures y estado sesión | Antienumeración, rate limit, token expirado/used, MFA bypass, redirección, cookies/CORS/CSRF según transporte; scans iniciales | Resultados CI, política sesión, matriz amenazas y pruebas negativas sin secretos |
-| S2 semanas 8–9 | Catálogo/paginación/variantes/precio/stock/adición | XSS, slug traversal, URL/medios SSRF, enum/query abusiva, no stock/costos internos; scans y DAST público propio | Reportes por F y prueba no datos privados |
-| S3 semanas 10–11 | Cantidad/delete/merge/continuar/mover/favoritos, undo aprobado | IDOR en carrito/favoritos, CSRF, concurrencia versiones/fusión, aislamiento cachés entre usuarios y no doble suma | DB/contract/E2E con 2 cuentas de prueba y cookie invitado |
-| S4 semanas 12–13 | Dirección/quote/cupón/preparación/orden/confirmación, timeout SUBMITTED | Token titular vs técnico, IDOR de dirección/quote/operación, alteración precio/cupón, idempotencia/replay, PII en logs/storage; DAST autenticado autorizado | Evidencia un pedido ante doble envío, mapeo de recuperación y no tarjeta |
-| S5 semanas 14–15 | Pedidos/recompra/tracking/email/CSAT, regresión y responsive/a11y | IDOR en historial/tracking/CSAT, autenticación de webhook / replay de eventos, inyección de correo/URL, cifrado outbox, SAST/SCA/secrets/DAST finales y restauración de backup | Checklist release con riesgo residual, no envíos duplicados ni PII |
+| S1 semanas 7–8 | Home/búsqueda real con Productos, backend/frontend desplegados | Query abusiva, errores/timeout, CORS, secretos, XSS y escaneo inicial sobre entorno propio | H3: URL, prueba web→BFF→Productos, build/test y logs sanitizados |
+| S2 semanas 9–11 | Registro/login/logout, catálogo/ficha/carrito/favoritos básicos | JWT expirado, MFA, ownership, rate limit, IDOR, XSS/SSRF y escaneos CI/CD | H4: autenticación UI+API, OpenAPI, ejecución build/test/deploy y segundo demo |
+| S3 semanas 12–13 | Cantidad/quitar, dirección/quote/cupón/pedido y correo asíncrono | CSRF/concurrencia, token titular vs técnico, alteración de montos, idempotencia/replay, PII y DAST propio | Checkout sin pago ficticio; worker/evento y carga de prueba preparados |
+| S4 semana 14 | Seguimiento/evento de despacho y pruebas de integración/performance | Autenticación del mensaje, duplicados/reintento, gateway, scans y revisión de seguridad CI/CD | H5: traza intermodular, prueba de integración y carga con p50/p95/errores/umbral |
+| S5 semanas 15–16 | Recuperación, fusión, postventa/CSAT y regresión integral | IDOR histórico/CSAT, seguridad de recuperación, OWASP al menos dos evidencias, SAST/SCA/DAST finales, alertas y rollback | H6: release integrado, arquitectura as built, alertas disparadas y riesgo residual registrado |
 
 ## 4. Matriz de pruebas mínimas por capa
 

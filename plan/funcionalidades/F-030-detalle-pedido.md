@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-030 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 5, semanas 14–15 |
+| Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-030-detalle-pedido.md), [UI](../../SPECS/ui/F-030-detalle-pedido.md), [API](../../SPECS/contrato-api/F-030-detalle-pedido.md), [React](../../SPECS/componentes-react/F-030-detalle-pedido.md) |
-| Ejecución y revisores | [Tareas de F-030](../seguimiento/F-030-detalle-pedido.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-030](../seguimiento/F-030-detalle-pedido.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

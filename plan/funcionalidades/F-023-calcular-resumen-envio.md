@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-023 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 4, semanas 12–13 |
+| Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-023-calcular-resumen-envio.md), [UI](../../SPECS/ui/F-023-calcular-resumen-envio.md), [API](../../SPECS/contrato-api/F-023-calcular-resumen-envio.md), [React](../../SPECS/componentes-react/F-023-calcular-resumen-envio.md) |
-| Ejecución y revisores | [Tareas de F-023](../seguimiento/F-023-calcular-resumen-envio.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-023](../seguimiento/F-023-calcular-resumen-envio.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

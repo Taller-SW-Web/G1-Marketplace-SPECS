@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-020 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 3, semanas 10–11 |
+| Objetivo académico | S5, semanas 15–16 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-020-fusionar-carrito-anonimo.md), [UI](../../SPECS/ui/F-020-fusionar-carrito-anonimo.md), [API](../../SPECS/contrato-api/F-020-fusionar-carrito-anonimo.md), [React](../../SPECS/componentes-react/F-020-fusionar-carrito-anonimo.md) |
-| Ejecución y revisores | [Tareas de F-020](../seguimiento/F-020-fusionar-carrito-anonimo.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-020](../seguimiento/F-020-fusionar-carrito-anonimo.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

@@ -4,24 +4,24 @@ Versión 0.1.0 · Planificación inicial · F-033 no está implementada por esto
 
 ## Fuente y control
 
-- [Plan F-033](../funcionalidades/F-033-generar-plantilla-correo.md); [sprint 5](../iteraciones/S05-semanas-14-15.md).
+- [Plan F-033](../funcionalidades/F-033-generar-plantilla-correo.md); [iteración S3](../iteraciones/S03-semanas-12-13.md).
 - [Funcional](../../SPECS/funcional/F-033-generar-plantilla-correo.md), [UI](../../SPECS/ui/F-033-generar-plantilla-correo.md), [API](../../SPECS/contrato-api/F-033-generar-plantilla-correo.md), [React](../../SPECS/componentes-react/F-033-generar-plantilla-correo.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables/revisores **propuestos**, no compromiso aceptado. Semana objetivo no es fecha de calendario; confirmar capacidad en planificación.
+- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F033-FE-001 | UI/render server-only | Giuliano | Fernando | P1 | TASK-TRANS-S01-OPS-001 | 14 | Pendiente |
-| TASK-F033-BE-001 | Backend | Leonidas | Andres | P1 | TASK-TRANS-S01-OPS-001 | 14 | Pendiente |
-| TASK-F033-INT-001 | Integración | Leonidas | Andres | P1 | TASK-F033-BE-001 + G-MAIL | 15 | Bloqueado |
-| TASK-F033-QA-001 | QA funcional | Fernando | Sebastian | P1 | TASK-F033-FE-001 + TASK-F033-BE-001 | 15 | Pendiente |
-| TASK-F033-QA-002 | QA seguridad / DevSecOps | Andres | Fernando | P1 | TASK-F033-FE-001 + TASK-F033-BE-001 + TASK-TRANS-S05-OPS-002 | 15 | Pendiente |
-| TASK-F033-DOC-001 | Documentación | Sebastian | Jim | P1 | TASK-F033-INT-001 + TASK-F033-QA-001 + TASK-F033-QA-002 | 15 | Pendiente |
+| TASK-F033-FE-001 | UI/render server-only | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 | 13 | Pendiente |
+| TASK-F033-BE-001 | Backend | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 | 12 | Pendiente |
+| TASK-F033-INT-001 | Integración | Por asignar | Por asignar | P1 | TASK-F033-BE-001 + G-MAIL | 13 | Bloqueado |
+| TASK-F033-QA-001 | QA funcional | Por asignar | Por asignar | P1 | TASK-F033-FE-001 + TASK-F033-BE-001 | 13 | Pendiente |
+| TASK-F033-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P1 | TASK-F033-FE-001 + TASK-F033-BE-001 + TASK-TRANS-S03-OPS-002 | 13 | Pendiente |
+| TASK-F033-DOC-001 | Documentación | Por asignar | Por asignar | P1 | TASK-F033-INT-001 + TASK-F033-QA-001 + TASK-F033-QA-002 | 13 | Pendiente |
 
-Referentes de BD: Leonidas + Andres; ver [nombres y roles](../PLAN-IMPLEMENTACION.md#4-responsabilidad-sin-confundir-diseño-con-código). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas documentales/operativas, no nuevos IDs funcionales.
+Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
 
 ## Trabajo, Definition of Done y evidencia
 

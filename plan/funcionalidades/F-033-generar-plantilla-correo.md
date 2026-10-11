@@ -5,10 +5,10 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-033 / 0.1.0 / En revisión |
-| Objetivo académico | Sprint 5, semanas 14–15 |
+| Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-033-generar-plantilla-correo.md), [UI](../../SPECS/ui/F-033-generar-plantilla-correo.md), [API](../../SPECS/contrato-api/F-033-generar-plantilla-correo.md), [React](../../SPECS/componentes-react/F-033-generar-plantilla-correo.md) |
-| Ejecución y revisores | [Tareas de F-033](../seguimiento/F-033-generar-plantilla-correo.md), propuesta según roles actuales |
-| Plan general / seguridad | [Semanas 6–15](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+| Ejecución y revisores | [Tareas de F-033](../seguimiento/F-033-generar-plantilla-correo.md), asignación humana pendiente tras estimar capacidad |
+| Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
 

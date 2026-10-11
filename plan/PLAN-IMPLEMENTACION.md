@@ -1,91 +1,62 @@
-# Plan de implementación
+# Plan de implementación — hitos de semanas 8 a 16
 
-Versión 0.1.0 · En revisión · 2026-10-02 · PO: Jim Bryan Segovia Valencia · Coordinación: Diego Steven Martin Espinoza Picon.
+Versión 0.2.0 · Replanificación 2026-10-10 · Estado: propuesta para estimar y acordar con el equipo. Este documento planifica **software y evidencia técnica**, no la PPT ni el guion de exposición.
 
-## 1. Resultado y alcance
+## 1. Punto de partida y regla de verdad
 
-Construir iterativamente las 40 funcionalidades especificadas, con frontend, BFF, persistencia propia, integración, QA, documentación y DevSecOps. El plan llega a **semana 15**, no17. Son diez semanas académicas y cinco sprints de dos semanas; sin fechas de calendario supuestas ni equivalencias con hitos del profesor no confirmadas.
+Los mockups están elaborados y aprobados según el PO, pero eso no acredita código funcional. Al corte de esta revisión, el frontend remoto sólo contiene README; el backend remoto tiene esquema/migración Prisma, `render.yaml` y un `/health` que consulta PostgreSQL. No se verificó una URL pública ni una integración operativa con otro módulo. La copia local del backend estaba detrás de `origin/main`; no se modificó aquí. Las tareas antiguas de semanas 6–7 **no se consideran ejecutadas** por figurar en el plan: se reubican como trabajo pendiente.
 
-El alcance es F-001–F-040 y sus 17 vistas / 10 overlays / 2 correos, no las ocho specs depreciadas ni los puntos históricos 91/230 como estimación de código. Las 40 specs React se mantienen [aquí](../SPECS/componentes-react/README.md). Backend/frontend locales contienen sólo README; no existe una aplicación ejecutable verificada, por lo que la base técnica está incluida en S1.
+Meta: llegar a semana 16 con F-001–F-040 implementadas, integradas y probadas donde corresponda. Las 17 vistas, 10 overlays y 2 correos siguen sujetos a sus specs; no se reduce el alcance silenciosamente. La viabilidad depende de capacidad real, contratos ajenos y disponibilidad de entornos. Tras asignar personas se estimará y, si no cabe, se escalará al PO/JP y profesor antes del hito; este calendario no es una garantía ficticia.
 
-## 2. Secuencia y entregas
+## 2. Hitos obligatorios y evidencia de software
 
-| Sprint | Semanas | Funcionalidades objetivo | Incremento demostrable |
-|---|---|---|---|
-| [S1](iteraciones/S01-semanas-06-07.md) | 6–7 | F-001–005 + base técnica | Acceso/registro/recuperación, política de sesión y MFA homologada; repos de código inicializados, CI con pruebas/escaneos y BD/migraciones auditadas. |
-| [S2](iteraciones/S02-semanas-08-09.md) | 8–9 | F-006–016 | Inicio → catálogo/búsqueda/filtro/orden/página → ficha/variantes/precio/stock → agregar SKU. |
-| [S3](iteraciones/S03-semanas-10-11.md) | 10–11 | F-017–021 y F-036–039 | Carrito/fusión/continuar sin combinar, favoritos y movimientos seguros. |
-| [S4](iteraciones/S04-semanas-12-13.md) | 12–13 | F-022–027 | Checkout titular: dirección → quote/beneficio → simulación → creación única → confirmación cierta/pendiente. |
-| [S5](iteraciones/S05-semanas-14-15.md) | 14–15 | F-028–035 y F-040 + estabilización | Historial/detalle/recompra/tracking, correos worker y encuesta entregada; regresión integral, mobile, seguridad y entrega técnica. |
+| Hito | Semana | Salida que debe poder comprobarse |
+|---|---:|---|
+| H3, primer avance | **8** | Primer flujo funcional de Marketplace en la nube: página pública de catálogo/búsqueda, BFF y **una llamada real** a la API de Productos (F-006/F-007). Mostrar URL de frontend, petición/respuesta entre módulos, logs sanitizados y URL de salud del backend. Figma o fixture aislado no sustituyen esta prueba. Adjuntar diagramas de contexto/arquitectura vigentes y enlaces al código. |
+| H4, segundo demo | **11** | Nuevas funciones operativas (ficha/SKU y carrito/favoritos básicos); CI/CD que ejecuta build, test y deploy; diseño de APIs versionado y verificable; autenticación en pantallas y APIs con Seguridad. Evidencia del segundo flujo y de autorización/errores, no sólo botón de login. |
+| H5, ingeniería e integración | **14** | Pipeline con revisión de seguridad; pruebas de integración y performance con resultados; API Management configurado para al menos el flujo intermodular demostrado; **mecanismo asíncrono real entre microservicios** con contrato, productor/consumidor, reintento/deduplicación y traza. F-032/F-035 son el objetivo si Despacho/Ventas publican evento; alternativa requiere nuevo acuerdo/versionado, no inventar proveedor. |
+| H6, final | **16** | Aplicación completa y operativa con otros módulos, arquitectura final actualizada, demo extremo a extremo, al menos dos evidencias distintas de seguridad/OWASP y desarrollo seguro, observabilidad/alertas probadas, UI/UX mejorada, repositorios actualizados con contribuciones verificables. |
 
-La secuencia de elaboración React comenzó por acceso/carrito/favoritos conforme lista; **la secuencia de código prioriza catálogo/SKU antes de activar carrito real**, porque esas mutaciones revalidan productos/precios/stock. No es un cambio funcional.
+**Tensión documental:** la ficha específica de H3 exige integración vía API ya en semana 8, mientras el cronograma general destaca integración en H4. Se planifica cumplir el requisito **más temprano**. Si el profesor aclara otra interpretación, registrar la decisión sin retirar la integración del plan por defecto.
 
-No esperar a S5 para todo lo transversal: contratos, fixtures, diseño de worker/outbox y casos QA se preparan antes; la ejecución final de esas funcionalidades está en S5. Un sprint no espera a otro para investigar su gate, pero no implementa integración no autorizada.
+## 3. Iteraciones orientadas a hitos
 
-## 3. Bloques de trabajo por incremento
+| Iteración                              | Semanas   | Funcionalidades de cierre                            | Trabajo transversal y corte demostrable                                                                                                                                                                                                                              |
+| -------------------------------------- | --------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [S1](iteraciones/S01-semanas-07-08.md) | **7–8**   | F-006, F-007                                         | Prioridad absoluta H3: frontend + BFF desplegados, datos reales de Productos y una búsqueda pública completa. Base DB existente se audita; no desarrollar cinco flujos de cuenta antes de tener demo.                                                                |
+| [S2](iteraciones/S02-semanas-09-11.md) | **9–11**  | F-001–003, F-008–014, F-016, F-019, F-036–038        | H4: seguridad/login, catálogo detallado, carrito y favoritos básicos; CI/CD build/test/deploy y OpenAPI de APIs propias. 15 funciones: **carga alta**, estimación/capacidad obligatoria antes de prometer cierre.                                                    |
+| [S3](iteraciones/S03-semanas-12-13.md) | **12–13** | F-017–018, F-022–028, F-030, F-033–034               | Checkout y confirmación honesta, primer historial/detalle para habilitar seguimiento, y notificación asíncrona. Preparar proveedor/evento de F-032/F-035 y ensayos de performance antes de H5. 12 funciones, integración de Ventas/Despacho sujeta a gates.          |
+| [S4](iteraciones/S04-semana-14.md)     | **14**    | F-032, F-035                                         | Corte H5: seguimiento y evento/notificación de despacho, API Management, pruebas de integración/performance y revisión de seguridad CI/CD. No es una semana libre para empezar infraestructura desde cero.                                                           |
+| [S5](iteraciones/S05-semanas-15-16.md) | **15–16** | F-004–005, F-015, F-020–021, F-029, F-031, F-039–040 | Completar recuperación, relacionados, fusión/movimientos, filtros/recompra y evaluación; regresión E2E, accesibilidad, OWASP, observabilidad, alertas, arquitectura y release final. 9 funciones más estabilización: **carga alta** y margen de corrección reducido. |
 
-En cada funcionalidad: componentes/estados → BFF/validación → persistencia cuando corresponde → adaptadores y pruebas de contrato → E2E y seguridad → evidencias. Se puede paralelizar FE con fixtures y BE/DB bajo contrato acordado; integración real sólo cuando haya contrato/configuración/prueba externa.
+Los números de funciones son **objetivos de cierre**, no permiso para investigar sus contratos sólo en ese sprint. Contratos de Productos para S1, Seguridad para S2, Ventas/Despacho para S3–S4 y evento asíncrono de H5 se gestionan desde la primera semana. La UI puede avanzar con fixtures, pero ninguna integración se marca terminada sin prueba intermodular autorizada. Ninguna función se da por terminada sólo por tener mockup desktop; responsive, estados y a11y siguen su spec.
 
-- **FE:** rutas, compuestos, formularios, estado/caché, recuperación, desktop primero y responsive posteriormente. Mobile se acepta antes de cerrar cada función salvo pendiente de diseño explícitamente registrado; no denominar Terminado un desktop-only cuando spec exige ambos.
-- **BE:** autenticación/ownership y reglas de orquestación, DTO/Problem Details, versiones/idempotencia y adapter boundary.
-- **DB:** Leonidas y Andres, conforme decisión del PO; seis entidades propias, migraciones y verificación constraints/triggers. Sin réplica de usuarios/direcciones/catálogo/pedidos/CSAT.
-- **INT:** fixtures del contrato BFF y de proveedores, homologación documentada y pruebas positivas/negativas autorizadas.
-- **QA/DevSecOps:** pruebas unitarias/componentes/API/DB/E2E/seguridad y controles automatizados en cada sprint, no al final.
-- **DOC/OPS:** actualizar trazabilidad y operación, pipeline/entornos, logs sin PII y evidencias de despliegue.
+## 4. Ruta crítica de semanas 7–8
 
-## 4. Responsabilidad sin confundir diseño con código
+1. **Entrada inmediata:** confirmar URL/base, versión, ruta pública, payload y datos de prueba de Productos; cerrar el mínimo de I-01 para F-007. Decidir stack G-STACK y diagrama/deploy objetivo. Si el proveedor no tiene entorno alcanzable, escalar ahora: un mock no cumple H3.
+2. **Base ejecutable:** inicializar frontend; usar el backend/Prisma remoto como antecedente auditado, sin suponer que `/health` representa el BFF especificado. Configurar BFF público de catálogo con timeout, validación, error y secreto de entorno; CI mínimo build/test. No almacenar catálogo ajeno.
+3. **Corte vertical:** F-006 puede mostrar categorías/enlace de búsqueda sin prometer destacados sin curaduría; F-007 ejecuta búsqueda real desde la web → BFF → Productos, con vacío/error. Probar solicitud real y ruta visible. Si el contrato no permite búsqueda, acordar **antes de implementar** otra lectura pública de Productos y actualizar F-006/F-007/specs/plan.
+4. **Nube y evidencia:** desplegar frontend y backend en entornos propios, configurar CORS/orígenes, URL y secretos, revisar logs sin PII, capturar build, test, deploy y una respuesta intermodular. Diagramas/versiones/enlaces deben corresponder al sistema efectivamente desplegado. Ensayar recuperación si uno de los servicios falla.
+5. **Gate H3:** URL pública operativa, acción del usuario con dato remoto observable, backend saludable, evidencia de petición/respuesta, diagramas y commits. Sin alguno de esos elementos, informar la brecha; no sustituirla por Figma ni declarar hito completo.
 
-Los nombres cortos de tareas tienen esta equivalencia:
+## 5. Preparación temprana de H4–H6
 
-| Nombre | Nombre completo | Referencia de rol actual |
-|---|---|---|
-| Giuliano | Giuliano Macchiavello Perez | UX/UI y frontend |
-| Sebastian | Sebastian Matias Malca Agüero | Documentación y frontend |
-| Leonidas | Leonidas Garcia Lescano | Arquitectura/backend; BD junto Andres |
-| Andres | Andres Fernando Morales Usca | DevOps/seguridad; BD junto Leonidas |
-| Fernando | Fernando Jose Saire Tello | QA |
-| Diego | Diego Steven Martin Espinoza Picon | JP/coordinación |
-| Jim | Jim Bryan Segovia Valencia | PO/validación alcance |
+- **Hasta semana 9:** definir política real de login/MFA con Seguridad (G-AUTH), ownership de APIs y endpoints; entregar OpenAPI del BFF y pruebas de contrato. Definir `build → test → deploy` por entorno, secretos fuera de Git, rollback y reglas de rama. H4 exige autenticación de pantallas **y** APIs.
+- **Hasta semana 11:** cerrar I-02 (orden idempotente, aptitud para pagar y confirmación simulada) e I-06 (Despacho), más el evento I-05 para H5. Acordar API Management (producto, rutas, auth, rate limit, logs) y mecanismo asíncrono concreto (broker/cola/evento, esquema, owner, consumidor, retry, DLQ o política equivalente). Un outbox interno sin intercambio entre módulos **no** satisface H5.
+- **Semanas 12–13:** implementar flujo de checkout sin presentar `PREPARED`/`CREADO` como pagado; F-027 requiere `PAGADO` confirmado por Ventas. Preparar tráfico/fixtures/umbrales de performance, prueba de integración y revisión de seguridad; no esperar a semana 14 para empezar.
+- **Semana 14:** ejecutar prueba de integración positiva/negativa, prueba de carga en entorno autorizado con métricas y umbral, evidencia del gateway y mensaje asíncrono real con traza/deduplicación/reintento, y revisión CI/CD de seguridad. Registrar limitaciones y correcciones.
+- **Semanas 15–16:** cerrar F-001–040, E2E y regresión con servicios reales; documentar arquitectura **as built**, al menos dos prácticas/pruebas OWASP distintas con corrección/retest, telemetría y una alerta disparada/verificada. UI/UX final y contribuciones Git verificables. Congelar cambios de alto riesgo antes de demo final salvo correcciones necesarias.
 
-Las tareas incluyen **referente responsable y revisor propuestos según esos roles**, no asignación humana confirmada ni modificación de paquetes UI. Confirmar carga antes de pasar tarea a En progreso. No convertir el paquete de Figma en obligación de código ni mezclar a Fernando en BD: Leonidas+Andres son BD; Fernando mantiene QA en este plan.
+## 6. Bloqueos, decisiones y gestión de capacidad
 
-BE tiene un referente principal, y FE dos: es un riesgo de cuello de botella, no una disponibilidad asumida. Revisor distinto de autor, y QA final independiente.
+[DECISIONES-Y-BLOQUEOS](DECISIONES-Y-BLOQUEOS.md) conserva los gates I-01–I-06 y G-*. Agregar allí evidencia de cierre antes de usar un contrato real. El checkout simulado no puede inventar webhook/pago. Datos personales, direcciones y pedidos siguen en los servicios dueños; Marketplace sólo conserva lo definido en su modelo lógico. No mezclar bases de datos de otros módulos.
 
-## 5. Preparación, priorización y capacidad
+Para S1/H3 existe una [propuesta de reparto por integrantes](repartición%20por%20integrantes/README.md); cada persona debe estimar horas, confirmar disponibilidad y aceptar su paquete antes de iniciar. S2–S5 aún no tienen asignación humana. Los nombres que figuren en tableros previos fuera de S1 son **propuestas heredadas, no asignaciones aprobadas**. Si S2/S5 o los gates no caben, PO/JP registran desvío y acuerdan resecuenciación explícita; no declarar cumplido lo que sólo funciona con mock. Mantener pequeño margen de correcciones, especialmente antes de H3 y H6.
 
-P0 = flujo esencial/dependencia crítica, P1 = capacidad principal complementaria, P2 = mejora no crítica al flujo de compra. La prioridad no elimina P2 del alcance final; todas las 40 permanecen objetivo.
+## 7. Definition of Ready, Done y evidencia
 
-Semana 6: Diego recoge horas/persona por semana y ausencias; equipo estima tareas en horas tras revisar contratos, con capacidad restante real. No inventar fechas ni estimaciones numéricas sin disponibilidad. Reservar **20% de capacidad propuesta** para correcciones/seguridad/contratos; revisar valor con equipo. Límite de trabajo: una tarea de implementación activa por persona más revisiones pequeñas; preferir terminar un corte vertical a comenzar diez pantallas.
+**Ready:** specs vigentes, contrato/versiones y entorno disponibles o fixture rotulado, dependencias/gates conocidos, casos positivos y negativos, esfuerzo estimado, capacidad y responsable/revisor por aceptar en una etapa posterior. En integración real, una homologación verbal o TXT no sustituye contrato publicado y prueba.
 
-Por función medir capacidad: FE+BE+QA+INT+DOC y DB si aplica; por sprint sumarlas y comparar con horas disponibles. Si excede capacidad, registrar desvío y secuencia con PO/JP, sin declarar cobertura completa ni esconder funciones. S5 concentra 9 funciones más estabilización y tiene riesgo alto: preparar fixtures/worker desde S3 y cerrar gates a más tardar S4. Si sigue sobrecargado, reasignación/replanificación debe acordarse, no inventarse.
+**Done:** FE/BE con tipos/build y pruebas pertinentes, seguridad y accesibilidad/responsive según spec, API real y autorización cuando aplique, negativos/timeout, observabilidad sin PII, evidencia de deploy/integración, revisión independiente y trazabilidad specs↔código↔tests. Una tarea bloqueada externamente no pasa a Terminado por pruebas con mock.
 
-## 6. Puertas de entrada y bloqueos
-
-[DECISIONES-Y-BLOQUEOS](DECISIONES-Y-BLOQUEOS.md) es registro único. I-01/H-01 catálogo, I-02/H-02 creación idempotente, I-03/H-03 historial autorizado, I-04/H-04 CSAT, I-05/H-05 eventos, I-06/H-06 cliente técnico.
-
-Seguridad tiene acuerdo de verificación confirmado; no se vuelve a negociar ni se diseña nueva pantalla. H-06 fue aceptado verbalmente por Seguridad según contexto, pero la documentación local aún pide configuración/scopes y prueba Despacho: registrar evidencia, no tratar todo I-06 como cerrado.
-
-Una integración está lista sólo con contrato versionado, configuración ambiental y prueba de contrato aprobada. Envío de solicitudes ≠ aceptación. Estado inicial de tareas INT externas = Bloqueado; FE/BE con mocks y QA local pueden avanzar sin afirmar que servicio real funciona.
-
-En autenticación, método MFA/transporte y política requieren G-AUTH; checkout requiere mapping/recuperación G-CHECKOUT; no fabricar endpoints para esquivar pendientes. Cambiar una spec de origen necesita cambio explícito y versionado previo a código.
-
-## 7. Definition of Ready y Definition of Done
-
-**Ready:** cuatro specs leídas, DTO/endpoint/gates entendidos; responsable/revisor aceptaron tarea; fixtures y casos negativos; estimación/capacidad; mockups del estado a construir o excepción documentada. INT real adicionalmente exige homologación y entorno autorizado.
-
-**Done:** implementación completa de alcance, tipos/lint/build, unitarias/componentes/API/DB relevantes, E2E positivo y error, pruebas de seguridad, responsive/a11y, contrato real cuando corresponda y evidencias. Sin secretos/PII, sin vulnerabilidad crítica/alta explotable abierta, docs/fuentes actualizadas y revisión independiente. Si hay dependencia externa sin cerrar, tarea real sigue Bloqueado aunque mocks pasen.
-
-## 8. Seguimiento y cadencia
-
-[Seguimiento](seguimiento/README.md) mantiene estado por tarea; no marcar todo sprint terminado al cerrar documentos.
-
-Propuesta: revisión breve de10–15 min dos veces por semana (Diego coordina), planificación inicio sprint, demo/QA/revisión seguridad al final, retrospectiva y ajuste del siguiente. No es automatización ni reunión creada.
-
-Informe corto: terminado con evidencia, en progreso, bloqueos con dueño/fecha académica, capacidad/desvíos y riesgo para semana 15. Si bloqueo dura dos revisiones, PO/JP escalando al módulo dueño; trabajo local continúa en partes no bloqueadas.
-
-## 9. Operación, rollback y entrega
-
-Backend y PostgreSQL 16 en Render; Prisma con migraciones versionadas; frontend según arquitectura Vercel, revisar decisión al preparar entorno. No crear cuentas/desplegar ahora. Entornos y credenciales fuera repo, mocks explícitos sólo dev/test.
-
-Ensayar restauración de backup en BD de prueba, migración forward/compatibilidad y rollback de versión app; no ejecutar SQL inicial repetidamente sobre producción ni borrar BD. Semana15: build/artefacto versionado, config sin secretos, evidencias regresión/seguridad, contratos cerrados, manual operativo y registro de pendientes reales. La entrega de estas specs/planes no equivale a entrega del software.
-
+La evidencia técnica mínima por hito se registra con URL, commit, contrato/versiones, entorno, fecha, comando/caso/resultado y captura o log saneado. Las diapositivas y el relato del uso de IA se preparan para la exposición fuera de este cronograma de desarrollo.

@@ -4,25 +4,25 @@ Versión 0.1.0 · Planificación inicial · F-039 no está implementada por esto
 
 ## Fuente y control
 
-- [Plan F-039](../funcionalidades/F-039-mover-favorito-carrito.md); [sprint 3](../iteraciones/S03-semanas-10-11.md).
+- [Plan F-039](../funcionalidades/F-039-mover-favorito-carrito.md); [iteración S5](../iteraciones/S05-semanas-15-16.md).
 - [Funcional](../../SPECS/funcional/F-039-mover-favorito-carrito.md), [UI](../../SPECS/ui/F-039-mover-favorito-carrito.md), [API](../../SPECS/contrato-api/F-039-mover-favorito-carrito.md), [React](../../SPECS/componentes-react/F-039-mover-favorito-carrito.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables/revisores **propuestos**, no compromiso aceptado. Semana objetivo no es fecha de calendario; confirmar capacidad en planificación.
+- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F039-FE-001 | Frontend | Sebastian | Fernando | P1 | TASK-TRANS-S01-OPS-001 | 10 | Pendiente |
-| TASK-F039-BE-001 | Backend | Leonidas | Andres | P1 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 10 | Pendiente |
-| TASK-F039-DB-001 | BD / Prisma | Leonidas | Andres | P1 | TASK-TRANS-S01-DB-001 | 10 | Pendiente |
-| TASK-F039-INT-001 | Integración | Leonidas | Andres | P1 | TASK-F039-BE-001 + TASK-F039-DB-001 + I-01 + TASK-F037-INT-001 + TASK-F016-INT-001 | 11 | Bloqueado |
-| TASK-F039-QA-001 | QA funcional | Fernando | Giuliano | P1 | TASK-F039-FE-001 + TASK-F039-BE-001 + TASK-F039-DB-001 | 11 | Pendiente |
-| TASK-F039-QA-002 | QA seguridad / DevSecOps | Andres | Fernando | P1 | TASK-F039-FE-001 + TASK-F039-BE-001 + TASK-TRANS-S03-OPS-002 | 11 | Pendiente |
-| TASK-F039-DOC-001 | Documentación | Sebastian | Jim | P1 | TASK-F039-INT-001 + TASK-F039-QA-001 + TASK-F039-QA-002 | 11 | Pendiente |
+| TASK-F039-FE-001 | Frontend | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
+| TASK-F039-BE-001 | Backend | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 15 | Pendiente |
+| TASK-F039-DB-001 | BD / Prisma | Por asignar | Por asignar | P1 | TASK-TRANS-S01-DB-001 | 16 | Pendiente |
+| TASK-F039-INT-001 | Integración | Por asignar | Por asignar | P1 | TASK-F039-BE-001 + TASK-F039-DB-001 + I-01 + TASK-F037-INT-001 + TASK-F016-INT-001 | 16 | Bloqueado |
+| TASK-F039-QA-001 | QA funcional | Por asignar | Por asignar | P1 | TASK-F039-FE-001 + TASK-F039-BE-001 + TASK-F039-DB-001 | 16 | Pendiente |
+| TASK-F039-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P1 | TASK-F039-FE-001 + TASK-F039-BE-001 + TASK-TRANS-S05-OPS-002 | 16 | Pendiente |
+| TASK-F039-DOC-001 | Documentación | Por asignar | Por asignar | P1 | TASK-F039-INT-001 + TASK-F039-QA-001 + TASK-F039-QA-002 | 16 | Pendiente |
 
-Referentes de BD: Leonidas + Andres; ver [nombres y roles](../PLAN-IMPLEMENTACION.md#4-responsabilidad-sin-confundir-diseño-con-código). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas documentales/operativas, no nuevos IDs funcionales.
+Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
 
 ## Trabajo, Definition of Done y evidencia
 
