@@ -2,12 +2,12 @@
 
 Repositorio de **especificaciones, arquitectura, diseño visual y planificación** del canal Marketplace de Inka Athletics. El código se desarrolla en repositorios separados: [frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend) y [backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend). Marketplace presenta la experiencia de compra y coordina servicios propietarios de Productos y Ofertas, Seguridad y Gestión de Usuarios, Ventas y Postventa y Despacho; no lee directamente las bases de datos de otros módulos.
 
-> **Estado al 10 de octubre de 2026:** los mockups están elaborados y aprobados según el PO, pero eso no equivale a software implementado. El plan de desarrollo de semanas 8–16 es una propuesta de ejecución; cada tarea se cierra únicamente con código, pruebas y evidencia. La integración real con Productos para la semana 8 depende de que ese módulo publique entorno, datos y autorización utilizables.
+> **Estado documental al 13 de octubre de 2026:** los mockups están elaborados y aprobados según el PO, pero eso no equivale a software implementado. El plan de desarrollo de semanas 8–16 es una propuesta de ejecución; cada tarea se cierra únicamente con código, pruebas y evidencia. La integración real con Productos para la semana 8 depende de que ese módulo publique entorno, datos y autorización utilizables.
 
 ## Por dónde empezar
 
 1. [Plan de implementación](plan/PLAN-IMPLEMENTACION.md): hitos de semanas 8, 11, 14 y 16, alcance y criterios de evidencia.
-2. [Repartición de semana 8](plan/repartición%20por%20integrantes/README.md): paquete individual de cada integrante. Leer también la [guía de colaboración](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) antes de abrir ramas o PR.
+2. [Matriz de bloques y responsables punta a punta](SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) y [paquetes individuales](plan/repartición%20por%20integrantes/README.md) para H3–H6. Leer también la [guía de colaboración](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) antes de abrir ramas o PR.
 3. [Decisiones y bloqueos](plan/DECISIONES-Y-BLOQUEOS.md): dependencias intermodulares y técnicas pendientes; no asumir que una API o un despliegue está listo porque exista un documento.
 4. [Nomenclatura SDD](SPECS/NOMENCLATURA-SDD.md) y [fuentes](SPECS/INVENTARIO-FUENTES.md): cómo identificar specs y rastrear su origen.
 5. Para una funcionalidad, leer en orden su spec [funcional](SPECS/funcional/), [UI](SPECS/ui/), [contrato API](SPECS/contrato-api/) y [componentes React](SPECS/componentes-react/); después su archivo en [plan/funcionalidades](plan/funcionalidades/) y sus tareas en [plan/seguimiento](plan/seguimiento/).
@@ -16,7 +16,7 @@ La documentación en [specs históricas](SPECS/specs-depreciadas/) y las épicas
 
 ## Equipo
 
-Los roles generales no implican que una persona programe todas las funciones de su antiguo bloque documental. La asignación concreta de **H3 / semana 8** está en la [repartición por integrantes](plan/repartición%20por%20integrantes/README.md) y requiere confirmación de capacidad.
+Los roles generales se conservan. La [matriz de implementación](SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) propone un responsable y revisor por F-001–F-040 a lo largo de S1–S5; cada integrante debe tocar interfaz y backend propio en un corte vertical. La asignación requiere estimación, aceptación individual y validación de la interpretación de ocho bloques para siete personas con el profesor. El [reparto de diseño visual](SPECS/ui/INVENTARIO-VISUAL-Y-ESTIMACION.md) sigue siendo distinto del ownership del código.
 
 | Integrante | Rol general |
 |---|---|
@@ -55,7 +55,7 @@ El [modelo lógico vigente](Arquitectura%20de%20la%20Aplicación/Base%20de%20Dat
 
 ## Primer corte funcional: H3, semana 8
 
-La [iteración S1](plan/iteraciones/S01-semanas-07-08.md) prioriza **F-006** (inicio/categorías) y **F-007** (búsqueda por texto), con un flujo visible `navegador → frontend Marketplace → BFF Marketplace → API real de Productos`. Las pantallas previstas son [V-005 Inicio](SPECS/ui/vistas/V-005-inicio.md) y el alcance de búsqueda de [V-006 Catálogo y resultados](SPECS/ui/vistas/V-006-catalogo-resultados.md), incluidos carga, resultados, vacío y error. Desktop y responsive se validan según sus specs; las funciones de filtros, ordenamiento y paginación completos pertenecen a iteraciones posteriores.
+La [iteración S1](plan/iteraciones/S01-semanas-07-08.md) y los [siete paquetes individuales](plan/repartición%20por%20integrantes/README.md) priorizan **F-006** (inicio/categorías) y **F-007** (búsqueda por texto), con un flujo visible `navegador → frontend Marketplace → BFF Marketplace → API real de Productos`. Las pantallas previstas son [V-005 Inicio](SPECS/ui/vistas/V-005-inicio.md) y el alcance de búsqueda de [V-006 Catálogo y resultados](SPECS/ui/vistas/V-006-catalogo-resultados.md), incluidos carga, resultados, vacío y error. Desktop y responsive se validan según sus specs; las funciones de filtros, ordenamiento y paginación completos pertenecen a iteraciones posteriores.
 
 La API de Productos **alimenta** estas vistas: conectarse con otro módulo no crea por sí mismo una pantalla nueva. El frontend no debe llamar a Productos con secretos ni copiar su catálogo a la base Marketplace. Un fixture local puede ayudar al desarrollo, pero **no acredita** la integración ni el despliegue requeridos por H3.
 
@@ -68,4 +68,4 @@ La API de Productos **alimenta** estas vistas: conectarse con otro módulo no cr
 
 ## Cómo contribuir
 
-Trabajamos con especificaciones antes de código, contratos versionados y pruebas proporcionales al cambio. Para H3, las ramas personales salen de `develop` **cuando el equipo la cree**, los PR se abren hacia `develop` y el corte verificado pasa a `main`. La [guía colaborativa](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) define revisores, criterios de cierre y Conventional Commits con descripción en español. Cada autor documenta qué specs/mockups usó, qué código generó o modificó con IA, qué revisó personalmente y qué pruebas ejecutó. No subir secretos, datos personales ni afirmar «integrado» por pruebas con mocks.
+Trabajamos con especificaciones antes de código, contratos versionados y pruebas proporcionales al cambio. Para el código de H3 en frontend/backend, las ramas personales salen de `develop` **cuando el equipo la cree**, los PR se abren hacia `develop` y el corte verificado pasa a `main`. En este repositorio SPECS, la documentación revisada se publica con commit/push directo a `main`, según indicación del PO del 13/10/2026. La [guía colaborativa](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) define revisores, criterios de cierre y Conventional Commits con descripción en español. Cada autor documenta qué specs/mockups usó, qué código generó o modificó con IA, qué revisó personalmente y qué pruebas ejecutó. No subir secretos, datos personales ni afirmar «integrado» por pruebas con mocks.

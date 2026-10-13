@@ -1,6 +1,6 @@
 # S3 — Checkout y base asíncrona (semanas 12–13)
 
-Versión 0.2.0 · Preparación obligatoria del Hito 5, sin afirmar contratos externos cerrados.
+Versión 0.3.0 · Preparación obligatoria del Hito 5, sin afirmar contratos externos cerrados.
 
 ## Objetivo y alcance
 
@@ -14,3 +14,7 @@ Cerrar F-017–018 (cambiar/quitar ítem), F-022–027 (dirección, cotización,
 ## Gate de salida
 
 Flujo carrito→dirección→pedido/resultado demostrado con servicios reales; contrato de simulación de Ventas documentado; outbox/cola/evento identificable con reintento/deduplicación y consumidor. Si no hay evento externo aprobado, la funcionalidad que dependa de él continúa bloqueada; no llamar «entre microservicios» a una cola interna. [Gates](../DECISIONES-Y-BLOQUEOS.md) y [tablero](../seguimiento/README.md) conservan el estado real.
+
+## Responsables propuestos y carga
+
+Andres lleva F-017/F-018; Leonidas F-022–027; Fernando F-028/F-030/F-033/F-034. La [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija revisores independientes y handoffs: Leonidas entrega estado de pedido autorizado a Fernando; Fernando no interpreta `CREADO` como `PAGADO`. Checkout y correo/evento dependen de contratos y entornos de Ventas, Productos, Despacho y proveedor de correo. Fernando tiene dos bloques relacionados; su capacidad y apoyos se confirman antes de aceptar S3.

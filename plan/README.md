@@ -1,6 +1,6 @@
 # Plan y seguimiento de implementación — Marketplace
 
-Versión 0.2.0 · Replanificación 2026-10-10.
+Versión 0.3.0 · Propuesta de reparto punta a punta 2026-10-13; estimación y aceptación pendientes.
 
 Este directorio planifica el software y sus evidencias para los hitos de **semanas 8, 11, 14 y 16**. Son cinco iteraciones de duración desigual desde semana 7. No contiene specs ni afirma que las tareas estén ejecutadas. La PPT y la explicación de IA pertenecen a la exposición, no al cronograma de desarrollo.
 
@@ -11,7 +11,7 @@ Este directorio planifica el software y sus evidencias para los hitos de **seman
 3. [Pruebas y DevSecOps](DEVSECOPS-Y-PRUEBAS.md).
 4. [Iteraciones](iteraciones/README.md).
 5. [Seguimiento y tareas](seguimiento/README.md).
-6. [Repartición por integrantes y guía de colaboración para H3/semana 8](repartición%20por%20integrantes/README.md).
+6. [Matriz de bloques, F-### y responsables](../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), [paquetes individuales H3–H6](repartición%20por%20integrantes/README.md) y guía de colaboración.
 7. Plan individual F-### dentro de `funcionalidades/`, según el catálogo siguiente.
 
 Plan ≠ specs: entrada = funcional + UI + API + React; salida = trabajo verificable. Las tareas están dentro de `plan/seguimiento` por petición del PO, no dentro de `SPECS`.
@@ -61,5 +61,4 @@ Plan ≠ specs: entrada = funcional + UI + API + React; salida = trabajo verific
 | F-039 | [Mover favorito al carrito](funcionalidades/F-039-mover-favorito-carrito.md) | S5 |
 | F-040 | [Registrar evaluación postentrega](funcionalidades/F-040-evaluacion-postentrega.md) | S5 |
 
-Este catálogo reparte por **fecha y entregable**; sólo S1/H3 tiene una [propuesta de reparto humano](repartición%20por%20integrantes/README.md), sujeta a estimación y aceptación. S2–S5 siguen sin asignar. Los paquetes Figma no determinan quién programa. [El plan maestro](PLAN-IMPLEMENTACION.md) gobierna los requisitos de cada hito.
-
+Este catálogo reparte por **fecha y entregable**. La [matriz humana S1–S5](../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) y los [paquetes individuales](repartición%20por%20integrantes/README.md) son propuestas sujetas a estimación y aceptación. Los paquetes Figma no determinan quién programa. [El plan maestro](PLAN-IMPLEMENTACION.md) gobierna los requisitos de cada hito.

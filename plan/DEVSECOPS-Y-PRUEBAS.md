@@ -4,7 +4,7 @@ Versión 0.2.0 · En revisión · Semanas 7–16. Esto especifica trabajo futuro
 
 ## 1. Responsabilidad y límites
 
-Las funciones de pipeline/seguridad, QA/verificación, corrección técnica y aceptación de riesgo deben tener responsables y revisores distintos; **las personas se asignarán después de estimar capacidad**. El reparto previo por nombres no se hereda del paquete de mockups.
+Las funciones de pipeline/seguridad, QA/verificación, corrección técnica y aceptación de riesgo deben tener responsables y revisores distintos; **la matriz de bloques propone personas, pero aceptación/capacidad siguen pendientes**. Las tareas transversales proponen responsable/revisor en [TRANSVERSALES](seguimiento/TRANSVERSALES.md). El reparto de mockups no asigna código.
 
 Sólo pruebas sobre entornos propios o expresamente autorizados. No hacer DAST, fuzzing, carga, intentos de autenticación o escaneos al GitHub/Figma/servicios de otros grupos sin permiso. Proveedor simulado prueba contratos, no seguridad de tercero.
 
@@ -57,4 +57,3 @@ Si se detecta secreto: detener difusión, retirar de logs/artefactos y **coordin
 Formato por tarea: ID, commit/revisión futuro, comando/herramienta/versión, entorno, fixtures y cuentas no sensibles, casos/resultado/fecha, hallazgos, corrección/retest y revisor. Sanitizar screenshots y reportes.
 
 Guardar evidencia en rutas del repo de código o almacenamiento autorizado y enlazarla desde plan/seguimiento; no crear resultados inventados. Inicialmente todas las evidencias están pendientes. Distinguir simulación, sandbox homologado y producción.
-

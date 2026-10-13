@@ -7,7 +7,7 @@
 | ID / versión / estado | F-022 / 0.1.0 / En revisión |
 | Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-022-seleccionar-direccion-envio.md), [UI](../../SPECS/ui/F-022-seleccionar-direccion-envio.md), [API](../../SPECS/contrato-api/F-022-seleccionar-direccion-envio.md), [React](../../SPECS/componentes-react/F-022-seleccionar-direccion-envio.md) |
-| Ejecución y revisores | [Tareas de F-022](../seguimiento/F-022-seleccionar-direccion-envio.md), asignación humana pendiente tras estimar capacidad |
+| Ejecución y revisores | [Tareas de F-022](../seguimiento/F-022-seleccionar-direccion-envio.md); responsable propuesto: **Leonidas Garcia**; revisor principal: **Diego Espinoza**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
@@ -57,7 +57,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: Token titular no técnico, dirección ajena rechazada y cuerpos excluidos storage/logs.
 - DB si aplica: identidad/constraints/versiones/transacción y rollback probados sin persistencia prohibida.
-- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-y-definition-of-done).
+- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-done-y-evidencia).
 - Cuando se exige homologación, prueba real aprobada además de fixture. Si bloqueada, funcionalidad no se declara completa.
 
 ## 7. Riesgos y recuperación
@@ -65,4 +65,3 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 LOADING → LIST | NEW_ADDRESS | ERROR; SAVE → CREATED_SELECTED | FIELD_ERROR | ERROR; EMPTY abre formulario;401 limpia datos.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
-

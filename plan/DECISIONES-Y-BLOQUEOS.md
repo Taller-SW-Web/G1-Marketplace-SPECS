@@ -1,6 +1,6 @@
 # Decisiones y bloqueos de implementación
 
-Versión 0.2.0 · En revisión · Revisión intermodular 2026-10-10. Se contrastaron las ramas remotas de Productos y Ventas con el reporte de consistencia del 05/10; esto no equivale a aprobación ni a prueba de integración.
+Versión 0.3.0 · En revisión · Reparto propuesto 2026-10-13; revisión intermodular previa 2026-10-10. Se contrastaron las ramas remotas de Productos y Ventas con el reporte de consistencia del 05/10; esto no equivale a aprobación ni a prueba de integración.
 
 ## Integraciones externas: evidencia pendiente, no solicitudes nuevas
 
@@ -45,9 +45,10 @@ Cuando se libere un gate: enlazar evidencia/versiones, fecha, aprobador y prueba
 | G-API-MGMT | H5 pide API Management aplicado, no sólo OpenAPI o proxy local | Elegir gateway/producto autorizado; documentar rutas, auth, rate limiting y logs; probar tráfico y política efectiva | Diseño hasta semana 11; evidencia H5 semana 14 |
 | G-ASYNC-H5 | No hay evento intermodular F-035 acordado ni broker/consumer probado | Acordar proveedor/esquema/transporte, implementar productor/consumidor, retry/dedupe y traza; no contar outbox interno como intercambio entre microservicios | Contrato semana 11; evidencia H5 semana 14 |
 | G-OBS-H6 | No hay telemetría/alertas de release verificadas | Logs/métricas/trazas con correlación, umbral y alerta disparada/revisada, sin PII | H6, semana 16 |
-| G-CAPACITY | S2 contiene 15 funciones, S3 doce y S5 nueve más regresión; capacidad humana aún sin estimar | Estimar horas por FE/BE/INT/QA/OPS, reservar correcciones, revisar carga cada semana y escalar antes de prometer cierres imposibles | Primera revisión semana 7; cada iteración |
+| G-CAPACITY | S2 contiene 15 funciones, S3 doce y S5 nueve más regresión; capacidad humana aún sin estimar | [Matriz propuesta](../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md): cada owner estima horas FE/BE/INT/QA y revisión, confirma disponibilidad; Diego/Jim redistribuyen apoyo o resecuencian por decisión, sin marcar trabajo como ejecutado | Antes de aceptar cada iteración |
+| G-OWNERSHIP | Ocho bloques del sílabo y siete integrantes; falta confirmar interpretación del profesor y aceptación/capacidad individual | Jim valida si Fernando puede llevar seguimiento y notificaciones relacionados y si seis cortes H3 MOCK parciales cuentan como evidencia individual sin cerrar hito; registrar respuesta, estimaciones, revisores y cambio de matriz/paquetes si procede | Antes de aprobar el reparto/H3 |
 
-No se alteran paquetes UI. Los nombres históricos de esas asignaciones no determinan responsables de implementación. Las personas de cada tarea y revisión se acordarán después de estimar capacidad.
+La autoría de diseño visual permanece separada. La [matriz de implementación](../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) propone responsables/revisores para F-001–F-040; cada uno debe aceptar capacidad y alcance antes de iniciar. G-OWNERSHIP registra la validación académica pendiente.
 
 ## Registro de cierre (a completar con evidencia real)
 
@@ -56,4 +57,3 @@ No se alteran paquetes UI. Los nombres históricos de esas asignaciones no deter
 | Ninguno liberado por esta entrega | Elaborar documentación no cierra contratos | — | — | — | Pendiente |
 
 Registrar cada cierre en una fila; no borrar la explicación original del riesgo. Pruebas con fixtures = prueba local, no aceptación del proveedor.
-

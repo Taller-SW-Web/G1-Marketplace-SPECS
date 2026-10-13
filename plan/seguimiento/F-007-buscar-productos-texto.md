@@ -7,19 +7,19 @@ Versión 0.1.0 · Planificación inicial · F-007 no está implementada por esto
 - [Plan F-007](../funcionalidades/F-007-buscar-productos-texto.md); [iteración S1](../iteraciones/S01-semanas-07-08.md).
 - [Funcional](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI](../../SPECS/ui/F-007-buscar-productos-texto.md), [API](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React](../../SPECS/componentes-react/F-007-buscar-productos-texto.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables y revisores propuestos para S1 en [repartición H3](../repartición%20por%20integrantes/README.md); estimación y aceptación personal pendientes. La semana objetivo es académica, no fecha de calendario.
+- Responsable propuesto: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F007-FE-001 | Frontend | Sebastian Malca | Giuliano Macchiavello | P0 | TASK-TRANS-S01-OPS-001 | 7 | Pendiente |
-| TASK-F007-BE-001 | Backend | Leonidas Garcia | Diego Espinoza | P0 | TASK-TRANS-S01-OPS-001 | 7 | Pendiente |
-| TASK-F007-INT-001 | Integración | Leonidas Garcia | Jim Segovia | P0 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 8 | Bloqueado |
-| TASK-F007-QA-001 | QA funcional | Diego Espinoza | Jim Segovia | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 | 8 | Pendiente |
-| TASK-F007-QA-002 | QA seguridad / DevSecOps | Diego Espinoza | Andres Morales | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S01-OPS-002 | 8 | Pendiente |
-| TASK-F007-DOC-001 | Documentación | Sebastian Malca | Jim Segovia | P0 | TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 8 | Pendiente |
+| TASK-F007-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 | Pendiente |
+| TASK-F007-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 | Pendiente |
+| TASK-F007-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 8 | Bloqueado |
+| TASK-F007-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 | 8 | Pendiente |
+| TASK-F007-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S01-OPS-002 | 8 | Pendiente |
+| TASK-F007-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 8 | Pendiente |
 
 La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs. El buscador compartido de Giuliano se coordina con Sebastian sin duplicar estos IDs.
 
@@ -75,4 +75,3 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
-

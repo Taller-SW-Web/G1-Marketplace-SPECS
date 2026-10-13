@@ -1,6 +1,6 @@
 # Catálogo de vistas del Marketplace
 
-Este directorio contiene las especificaciones visuales por pantalla o ruta principal. Una vista puede reunir varias funcionalidades `F-###`; las specs funcionales y UI atómicas continúan siendo las fuentes del comportamiento, mientras que cada documento `V-###` define cómo se compone el entregable que se diseñará en Figma.
+Este directorio contiene las especificaciones visuales por pantalla o ruta principal. La [matriz de responsabilidad de implementación](../../RESPONSABILIDADES-PUNTA-A-PUNTA.md) asigna los bloques/F-### del código; cualquier responsable de diseño mencionado aquí conserva únicamente ese alcance visual. Una vista puede reunir varias funcionalidades `F-###`; las specs funcionales y UI atómicas continúan siendo las fuentes del comportamiento, mientras que cada documento `V-###` define cómo se compone el entregable que se diseñará en Figma.
 
 Los mockups de estas vistas se ubicarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394), separada del archivo de la biblioteca del sistema de diseño enlazado en [`DS-001`](../DS-001-sistema-diseno-marketplace.md). El enlace recibido es de carpeta; falta registrar la URL directa del archivo de pantallas y los enlaces específicos de páginas y frames.
 

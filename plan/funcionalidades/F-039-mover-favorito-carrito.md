@@ -7,7 +7,7 @@
 | ID / versión / estado | F-039 / 0.1.0 / En revisión |
 | Objetivo académico | S5, semanas 15–16 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-039-mover-favorito-carrito.md), [UI](../../SPECS/ui/F-039-mover-favorito-carrito.md), [API](../../SPECS/contrato-api/F-039-mover-favorito-carrito.md), [React](../../SPECS/componentes-react/F-039-mover-favorito-carrito.md) |
-| Ejecución y revisores | [Tareas de F-039](../seguimiento/F-039-mover-favorito-carrito.md), asignación humana pendiente tras estimar capacidad |
+| Ejecución y revisores | [Tareas de F-039](../seguimiento/F-039-mover-favorito-carrito.md); responsable propuesto: **Diego Espinoza**; revisor principal: **Fernando Saire**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
@@ -56,7 +56,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: redirectUrl maliciosa / variante arbitraria, transacción no borra favorito por fallo.
 - DB si aplica: identidad/constraints/versiones/transacción y rollback probados sin persistencia prohibida.
-- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-y-definition-of-done).
+- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-done-y-evidencia).
 - Cuando se exige homologación, prueba real aprobada además de fixture. Si bloqueada, funcionalidad no se declara completa.
 
 ## 7. Riesgos y recuperación
@@ -64,4 +64,3 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 READY → MOVING → MOVED | VARIANT_REQUIRED | OUT_OF_STOCK | NOT_AVAILABLE | ERROR.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
-

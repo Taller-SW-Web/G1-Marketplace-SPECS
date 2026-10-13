@@ -7,22 +7,22 @@ Versión 0.1.0 · Planificación inicial · F-035 no está implementada por esto
 - [Plan F-035](../funcionalidades/F-035-enviar-actualizacion-despacho.md); [iteración S4](../iteraciones/S04-semana-14.md).
 - [Funcional](../../SPECS/funcional/F-035-enviar-actualizacion-despacho.md), [UI](../../SPECS/ui/F-035-enviar-actualizacion-despacho.md), [API](../../SPECS/contrato-api/F-035-enviar-actualizacion-despacho.md), [React](../../SPECS/componentes-react/F-035-enviar-actualizacion-despacho.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
+- Responsable propuesto: **Fernando Saire**; revisor principal: **Jim Segovia** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F035-FE-001 | UI/render server-only | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 | 14 | Pendiente |
-| TASK-F035-BE-001 | Backend | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 14 | Pendiente |
-| TASK-F035-DB-001 | BD / Prisma | Por asignar | Por asignar | P0 | TASK-TRANS-S01-DB-001 | 14 | Pendiente |
-| TASK-F035-INT-001 | Integración | Por asignar | Por asignar | P0 | TASK-F035-BE-001 + TASK-F035-DB-001 + I-05 + G-MAIL + TASK-F032-INT-001 + TASK-F033-INT-001 + TASK-F034-INT-001 | 14 | Bloqueado |
-| TASK-F035-QA-001 | QA funcional | Por asignar | Por asignar | P0 | TASK-F035-FE-001 + TASK-F035-BE-001 + TASK-F035-DB-001 | 14 | Pendiente |
-| TASK-F035-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P0 | TASK-F035-FE-001 + TASK-F035-BE-001 + TASK-TRANS-S04-OPS-002 | 14 | Pendiente |
-| TASK-F035-DOC-001 | Documentación | Por asignar | Por asignar | P0 | TASK-F035-INT-001 + TASK-F035-QA-001 + TASK-F035-QA-002 | 14 | Pendiente |
+| TASK-F035-FE-001 | UI/render server-only | Fernando Saire | Jim Segovia | P0 | TASK-TRANS-S01-OPS-001 | 14 | Pendiente |
+| TASK-F035-BE-001 | Backend | Fernando Saire | Jim Segovia | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 14 | Pendiente |
+| TASK-F035-DB-001 | BD / Prisma | Fernando Saire | Jim Segovia | P0 | TASK-TRANS-S01-DB-001 | 14 | Pendiente |
+| TASK-F035-INT-001 | Integración | Fernando Saire | Jim Segovia | P0 | TASK-F035-BE-001 + TASK-F035-DB-001 + I-05 + G-MAIL + TASK-F032-INT-001 + TASK-F033-INT-001 + TASK-F034-INT-001 | 14 | Bloqueado |
+| TASK-F035-QA-001 | QA funcional | Fernando Saire | Jim Segovia | P0 | TASK-F035-FE-001 + TASK-F035-BE-001 + TASK-F035-DB-001 | 14 | Pendiente |
+| TASK-F035-QA-002 | QA seguridad / DevSecOps | Fernando Saire | Jim Segovia | P0 | TASK-F035-FE-001 + TASK-F035-BE-001 + TASK-TRANS-S04-OPS-002 | 14 | Pendiente |
+| TASK-F035-DOC-001 | Documentación | Fernando Saire | Jim Segovia | P0 | TASK-F035-INT-001 + TASK-F035-QA-001 + TASK-F035-QA-002 | 14 | Pendiente |
 
-Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
+Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Trabajo, Definition of Done y evidencia
 
@@ -83,4 +83,3 @@ Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](.
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
-
