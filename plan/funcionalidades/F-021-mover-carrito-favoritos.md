@@ -7,7 +7,7 @@
 | ID / versión / estado | F-021 / 0.1.0 / En revisión |
 | Objetivo académico | S5, semanas 15–16 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-021-mover-carrito-favoritos.md), [UI](../../SPECS/ui/F-021-mover-carrito-favoritos.md), [API](../../SPECS/contrato-api/F-021-mover-carrito-favoritos.md), [React](../../SPECS/componentes-react/F-021-mover-carrito-favoritos.md) |
-| Ejecución y revisores | [Tareas de F-021](../seguimiento/F-021-mover-carrito-favoritos.md); responsable propuesto: **Andres Morales**; revisor principal: **Leonidas Garcia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-021](../seguimiento/F-021-mover-carrito-favoritos.md); responsable asignado por el PO: **Andres Morales**; revisor principal: **Leonidas Garcia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

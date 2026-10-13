@@ -7,7 +7,7 @@
 | ID / versión / estado | F-012 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-012-precio-oferta-descuento.md), [UI](../../SPECS/ui/F-012-precio-oferta-descuento.md), [API](../../SPECS/contrato-api/F-012-precio-oferta-descuento.md), [React](../../SPECS/componentes-react/F-012-precio-oferta-descuento.md) |
-| Ejecución y revisores | [Tareas de F-012](../seguimiento/F-012-precio-oferta-descuento.md); responsable propuesto: **Sebastian Malca**; revisor principal: **Giuliano Macchiavello**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-012](../seguimiento/F-012-precio-oferta-descuento.md); responsable asignado por el PO: **Sebastian Malca**; revisor principal: **Giuliano Macchiavello**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

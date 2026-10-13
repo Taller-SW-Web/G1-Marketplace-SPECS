@@ -7,7 +7,7 @@
 | ID / versión / estado | F-007 / 0.1.0 / En revisión |
 | Objetivo académico | S1, semanas 7–8 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI](../../SPECS/ui/F-007-buscar-productos-texto.md), [API](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React](../../SPECS/componentes-react/F-007-buscar-productos-texto.md) |
-| Ejecución y revisores | [Tareas de F-007](../seguimiento/F-007-buscar-productos-texto.md); responsable propuesto: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-007](../seguimiento/F-007-buscar-productos-texto.md); responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

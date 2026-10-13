@@ -2,7 +2,7 @@
 
 Repositorio de **especificaciones, arquitectura, diseño visual y planificación** del canal Marketplace de Inka Athletics. El código se desarrolla en repositorios separados: [frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend) y [backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend). Marketplace presenta la experiencia de compra y coordina servicios propietarios de Productos y Ofertas, Seguridad y Gestión de Usuarios, Ventas y Postventa y Despacho; no lee directamente las bases de datos de otros módulos.
 
-> **Estado documental al 13 de octubre de 2026:** los mockups están elaborados y aprobados según el PO, pero eso no equivale a software implementado. El plan de desarrollo de semanas 8–16 es una propuesta de ejecución; cada tarea se cierra únicamente con código, pruebas y evidencia. La integración real con Productos para la semana 8 depende de que ese módulo publique entorno, datos y autorización utilizables.
+> **Estado documental al 13 de octubre de 2026:** los mockups están elaborados y aprobados según el PO, pero eso no equivale a software implementado. El plan de desarrollo de semanas 8–16 tiene responsables y estimación base decididos por el PO; cada tarea se cierra únicamente con código, pruebas y evidencia. La integración real con Productos para la semana 8 depende de que ese módulo publique entorno, datos y autorización utilizables.
 
 ## Por dónde empezar
 
@@ -16,7 +16,7 @@ La documentación en [specs históricas](SPECS/specs-depreciadas/) y las épicas
 
 ## Equipo
 
-Los roles generales se conservan. La [matriz de implementación](SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) propone un responsable y revisor por F-001–F-040 a lo largo de S1–S5; cada integrante debe tocar interfaz y backend propio en un corte vertical. La asignación requiere estimación, aceptación individual y validación de la interpretación de ocho bloques para siete personas con el profesor. El [reparto de diseño visual](SPECS/ui/INVENTARIO-VISUAL-Y-ESTIMACION.md) sigue siendo distinto del ownership del código.
+Los roles generales se conservan. La [matriz de implementación](SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija un responsable y revisor por F-001–F-040 a lo largo de S1–S5; cada integrante debe tocar interfaz y backend propio en un corte vertical. Jim, como PO, decidió la asignación y la estimación base sin exigir aceptación individual previa. La interpretación académica de ocho bloques para siete personas se consultará al profesor sin detener el trabajo. El [reparto de diseño visual](SPECS/ui/INVENTARIO-VISUAL-Y-ESTIMACION.md) sigue siendo distinto del ownership del código.
 
 | Integrante | Rol general |
 |---|---|

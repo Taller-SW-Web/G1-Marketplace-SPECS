@@ -7,7 +7,7 @@
 | ID / versión / estado | F-011 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-011-detalle-producto.md), [UI](../../SPECS/ui/F-011-detalle-producto.md), [API](../../SPECS/contrato-api/F-011-detalle-producto.md), [React](../../SPECS/componentes-react/F-011-detalle-producto.md) |
-| Ejecución y revisores | [Tareas de F-011](../seguimiento/F-011-detalle-producto.md); responsable propuesto: **Sebastian Malca**; revisor principal: **Giuliano Macchiavello**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-011](../seguimiento/F-011-detalle-producto.md); responsable asignado por el PO: **Sebastian Malca**; revisor principal: **Giuliano Macchiavello**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

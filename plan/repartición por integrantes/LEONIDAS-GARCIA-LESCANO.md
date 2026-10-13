@@ -1,6 +1,6 @@
 # Leonidas Garcia Lescano — Arquitecto de Software / Backend — responsabilidad punta a punta
 
-**Propuesta 13/10/2026; pendiente de aceptación y estimación personal.** Bloque: **6. Checkout y generación del pedido**; IDs: **F-022–F-027**. Revisor principal: **Diego Espinoza**. Hitos: S3: F-022–F-027 antes de H5, sujetos a gates. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **6. Checkout y generación del pedido**; IDs: **F-022–F-027**. Revisor principal: **Diego Espinoza**. Hitos: S3: F-022–F-027 antes de H5, sujetos a gates. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
 
 ## Fuentes y alcance
 
@@ -28,4 +28,4 @@ F-023: resumen V-011 con snapshot de prueba y ruta BFF que valida entradas e inf
 
 F-006/F-007, V-005 y búsqueda de V-006 deben llegar a frontend y BFF desplegados con **llamada real a Productos**. Este paquete aporta a esa ruta mediante su rol transversal cuando corresponda, sin desplazar el incremento vertical propio. Si I-01 no tiene URL, token/datos y respuesta comprobada, Jim/Diego registran el gate bloqueado y presentan sólo avance parcial. Ningún fixture ni `render.yaml` acredita integración o despliegue.
 
-**Antes de iniciar:** estimar FE/BE/INT/QA/revisión por semana; acordar archivos compartidos y capacidad con Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si la carga o el gate impiden el objetivo del hito, proponer resecuenciación documentada antes del corte.
+**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos o desvíos de capacidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si la carga o el gate impiden el objetivo del hito, proponer resecuenciación documentada antes del corte.

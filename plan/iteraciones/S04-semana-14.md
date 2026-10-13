@@ -16,7 +16,7 @@ Cerrar F-032 (seguimiento) y F-035 (actualización de despacho) si I-05/I-06 pub
 | API Management | Ruta externa publicada/configurada, autenticación/limitación/traza y prueba de tráfico por gateway; no confundir un proxy local con una política aplicada. |
 | Asincronía | Evento/mensaje versionado, productor y consumidor de **módulos distintos**, correlación en logs, reintento/dedupe y prueba de fallo/recuperación. Una llamada REST o correo síncrono no bastan. |
 
-Si Despacho/Ventas no ofrece evento apto para F-035, acordar otro intercambio intermodular real **antes** de esta semana, actualizar specs/contratos y registrar cuál funcionalidad queda bloqueada. No inventar un mensaje ni marcar H5 cumplido con un mock. La asignación humana propuesta requiere aceptación y estimación; [plan general](../PLAN-IMPLEMENTACION.md) gobierna capacidad y escalamiento.
+Si Despacho/Ventas no ofrece evento apto para F-035, acordar otro intercambio intermodular real **antes** de esta semana, actualizar specs/contratos y registrar cuál funcionalidad queda bloqueada. No inventar un mensaje ni marcar H5 cumplido con un mock. La asignación y estimación base del PO ya están fijadas; [plan general](../PLAN-IMPLEMENTACION.md) gobierna capacidad y escalamiento.
 
 ## Responsable de F-032/F-035
 

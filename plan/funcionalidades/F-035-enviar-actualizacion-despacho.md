@@ -7,7 +7,7 @@
 | ID / versión / estado | F-035 / 0.1.0 / En revisión |
 | Objetivo académico | S4, semanas 14 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-035-enviar-actualizacion-despacho.md), [UI](../../SPECS/ui/F-035-enviar-actualizacion-despacho.md), [API](../../SPECS/contrato-api/F-035-enviar-actualizacion-despacho.md), [React](../../SPECS/componentes-react/F-035-enviar-actualizacion-despacho.md) |
-| Ejecución y revisores | [Tareas de F-035](../seguimiento/F-035-enviar-actualizacion-despacho.md); responsable propuesto: **Fernando Saire**; revisor principal: **Jim Segovia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-035](../seguimiento/F-035-enviar-actualizacion-despacho.md); responsable asignado por el PO: **Fernando Saire**; revisor principal: **Jim Segovia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

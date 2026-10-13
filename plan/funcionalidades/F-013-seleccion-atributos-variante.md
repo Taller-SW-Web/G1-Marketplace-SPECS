@@ -7,7 +7,7 @@
 | ID / versión / estado | F-013 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-013-seleccion-atributos-variante.md), [UI](../../SPECS/ui/F-013-seleccion-atributos-variante.md), [API](../../SPECS/contrato-api/F-013-seleccion-atributos-variante.md), [React](../../SPECS/componentes-react/F-013-seleccion-atributos-variante.md) |
-| Ejecución y revisores | [Tareas de F-013](../seguimiento/F-013-seleccion-atributos-variante.md); responsable propuesto: **Sebastian Malca**; revisor principal: **Giuliano Macchiavello**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-013](../seguimiento/F-013-seleccion-atributos-variante.md); responsable asignado por el PO: **Sebastian Malca**; revisor principal: **Giuliano Macchiavello**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

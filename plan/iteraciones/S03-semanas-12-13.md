@@ -17,4 +17,4 @@ Flujo carrito→dirección→pedido/resultado demostrado con servicios reales; c
 
 ## Responsables propuestos y carga
 
-Andres lleva F-017/F-018; Leonidas F-022–027; Fernando F-028/F-030/F-033/F-034. La [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija revisores independientes y handoffs: Leonidas entrega estado de pedido autorizado a Fernando; Fernando no interpreta `CREADO` como `PAGADO`. Checkout y correo/evento dependen de contratos y entornos de Ventas, Productos, Despacho y proveedor de correo. Fernando tiene dos bloques relacionados; su capacidad y apoyos se confirman antes de aceptar S3.
+Andres lleva F-017/F-018; Leonidas F-022–027; Fernando F-028/F-030/F-033/F-034. La [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija revisores independientes y handoffs: Leonidas entrega estado de pedido autorizado a Fernando; Fernando no interpreta `CREADO` como `PAGADO`. Checkout y correo/evento dependen de contratos y entornos de Ventas, Productos, Despacho y proveedor de correo. Fernando tiene dos bloques relacionados por decisión del PO; Diego vigila su carga frente a la estimación base y Jim ajusta apoyos si hay desvío.

@@ -7,7 +7,7 @@
 | ID / versión / estado | F-029 / 0.1.0 / En revisión |
 | Objetivo académico | S5, semanas 15–16 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-029-filtrar-historial-pedidos.md), [UI](../../SPECS/ui/F-029-filtrar-historial-pedidos.md), [API](../../SPECS/contrato-api/F-029-filtrar-historial-pedidos.md), [React](../../SPECS/componentes-react/F-029-filtrar-historial-pedidos.md) |
-| Ejecución y revisores | [Tareas de F-029](../seguimiento/F-029-filtrar-historial-pedidos.md); responsable propuesto: **Fernando Saire**; revisor principal: **Jim Segovia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-029](../seguimiento/F-029-filtrar-historial-pedidos.md); responsable asignado por el PO: **Fernando Saire**; revisor principal: **Jim Segovia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

@@ -7,7 +7,7 @@
 | ID / versión / estado | F-019 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-019-visualizar-carrito.md), [UI](../../SPECS/ui/F-019-visualizar-carrito.md), [API](../../SPECS/contrato-api/F-019-visualizar-carrito.md), [React](../../SPECS/componentes-react/F-019-visualizar-carrito.md) |
-| Ejecución y revisores | [Tareas de F-019](../seguimiento/F-019-visualizar-carrito.md); responsable propuesto: **Andres Morales**; revisor principal: **Leonidas Garcia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-019](../seguimiento/F-019-visualizar-carrito.md); responsable asignado por el PO: **Andres Morales**; revisor principal: **Leonidas Garcia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

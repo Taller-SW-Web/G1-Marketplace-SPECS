@@ -7,7 +7,7 @@
 | ID / versión / estado | F-009 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-009-ordenar-catalogo.md), [UI](../../SPECS/ui/F-009-ordenar-catalogo.md), [API](../../SPECS/contrato-api/F-009-ordenar-catalogo.md), [React](../../SPECS/componentes-react/F-009-ordenar-catalogo.md) |
-| Ejecución y revisores | [Tareas de F-009](../seguimiento/F-009-ordenar-catalogo.md); responsable propuesto: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-009](../seguimiento/F-009-ordenar-catalogo.md); responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

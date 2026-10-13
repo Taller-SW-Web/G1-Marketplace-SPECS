@@ -7,7 +7,7 @@
 | ID / versión / estado | F-038 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-038-quitar-favorito.md), [UI](../../SPECS/ui/F-038-quitar-favorito.md), [API](../../SPECS/contrato-api/F-038-quitar-favorito.md), [React](../../SPECS/componentes-react/F-038-quitar-favorito.md) |
-| Ejecución y revisores | [Tareas de F-038](../seguimiento/F-038-quitar-favorito.md); responsable propuesto: **Diego Espinoza**; revisor principal: **Fernando Saire**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-038](../seguimiento/F-038-quitar-favorito.md); responsable asignado por el PO: **Diego Espinoza**; revisor principal: **Fernando Saire**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

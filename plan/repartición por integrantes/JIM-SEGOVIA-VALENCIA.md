@@ -1,6 +1,6 @@
 # Jim Bryan Segovia Valencia — Product Owner — responsabilidad punta a punta
 
-**Propuesta 13/10/2026; pendiente de aceptación y estimación personal.** Bloque: **1. Cuenta y acceso**; IDs: **F-001–F-005**. Revisor principal: **Andres Morales**. Hitos: S2: F-001–003; S5: F-004–005. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **1. Cuenta y acceso**; IDs: **F-001–F-005**. Revisor principal: **Andres Morales**. Hitos: S2: F-001–003; S5: F-004–005. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
 
 ## Fuentes y alcance
 
@@ -28,4 +28,4 @@ F-002: formulario V-001 que muestre validación y error neutro, conectado a una 
 
 F-006/F-007, V-005 y búsqueda de V-006 deben llegar a frontend y BFF desplegados con **llamada real a Productos**. Este paquete aporta a esa ruta mediante su rol transversal cuando corresponda, sin desplazar el incremento vertical propio. Si I-01 no tiene URL, token/datos y respuesta comprobada, Jim/Diego registran el gate bloqueado y presentan sólo avance parcial. Ningún fixture ni `render.yaml` acredita integración o despliegue.
 
-**Antes de iniciar:** estimar FE/BE/INT/QA/revisión por semana; acordar archivos compartidos y capacidad con Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si la carga o el gate impiden el objetivo del hito, proponer resecuenciación documentada antes del corte.
+**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos o desvíos de capacidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si la carga o el gate impiden el objetivo del hito, proponer resecuenciación documentada antes del corte.

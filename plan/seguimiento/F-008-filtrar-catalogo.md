@@ -7,7 +7,7 @@ Versión 0.1.0 · Planificación inicial · F-008 no está implementada por esto
 - [Plan F-008](../funcionalidades/F-008-filtrar-catalogo.md); [iteración S2](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-008-filtrar-catalogo.md), [UI](../../SPECS/ui/F-008-filtrar-catalogo.md), [API](../../SPECS/contrato-api/F-008-filtrar-catalogo.md), [React](../../SPECS/componentes-react/F-008-filtrar-catalogo.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsable propuesto: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
+- Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero

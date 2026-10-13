@@ -7,7 +7,7 @@
 | ID / versión / estado | F-003 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-003-cerrar-sesion.md), [UI](../../SPECS/ui/F-003-cerrar-sesion.md), [API](../../SPECS/contrato-api/F-003-cerrar-sesion.md), [React](../../SPECS/componentes-react/F-003-cerrar-sesion.md) |
-| Ejecución y revisores | [Tareas de F-003](../seguimiento/F-003-cerrar-sesion.md); responsable propuesto: **Jim Segovia**; revisor principal: **Andres Morales**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-003](../seguimiento/F-003-cerrar-sesion.md); responsable asignado por el PO: **Jim Segovia**; revisor principal: **Andres Morales**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

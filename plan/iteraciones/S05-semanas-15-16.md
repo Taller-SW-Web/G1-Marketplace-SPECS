@@ -1,6 +1,6 @@
 # S5 — Cobertura final y release (semanas 15–16)
 
-Versión 0.3.0 · Replanificación para Hito 6. Carga alta; sin capacidad estimada no se garantiza cierre de nueve funciones más regresión.
+Versión 0.3.0 · Replanificación para Hito 6. Carga alta; la estimación base no garantiza el cierre de nueve funciones más regresión si la capacidad observada o los contratos no alcanzan.
 
 ## Objetivo y alcance
 
@@ -17,4 +17,4 @@ Aplicación y funcionalidades realmente operativas con módulos dueños, arquite
 
 ## Responsables propuestos y cierre individual
 
-Jim: F-004/F-005; Sebastian: F-015; Andres: F-020/F-021; Fernando: F-029/F-031; Diego: F-039 y F-040 (adicional fuera de los ocho bloques). La [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija revisores y cruces. Giuliano, Leonidas y los demás aportan regresión, arquitectura, seguridad y reparación de sus bloques previos; ninguna persona queda reducida a un rol transversal a lo largo del proyecto. Confirmar capacidad y conservar evidencia individual FE+BE, pruebas, PR y `MOCK`/`REAL`.
+Jim: F-004/F-005; Sebastian: F-015; Andres: F-020/F-021; Fernando: F-029/F-031; Diego: F-039 y F-040 (adicional fuera de los ocho bloques). La [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija revisores y cruces. Giuliano, Leonidas y los demás aportan regresión, arquitectura, seguridad y reparación de sus bloques previos; ninguna persona queda reducida a un rol transversal a lo largo del proyecto. Comparar capacidad observada con la estimación base y conservar evidencia individual FE+BE, pruebas, PR y `MOCK`/`REAL`.

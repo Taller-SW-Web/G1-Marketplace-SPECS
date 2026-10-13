@@ -1,10 +1,10 @@
 # Matriz de responsabilidad punta a punta — Marketplace
 
-Versión 0.1.0 · Propuesta de implementación del 13/10/2026. **Pendiente de estimación, aceptación individual y validación del PO/profesor.** Esta matriz asigna trabajo futuro; no acredita código, integración ni aprobación de un hito. Las specs funcionales, UI, API y React conservan sus reglas; el responsable de implementación no sustituye al responsable del **diseño de una vista** que aparezca en V/O/C o en el inventario visual.
+Versión 0.2.0 · Reparto decidido por Jim Segovia, PO, el 13/10/2026. **Responsables, revisores y estimaciones base fijados para planificar; no requieren aceptación individual previa.** Esta matriz asigna trabajo futuro; no acredita código, integración ni aprobación académica de un hito. Las specs funcionales, UI, API y React conservan sus reglas; el responsable de implementación no sustituye al responsable del **diseño de una vista** que aparezca en V/O/C o en el inventario visual.
 
 ## Criterio de reparto
 
-El sílabo tiene ocho bloques y el equipo siete integrantes. Proponemos agrupar **consulta/seguimiento de pedidos** y **notificaciones del pedido** bajo Fernando: comparten el estado del pedido y la señal de Despacho, y se desarrollan en S3–S4. No se presume que el profesor exija exactamente un bloque por persona; Jim debe validar esta interpretación. Fernando recibe colaboración de Jim para aceptación de contenido de correos y de Leonidas para el contrato/evento; conserva un único ownership técnico de ambos bloques. Su carga se revisa antes de S3; si no cabe, se resecuencia o se solicita una decisión explícita, sin presentar funciones bloqueadas como cerradas.
+El sílabo tiene ocho bloques y el equipo siete integrantes. El PO agrupa **consulta/seguimiento de pedidos** y **notificaciones del pedido** bajo Fernando: comparten el estado del pedido y la señal de Despacho, y se desarrollan en S3–S4. Es la decisión operativa del equipo; Jim consultará al profesor la interpretación académica sin detener el inicio del trabajo. Fernando recibe colaboración de Jim para aceptación de contenido de correos y de Leonidas para el contrato/evento; conserva un único ownership técnico de ambos bloques. Si la carga observada no cabe, Jim resecuencia mediante decisión documentada, sin presentar funciones bloqueadas como cerradas.
 
 Cada responsable implementa al menos un corte de **interfaz y backend propio de Marketplace**. Para Seguridad, Productos, Ventas y Despacho, backend propio significa ruta BFF, adaptador, orquestación o persistencia **de Marketplace** según la spec. El módulo proveedor conserva sus reglas y datos. El revisor principal es distinto del autor; Leonidas revisa además cambios de contrato/backend y Andres revisa seguridad cuando apliquen. Los roles generales del [equipo](../README.md#equipo) continúan.
 
@@ -48,22 +48,24 @@ La ruta crítica común sigue siendo **F-006/F-007 → V-005 y búsqueda de V-00
 
 Para cada corte: caso positivo y negativo automatizable, componente/estado UI, ruta/adaptador o persistencia propia de Marketplace, PR/commit revisado por otra persona, explicación individual y evidencia con fuente, comando/resultado y etiqueta `MOCK`/`REAL`. Ninguna tarea externa pasa de `Bloqueado` a `Terminado` sin contrato, entorno y prueba reales.
 
-## Capacidad y decisiones por validar
+## Estimación base y decisiones externas
 
-Estimación inicial para discutir capacidad, en **días persona de 8 h de trabajo activo** (FE+BE+INT+QA/documentación del bloque; excluye esperas de proveedores y correcciones de revisión). Es un rango de planificación, no una fecha comprometida ni una estimación aceptada por cada integrante:
+Estimación base fijada con el criterio de planificación delegado por el PO, en **días persona de 8 h de trabajo activo** (FE+BE+INT+QA/documentación del bloque y revisión directa; excluye esperas de proveedores y trabajo transversal recurrente). Son presupuestos de esfuerzo, no fechas garantizadas ni disponibilidad semanal confirmada. Se toma el punto central redondeado de los rangos preliminares y se reserva 20 % adicional de equipo para correcciones y variación de integración:
 
-| Dueño | Bloque(s) | Rango preliminar | Pico previsto |
+| Dueño | Bloque(s) | Base de esfuerzo | Pico previsto |
 |---|---|---:|---|
-| Jim | Cuenta/acceso, 5 F | 8–14 días | S2 y recuperación S5 |
-| Giuliano | Catálogo/búsqueda, 5 F | 10–16 días | H3/S1 y S2 |
-| Sebastian | Detalle, 5 F | 8–13 días | S2 |
-| Andres | Carrito, 6 F | 11–18 días | S2/S3; más CI/deploy transversal |
-| Leonidas | Checkout, 6 F | 15–25 días | S3; más arquitectura transversal |
-| Fernando | Seguimiento + correo, 8 F | 17–28 días | S3/S4; más QA/cloud transversal |
-| Diego | Favoritos + F-040, 5 F | 9–15 días | S2/S5; más JP/QA transversal |
+| Jim | Cuenta/acceso, 5 F | 11 días | S2 y recuperación S5 |
+| Giuliano | Catálogo/búsqueda, 5 F | 13 días | H3/S1 y S2 |
+| Sebastian | Detalle, 5 F | 10 días | S2 |
+| Andres | Carrito, 6 F | 15 días | S2/S3; más CI/deploy transversal |
+| Leonidas | Checkout, 6 F | 20 días | S3; más arquitectura transversal |
+| Fernando | Seguimiento + correo, 8 F | 23 días | S3/S4; más QA/cloud transversal |
+| Diego | Favoritos + F-040, 5 F | 12 días | S2/S5; más JP/QA transversal |
 
-Fernando y Leonidas concentran los mayores riesgos de capacidad; la preparación de contratos de Ventas/Despacho/correo debe empezar antes de S3 y tener colaboradores/revisión acordados. Si la disponibilidad semanal no cubre el rango, Jim/Diego registran una resecuenciación de objetivos y la consultan antes de prometer el hito. La ruta H3 de catálogo absorbe la prioridad de S1; los seis cortes individuales secundarios se dimensionan como prototipos verticales parciales, no como implementaciones completas.
+**Total base: 104 días persona (832 h); reserva de equipo: aproximadamente 21 días persona (20 %); presupuesto de referencia: 125 días persona.** La reserva no cubre por sí sola una API externa ausente ni confirma horas efectivamente disponibles. En S1 se prioriza F-006/F-007 y su despliegue; los otros seis cortes H3 se acotan a avances `MOCK` para proteger esa ruta crítica.
 
-El número de IDs no mide horas: checkout, auth, pedido/evento y correo tienen gates costosos. Antes de aceptar S2/S3, cada responsable estima FE, BE, INT, QA y OPS, incluyendo revisión cruzada y reserva de correcciones. Diego y Jim comparan horas disponibles por semana y resecuencian sólo mediante decisión documentada. **No se promete el cierre de ocho flujos en H3.**
+Fernando y Leonidas concentran los mayores riesgos de capacidad; la preparación de contratos de Ventas/Despacho/correo debe empezar antes de S3 y tener colaboradores/revisión acordados. Diego compara el avance con la capacidad semanal observada; si no cubre esta base, Jim decide y registra una resecuenciación antes de prometer el hito. La ruta H3 de catálogo absorbe la prioridad de S1; los seis cortes individuales secundarios se dimensionan como prototipos verticales parciales, no como implementaciones completas.
 
-Jim debe confirmar con el profesor: (1) si un responsable puede asumir los bloques 7 y 8 relacionados; (2) si el incremento vertical individual de semana 8 puede ser parcial y `MOCK` fuera de la demo común; (3) qué evidencia individual espera en H3; (4) si un gate proveedor bloqueado permite presentar avance parcial sin calificarlo como terminado. La respuesta se registra en [decisiones](../plan/DECISIONES-Y-BLOQUEOS.md) y se ajusta esta matriz; no se anticipa aprobación.
+El número de IDs no mide horas: checkout, auth, pedido/evento y correo tienen gates costosos. Esta base permite iniciar sin esperar cálculos individuales. Diego compara avance real y capacidad semanal con el presupuesto; Jim documenta los ajustes cuando haya desvío. **No se promete el cierre de ocho flujos en H3.**
+
+Jim consulta al profesor: (1) cómo se evaluará que Fernando asuma los bloques 7 y 8 relacionados; (2) si un incremento individual parcial con `MOCK` cuenta como evidencia propia fuera de la demo común; (3) qué evidencia individual espera en H3; (4) cómo se presenta un gate proveedor bloqueado sin calificarlo como terminado. La respuesta se registra en [decisiones](../plan/DECISIONES-Y-BLOQUEOS.md) y se ajusta esta matriz; esta consulta no condiciona la asignación operativa del PO ni permite afirmar aprobación académica anticipada.

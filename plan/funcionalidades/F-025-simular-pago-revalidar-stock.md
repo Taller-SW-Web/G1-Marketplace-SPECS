@@ -7,7 +7,7 @@
 | ID / versión / estado | F-025 / 0.1.0 / En revisión |
 | Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-025-simular-pago-revalidar-stock.md), [UI](../../SPECS/ui/F-025-simular-pago-revalidar-stock.md), [API](../../SPECS/contrato-api/F-025-simular-pago-revalidar-stock.md), [React](../../SPECS/componentes-react/F-025-simular-pago-revalidar-stock.md) |
-| Ejecución y revisores | [Tareas de F-025](../seguimiento/F-025-simular-pago-revalidar-stock.md); responsable propuesto: **Leonidas Garcia**; revisor principal: **Diego Espinoza**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-025](../seguimiento/F-025-simular-pago-revalidar-stock.md); responsable asignado por el PO: **Leonidas Garcia**; revisor principal: **Diego Espinoza**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

@@ -1,6 +1,6 @@
 # SPECS vigentes — Marketplace
 
-Las **40 funcionalidades F-001–F-040** constituyen el catálogo de implementación. Cada ID tiene cuatro fuentes complementarias: [funcional](funcional/), [UI](ui/), [contrato API](contrato-api/) y [componentes React](componentes-react/). La [nomenclatura](NOMENCLATURA-SDD.md) define los identificadores; el [inventario de fuentes](INVENTARIO-FUENTES.md) documenta su origen. La [matriz de ocho bloques y siete responsables](RESPONSABILIDADES-PUNTA-A-PUNTA.md) propone ownership punta a punta y revisores para S1–S5, pendiente de estimación/aceptación y validación con el profesor.
+Las **40 funcionalidades F-001–F-040** constituyen el catálogo de implementación. Cada ID tiene cuatro fuentes complementarias: [funcional](funcional/), [UI](ui/), [contrato API](contrato-api/) y [componentes React](componentes-react/). La [nomenclatura](NOMENCLATURA-SDD.md) define los identificadores; el [inventario de fuentes](INVENTARIO-FUENTES.md) documenta su origen. La [matriz de ocho bloques y siete responsables](RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija ownership punta a punta, revisores y estimación base para S1–S5 por decisión del PO. La consulta académica al profesor sigue abierta.
 
 ## Orden de lectura por funcionalidad
 

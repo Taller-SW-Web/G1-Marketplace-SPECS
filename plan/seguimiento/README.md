@@ -6,7 +6,7 @@ Corte replanificado 2026-10-10 · Semanas 7–16 · El tablero no prueba ejecuci
 
 256 tareas funcionales en 40 archivos + 27 tareas transversales = **283 tareas**. Son unidades de trabajo por área, no 283 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS trazables.
 
-La [matriz punta a punta](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) propone un owner y revisor distintos por F-001–F-040. Las 256 filas funcionales conservan IDs/estados y reflejan esa propuesta; cada persona aún debe estimar y aceptar capacidad antes de pasar a En progreso. La responsabilidad de diseño visual permanece separada.
+La [matriz punta a punta](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija un owner y revisor distintos por F-001–F-040 por decisión del PO. Las 256 filas funcionales conservan IDs/estados; la estimación base está en la matriz. Pasar a En progreso requiere inicio efectivo y registro de avance, no aceptación formal previa. La responsabilidad de diseño visual permanece separada.
 
 ## 2. Uso del tablero
 
@@ -15,7 +15,7 @@ Editar estado/semana en la tabla de cada archivo y añadir evidencia en la secci
 Estados permitidos:
 
 - **Pendiente:** no iniciada; asignación y Ready por revisar.
-- **En progreso:** responsable confirmó y está implementando, con alcance claro.
+- **En progreso:** responsable asignado está implementando, con alcance claro y evidencia de inicio.
 - **En revisión:** evidencia disponible, revisor independiente asignado.
 - **Bloqueado:** condición concreta impide esa tarea, con gate/evidencia requerida y dueño.
 - **Terminado:** DoD cumplido y aprobado, no sólo código escrito o mock listo.
@@ -79,7 +79,7 @@ Trabajo común: [TRANSVERSALES](TRANSVERSALES.md). QA/DevSecOps: [estrategia de 
 
 ## 5. Revisión y evidencia
 
-Propuesta de dos revisiones breves por semana, planificación/demo/retro de iteración; Diego coordina el tablero con Jim, pendiente de aceptación/capacidad. No se crea ninguna automatización ni evento de calendario. Reportar sólo avance con evidencia, bloqueos y riesgo de capacidad.
+Dos revisiones breves por semana, planificación/demo/retro de iteración; Diego coordina el tablero con Jim y compara avance con estimación base. No se crea ninguna automatización ni evento de calendario. Reportar sólo avance con evidencia, bloqueos y riesgo de capacidad.
 
 Evidencia: revisión/artefacto futuro, herramienta/comando/entorno, casos resultado, fecha, hallazgos/corrección/retest y revisor. Sanitizar PII/secrets y respetar autorización de entornos. Un link a Figma acredita diseño, no prueba de API.
 
@@ -88,9 +88,10 @@ Evidencia: revisión/artefacto futuro, herramienta/comando/entorno, casos result
 - [x] Specs React F-001–F-040 elaboradas.
 - [x] Plan por funcionalidad y cinco iteraciones hasta semana 16, alineadas a H3–H6.
 - [x] Tareas FE/BE/DB/INT/QA funcional/QA seguridad/DOC/OPS.
-- [x] Prioridad, dependencias, semana, estados, DoD y evidencia requerida; responsables/revisores propuestos en matriz, pendientes de aceptación.
+- [x] Prioridad, dependencias, semana, estados, DoD y evidencia requerida; responsables/revisores asignados por el PO en la matriz.
 - [x] Integraciones sin evidencia marcadas Bloqueado.
-- [ ] Aceptación de responsables y estimación de horas/capacidad reales.
+- [x] Responsables/revisores y estimación base fijados por el PO; no se exige aceptación individual.
+- [ ] Capacidad real y desvíos contrastados con avance durante cada iteración.
 - [ ] Contratos/configuración/pruebas externos y gates locales cerrados.
 - [ ] Código, pruebas/escaneos y despliegues realizados.
 - [ ] Revisión periódica de tablero practicada y avances aprobados.

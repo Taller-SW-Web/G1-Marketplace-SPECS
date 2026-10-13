@@ -7,7 +7,7 @@
 | ID / versión / estado | F-040 / 0.1.0 / En revisión |
 | Objetivo académico | S5, semanas 15–16 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-040-evaluacion-postentrega.md), [UI](../../SPECS/ui/F-040-evaluacion-postentrega.md), [API](../../SPECS/contrato-api/F-040-evaluacion-postentrega.md), [React](../../SPECS/componentes-react/F-040-evaluacion-postentrega.md) |
-| Ejecución y revisores | [Tareas de F-040](../seguimiento/F-040-evaluacion-postentrega.md); responsable propuesto: **Diego Espinoza**; revisor principal: **Fernando Saire**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-040](../seguimiento/F-040-evaluacion-postentrega.md); responsable asignado por el PO: **Diego Espinoza**; revisor principal: **Fernando Saire**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites

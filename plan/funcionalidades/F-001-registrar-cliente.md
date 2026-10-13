@@ -7,7 +7,7 @@
 | ID / versión / estado | F-001 / 0.1.0 / En revisión |
 | Objetivo académico | S2, semanas 9–11 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-001-registrar-cliente.md), [UI](../../SPECS/ui/F-001-registrar-cliente.md), [API](../../SPECS/contrato-api/F-001-registrar-cliente.md), [React](../../SPECS/componentes-react/F-001-registrar-cliente.md) |
-| Ejecución y revisores | [Tareas de F-001](../seguimiento/F-001-registrar-cliente.md); responsable propuesto: **Jim Segovia**; revisor principal: **Andres Morales**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
+| Ejecución y revisores | [Tareas de F-001](../seguimiento/F-001-registrar-cliente.md); responsable asignado por el PO: **Jim Segovia**; revisor principal: **Andres Morales**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
