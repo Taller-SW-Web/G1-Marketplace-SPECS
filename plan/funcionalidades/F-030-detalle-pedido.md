@@ -7,7 +7,7 @@
 | ID / versión / estado | F-030 / 0.1.0 / En revisión |
 | Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-030-detalle-pedido.md), [UI](../../SPECS/ui/F-030-detalle-pedido.md), [API](../../SPECS/contrato-api/F-030-detalle-pedido.md), [React](../../SPECS/componentes-react/F-030-detalle-pedido.md) |
-| Ejecución y revisores | [Tareas de F-030](../seguimiento/F-030-detalle-pedido.md), asignación humana pendiente tras estimar capacidad |
+| Ejecución y revisores | [Tareas de F-030](../seguimiento/F-030-detalle-pedido.md); responsable propuesto: **Fernando Saire**; revisor principal: **Jim Segovia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
@@ -56,7 +56,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: 404 neutral para pedido ajeno, documento / tarjeta / email completo excluidos.
 - DB si aplica: identidad/constraints/versiones/transacción y rollback probados sin persistencia prohibida.
-- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-y-definition-of-done).
+- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-done-y-evidencia).
 - Cuando se exige homologación, prueba real aprobada además de fixture. Si bloqueada, funcionalidad no se declara completa.
 
 ## 7. Riesgos y recuperación
@@ -64,4 +64,3 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 LOADING → READY | NOT_AVAILABLE | ERROR; no tracking omite seguir envío, no inventa despacho.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
-

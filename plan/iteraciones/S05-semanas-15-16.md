@@ -1,6 +1,6 @@
 # S5 — Cobertura final y release (semanas 15–16)
 
-Versión 0.2.0 · Replanificación para Hito 6. Carga alta; sin capacidad estimada no se garantiza cierre de nueve funciones más regresión.
+Versión 0.3.0 · Replanificación para Hito 6. Carga alta; sin capacidad estimada no se garantiza cierre de nueve funciones más regresión.
 
 ## Objetivo y alcance
 
@@ -14,3 +14,7 @@ Cerrar F-004–005 (recuperación), F-015 (relacionados), F-020–021 (fusión/m
 ## Gate H6
 
 Aplicación y funcionalidades realmente operativas con módulos dueños, arquitectura final consistente con el despliegue, al menos dos evidencias de desarrollo seguro/OWASP, UI/UX comprobable, observabilidad y alerta ensayada, repositorios actualizados y demo final reproducible. Los bloqueos se comunican; no se cierran por omisión. [Plan general](../PLAN-IMPLEMENTACION.md), [gates](../DECISIONES-Y-BLOQUEOS.md) y [seguimiento](../seguimiento/README.md) son fuentes de control.
+
+## Responsables propuestos y cierre individual
+
+Jim: F-004/F-005; Sebastian: F-015; Andres: F-020/F-021; Fernando: F-029/F-031; Diego: F-039 y F-040 (adicional fuera de los ocho bloques). La [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija revisores y cruces. Giuliano, Leonidas y los demás aportan regresión, arquitectura, seguridad y reparación de sus bloques previos; ninguna persona queda reducida a un rol transversal a lo largo del proyecto. Confirmar capacidad y conservar evidencia individual FE+BE, pruebas, PR y `MOCK`/`REAL`.

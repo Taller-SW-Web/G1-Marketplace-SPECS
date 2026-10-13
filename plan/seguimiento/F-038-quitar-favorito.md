@@ -7,22 +7,22 @@ Versión 0.1.0 · Planificación inicial · F-038 no está implementada por esto
 - [Plan F-038](../funcionalidades/F-038-quitar-favorito.md); [iteración S2](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-038-quitar-favorito.md), [UI](../../SPECS/ui/F-038-quitar-favorito.md), [API](../../SPECS/contrato-api/F-038-quitar-favorito.md), [React](../../SPECS/componentes-react/F-038-quitar-favorito.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
+- Responsable propuesto: **Diego Espinoza**; revisor principal: **Fernando Saire** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F038-FE-001 | Frontend | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
-| TASK-F038-BE-001 | Backend | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 9 | Pendiente |
-| TASK-F038-DB-001 | BD / Prisma | Por asignar | Por asignar | P1 | TASK-TRANS-S01-DB-001 | 11 | Pendiente |
-| TASK-F038-INT-001 | Integración | Por asignar | Por asignar | P1 | TASK-F038-BE-001 + TASK-F038-DB-001 + I-01 + G-UNDO + TASK-F037-INT-001 | 11 | Bloqueado |
-| TASK-F038-QA-001 | QA funcional | Por asignar | Por asignar | P1 | TASK-F038-FE-001 + TASK-F038-BE-001 + TASK-F038-DB-001 | 11 | Pendiente |
-| TASK-F038-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P1 | TASK-F038-FE-001 + TASK-F038-BE-001 + TASK-TRANS-S02-OPS-002 | 11 | Pendiente |
-| TASK-F038-DOC-001 | Documentación | Por asignar | Por asignar | P1 | TASK-F038-INT-001 + TASK-F038-QA-001 + TASK-F038-QA-002 | 11 | Pendiente |
+| TASK-F038-FE-001 | Frontend | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
+| TASK-F038-BE-001 | Backend | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 9 | Pendiente |
+| TASK-F038-DB-001 | BD / Prisma | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-DB-001 | 11 | Pendiente |
+| TASK-F038-INT-001 | Integración | Diego Espinoza | Fernando Saire | P1 | TASK-F038-BE-001 + TASK-F038-DB-001 + I-01 + G-UNDO + TASK-F037-INT-001 | 11 | Bloqueado |
+| TASK-F038-QA-001 | QA funcional | Diego Espinoza | Fernando Saire | P1 | TASK-F038-FE-001 + TASK-F038-BE-001 + TASK-F038-DB-001 | 11 | Pendiente |
+| TASK-F038-QA-002 | QA seguridad / DevSecOps | Diego Espinoza | Fernando Saire | P1 | TASK-F038-FE-001 + TASK-F038-BE-001 + TASK-TRANS-S02-OPS-002 | 11 | Pendiente |
+| TASK-F038-DOC-001 | Documentación | Diego Espinoza | Fernando Saire | P1 | TASK-F038-INT-001 + TASK-F038-QA-001 + TASK-F038-QA-002 | 11 | Pendiente |
 
-Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
+Referente de BD: Diego Espinoza para este bloque, con revisión de Fernando Saire; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Trabajo, Definition of Done y evidencia
 
@@ -83,4 +83,3 @@ Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](.
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
-

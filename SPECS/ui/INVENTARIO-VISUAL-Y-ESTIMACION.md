@@ -1,6 +1,6 @@
 # Inventario visual y estimación para reparto
 
-Este documento consolida los entregables de diseño de alta fidelidad del Marketplace y aplica la escala definida en el plan de preparación. Es la fuente para repartir el trabajo; no sustituye las specs individuales.
+Este documento consolida los entregables de **diseño** de alta fidelidad del Marketplace y aplica la escala definida en el plan de preparación. Es fuente para repartir el trabajo visual; no sustituye las specs individuales ni la [matriz de implementación punta a punta](../RESPONSABILIDADES-PUNTA-A-PUNTA.md). Los nombres de la sección 7 indican propiedad de mockups, no ownership de FE/BE.
 
 ## 1. Alcance validado
 

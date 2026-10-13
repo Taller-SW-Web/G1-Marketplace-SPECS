@@ -7,22 +7,22 @@ Versión 0.1.0 · Planificación inicial · F-021 no está implementada por esto
 - [Plan F-021](../funcionalidades/F-021-mover-carrito-favoritos.md); [iteración S5](../iteraciones/S05-semanas-15-16.md).
 - [Funcional](../../SPECS/funcional/F-021-mover-carrito-favoritos.md), [UI](../../SPECS/ui/F-021-mover-carrito-favoritos.md), [API](../../SPECS/contrato-api/F-021-mover-carrito-favoritos.md), [React](../../SPECS/componentes-react/F-021-mover-carrito-favoritos.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
+- Responsable propuesto: **Andres Morales**; revisor principal: **Leonidas Garcia** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F021-FE-001 | Frontend | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
-| TASK-F021-BE-001 | Backend | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 15 | Pendiente |
-| TASK-F021-DB-001 | BD / Prisma | Por asignar | Por asignar | P0 | TASK-TRANS-S01-DB-001 | 16 | Pendiente |
-| TASK-F021-INT-001 | Integración | Por asignar | Por asignar | P0 | TASK-F021-BE-001 + TASK-F021-DB-001 + I-01 + TASK-F019-INT-001 + TASK-F036-INT-001 | 16 | Bloqueado |
-| TASK-F021-QA-001 | QA funcional | Por asignar | Por asignar | P0 | TASK-F021-FE-001 + TASK-F021-BE-001 + TASK-F021-DB-001 | 16 | Pendiente |
-| TASK-F021-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P0 | TASK-F021-FE-001 + TASK-F021-BE-001 + TASK-TRANS-S05-OPS-002 | 16 | Pendiente |
-| TASK-F021-DOC-001 | Documentación | Por asignar | Por asignar | P0 | TASK-F021-INT-001 + TASK-F021-QA-001 + TASK-F021-QA-002 | 16 | Pendiente |
+| TASK-F021-FE-001 | Frontend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
+| TASK-F021-BE-001 | Backend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 15 | Pendiente |
+| TASK-F021-DB-001 | BD / Prisma | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-DB-001 | 16 | Pendiente |
+| TASK-F021-INT-001 | Integración | Andres Morales | Leonidas Garcia | P0 | TASK-F021-BE-001 + TASK-F021-DB-001 + I-01 + TASK-F019-INT-001 + TASK-F036-INT-001 | 16 | Bloqueado |
+| TASK-F021-QA-001 | QA funcional | Andres Morales | Leonidas Garcia | P0 | TASK-F021-FE-001 + TASK-F021-BE-001 + TASK-F021-DB-001 | 16 | Pendiente |
+| TASK-F021-QA-002 | QA seguridad / DevSecOps | Andres Morales | Leonidas Garcia | P0 | TASK-F021-FE-001 + TASK-F021-BE-001 + TASK-TRANS-S05-OPS-002 | 16 | Pendiente |
+| TASK-F021-DOC-001 | Documentación | Andres Morales | Leonidas Garcia | P0 | TASK-F021-INT-001 + TASK-F021-QA-001 + TASK-F021-QA-002 | 16 | Pendiente |
 
-Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
+Referente de BD: Andres Morales para este bloque, con revisión de Leonidas Garcia; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Trabajo, Definition of Done y evidencia
 
@@ -83,4 +83,3 @@ Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](.
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
-

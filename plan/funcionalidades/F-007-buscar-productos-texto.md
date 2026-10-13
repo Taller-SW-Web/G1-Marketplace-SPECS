@@ -7,7 +7,7 @@
 | ID / versión / estado | F-007 / 0.1.0 / En revisión |
 | Objetivo académico | S1, semanas 7–8 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI](../../SPECS/ui/F-007-buscar-productos-texto.md), [API](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React](../../SPECS/componentes-react/F-007-buscar-productos-texto.md) |
-| Ejecución y revisores | [Tareas de F-007](../seguimiento/F-007-buscar-productos-texto.md), asignación humana pendiente tras estimar capacidad |
+| Ejecución y revisores | [Tareas de F-007](../seguimiento/F-007-buscar-productos-texto.md); responsable propuesto: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
@@ -56,7 +56,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: Entradas XSS/inyección y longitudes, consulta pública sin datos privados.
 - DB si aplica: identidad/constraints/versiones/transacción y rollback probados sin persistencia prohibida.
-- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-y-definition-of-done).
+- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-done-y-evidencia).
 - Cuando se exige homologación, prueba real aprobada además de fixture. Si bloqueada, funcionalidad no se declara completa.
 
 ## 7. Riesgos y recuperación
@@ -64,4 +64,3 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 DRAFT → VALIDATING → LOADING → RESULTS | ZERO_RESULTS | ERROR; vacío elimina q; inválida no consulta.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
-

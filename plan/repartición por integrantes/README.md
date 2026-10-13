@@ -1,39 +1,31 @@
-# Repartición de desarrollo — entrega de semana 8 (H3)
+# Repartición de implementación punta a punta — siete integrantes
 
-Propuesta de trabajo del 2026-10-10. **Sólo cubre S1 / Hito 3**, no asigna S2–S5. Los mockups están aprobados según el PO; este documento no afirma que el software, el despliegue o la integración ya estén terminados. Cada integrante confirma disponibilidad y estimación con Jim y Diego antes de pasar su tarea a «En progreso».
+Propuesta del 13/10/2026, pendiente de estimación/aceptación individual y validación del PO/profesor. La [matriz de SPECS](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) es el índice vigente de los **ocho bloques del sílabo**, F-001–F-040, responsables, revisores, vistas y gates. Esta propuesta **no acredita ejecución**. Los roles del [README principal](../../README.md#equipo) permanecen. La distribución de mockups en [inventario visual](../../SPECS/ui/INVENTARIO-VISUAL-Y-ESTIMACION.md) describe diseño, no ownership de implementación.
 
-## Resultado común
-
-Entregar `V-005` inicio y el mínimo de `V-006` catálogo/búsqueda para **F-006 y F-007**: navegador → frontend Marketplace → BFF Marketplace → `GET /api/v1/productos?q=...&canal=MARKETPLACE` de Productos. Mostrar carga, resultados, vacío y error; desplegar frontend/backend y exhibir una llamada **real** entre módulos. Si Productos aún no publica URL, datos o grant `catalogo:leer`, avanzar con fixture rotulado `MOCK`, registrar I-01 y escalar el riesgo: no presentar el mock como integración H3.
-
-El alcance H3 **no incluye** login, carrito, checkout, filtros/orden/paginación completos ni destacados inventados. En `V-006` se muestra únicamente lo que soporte el contrato de búsqueda homologado; controles de funciones futuras se omiten o se identifican como no activos, sin enlaces engañosos. `V-005` puede omitir destacados si no hay curaduría aprobada. Los estados responsive exigidos por las specs siguen dentro del trabajo, aunque los mockups desktop sean la referencia visual más avanzada.
-
-| Integrante y rol del README vigente | Paquete personal | Aporte principal de software | Revisión principal |
+| Integrante | Bloque/F bajo ownership | Revisor principal | Paquete individual |
 |---|---|---|---|
-| Leonidas Garcia Lescano — arquitecto/backend | [Leonidas](LEONIDAS-GARCIA-LESCANO.md) | BFF, rutas, adaptador de Productos y contrato | Diego |
-| Andres Fernando Morales Usca — DevOps/seguridad | [Andres](ANDRES-MORALES-USCA.md) | Base backend, CI/deploy, entornos y secretos | Leonidas |
-| Giuliano Macchiavello Perez — UX/UI/frontend | [Giuliano](GIULIANO-MACCHIAVELLO-PEREZ.md) | Shell visual, tokens, búsqueda compartida | Fernando |
-| Sebastian Matias Malca Agüero — documentación/frontend | [Sebastian](SEBASTIAN-MALCA-AGUERO.md) | `V-006`, cliente BFF, estados y documentación técnica | Giuliano |
-| Fernando Jose Saire Tello — QA/cloud | [Fernando](FERNANDO-SAIRE-TELLO.md) | `V-005`, responsive y smoke cloud | Sebastian |
-| Diego Steven Martin Espinoza Picon — JP/QA | [Diego](DIEGO-ESPINOZA-PICON.md) | Pruebas automatizadas E2E, gate de calidad y coordinación | Jim |
-| Jim Bryan Segovia Valencia — PO | [Jim](JIM-SEGOVIA-VALENCIA.md) | Test de contrato consumidor, aceptación y evidencia intermodular | Leonidas |
+| Jim Bryan Segovia Valencia | Cuenta y acceso, F-001–F-005 | Andres Morales | [Jim](JIM-SEGOVIA-VALENCIA.md) |
+| Giuliano Macchiavello Perez | Catálogo y búsqueda, F-006–F-010 | Sebastian Malca | [Giuliano](GIULIANO-MACCHIAVELLO-PEREZ.md) |
+| Sebastian Matias Malca Agüero | Detalle de producto, F-011–F-015 | Giuliano Macchiavello | [Sebastian](SEBASTIAN-MALCA-AGUERO.md) |
+| Andres Fernando Morales Usca | Carrito, F-016–F-021 | Leonidas Garcia | [Andres](ANDRES-MORALES-USCA.md) |
+| Leonidas Garcia Lescano | Checkout, F-022–F-027 | Diego Espinoza | [Leonidas](LEONIDAS-GARCIA-LESCANO.md) |
+| Fernando Jose Saire Tello | Pedidos/seguimiento F-028–F-032 y notificaciones F-033–F-035 | Jim Segovia | [Fernando](FERNANDO-SAIRE-TELLO.md) |
+| Diego Steven Martin Espinoza Picon | Favoritos F-036–F-039; adicional F-040 evaluación postentrega | Fernando Saire | [Diego](DIEGO-ESPINOZA-PICON.md) |
 
-El trabajo **no se asigna por el antiguo SPEC/épica ni por el paquete de mockups**. Fernando figura como responsable de diseño de `V-005/V-006` en sus specs, pero aquí implementa `V-005`; Sebastian implementa la pantalla `V-006` y Giuliano los elementos compartidos. El PO conserva la decisión funcional; la revisión de código siempre la hace otra persona.
+Fernando asume dos bloques relacionados porque notificaciones y seguimiento comparten el estado de pedido/Despacho. La carga y apoyos se estiman antes de S3; esta agrupación **no es una exigencia confirmada del profesor**. F-040 es capacidad adicional, no noveno bloque del sílabo. Cada persona debe producir FE+BE propio en al menos un corte, además de sus tareas transversales de PO, JP, UX/UI, arquitectura, DevOps, documentación o QA/cloud.
 
-## Orden de integración y dependencias
+## H3: un gate común y siete evidencias individuales
 
-1. Jim confirma con Productos versión, URL de desarrollo, datos de prueba, token/grant y semántica de `q`; Leonidas define el mapeo. Esperar su implementación no bloquea crear DTOs, fixtures y tests locales.
-2. Andres prepara repositorios ejecutables, entorno, CI y deploy; Leonidas implementa rutas/adaptador BFF sobre esa base, sin que `/health` se confunda con catálogo.
-3. Giuliano entrega shell/buscador/tema; Fernando implementa `V-005`; Sebastian implementa `V-006` y el cliente HTTP del BFF. Compartir tipos antes de cerrar interfaces.
-4. Diego y Jim prueban por capas con fixtures, luego repiten contra el entorno real. Andres publica FE/BE y Fernando ejecuta smoke desde fuera del equipo.
-5. Diego y Jim cierran el gate H3 sólo con URL, commit, respuesta real, pruebas y arquitectura concordante. Si el proveedor no llega a tiempo, registrar brecha y demo parcial honesta.
+**Ruta crítica inalterada:** F-006/F-007 → V-005 Inicio + búsqueda mínima V-006 → frontend desplegado → BFF Marketplace → API **real** de Productos. Datos visibles, carga/vacío/error/timeout, URL FE/BE, respuesta intermodular sanitizada, código y diagrama conforme al despliegue. Giuliano es dueño del bloque; Sebastian aporta integración de V-006 y tarjeta, Leonidas revisa el BFF, Andres despliega, Fernando ejecuta smoke, Diego verifica y Jim acepta. Colaborar no transfiere ownership de F-006/F-007.
 
-## Fuentes obligatorias
+Cada paquete personal define además un **avance vertical parcial** del bloque propio que puede arrancar en semana 8, con UI, backend Marketplace, positivo/negativo y evidencia individual. Jim: sesión; Sebastian: detalle; Andres: carrito; Diego: favoritos; Leonidas: resumen; Fernando: historial. Estos seis cortes pueden usar fixture local rotulado `MOCK`; no se prometen ocho flujos integrados en H3. Para funcionalidades cuyo cierre sigue en S2–S5, el corte H3 se registra como preparación vinculada a sus TASK-ID, sin adelantar la semana objetivo ni mover el estado a Terminado. Giuliano sí debe intentar prueba REAL de Productos para el gate común. Si Productos no publica URL/token/datos, I-01 y las INT siguen bloqueadas y la demo se presenta como parcial.
 
-- [Plan S1](../iteraciones/S01-semanas-07-08.md), [tareas F-006](../seguimiento/F-006-inicio-categorias-destacados.md), [tareas F-007](../seguimiento/F-007-buscar-productos-texto.md) y [transversales](../seguimiento/TRANSVERSALES.md).
-- [Funcional F-006](../../SPECS/funcional/F-006-inicio-categorias-destacados.md), [UI F-006](../../SPECS/ui/F-006-inicio-categorias-destacados.md), [API F-006](../../SPECS/contrato-api/F-006-inicio-categorias-destacados.md), [React F-006](../../SPECS/componentes-react/F-006-inicio-categorias-destacados.md).
-- [Funcional F-007](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI F-007](../../SPECS/ui/F-007-buscar-productos-texto.md), [API F-007](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React F-007](../../SPECS/componentes-react/F-007-buscar-productos-texto.md).
-- [V-005](../../SPECS/ui/vistas/V-005-inicio.md), [V-006](../../SPECS/ui/vistas/V-006-catalogo-resultados.md), [DS-001](../../SPECS/ui/DS-001-sistema-diseno-marketplace.md), [arquitectura React](../../SPECS/componentes-react/ARQUITECTURA-REACT.md) y [Figma Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups).
-- [Contrato vigente de Productos](https://github.com/Taller-SW-Web/G6-Productos-Ofertas-docs/blob/master/contratos/http/openapi.yaml) y [alineación Marketplace–Productos](https://github.com/Taller-SW-Web/G6-Productos-Ofertas-docs/blob/master/integraciones/ALINEACION_MARKETPLACE.md). Fijar SHA usado en la PR; no codificar por suposición a partir de una rama mutable.
+## Secuencia y límites de integración
 
-Leer [GUIA-DE-TRABAJO-COLABORATIVO.md](GUIA-DE-TRABAJO-COLABORATIVO.md) **antes de iniciar**. Los paquetes personales son instrucciones de ejecución, no reemplazos de las specs.
+1. Jim confirma contrato/versión, entorno, credenciales técnicas y datos de Productos; registra I-01. Ningún equipo programa endpoint ajeno por suposición.
+2. Andres audita base FE/BE, Prisma y Render, prepara CI/entornos y coordina deploy. Leonidas revisa arquitectura del BFF y secretos; Giuliano integra el catálogo. El backend Marketplace existente no equivale a BFF completo.
+3. Los demás autores construyen sus cortes verticales **aislados** con fixtures sanitizados y tareas propias, sin exponer acciones incompletas como activas en la demo pública. Cada uno registra revisión de PR, IA y pruebas.
+4. Diego/Jim comparan estimaciones con capacidad, priorizan la ruta H3, verifican web→BFF→Productos desde fuera del equipo y mantienen gates abiertos donde falta prueba. F-006/F-007 sólo pasan a terminadas tras DoD completo.
+5. S2–S5 mantienen los mismos owners y revisores. Cada iteración valida capacidad, contrato externo, progreso y evidencia; si no cabe un hito, se resecuencia por decisión documentada sin borrar IDs ni rebautizar mocks como integraciones.
+
+Leer la [guía colaborativa](GUIA-DE-TRABAJO-COLABORATIVO.md) antes de abrir ramas o PR. Los paquetes personales son instrucciones prácticas; las cuatro specs F-### siguen siendo fuente de comportamiento, UI, API y React.

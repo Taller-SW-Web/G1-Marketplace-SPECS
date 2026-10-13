@@ -1,6 +1,6 @@
 # Tareas transversales — hitos de semanas 8, 11, 14 y 16
 
-Versión 0.2.0 · Replanificación 2026-10-10. Se conservan los 27 IDs para no romper dependencias de F-001–F-040. Sólo S1 tiene responsables/revisores **propuestos** en la [repartición H3](../repartición%20por%20integrantes/README.md), sujetos a estimación y aceptación; S2–S5 siguen sin asignar. Ninguna tarea se declara ejecutada por figurar aquí.
+Versión 0.3.0 · Propuesta punta a punta 2026-10-13. Se conservan los 27 IDs y estados. Responsables/revisores de S1–S5 son propuestas sujetas a estimación, aceptación y revisión cruzada; ninguna tarea se declara ejecutada por figurar aquí. Las tareas funcionales tienen owner en la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Tablero único
 
@@ -36,7 +36,7 @@ Versión 0.2.0 · Replanificación 2026-10-10. Se conservan los 27 IDs para no r
 
 ## Regla de registro
 
-### Responsables propuestos sólo para S1
+### Responsables transversales propuestos para S1–S5
 
 | ID | Responsable | Revisor |
 |---|---|---|
@@ -46,8 +46,29 @@ Versión 0.2.0 · Replanificación 2026-10-10. Se conservan los 27 IDs para no r
 | TASK-TRANS-S01-DOC-001 | Jim Segovia | Diego Espinoza |
 | TASK-TRANS-S01-DOC-002 | Jim Segovia | Diego Espinoza |
 | TASK-TRANS-S01-DB-001 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S02-OPS-001 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S02-OPS-002 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S02-QA-001 | Fernando Saire | Jim Segovia |
+| TASK-TRANS-S02-DOC-001 | Sebastian Malca | Jim Segovia |
+| TASK-TRANS-S02-DOC-002 | Diego Espinoza | Jim Segovia |
+| TASK-TRANS-S03-OPS-001 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S03-OPS-002 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S03-QA-001 | Diego Espinoza | Jim Segovia |
+| TASK-TRANS-S03-DOC-001 | Sebastian Malca | Jim Segovia |
+| TASK-TRANS-S03-DOC-002 | Diego Espinoza | Jim Segovia |
+| TASK-TRANS-S04-OPS-001 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S04-OPS-002 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S04-QA-001 | Diego Espinoza | Jim Segovia |
+| TASK-TRANS-S04-DOC-001 | Sebastian Malca | Jim Segovia |
+| TASK-TRANS-S04-DOC-002 | Jim Segovia | Diego Espinoza |
+| TASK-TRANS-S05-OPS-001 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S05-OPS-002 | Andres Morales | Leonidas Garcia |
+| TASK-TRANS-S05-QA-001 | Fernando Saire | Jim Segovia |
+| TASK-TRANS-S05-DOC-001 | Sebastian Malca | Jim Segovia |
+| TASK-TRANS-S05-DOC-002 | Jim Segovia | Diego Espinoza |
+| TASK-TRANS-S05-OPS-003 | Andres Morales | Leonidas Garcia |
 
-Fernando ejecuta smoke cloud, Giuliano shell/buscador y Sebastian documentación funcional como aportes coordinados a esos IDs y F-006/F-007. Asignación no significa ejecución ni cierre de I-01.
+El responsable de cada F conserva implementación FE+BE, pruebas y evidencia de su bloque; estas tareas transversales coordinan CI, QA, arquitectura, documentación y release. En un gate que incluye trabajo propio del revisor, asignar una segunda revisión independiente antes de aprobar. Fernando hace smoke cloud de H3, Leonidas revisa adaptadores, Jim acepta producto y Diego coordina QA/capacidad sin reemplazar la autoría individual. Ninguna asignación libera I-01–I-06 ni un G-*.
 
 Para pasar a `En progreso`, asignar persona responsable y revisor distinto, aceptar estimación/alcance y comprobar dependencias. Para `Terminado`, añadir URL/commit/entorno/fecha/comando o caso/resultado y revisión, sin secretos ni PII. Un pipeline configurado sin corrida, un `render.yaml` sin URL verificada o un outbox sin otro módulo no cumplen los hitos. Las integraciones pendientes de contrato permanecen bloqueadas aunque el código local avance con fixtures.
 

@@ -1,6 +1,6 @@
 # Plan de implementación — hitos de semanas 8 a 16
 
-Versión 0.2.0 · Replanificación 2026-10-10 · Estado: propuesta para estimar y acordar con el equipo. Este documento planifica **software y evidencia técnica**, no la PPT ni el guion de exposición.
+Versión 0.3.0 · Reparto propuesto 2026-10-13 · Estado: pendiente de estimación, aceptación individual y validación con profesor. Este documento planifica **software y evidencia técnica**, no la PPT ni el guion de exposición.
 
 ## 1. Punto de partida y regla de verdad
 
@@ -51,11 +51,11 @@ Los números de funciones son **objetivos de cierre**, no permiso para investiga
 
 [DECISIONES-Y-BLOQUEOS](DECISIONES-Y-BLOQUEOS.md) conserva los gates I-01–I-06 y G-*. Agregar allí evidencia de cierre antes de usar un contrato real. El checkout simulado no puede inventar webhook/pago. Datos personales, direcciones y pedidos siguen en los servicios dueños; Marketplace sólo conserva lo definido en su modelo lógico. No mezclar bases de datos de otros módulos.
 
-Para S1/H3 existe una [propuesta de reparto por integrantes](repartición%20por%20integrantes/README.md); cada persona debe estimar horas, confirmar disponibilidad y aceptar su paquete antes de iniciar. S2–S5 aún no tienen asignación humana. Los nombres que figuren en tableros previos fuera de S1 son **propuestas heredadas, no asignaciones aprobadas**. Si S2/S5 o los gates no caben, PO/JP registran desvío y acuerdan resecuenciación explícita; no declarar cumplido lo que sólo funciona con mock. Mantener pequeño margen de correcciones, especialmente antes de H3 y H6.
+La [matriz punta a punta](../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) y los [paquetes personales](repartición%20por%20integrantes/README.md) proponen responsables/revisores de F-001–F-040 para S1–S5. Cada persona estima FE/BE/INT/QA y revisión, confirma disponibilidad y acepta su paquete antes de mover tareas a En progreso. Los nombres en tableros son **propuestas, no aceptación ni ejecución**. El owner del bloque implementa UI y backend propio; colaboradores transversales apoyan sin duplicar ownership. Si S2/S5 o los gates no caben, PO/JP registran desvío y acuerdan resecuenciación explícita; no declarar cumplido lo que sólo funciona con mock. Mantener pequeño margen de correcciones, especialmente antes de H3 y H6.
 
 ## 7. Definition of Ready, Done y evidencia
 
-**Ready:** specs vigentes, contrato/versiones y entorno disponibles o fixture rotulado, dependencias/gates conocidos, casos positivos y negativos, esfuerzo estimado, capacidad y responsable/revisor por aceptar en una etapa posterior. En integración real, una homologación verbal o TXT no sustituye contrato publicado y prueba.
+**Ready:** specs vigentes, contrato/versiones y entorno disponibles o fixture rotulado, dependencias/gates conocidos, casos positivos y negativos, esfuerzo estimado, capacidad y responsable/revisor propuestos aceptados antes de iniciar. En integración real, una homologación verbal o TXT no sustituye contrato publicado y prueba.
 
 **Done:** FE/BE con tipos/build y pruebas pertinentes, seguridad y accesibilidad/responsive según spec, API real y autorización cuando aplique, negativos/timeout, observabilidad sin PII, evidencia de deploy/integración, revisión independiente y trazabilidad specs↔código↔tests. Una tarea bloqueada externamente no pasa a Terminado por pruebas con mock.
 

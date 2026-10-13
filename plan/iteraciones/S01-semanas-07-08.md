@@ -1,6 +1,6 @@
 # S1 — Primer flujo funcional en nube (semanas 7–8)
 
-Versión 0.2.0 · Replanificación para Hito 3. No se infiere ejecución de este plan.
+Versión 0.3.0 · Replanificación para Hito 3. No se infiere ejecución de este plan.
 
 ## Objetivo y alcance
 
@@ -23,3 +23,7 @@ La base remota de backend/Prisma y Render se **audita y aprovecha** si correspon
 | QA/DOC | Prueba web→BFF→Productos en nube, regresión mínima, diagramas y evidencias con commit/versiones/URL. |
 
 **Gate H3:** demo funcional, llamada intermodular real, despliegue accesible y evidencias de arquitectura/código. No marcar F-006/F-007 `Terminado` si sólo funciona un mock. Usar [decisiones](../DECISIONES-Y-BLOQUEOS.md), [seguimiento](../seguimiento/README.md) y [paquetes personales S1](../repartición%20por%20integrantes/README.md). La asignación es propuesta pendiente de estimación/aceptación por cada integrante.
+
+## Responsabilidad y evidencia individual
+
+La [matriz punta a punta](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) asigna F-006/F-007 a Giuliano, con revisión principal de Sebastian y revisión técnica del adaptador por Leonidas. Los [siete paquetes](../repartición%20por%20integrantes/README.md) definen además un corte FE+BE propio para cada persona: cuenta de Jim, detalle de Sebastian, carrito de Andres, favoritos de Diego, resumen de Leonidas e historial de Fernando. Esos seis cortes pueden ser avances locales `MOCK`; sólo la ruta común F-006/F-007 con Productos `REAL`, FE/BFF desplegados y evidencia pasa H3. Estimar capacidad y registrar PR/commit, positivo/negativo y explicación por autor.

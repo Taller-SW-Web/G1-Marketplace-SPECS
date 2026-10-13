@@ -7,7 +7,7 @@
 | ID / versión / estado | F-006 / 0.1.0 / En revisión |
 | Objetivo académico | S1, semanas 7–8 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-006-inicio-categorias-destacados.md), [UI](../../SPECS/ui/F-006-inicio-categorias-destacados.md), [API](../../SPECS/contrato-api/F-006-inicio-categorias-destacados.md), [React](../../SPECS/componentes-react/F-006-inicio-categorias-destacados.md) |
-| Ejecución y revisores | [Tareas de F-006](../seguimiento/F-006-inicio-categorias-destacados.md), asignación humana pendiente tras estimar capacidad |
+| Ejecución y revisores | [Tareas de F-006](../seguimiento/F-006-inicio-categorias-destacados.md); responsable propuesto: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
@@ -56,7 +56,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: Producto inactivo no publicable, enlaces hero seguros y medios allowlist.
 - DB si aplica: identidad/constraints/versiones/transacción y rollback probados sin persistencia prohibida.
-- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-y-definition-of-done).
+- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-done-y-evidencia).
 - Cuando se exige homologación, prueba real aprobada además de fixture. Si bloqueada, funcionalidad no se declara completa.
 
 ## 7. Riesgos y recuperación
@@ -64,4 +64,3 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 LOADING → READY | EMPTY | ERROR; categories vacías omiten categoría; destacados vacíos omiten sección; ambos vacíos mantienen acceso a catálogo.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
-

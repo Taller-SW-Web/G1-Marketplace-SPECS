@@ -7,21 +7,21 @@ Versión 0.1.0 · Planificación inicial · F-005 no está implementada por esto
 - [Plan F-005](../funcionalidades/F-005-restablecer-password.md); [iteración S5](../iteraciones/S05-semanas-15-16.md).
 - [Funcional](../../SPECS/funcional/F-005-restablecer-password.md), [UI](../../SPECS/ui/F-005-restablecer-password.md), [API](../../SPECS/contrato-api/F-005-restablecer-password.md), [React](../../SPECS/componentes-react/F-005-restablecer-password.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
+- Responsable propuesto: **Jim Segovia**; revisor principal: **Andres Morales** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F005-FE-001 | Frontend | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
-| TASK-F005-BE-001 | Backend | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
-| TASK-F005-INT-001 | Integración | Por asignar | Por asignar | P0 | TASK-F005-BE-001 + G-AUTH + TASK-F004-INT-001 | 16 | Bloqueado |
-| TASK-F005-QA-001 | QA funcional | Por asignar | Por asignar | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 | 16 | Pendiente |
-| TASK-F005-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 + TASK-TRANS-S05-OPS-002 | 16 | Pendiente |
-| TASK-F005-DOC-001 | Documentación | Por asignar | Por asignar | P0 | TASK-F005-INT-001 + TASK-F005-QA-001 + TASK-F005-QA-002 | 16 | Pendiente |
+| TASK-F005-FE-001 | Frontend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
+| TASK-F005-BE-001 | Backend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
+| TASK-F005-INT-001 | Integración | Jim Segovia | Andres Morales | P0 | TASK-F005-BE-001 + G-AUTH + TASK-F004-INT-001 | 16 | Bloqueado |
+| TASK-F005-QA-001 | QA funcional | Jim Segovia | Andres Morales | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 | 16 | Pendiente |
+| TASK-F005-QA-002 | QA seguridad / DevSecOps | Jim Segovia | Andres Morales | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 + TASK-TRANS-S05-OPS-002 | 16 | Pendiente |
+| TASK-F005-DOC-001 | Documentación | Jim Segovia | Andres Morales | P0 | TASK-F005-INT-001 + TASK-F005-QA-001 + TASK-F005-QA-002 | 16 | Pendiente |
 
-Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
+Referente de BD: Jim Segovia para este bloque, con revisión de Andres Morales; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Trabajo, Definition of Done y evidencia
 
@@ -75,4 +75,3 @@ Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](.
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
-

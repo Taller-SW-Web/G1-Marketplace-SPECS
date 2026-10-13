@@ -7,7 +7,7 @@
 | ID / versión / estado | F-027 / 0.1.0 / En revisión |
 | Objetivo académico | S3, semanas 12–13 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-027-confirmacion-orden.md), [UI](../../SPECS/ui/F-027-confirmacion-orden.md), [API](../../SPECS/contrato-api/F-027-confirmacion-orden.md), [React](../../SPECS/componentes-react/F-027-confirmacion-orden.md) |
-| Ejecución y revisores | [Tareas de F-027](../seguimiento/F-027-confirmacion-orden.md), asignación humana pendiente tras estimar capacidad |
+| Ejecución y revisores | [Tareas de F-027](../seguimiento/F-027-confirmacion-orden.md); responsable propuesto: **Leonidas Garcia**; revisor principal: **Diego Espinoza**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación/capacidad pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
 
 ## 2. Objetivo y límites
@@ -57,7 +57,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: Operación ajena / ID manipulado no filtra datos,202 no éxito y callback/query no autentica.
 - DB si aplica: identidad/constraints/versiones/transacción y rollback probados sin persistencia prohibida.
-- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-y-definition-of-done).
+- Evidencias sanitizadas y revisión por persona distinta, según [DoD general](../PLAN-IMPLEMENTACION.md#7-definition-of-ready-done-y-evidencia).
 - Cuando se exige homologación, prueba real aprobada además de fixture. Si bloqueada, funcionalidad no se declara completa.
 
 ## 7. Riesgos y recuperación
@@ -65,4 +65,3 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 LOADING → CONFIRMED | VERIFYING | FAILED | NOT_ACCESSIBLE | ERROR; 202 SUBMITTED/`CREADO` conserva neutral; CONFIRMED requiere SUCCEEDED + `orderId` + `PAGADO` confirmado por Ventas.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
-

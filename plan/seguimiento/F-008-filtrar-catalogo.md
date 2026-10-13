@@ -7,21 +7,21 @@ Versión 0.1.0 · Planificación inicial · F-008 no está implementada por esto
 - [Plan F-008](../funcionalidades/F-008-filtrar-catalogo.md); [iteración S2](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-008-filtrar-catalogo.md), [UI](../../SPECS/ui/F-008-filtrar-catalogo.md), [API](../../SPECS/contrato-api/F-008-filtrar-catalogo.md), [React](../../SPECS/componentes-react/F-008-filtrar-catalogo.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
+- Responsable propuesto: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F008-FE-001 | Frontend | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
-| TASK-F008-BE-001 | Backend | Por asignar | Por asignar | P1 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
-| TASK-F008-INT-001 | Integración | Por asignar | Por asignar | P1 | TASK-F008-BE-001 + I-01 + TASK-F007-INT-001 | 11 | Bloqueado |
-| TASK-F008-QA-001 | QA funcional | Por asignar | Por asignar | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 | 11 | Pendiente |
-| TASK-F008-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 + TASK-TRANS-S02-OPS-002 | 11 | Pendiente |
-| TASK-F008-DOC-001 | Documentación | Por asignar | Por asignar | P1 | TASK-F008-INT-001 + TASK-F008-QA-001 + TASK-F008-QA-002 | 11 | Pendiente |
+| TASK-F008-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
+| TASK-F008-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
+| TASK-F008-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-BE-001 + I-01 + TASK-F007-INT-001 | 11 | Bloqueado |
+| TASK-F008-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 | 11 | Pendiente |
+| TASK-F008-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 + TASK-TRANS-S02-OPS-002 | 11 | Pendiente |
+| TASK-F008-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-INT-001 + TASK-F008-QA-001 + TASK-F008-QA-002 | 11 | Pendiente |
 
-Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
+Referente de BD: Giuliano Macchiavello para este bloque, con revisión de Sebastian Malca; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Trabajo, Definition of Done y evidencia
 
@@ -75,4 +75,3 @@ Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](.
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
-

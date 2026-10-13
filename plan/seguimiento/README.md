@@ -6,7 +6,7 @@ Corte replanificado 2026-10-10 · Semanas 7–16 · El tablero no prueba ejecuci
 
 256 tareas funcionales en 40 archivos + 27 tareas transversales = **283 tareas**. Son unidades de trabajo por área, no 283 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS trazables.
 
-Responsables y revisores quedan **por asignar**: primero estimar capacidad y validar el plan por hitos. No se modifican paquetes UI ni se convierte el reparto de diseño en reparto de código.
+La [matriz punta a punta](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) propone un owner y revisor distintos por F-001–F-040. Las 256 filas funcionales conservan IDs/estados y reflejan esa propuesta; cada persona aún debe estimar y aceptar capacidad antes de pasar a En progreso. La responsabilidad de diseño visual permanece separada.
 
 ## 2. Uso del tablero
 
@@ -79,7 +79,7 @@ Trabajo común: [TRANSVERSALES](TRANSVERSALES.md). QA/DevSecOps: [estrategia de 
 
 ## 5. Revisión y evidencia
 
-Propuesta de dos revisiones breves por semana, planificación/demo/retro de iteración; coordinación por asignar con el equipo. No se crea ninguna automatización ni evento de calendario. Reportar sólo avance con evidencia, bloqueos y riesgo de capacidad.
+Propuesta de dos revisiones breves por semana, planificación/demo/retro de iteración; Diego coordina el tablero con Jim, pendiente de aceptación/capacidad. No se crea ninguna automatización ni evento de calendario. Reportar sólo avance con evidencia, bloqueos y riesgo de capacidad.
 
 Evidencia: revisión/artefacto futuro, herramienta/comando/entorno, casos resultado, fecha, hallazgos/corrección/retest y revisor. Sanitizar PII/secrets y respetar autorización de entornos. Un link a Figma acredita diseño, no prueba de API.
 
@@ -88,7 +88,7 @@ Evidencia: revisión/artefacto futuro, herramienta/comando/entorno, casos result
 - [x] Specs React F-001–F-040 elaboradas.
 - [x] Plan por funcionalidad y cinco iteraciones hasta semana 16, alineadas a H3–H6.
 - [x] Tareas FE/BE/DB/INT/QA funcional/QA seguridad/DOC/OPS.
-- [x] Prioridad, dependencias, semana, estados, DoD y evidencia requerida; responsables/revisores pendientes de asignación.
+- [x] Prioridad, dependencias, semana, estados, DoD y evidencia requerida; responsables/revisores propuestos en matriz, pendientes de aceptación.
 - [x] Integraciones sin evidencia marcadas Bloqueado.
 - [ ] Aceptación de responsables y estimación de horas/capacidad reales.
 - [ ] Contratos/configuración/pruebas externos y gates locales cerrados.
@@ -96,4 +96,3 @@ Evidencia: revisión/artefacto futuro, herramienta/comando/entorno, casos result
 - [ ] Revisión periódica de tablero practicada y avances aprobados.
 
 Este seguimiento cubre requisitos técnicos de los hitos, no la preparación de PPT ni el relato de uso de IA.
-

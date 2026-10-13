@@ -7,21 +7,21 @@ Versión 0.1.0 · Planificación inicial · F-024 no está implementada por esto
 - [Plan F-024](../funcionalidades/F-024-validar-aplicar-cupon-promocion.md); [iteración S3](../iteraciones/S03-semanas-12-13.md).
 - [Funcional](../../SPECS/funcional/F-024-validar-aplicar-cupon-promocion.md), [UI](../../SPECS/ui/F-024-validar-aplicar-cupon-promocion.md), [API](../../SPECS/contrato-api/F-024-validar-aplicar-cupon-promocion.md), [React](../../SPECS/componentes-react/F-024-validar-aplicar-cupon-promocion.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsables y revisores **por asignar** tras estimar capacidad. La semana objetivo es académica, no fecha de calendario.
+- Responsable propuesto: **Leonidas Garcia**; revisor principal: **Diego Espinoza** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Aceptación y estimación personales pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F024-FE-001 | Frontend | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 | 12 | Pendiente |
-| TASK-F024-BE-001 | Backend | Por asignar | Por asignar | P0 | TASK-TRANS-S01-OPS-001 | 12 | Pendiente |
-| TASK-F024-INT-001 | Integración | Por asignar | Por asignar | P0 | TASK-F024-BE-001 + I-01 + G-BENEFIT + TASK-F023-INT-001 | 13 | Bloqueado |
-| TASK-F024-QA-001 | QA funcional | Por asignar | Por asignar | P0 | TASK-F024-FE-001 + TASK-F024-BE-001 | 13 | Pendiente |
-| TASK-F024-QA-002 | QA seguridad / DevSecOps | Por asignar | Por asignar | P0 | TASK-F024-FE-001 + TASK-F024-BE-001 + TASK-TRANS-S03-OPS-002 | 13 | Pendiente |
-| TASK-F024-DOC-001 | Documentación | Por asignar | Por asignar | P0 | TASK-F024-INT-001 + TASK-F024-QA-001 + TASK-F024-QA-002 | 13 | Pendiente |
+| TASK-F024-FE-001 | Frontend | Leonidas Garcia | Diego Espinoza | P0 | TASK-TRANS-S01-OPS-001 | 12 | Pendiente |
+| TASK-F024-BE-001 | Backend | Leonidas Garcia | Diego Espinoza | P0 | TASK-TRANS-S01-OPS-001 | 12 | Pendiente |
+| TASK-F024-INT-001 | Integración | Leonidas Garcia | Diego Espinoza | P0 | TASK-F024-BE-001 + I-01 + G-BENEFIT + TASK-F023-INT-001 | 13 | Bloqueado |
+| TASK-F024-QA-001 | QA funcional | Leonidas Garcia | Diego Espinoza | P0 | TASK-F024-FE-001 + TASK-F024-BE-001 | 13 | Pendiente |
+| TASK-F024-QA-002 | QA seguridad / DevSecOps | Leonidas Garcia | Diego Espinoza | P0 | TASK-F024-FE-001 + TASK-F024-BE-001 + TASK-TRANS-S03-OPS-002 | 13 | Pendiente |
+| TASK-F024-DOC-001 | Documentación | Leonidas Garcia | Diego Espinoza | P0 | TASK-F024-INT-001 + TASK-F024-QA-001 + TASK-F024-QA-002 | 13 | Pendiente |
 
-Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](../PLAN-IMPLEMENTACION.md). Dependencias transversales en [TRANSVERSALES](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs.
+Referente de BD: Leonidas Garcia para este bloque, con revisión de Diego Espinoza; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Trabajo, Definition of Done y evidencia
 
@@ -75,4 +75,3 @@ Referentes de BD: por asignar junto con el resto de tareas; ver [plan general](.
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
-

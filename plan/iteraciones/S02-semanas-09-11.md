@@ -1,6 +1,6 @@
 # S2 — Segundo demo, APIs y autenticación (semanas 9–11)
 
-Versión 0.2.0 · Replanificación para Hito 4. Carga alta: estimar capacidad antes de aceptar cierre completo.
+Versión 0.3.0 · Replanificación para Hito 4. Carga alta: estimar capacidad antes de aceptar cierre completo.
 
 ## Objetivo y alcance
 
@@ -19,4 +19,8 @@ Cerrar F-001–003 (registro, login, logout), F-008–014 (filtro, orden, pagina
 - Login real en UI y autorización real en BFF; API pública separada de protegida. Si Seguridad no publica contrato/entorno, reportar bloqueo, no declarar autenticación terminada.
 - Segundo demo que amplíe H3 y no dependa exclusivamente de fixtures. Evidencias sanitizadas de Git, pipeline, despliegue y casos negativos.
 
-Consultar [gates](../DECISIONES-Y-BLOQUEOS.md), [plan general](../PLAN-IMPLEMENTACION.md) y [tablero](../seguimiento/README.md). La distribución por personas se hará después.
+Consultar [gates](../DECISIONES-Y-BLOQUEOS.md), [plan general](../PLAN-IMPLEMENTACION.md) y [tablero](../seguimiento/README.md). La propuesta por personas está en la matriz; aceptación y capacidad siguen pendientes.
+
+## Responsables propuestos y carga
+
+Según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), Jim lleva F-001–003 (cuenta), Giuliano F-008–010 (catálogo), Sebastian F-011–014 (detalle), Andres F-016/F-019 (carrito) y Diego F-036–038 (favoritos). Cada uno conserva FE+BE Marketplace, pruebas y documentación; Fernando y Leonidas revisan según especialidad sin sustituir ownership. Los 15 cierres de S2 requieren estimación de horas y capacidad antes de prometer H4. Auth real depende de Seguridad y producto comercial de Productos; `MOCK` permite avance pero no cierra INT.
