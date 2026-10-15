@@ -1,6 +1,6 @@
 # Catálogo de elementos compartidos — Marketplace
 
-Versión documental **0.2.0**, 14/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
+Versión documental **0.2.1**, 15/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
 
 ## 1. Fuentes y ubicación
 
@@ -9,6 +9,7 @@ Versión documental **0.2.0**, 14/10/2026, **en revisión**. Custodio: Giuliano 
 - [Matriz de responsabilidades](../../RESPONSABILIDADES-PUNTA-A-PUNTA.md): responsables de implementación y revisión.
 - [O-010](../overlays/O-010-alertas-feedback-global.md): feedback transversal completo; no se considera implementado por tener una alerta de catálogo.
 - [Evidencia local](../../../plan/evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md): comprobaciones ejecutadas y límites.
+- [Adaptación visual H3 a Figma](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md): recursos, composición, verificación y diferencias de alcance.
 - [Changelog de esta documentación](CHANGELOG-COMPARTIDOS.md).
 
 | Repositorio | Documento o carpeta | Propósito |
@@ -46,7 +47,7 @@ Reglas de consumo:
 - Foco Signal visible, texto/ícono además del color, controles táctiles de referencia de 44 px y movimiento reducido.
 - Logo Ink recibido, conservado sin modificar. SVG maestro, inverso, favicon, licencia y dimensiones de uso definitivas siguen pendientes de DS-OPEN-01.
 
-La grilla local usa 4 columnas desde 992 px, 3 entre 768–991, 2 entre 360–767 y 1 por debajo de 360. **Es propuesta del corte**, no aprobación del ancho mínimo de tarjeta ni sustitución de los seis breakpoints de DS-001. V-006-OPEN-04 y la revisión responsive deben cerrar esa diferencia.
+La grilla de V-006 usa 3 columnas por encima de 1100 px, 2 entre 768–1100 y 1 hasta 767, siguiendo los frames verificados de escritorio y móvil. Inicio conserva 4 posiciones para categorías y destacados en escritorio; en móvil muestra 2 categorías por fila y 1 producto. Se renderizan sólo los elementos recibidos. Esto no aprueba el ancho mínimo de tarjeta ni sustituye los seis breakpoints normativos de DS-001; V-006-OPEN-04 y la revisión humana siguen pendientes.
 
 ## 3. Inventario real del frontend
 
@@ -58,14 +59,16 @@ Todos los elementos siguientes existen en el checkout local. Su estado es implem
 | `TextField`, `src/shared/ui/TextField.tsx` | Input/ref, label, hint/error, adornos, clases de composición e IDs generados | Buscador global; label visible por defecto. Label/error/ayuda asociados y soporte de varias instancias sin IDs fijos |
 | `EmptyState`, `src/shared/ui/EmptyState.tsx` | title, description, actions, icon, headingLevel 2/3 y className | Vacíos de home/listado. La condición de vacío y la recuperación permanecen en el contenedor |
 | `Skeleton` / `LoadingState`, `src/shared/ui/Skeleton.tsx` | Forma block/line/circle y grupo con label, children decorativos y clase de layout | Carga de categorías y productos. Un anuncio por grupo y respeto de movimiento reducido |
-| `Header`, `src/shared/ui/Header.tsx` | Sin props; logo, acceso a catálogo, salto al contenido y SearchBox bajo Suspense | Layout raíz de home/catálogo. No es todavía AppShell configurable ni header de checkout |
-| `Footer`, `src/shared/ui/Footer.tsx` | Sin props; marca y enlaces Inicio/Catálogo | Layout raíz. No incluye enlaces legales/ayuda no aprobados ni variante checkout |
+| `Header`, `src/shared/ui/Header.tsx` | Sin props; logo Figma, navegación por categorías, salto al contenido y SearchBox bajo Suspense | Layout raíz de home/catálogo. Cuenta/favoritos/carrito deshabilitados hasta su integración; no es AppShell configurable ni header de checkout |
+| `Footer`, `src/shared/ui/Footer.tsx` | Sin props; marca, copyright y controles informativos del mockup | Ayuda/políticas deshabilitados hasta confirmar destinos; no tiene enlaces ficticios ni variante checkout |
 | `SearchBox`, `src/features/catalog/SearchBox.tsx` | Sin props; usa router/URL, TextField y Button; texto/error local y transición | Normaliza 2–120 caracteres, Enter, limpieza y reinicio de página; evita repetir navegación pendiente. No es input genérico |
 | `ProductCard`, `src/features/catalog/ProductCard.tsx` | `product: ProductCardDTO`, `returnPath: string` | Home/listado; navegación por slug. Sin precio, stock ni favorito; destino de ficha pendiente de Sebastian |
-| `ErrorState`, `src/shared/ui/Feedback.tsx` | `message: string`, `onRetry: () => void` | Error persistente de catálogo con anuncio y recuperación. Título/enlace están fijados a catálogo; no es O-010 genérico |
+| `ErrorState`, `src/shared/ui/Feedback.tsx` | `message: string`, `onRetry: () => void`, `home?: boolean` | Error persistente con anuncio y recuperación; home activa la composición de inicio. No es O-010 genérico |
 | `MockNotice`, mismo archivo | Sin props | Aviso de datos sintéticos, sólo cuando `source === 'MOCK'` |
-| `ProductSkeletons`, mismo archivo | Sin props; ocho tarjetas decorativas y un estado accesible | Carga de listado. No ofrece todavía variantes para ficha, carrito o checkout |
+| `ProductSkeletons`, mismo archivo | Sin props; seis tarjetas decorativas y un estado accesible | Carga de listado. No ofrece todavía variantes para ficha, carrito o checkout |
 | `CategoryChip`, `src/features/catalog/CategoryChip.tsx` | `categoryId: string`, `onRemove: () => void` | Criterio de categoría en catálogo; obtiene nombre desde home; no expone el ID opaco como etiqueta |
+| `CategoryNavigation`, `src/features/catalog/CategoryNavigation.tsx` | `sidebar?: boolean`, `activeId?: string \| null` | Enlaces a una categoría existente en cabecera/lateral; consulta home. No implementa filtros múltiples |
+| `CategoryArtwork`, `src/features/catalog/CategoryArtwork.tsx` | `category: Category` | Ilustración por significado del nombre con exports desktop/mobile de Figma. Sin imagen para nombres desconocidos |
 | `useCatalog`, `src/features/catalog/useCatalog.ts` | `path`, validador runtime; devuelve `state`, `retry` | Transporte sólo de catálogo con cancelación/errores. No es cliente de auth, checkout ni caché global |
 | `isHome`, `isCatalogPage`, `readCatalog` | Validación de `unknown`, AbortSignal y proyección tipada | Límite HTTP del catálogo; no sustituye autorización del backend |
 
@@ -139,7 +142,7 @@ Revisar ownership antes de tocar archivos compartidos. En esta sesión la coordi
 5. Actualizar este inventario, la guía de uso del repo y el changelog con compatibilidad, migración y evidencia.
 6. Obtener revisión de las personas correspondientes antes de declarar aceptación. Tener un documento no publica ni aprueba una biblioteca.
 
-Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade APIs reutilizables e integración sin retirar exports previos. Un cambio incompatible debe explicitar migración y nueva versión de implementación. La versión de DS-001 y la versión de este documento son independientes. La biblioteca aún no se distribuye como paquete npm ni se declara DS-001 0.3.0/1.0.0.
+Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade APIs reutilizables e integración sin retirar exports previos; `0.2.1` documenta la adaptación Figma H3 y la variante opcional de ErrorState. Un cambio incompatible debe explicitar migración y nueva versión de implementación. La versión de DS-001 y la versión de este documento son independientes. La biblioteca aún no se distribuye como paquete npm ni se declara DS-001 0.3.0/1.0.0.
 
 **Política actualizada de esta sesión, por instrucción de Giuliano:** crear commits y subir las ramas de trabajo de cada repositorio; no subir a main ni abrir PR. Giuliano preparará los PR manualmente al terminar. La revisión se realiza sobre las ramas y sus diffs; las instrucciones históricas de commit directo a main no aplican a esta entrega.
 
@@ -155,7 +158,8 @@ Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade A
 - [ ] Incorporar los patrones requeridos por otros bloques cuando sus responsables los integren: galería, carrito, resumen y timelines; no atribuir todo su backend a Giuliano.
 - [ ] Resolver InternalPath y la conservación segura de retorno con los flujos que lo consumen.
 - [x] Registrar los enlaces verificados de V-005/V-006 y sus variantes existentes; véase la [comparación H3](../../../plan/evidencias/H3-COMPARACION-FIGMA-2026-10-14.md).
-- [ ] Alinear visualmente la implementación H3 con los frames aplicables y obtener revisión; las referencias no certifican fidelidad ni cierran contratos pendientes.
+- [x] Adaptar visualmente el corte H3 a los frames aplicables y verificar recursos y composición responsive; véase la [evidencia de adaptación](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md).
+- [ ] Obtener revisión visual humana y resolver diferencias de datos/controles pendientes; la adaptación no certifica identidad con todos los frames ni cierra contratos.
 - [ ] Registrar revisión humana y el proceso/canal de publicación antes de considerar cerrada la gobernanza.
 
-Verificaciones ejecutadas: 10 pruebas de componentes y 13 de navegador del frontend, más lint/TypeScript/build. Las 34 pruebas previas de backend siguen documentadas en la evidencia y ese código no cambia en este incremento. No es certificación completa de accesibilidad ni aceptación de todas las variantes de una biblioteca.
+Verificaciones ejecutadas: 10 pruebas de componentes y 16 de navegador del frontend, más lint/TypeScript/build. Las 34 pruebas previas de backend siguen documentadas en la evidencia y ese código no cambia en este incremento. No es certificación completa de accesibilidad ni aceptación de todas las variantes de una biblioteca.

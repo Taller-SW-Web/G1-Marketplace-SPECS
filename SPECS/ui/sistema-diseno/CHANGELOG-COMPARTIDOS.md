@@ -2,6 +2,16 @@
 
 Este registro describe documentación y contratos de consumo. No acredita publicación de una biblioteca, revisión humana ni una nueva versión de DS-001.
 
+## 0.2.1 — 15/10/2026 — En revisión
+
+- Inicio y Catálogo adoptan la composición de sus frames Figma dentro de H3: shell, hero, categorías, tarjetas, estados y grilla de una columna en móvil.
+- Se añaden CategoryNavigation y CategoryArtwork dentro de catálogo; ErrorState incorpora `home?: boolean` sin romper consumidores existentes.
+- ProductSkeletons compone seis tarjetas; SearchBox conserva etiqueta visible y botón accesible con icono.
+- Se registran recursos exactos de Figma en Frontend con nodos de origen, dimensiones y SHA-256. Productos y categorías siguen sujetos al BFF; no se inventan precio/stock/destacados ni se añade funcionalidad H4.
+- Se actualizan guías de consumo y la [evidencia de adaptación](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md). Revisión humana y gates externos pendientes.
+
+Compatibilidad: Button, TextField, EmptyState, Skeleton, DTO y rutas HTTP mantienen sus contratos. La nueva prop de ErrorState es opcional. DS-001 conserva su versión 0.2.0.
+
 ## 0.2.0 — 14/10/2026 — En revisión
 
 - Se implementan Button (variantes, tamaños, loading/disabled e iconos), TextField (IDs únicos y label/hint/error asociados), EmptyState y Skeleton/LoadingState.

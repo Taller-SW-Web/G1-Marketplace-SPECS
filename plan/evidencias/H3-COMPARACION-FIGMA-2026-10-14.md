@@ -2,7 +2,9 @@
 
 Fecha: 14/10/2026. Revisión automatizada por Codex; aceptación humana pendiente.
 
-**Resultado: la web actual no es igual a los mockups.** Se verificaron las referencias de Inicio y Catálogo y se identificaron diferencias de composición, navegación y tarjetas. Esta nota documenta la comparación; no implementa la adaptación visual ni cierra H3.
+**Resultado inicial: la web del commit `241401c` no era igual a los mockups.** Se verificaron las referencias de Inicio y Catálogo y se identificaron diferencias de composición, navegación y tarjetas. Esta nota conserva esa comparación inicial.
+
+**Actualización 15/10/2026:** Giuliano solicitó implementar el diseño. La [adaptación visual H3](H3-ADAPTACION-FIGMA-2026-10-15.md) registra el código posterior, recursos y verificaciones. Los pendientes de composición descritos abajo corresponden al corte inicial; los acuerdos de datos y la aceptación humana continúan abiertos.
 
 ## Referencias verificadas
 
