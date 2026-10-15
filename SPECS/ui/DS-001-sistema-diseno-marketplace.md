@@ -16,10 +16,12 @@
 | Herramienta oficial | Figma |
 | Biblioteca del sistema de diseño en Figma | [Sistema de Diseño](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=57-15&t=eO6m1Plz1xQ5sFgn-1) |
 | Sección de logos en Figma | [Logos de Inka Athletics](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=56-7&t=0TSK36SaklUJeiyS-4) |
-| Carpeta de mockups de vistas en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) (enlace a carpeta; URL directa del archivo y de sus páginas pendiente) |
+| Carpeta de mockups de vistas en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) (carpeta organizativa) |
+| Archivo de mockups de vistas | [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) |
+| Página de inicio, catálogo y producto | [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) — enlaces de V-005/V-006 verificados el 14/10/2026 |
 | Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; versión y lockfile por validar |
 | UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; pendiente de aprobación `DS-OPEN-03` |
-| Última actualización | 2026-10-01 |
+| Última actualización | 2026-10-14 (referencias Figma; sin cambio de tokens) |
 | Alcance | Canal Marketplace web responsive y componentes compartidos |
 
 ### 1.1 Vigencia y decisión técnica preliminar
@@ -363,7 +365,7 @@ El skeleton aproxima la estructura final. Se requieren patrones para tarjeta, li
 
 ## 10. Organización y versionado de Figma
 
-El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. Su enlace actual abre una carpeta de Figma, no un archivo de diseño ni un frame; queda pendiente registrar la URL directa del archivo de pantallas y los enlaces a sus páginas y frames. Las vistas `V-001` a `V-017` se organizarán por páginas dentro de ese archivo, respetando el catálogo vigente.
+El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. El archivo de pantallas identificado es [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups); la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) contiene las secciones de Inicio, Catálogo y Ficha. Las specs [V-005](vistas/V-005-inicio.md) y [V-006](vistas/V-006-catalogo-resultados.md) ya enlazan sus respectivas secciones y sus 34 frames desktop/mobile localizados. Las referencias de las demás vistas siguen pendientes de su verificación; este registro no aprueba diseños ni amplía la implementación del corte H3.
 
 Páginas mínimas sugeridas para la biblioteca del sistema de diseño:
 
@@ -435,7 +437,7 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 | `DS-OPEN-04` | Completar diez tonalidades de Volt, Signal, Ink y Cloud. | Tema Mantine |
 | `DS-OPEN-05` | Enlazar `src/theme/theme.ts` en el frontend. | Código-diseño |
 | `DS-OPEN-06` | Completar ProductCard, navegación, modales, filtros y skeletons desde specs por vista. | Mockups |
-| `DS-OPEN-07` | La carpeta de mockups ya está registrada; falta la URL directa del archivo de pantallas/prototipo y los enlaces de páginas y frames. | Trazabilidad Figma |
+| `DS-OPEN-07` | Archivo Mockups y página de inicio/catálogo/producto registrados; V-005/V-006 enlazadas por frame. Falta verificar/enlazar las demás vistas y el prototipo; aprobación humana pendiente. | Trazabilidad Figma |
 | `DS-OPEN-08` | Definir changelog y proceso de publicación. | Mantenimiento |
 
 ## 14. Fuentes

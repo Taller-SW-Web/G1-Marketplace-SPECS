@@ -154,7 +154,8 @@ Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade A
 - [ ] Implementar O-010 completo: severidades, cola, deduplicación, acciones, persistencia y reglas de temporización; ErrorState por sí solo no lo cubre.
 - [ ] Incorporar los patrones requeridos por otros bloques cuando sus responsables los integren: galería, carrito, resumen y timelines; no atribuir todo su backend a Giuliano.
 - [ ] Resolver InternalPath y la conservación segura de retorno con los flujos que lo consumen.
-- [ ] Verificar frames Figma y enlazar cada variante con su spec/código/evidencia.
+- [x] Registrar los enlaces verificados de V-005/V-006 y sus variantes existentes; véase la [comparación H3](../../../plan/evidencias/H3-COMPARACION-FIGMA-2026-10-14.md).
+- [ ] Alinear visualmente la implementación H3 con los frames aplicables y obtener revisión; las referencias no certifican fidelidad ni cierran contratos pendientes.
 - [ ] Registrar revisión humana y el proceso/canal de publicación antes de considerar cerrada la gobernanza.
 
 Verificaciones ejecutadas: 10 pruebas de componentes y 13 de navegador del frontend, más lint/TypeScript/build. Las 34 pruebas previas de backend siguen documentadas en la evidencia y ese código no cambia en este incremento. No es certificación completa de accesibilidad ni aceptación de todas las variantes de una biblioteca.

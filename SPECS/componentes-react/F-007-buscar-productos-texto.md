@@ -13,10 +13,11 @@
 | UI funcional | [F-007](../ui/F-007-buscar-productos-texto.md) |
 | Contrato API | [F-007](../contrato-api/F-007-buscar-productos-texto.md) |
 | Entregables visuales | [V-006](../ui/vistas/V-006-catalogo-resultados.md) |
+| Frames Figma verificados | [Catálogo desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-881); [Catálogo mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-1026); [Resultados mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1734) — 14/10/2026, sin aprobación de fidelidad |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
 | Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
 | Responsables de implementación | Propuesta explícita en [plan F-007](../../plan/funcionalidades/F-007-buscar-productos-texto.md); no reemplaza el reparto de mockups |
-| Iteración objetivo | Sprint 2, sujeto a puertas de entrada y capacidad confirmada |
+| Iteración objetivo | S1 / H3, semanas 7–8 según reparto vigente; integración y aceptación pendientes |
 
 ## 2. Rutas y pantallas
 

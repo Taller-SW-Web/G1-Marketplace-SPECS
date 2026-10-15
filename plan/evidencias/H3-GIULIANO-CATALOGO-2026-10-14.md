@@ -32,7 +32,7 @@ IA utilizada: Codex, para inspeccionar las fuentes, preparar y escribir el corte
 - [OpenAPI G6](https://github.com/Taller-SW-Web/G6-Productos-Ofertas-docs/blob/master/contratos/http/openapi.yaml): candidato `0.6.0-rc.1`, blob SHA `f64bfe9a097b2a0f74c2600988305443d92f640e`, consultado por conexión GitHub.
 - [Alineación Marketplace G6](https://github.com/Taller-SW-Web/G6-Productos-Ofertas-docs/blob/master/integraciones/ALINEACION_MARKETPLACE.md): faltan conformidad bilateral, ambiente, credenciales y grants. El primer corte separa catálogo de Pricing/Inventario.
 - React + TypeScript + Next.js App Router; versiones npm verificadas y lockfile generado. UI kit pendiente: se implementó HTML/CSS con tokens desacoplados, sin aprobar Mantine/shadcn.
-- Figma: no se verificaron frames específicos en esta ejecución. Header/footer y composición son propuesta local, no aprobación visual ni fidelidad certificada.
+- Figma: en el corte inicial no se verificaron frames específicos. La [comparación posterior con Mockups](H3-COMPARACION-FIGMA-2026-10-14.md) registra ahora enlaces exactos y diferencias visibles; no certifica fidelidad ni aprobación visual.
 - DTO mínimo descriptivo sin precio/stock/nombre de marca. Es una adaptación parcial del corte G6 que necesita revisión con Leonidas/Jim frente a las tarjetas comerciales completas de G1.
 
 ## Archivos y alcance

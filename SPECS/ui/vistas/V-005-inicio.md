@@ -14,7 +14,9 @@
 | Responsable | Fernando José Saire Tello |
 | Revisor | Giuliano Macchiavello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Sección V-005](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=265-8) |
+| Página de Figma | [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) |
+| Enlaces verificados | 2026-10-14; consulta de nodos del archivo Mockups. Revisión humana pendiente |
 
 ## 2. Propósito, actor y acceso
 
@@ -156,16 +158,31 @@ El hero no contiene formularios en el alcance actual. Sus CTA sólo apuntan a ru
 
 | Frame | Plataforma | Estado | Contenido diferencial |
 |---|---|---|---|
-| `V-005 / Desktop / Público` | Desktop | Principal | Hero, categorías, destacados y cabecera pública. |
-| `V-005 / Mobile / Público` | Mobile | Principal | Cabecera compacta y secciones apiladas. |
-| `V-005 / Desktop / Autenticado` | Desktop | Principal con sesión | Cuenta y estados de favorito. |
-| `V-005 / Mobile / Cargando` | Mobile | Skeleton por sección | Cabecera operativa. |
-| `V-005 / Desktop / Sin contenido` | Desktop | Vacío total | Orientación a catálogo. |
-| `V-005 / Mobile / Catálogo no disponible` | Mobile | Error `503` | Reintento sin bloquear navegación. |
-| `V-005 / Desktop / ProductCard favorita` | Desktop | Variante de componente | Estado guardando y guardado anotados. |
-| `V-005 / Mobile / Producto no disponible` | Mobile | Variante de tarjeta | Feedback y retirada/actualización. |
+| [`V-005 / Desktop / Público`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-111) | Desktop | Principal | Hero, categorías, destacados y cabecera pública. |
+| [`V-005 / Mobile / Público`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-293) | Mobile | Principal | Cabecera compacta y secciones apiladas. |
+| [`V-005 / Desktop / Autenticado`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-477) | Desktop | Principal con sesión | Cuenta y estados de favorito. |
+| [`V-005 / Mobile / Cargando`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-659) | Mobile | Skeleton por sección | Cabecera operativa. |
+| [`V-005 / Desktop / Sin contenido`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-717) | Desktop | Vacío total | Orientación a catálogo. |
+| [`V-005 / Mobile / Catálogo no disponible`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-762) | Mobile | Error `503` | Reintento sin bloquear navegación. |
+| [`V-005 / Desktop / ProductCard favorita`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-811) | Desktop | Variante de componente | Estado guardando y guardado anotados. |
+| [`V-005 / Mobile / Producto no disponible`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-866) | Mobile | Variante de tarjeta | Feedback y retirada/actualización. |
 
 Los estados de una sola sección vacía se documentan como anotaciones del frame principal, porque la sección se omite y no crea un layout nuevo.
+
+### Referencias adicionales localizadas
+
+Estos frames existen en el archivo consultado; se registran como referencias visuales, sin ampliar por ello los requisitos de implementación de H3 ni aprobar su diseño.
+
+| Frame existente | Enlace directo |
+|---|---|
+| `V-005 / Mobile / Autenticado` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-566) |
+| `V-005 / Desktop / Cargando` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-720) |
+| `V-005 / Mobile / Sin contenido` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-827) |
+| `V-005 / Desktop / Catálogo no disponible` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-911) |
+| `V-005 / Mobile / ProductCard favorita` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-998) |
+| `V-005 / Desktop / Producto no disponible` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-1037) |
+
+Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de un frame no acredita aprobación, integración de datos ni fidelidad de la web. La [comparación del corte H3](../../../plan/evidencias/H3-COMPARACION-FIGMA-2026-10-14.md) registra las diferencias encontradas. Las capacidades mostradas en el mockup se habilitan sólo cuando lo permitan el alcance y los contratos vigentes.
 
 ## 13. Criterios de aceptación visual
 
