@@ -62,6 +62,21 @@ La primera ejecución de navegador detectó cinco fallos: selector de nombre acc
 
 Revisión visual realizada por el agente sobre capturas de inicio desktop y catálogo mobile. Artefactos locales ignorados en Git: `G1-Marketplace-Frontend/test-results/inicio-desktop.png`, `test-results/catalogo-mobile.png` y `playwright-report/index.html`. No representan un frame aprobado ni una revisión humana.
 
+## Incremento de componentes compartidos — 14/10/2026
+
+Archivos nuevos del frontend: `src/shared/ui/Button.tsx`, `TextField.tsx`, `EmptyState.tsx`, `Skeleton.tsx`, `tests/components/` y `vitest.config.mts`. Integraciones: SearchBox, Feedback, Home y Catalog; estilos/tokens y configuración de pruebas/documentación actualizados. Asistencia de Codex y revisión humana pendientes en los mismos términos de la sección de autoría.
+
+Commit del incremento: [119b117](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/119b117c18294d3128f5caf55858f16a1d80aee8), publicado en la misma rama de Frontend. La tabla anterior conserva los commits del corte inicial. No se modifica main ni se abre PR.
+
+Verificación ejecutada tras el incremento:
+
+- `npm run typecheck` y `npm run lint`: pasan.
+- `npm run test:components`: **10 pruebas pasan**; submit explícito, loading/disabled sin clicks repetidos, refs, variantes, IDs/labels, asociación de hint/error, callbacks, vacío y anuncio de carga.
+- `npm run test:e2e`: build de producción exitoso y **13 pruebas pasan**, con recorrido MOCK web→Next→BFF y verificación responsive/foco.
+- Instalación de dependencias: auditoría sin vulnerabilidades reportadas. Vitest 5.0.4, Happy DOM 21.0.1 y Testing Library React 16.3.3 compatibles con el Node 22.18 instalado.
+
+Los mensajes/acciones del dominio permanecen en los contenedores; los componentes no simulan integración, precio, stock ni autorización. El backend no cambia y no se repiten sus pruebas por este incremento. Las 34 pruebas anteriores pertenecen al corte inicial.
+
 ## Pendientes para cierre
 
 Se incorporó el [catálogo de elementos compartidos](../../SPECS/ui/sistema-diseno/ELEMENTOS-COMPARTIDOS.md), su changelog y las guías de uso en ambos repositorios de código. Esta entrega documental inventaría componentes/estilos reales y pendientes; no agrega implementación ni cambia los resultados de pruebas de la tabla anterior.

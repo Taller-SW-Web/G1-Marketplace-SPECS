@@ -2,6 +2,17 @@
 
 Este registro describe documentación y contratos de consumo. No acredita publicación de una biblioteca, revisión humana ni una nueva versión de DS-001.
 
+## 0.2.0 — 14/10/2026 — En revisión
+
+- Se implementan Button (variantes, tamaños, loading/disabled e iconos), TextField (IDs únicos y label/hint/error asociados), EmptyState y Skeleton/LoadingState.
+- Se integran en SearchBox, reintento, vacíos y carga de categorías/productos, conservando los exports de feedback existentes.
+- El buscador deja de utilizar IDs fijos y bloquea envíos mientras la navegación está pendiente.
+- Se añaden action-soft y cinco tokens de espaciado de DS-001: la traducción local pasa de 18 a 24 variables CSS.
+- Se añaden 10 pruebas de componentes con Vitest/Happy DOM; pasan las 13 pruebas de navegador existentes, lint, TypeScript y build. Dependencias de prueba compatibles con Node 22.18; auditoría de instalación sin vulnerabilidades reportadas.
+- Se actualizan contratos, ejemplos y pendientes de la guía del frontend y este inventario. Modal, campos especializados y feedback O-010 completo permanecen pendientes.
+
+Compatibilidad: los componentes anteriores mantienen sus contratos. Los IDs del campo son un detalle interno generado; los consumidores y pruebas deben usar label/rol en lugar de depender de buscar-productos/search-error. DS-001 conserva su versión 0.2.0 y revisión pendiente.
+
 ## 0.1.0 — 14/10/2026 — En revisión
 
 - Se crea [el catálogo de elementos compartidos](ELEMENTOS-COMPARTIDOS.md) con ubicación, responsabilidades, foundations, DTO y límites de uso.

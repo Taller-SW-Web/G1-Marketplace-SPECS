@@ -1,6 +1,6 @@
 # Catálogo de elementos compartidos — Marketplace
 
-Versión documental **0.1.0**, 14/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
+Versión documental **0.2.0**, 14/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
 
 ## 1. Fuentes y ubicación
 
@@ -24,19 +24,20 @@ Los documentos de código permanecen en sus repositorios. Se indican rutas relat
 
 ## 2. Foundations implementadas y pendientes
 
-La implementación actual traduce un **subconjunto de 18 variables CSS**, no el sistema completo:
+La implementación actual traduce un **subconjunto de 24 variables CSS**, no el sistema completo:
 
 | Grupo | Variables CSS implementadas | Referencia DS-001 |
 |---|---|---|
-| Acción | `--action-primary`, `--action-hover` | `color/action/primary`, `primary-hover` |
+| Acción | `--action-primary`, `--action-hover`, `--action-soft` | `color/action/primary`, `primary-hover`, `primary-soft` |
 | Acentos | `--accent-volt`, `--accent-signal` | `color/accent/volt`, `signal` |
 | Superficies | `--surface-ink`, `--surface-cloud`, `--surface-subtle` | `color/surface/ink`, `cloud`, `cloud-subtle` |
 | Texto | `--text-primary`, `--text-inverse`, `--text-secondary` | Roles equivalentes de texto |
 | Bordes | `--border`, `--border-inverse` | Bordes default/inverse |
 | Error | `--error`, `--error-background` | Error default/background |
 | Radios | `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-full` | 8 px, 12 px, 16 px, 999 px |
+| Espaciado | `--spacing-xs`, `--spacing-sm`, `--spacing-md`, `--spacing-lg`, `--spacing-xl` | 4 px, 8 px, 16 px, 24 px, 32 px |
 
-Inter 400/500/600/700 y Oswald 700 se sirven desde dependencias locales. Oswald 500, el resto de colores semánticos, escalas de espaciado/tipografía y otros tokens DS aún no están expuestos como una API completa de tema. El CSS conserva medidas locales que deben revisarse y normalizarse antes de aprobar la biblioteca.
+Inter 400/500/600/700 y Oswald 700 se sirven desde dependencias locales. Oswald 500, el resto de colores semánticos, escala tipográfica y otros tokens DS aún no están expuestos como una API completa de tema. El CSS conserva medidas locales que deben revisarse y normalizarse antes de aprobar la biblioteca.
 
 Reglas de consumo:
 
@@ -53,9 +54,13 @@ Todos los elementos siguientes existen en el checkout local. Su estado es implem
 
 | Elemento / archivo | Contrato actual | Consumo y límite |
 |---|---|---|
+| `Button`, `src/shared/ui/Button.tsx` | Props nativas/ref; variantes primary/secondary/tertiary, tamaños sm/md/lg, loading, iconos y fullWidth; type=button por defecto | SearchBox, reintento y limpieza de búsqueda. Loading bloquea eventos y mantiene nombre accesible; no ejecuta reglas de negocio |
+| `TextField`, `src/shared/ui/TextField.tsx` | Input/ref, label, hint/error, adornos, clases de composición e IDs generados | Buscador global; label visible por defecto. Label/error/ayuda asociados y soporte de varias instancias sin IDs fijos |
+| `EmptyState`, `src/shared/ui/EmptyState.tsx` | title, description, actions, icon, headingLevel 2/3 y className | Vacíos de home/listado. La condición de vacío y la recuperación permanecen en el contenedor |
+| `Skeleton` / `LoadingState`, `src/shared/ui/Skeleton.tsx` | Forma block/line/circle y grupo con label, children decorativos y clase de layout | Carga de categorías y productos. Un anuncio por grupo y respeto de movimiento reducido |
 | `Header`, `src/shared/ui/Header.tsx` | Sin props; logo, acceso a catálogo, salto al contenido y SearchBox bajo Suspense | Layout raíz de home/catálogo. No es todavía AppShell configurable ni header de checkout |
 | `Footer`, `src/shared/ui/Footer.tsx` | Sin props; marca y enlaces Inicio/Catálogo | Layout raíz. No incluye enlaces legales/ayuda no aprobados ni variante checkout |
-| `SearchBox`, `src/features/catalog/SearchBox.tsx` | Sin props; usa router y URL; estado local de texto/error | Una instancia en cabecera. Normaliza 2–120 caracteres, Enter, limpieza y reinicio de página; no es input genérico |
+| `SearchBox`, `src/features/catalog/SearchBox.tsx` | Sin props; usa router/URL, TextField y Button; texto/error local y transición | Normaliza 2–120 caracteres, Enter, limpieza y reinicio de página; evita repetir navegación pendiente. No es input genérico |
 | `ProductCard`, `src/features/catalog/ProductCard.tsx` | `product: ProductCardDTO`, `returnPath: string` | Home/listado; navegación por slug. Sin precio, stock ni favorito; destino de ficha pendiente de Sebastian |
 | `ErrorState`, `src/shared/ui/Feedback.tsx` | `message: string`, `onRetry: () => void` | Error persistente de catálogo con anuncio y recuperación. Título/enlace están fijados a catálogo; no es O-010 genérico |
 | `MockNotice`, mismo archivo | Sin props | Aviso de datos sintéticos, sólo cuando `source === 'MOCK'` |
@@ -66,17 +71,18 @@ Todos los elementos siguientes existen en el checkout local. Su estado es implem
 
 `Home`, `Catalog` y `CatalogResults` son contenedores de página. No se presentan como componentes de biblioteca.
 
-### Estilos compartidos que aún no son componentes React
+### Relación entre estilos y componentes
 
 | Estilo | Uso actual | Trabajo pendiente para biblioteca |
 |---|---|---|
-| `.button` | Link o botón principal | `Button` tipado con variantes, busy, disabled, iconos y contrato de eventos |
+| `.button`, `.button--*` | Button tipado y CTA Link | Mantener semánticas separadas: un Link no admite disabled nativo |
 | `.text-link` | Enlace secundario | Definir API de enlace y estados sin sustituir semántica nativa |
-| `.search-control`, `.field-error` | Buscador y validación | Campo genérico con id/label/ayuda/error y política de instancias |
+| `.field-*`, `.search-control` | TextField, adornos y composición de búsqueda | Campos/selecciones especializados aún pendientes; el contenedor controla reglas y acciones |
 | `.product-grid`, `.category-grid`, `.container` | Layout del catálogo | Normalizar tokens y ancho mínimo/columnas con el diseño aprobado |
-| `.empty-state`, `.skeleton`, `.feedback` | Patrones locales de vacío, carga y error | Componentes parametrizables y sus estados por contexto |
+| `.empty-state`, `.skeleton` | EmptyState, Skeleton y LoadingState | Completar composiciones específicas de otras vistas con sus responsables |
+| `.feedback` | ErrorState local de catálogo | Falta feedback transversal O-010 completo |
 
-No se documentan `Button`, `TextInput`, `Modal` o `Toast` como implementados: hoy hay estilos o composiciones parciales, no esas APIs React completas.
+Button, TextField, EmptyState y Skeleton/LoadingState tienen APIs React implementadas y pruebas. No se declara una biblioteca completa: campos especializados, Modal y Toast/O-010 siguen pendientes. Los contratos y ejemplos exactos están en la guía de consumo del frontend.
 
 ## 4. DTO, estado y límites de datos
 
@@ -133,7 +139,7 @@ Revisar ownership antes de tocar archivos compartidos. En esta sesión la coordi
 5. Actualizar este inventario, la guía de uso del repo y el changelog con compatibilidad, migración y evidencia.
 6. Obtener revisión de las personas correspondientes antes de declarar aceptación. Tener un documento no publica ni aprueba una biblioteca.
 
-Versiones documentales: `0.1.x` para correcciones de este inventario; un cambio incompatible de API debe explicitar migración y nueva versión de implementación. La versión de DS-001 y la versión de este documento son independientes. La biblioteca aún no se distribuye como paquete npm ni se declara DS-001 0.3.0/1.0.0.
+Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade APIs reutilizables e integración sin retirar exports previos. Un cambio incompatible debe explicitar migración y nueva versión de implementación. La versión de DS-001 y la versión de este documento son independientes. La biblioteca aún no se distribuye como paquete npm ni se declara DS-001 0.3.0/1.0.0.
 
 **Política actualizada de esta sesión, por instrucción de Giuliano:** crear commits y subir las ramas de trabajo de cada repositorio; no subir a main ni abrir PR. Giuliano preparará los PR manualmente al terminar. La revisión se realiza sobre las ramas y sus diffs; las instrucciones históricas de commit directo a main no aplican a esta entrega.
 
@@ -141,7 +147,8 @@ Versiones documentales: `0.1.x` para correcciones de este inventario; un cambio 
 
 - [ ] Resolver G-STACK/DS-OPEN-03 y G-SHELL antes de aprobar el sistema visual implementado.
 - [ ] Completar tokens y normalizar medidas locales; verificar contraste, foco, teclado, zoom y responsive de cada componente.
-- [ ] Extraer Button, campos, EmptyState y skeletons con contratos reutilizables reales.
+- [x] Implementar Button, TextField, EmptyState y Skeleton/LoadingState tipados e integrarlos en las vistas del corte; revisión humana pendiente.
+- [ ] Completar campos/selecciones especializados, variantes de carga por vista y aceptación visual/accesible de la base.
 - [ ] Extender ProductCard con datos comerciales autorizados y el control de favorito del bloque de Diego.
 - [ ] Acordar variantes comerciales/checkout de shell con sus responsables.
 - [ ] Implementar O-010 completo: severidades, cola, deduplicación, acciones, persistencia y reglas de temporización; ErrorState por sí solo no lo cubre.
@@ -151,4 +158,4 @@ Versiones documentales: `0.1.x` para correcciones de este inventario; un cambio 
 - [ ] Verificar frames Figma y enlazar cada variante con su spec/código/evidencia.
 - [ ] Registrar revisión humana y el proceso/canal de publicación antes de considerar cerrada la gobernanza.
 
-Pruebas existentes del corte: 34 de backend y 13 de navegador, junto con lint/TypeScript/build; su alcance se detalla en la evidencia enlazada. No son todavía pruebas aisladas de todas las variantes de una biblioteca ni certificación completa de accesibilidad.
+Verificaciones ejecutadas: 10 pruebas de componentes y 13 de navegador del frontend, más lint/TypeScript/build. Las 34 pruebas previas de backend siguen documentadas en la evidencia y ese código no cambia en este incremento. No es certificación completa de accesibilidad ni aceptación de todas las variantes de una biblioteca.
