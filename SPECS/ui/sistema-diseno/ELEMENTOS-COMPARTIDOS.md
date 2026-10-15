@@ -120,7 +120,7 @@ Ninguna utilidad da acceso directo a BD de Productos, reemplaza autorización de
 
 | Persona | Coordinación concreta |
 |---|---|
-| Giuliano | Custodia DS-001, tokens, catálogo de elementos y coherencia del frontend; autor de F-006–F-010 |
+| Giuliano | Custodia DS-001, tokens, catálogo de elementos y coherencia del frontend; autor del corte F-006/F-007 hasta semana 8 |
 | Sebastian | Revisor principal de ese bloque; recibe ProductCard/DTO/ruta de ficha y retorno; Giuliano revisa su UI de detalle |
 | Fernando | Diseño de V-005/V-006 y O-010 según inventario; revisión de coherencia con el código |
 | Leonidas | Revisión de contratos, DTO, adaptador y cambios de backend |
@@ -152,7 +152,6 @@ Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade A
 - [ ] Extender ProductCard con datos comerciales autorizados y el control de favorito del bloque de Diego.
 - [ ] Acordar variantes comerciales/checkout de shell con sus responsables.
 - [ ] Implementar O-010 completo: severidades, cola, deduplicación, acciones, persistencia y reglas de temporización; ErrorState por sí solo no lo cubre.
-- [ ] Construir el modal/drawer accesible compartido y la variante catálogo O-001 para F-008.
 - [ ] Incorporar los patrones requeridos por otros bloques cuando sus responsables los integren: galería, carrito, resumen y timelines; no atribuir todo su backend a Giuliano.
 - [ ] Resolver InternalPath y la conservación segura de retorno con los flujos que lo consumen.
 - [ ] Verificar frames Figma y enlazar cada variante con su spec/código/evidencia.
