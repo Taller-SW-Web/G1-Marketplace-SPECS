@@ -4,6 +4,8 @@
 
 ## Fuentes y alcance
 
+- Documentación transversal del corte: [catálogo de elementos compartidos](../../SPECS/ui/sistema-diseno/ELEMENTOS-COMPARTIDOS.md) y [changelog](../../SPECS/ui/sistema-diseno/CHANGELOG-COMPARTIDOS.md). Guías de imports/props y utilidades en `docs/ELEMENTOS-COMPARTIDOS.md` de Frontend y Backend. Estado en revisión; no sustituye DS-001 ni acredita biblioteca completa.
+
 - Specs funcionales de entrada: [F-006](../../SPECS/funcional/F-006-inicio-categorias-destacados.md), [F-007](../../SPECS/funcional/F-007-buscar-productos-texto.md), [F-008](../../SPECS/funcional/F-008-filtrar-catalogo.md), [F-009](../../SPECS/funcional/F-009-ordenar-catalogo.md), [F-010](../../SPECS/funcional/F-010-paginar-catalogo.md). Para cada ID leer también su archivo homónimo en `SPECS/ui/`, `SPECS/contrato-api/` y `SPECS/componentes-react/`, y su plan/tarea en `plan/funcionalidades/` y `plan/seguimiento/`.
 - Entregables visuales relacionados: V-005/V-006, O-001, DS-001. El [archivo de mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) fue accesible el 13/10/2026; confirmar con el PO el frame y su enlace específico antes de citarlo como definitivo.
 - Gates y dependencias: I-01 Productos, G-FEATURED, G-SORT, G-STACK, G-SHELL y G-CLOUD-H3. Si faltan URL/token/datos, integración H3 bloqueada aunque la UI con fixture pase.
