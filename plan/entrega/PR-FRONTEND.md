@@ -2,7 +2,7 @@
 
 test(h3): verificar la web con NestJS y automatizar los controles de catálogo
 
-Base manual: **main**. Rama: `feat/s1-f006-f007-catalogo`.
+Base: **develop**, creada desde main 0f47537 por indicación de Giuliano. Rama: `feat/s1-f006-f007-catalogo`. Publicado como [PR #3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/3).
 
 ## Descripción para copiar
 

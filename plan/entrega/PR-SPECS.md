@@ -2,7 +2,7 @@
 
 docs(h3): documentar elementos compartidos, trazabilidad y entrega de Giuliano
 
-Base manual: **main**. Rama: `docs/giuliano-elementos-compartidos`.
+Base: **develop**, creada desde main a8c3a7e por indicación de Giuliano. Rama: `docs/giuliano-elementos-compartidos`.
 
 ## Descripción para copiar
 

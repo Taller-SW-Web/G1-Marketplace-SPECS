@@ -72,15 +72,15 @@ Este material permite ensayar; no acredita que Giuliano ya haya explicado o defe
 | TASK-F006/F007-QA-002 | Reglas SAST locales, Gitleaks, npm audit/inventario y negativos HTTP/navegador | Alcance y hallazgos en la evidencia; DAST staging y aceptación de riesgo pendientes |
 | TASK-F006/F007-DOC-001 | Specs UI enlazadas a Figma, inventario compartido, operación, esta guía y borradores de PR | Revisión humana y evidencia REAL pendientes |
 
-## Preparación de PR manuales
+## PR y bases de integración
 
-Los borradores [Backend](PR-BACKEND.md), [Frontend](PR-FRONTEND.md) y [SPECS](PR-SPECS.md) están listos para copiar cuando decidas abrirlos. Se han publicado únicamente tus ramas. No abrir PR hacia una base distinta para acomodar el servidor anterior.
+Por indicación posterior de Giuliano se abrieron [Backend PR #11](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/11) y [Frontend PR #3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/3), ambos hacia develop. También solicitó abrir el PR de este paquete SPECS hacia develop. Los textos [Backend](PR-BACKEND.md), [Frontend](PR-FRONTEND.md) y [SPECS](PR-SPECS.md) se conservan como referencia; abrir un PR no acredita aprobación, merge ni cierre H3.
 
-| Repositorio | Rama de Giuliano | Base del PR manual |
+| Repositorio | Rama de Giuliano | Base de integración |
 |---|---|---|
 | Backend | feat/s1-f006-f007-catalogo | **develop**, baseline NestJS autorizado |
-| Frontend | feat/s1-f006-f007-catalogo | **main**, baseline compartido vigente |
-| SPECS | docs/giuliano-elementos-compartidos | **main** |
+| Frontend | feat/s1-f006-f007-catalogo | **develop**, creada desde main 0f47537 por indicación de Giuliano |
+| SPECS | docs/giuliano-elementos-compartidos | **develop**, creada desde main a8c3a7e para el PR solicitado |
 
 Los workflows se activan al push a tus ramas o por ejecución manual sobre ellas. No despliegan ni crean PR. Si después cambia la base compartida, revisar el diff, incorporar el baseline en la rama individual y repetir los controles antes de pedir revisión.
 
