@@ -84,6 +84,12 @@ Por indicación posterior de Giuliano se abrieron [Backend PR #11](https://githu
 
 Los workflows se activan al push a tus ramas o por ejecución manual sobre ellas. No despliegan ni crean PR. Si después cambia la base compartida, revisar el diff, incorporar el baseline en la rama individual y repetir los controles antes de pedir revisión.
 
+## Corte actualizado: adaptación a develop y despliegue
+
+Se incorporan Backend/develop e6fc7f2 y Frontend/develop 843dfde en las ramas personales, conservando el carrito del equipo. Publicados Backend **2095c05** y Frontend **c58f596**, con start:prod restaurado, proxy de carrito sin identidad de prueba automática y **125 pruebas + 11 comprobaciones smoke** locales aprobadas. [Evidencia actual, guías y límites](../evidencias/H3-ACTUALIZACION-DEVELOP-2026-10-16.md). Las cifras anteriores describen sus cortes históricos.
+
+Backend #11, Frontend #3 y SPECS #2 continúan en draft hacia develop. El catálogo sin credenciales devuelve 503 en producción; arrancar el servidor no acredita integración REAL ni cierre H3. No se despliega ni se cambian main/develop.
+
 ## Lo que requiere coordinación para cerrar
 
 | Pendiente | Participación necesaria | Evidencia de salida |

@@ -1,6 +1,6 @@
 # Catálogo de elementos compartidos — Marketplace
 
-Versión documental **0.2.3**, 16/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
+Versión documental **0.2.4**, 16/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
 
 ## 1. Fuentes y ubicación
 
@@ -173,3 +173,7 @@ Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade A
 - [ ] Registrar revisión humana y el proceso/canal de publicación antes de considerar cerrada la gobernanza.
 
 Verificaciones tras adoptar NestJS: 34 pruebas unitarias y 19 HTTP del Backend; 10 pruebas de componentes y 16 de navegador del Frontend contra el BFF compilado, más lint/TypeScript/build y validación de Prisma sin migraciones. Las pruebas Node anteriores se conservan como evidencia histórica; el runner actual es Jest/SWC/Supertest. No es certificación completa de accesibilidad, integración real ni aceptación de todas las variantes de una biblioteca.
+
+## Compatibilidad con develop — 16/10/2026
+
+La documentación 0.2.4 registra las bases e6fc7f2 Backend y 843dfde Frontend incorporadas en las ramas de Giuliano. CatalogModule convive con CartModule y se conservan estilos, alias y lockfile compartidos. No cambian props, DTO ni DS-001. El arranque Render vuelve a resolver start:prod y el proxy cart conserva sesiones anónimas sin asignar el usuario de prueba default. [Evidencia, pruebas y preparación de despliegue](../../../plan/evidencias/H3-ACTUALIZACION-DEVELOP-2026-10-16.md). Los estados de aceptación/integración REAL siguen pendientes y los conteos anteriores corresponden a sus cortes históricos.

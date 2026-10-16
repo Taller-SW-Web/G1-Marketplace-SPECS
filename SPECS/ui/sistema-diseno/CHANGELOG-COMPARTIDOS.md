@@ -2,6 +2,12 @@
 
 Este registro describe documentación y contratos de consumo. No acredita publicación de una biblioteca, revisión humana ni una nueva versión de DS-001.
 
+## 0.2.4 — 16/10/2026 — En revisión
+
+- Compatibilidad con develop Backend e6fc7f2 y Frontend 843dfde: catálogo y carrito conviven, sin cambiar props, DTO ni DS-001.
+- Restauración start:prod para Render y eliminación de identidad de prueba automática en el proxy cart; sesión anónima y Authorization explícita preservadas.
+- [Evidencia del corte](../../../plan/evidencias/H3-ACTUALIZACION-DEVELOP-2026-10-16.md): 125 pruebas y 11 comprobaciones smoke locales, incluyendo producción sin credenciales. Preparación de despliegue documentada; revisión/REAL/aceptación pendientes.
+
 ## 0.2.3 — 16/10/2026 — En revisión
 
 - Imagen opcional por solicitud de Giuliano: `images` omitido o `[]` en G6 se proyecta a `ProductCardDTO.image: null`.
