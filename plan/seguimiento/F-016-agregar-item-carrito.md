@@ -14,11 +14,11 @@ Versión 0.1.0 · Planificación inicial · F-016 no está implementada por esto
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F016-FE-001 | Frontend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
-| TASK-F016-BE-001 | Backend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 9 | Pendiente |
-| TASK-F016-DB-001 | BD / Prisma | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-DB-001 | 11 | Pendiente |
+| TASK-F016-FE-001 | Frontend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 | 9 | En revisión (Corte H3 MOCK) |
+| TASK-F016-BE-001 | Backend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 9 | En revisión (Corte H3 MOCK) |
+| TASK-F016-DB-001 | BD / Prisma | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-DB-001 | 11 | Completada |
 | TASK-F016-INT-001 | Integración | Andres Morales | Leonidas Garcia | P0 | TASK-F016-BE-001 + TASK-F016-DB-001 + I-01 + G-SKU + G-ADD + TASK-F012-INT-001 + TASK-F013-INT-001 + TASK-F014-INT-001 | 11 | Bloqueado |
-| TASK-F016-QA-001 | QA funcional | Andres Morales | Leonidas Garcia | P0 | TASK-F016-FE-001 + TASK-F016-BE-001 + TASK-F016-DB-001 | 11 | Pendiente |
+| TASK-F016-QA-001 | QA funcional | Andres Morales | Leonidas Garcia | P0 | TASK-F016-FE-001 + TASK-F016-BE-001 + TASK-F016-DB-001 | 11 | En revisión (Corte H3 MOCK) |
 | TASK-F016-QA-002 | QA seguridad / DevSecOps | Andres Morales | Leonidas Garcia | P0 | TASK-F016-FE-001 + TASK-F016-BE-001 + TASK-TRANS-S02-OPS-002 | 11 | Pendiente |
 | TASK-F016-DOC-001 | Documentación | Andres Morales | Leonidas Garcia | P0 | TASK-F016-INT-001 + TASK-F016-QA-001 + TASK-F016-QA-002 | 11 | Pendiente |
 
@@ -30,8 +30,8 @@ Referente de BD: Andres Morales para este bloque, con revisión de Leonidas Garc
 
 - **Trabajo:** Implementar AddToCartAction, AddedToCartFeedback y todos los estados de React/UI.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
-- **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
-- **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
+- **Evidencia:** Corte H3 MOCK implementado en rama `feat/h3-f016-f019-carrito`. Componentes `AddToCartAction` (`CMP-F016-001`) y `AddedToCartFeedback` (`CMP-F016-002` / `O-005`) implementados y validados con 11 pruebas unitarias pasando en `tests/components/cart-add.test.tsx`. Revisión técnica asignada a Leonidas Garcia.
+- **Bloqueo / liberación:** Liberado para revisión del Hito 3 en modo MOCK; integración externa real sujeta a gate I-01.
 
 ### TASK-F016-BE-001
 
