@@ -1,5 +1,7 @@
 # Entrega de Giuliano — H3, semanas 7–8
 
+> **Entorno actual solicitado por Giuliano: Docker local del equipo; Render queda fuera de este paso.** Consultar la [evidencia Docker](../evidencias/H3-DOCKER-2026-10-16.md). Las referencias anteriores de nube se conservan como contexto; el cambio no acredita cierre H3.
+
 Corte 16/10/2026. Alcance: F-006 inicio/categorías y F-007 búsqueda pública, con componentes compartidos. Implementación asistida por Codex; revisión humana y aceptación pendientes. Las pruebas usan **MOCK**. Ningún recorrido local acredita integración real con Productos.
 
 ## Qué está preparado

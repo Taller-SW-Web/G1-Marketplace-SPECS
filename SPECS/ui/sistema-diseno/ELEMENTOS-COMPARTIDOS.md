@@ -1,6 +1,6 @@
 # Catálogo de elementos compartidos — Marketplace
 
-Versión documental **0.2.4**, 16/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
+Versión documental **0.2.5**, 16/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
 
 ## 1. Fuentes y ubicación
 
@@ -177,3 +177,7 @@ Verificaciones tras adoptar NestJS: 34 pruebas unitarias y 19 HTTP del Backend; 
 ## Compatibilidad con develop — 16/10/2026
 
 La documentación 0.2.4 registra las bases e6fc7f2 Backend y 843dfde Frontend incorporadas en las ramas de Giuliano. CatalogModule convive con CartModule y se conservan estilos, alias y lockfile compartidos. No cambian props, DTO ni DS-001. El arranque Render vuelve a resolver start:prod y el proxy cart conserva sesiones anónimas sin asignar el usuario de prueba default. [Evidencia, pruebas y preparación de despliegue](../../../plan/evidencias/H3-ACTUALIZACION-DEVELOP-2026-10-16.md). Los estados de aceptación/integración REAL siguen pendientes y los conteos anteriores corresponden a sus cortes históricos.
+
+## Entorno Docker del equipo — 16/10/2026
+
+Por indicación de Giuliano, el entorno actual se prepara con Compose: Frontend Next, Backend Nest y PostgreSQL propios. Los contratos/props de catálogo y DS-001 se conservan. Los proxies de catálogo y carrito comparten marketplaceApiUrl, de uso exclusivo en servidor, que admite HTTP al hostname interno sólo mediante MARKETPLACE_INTERNAL_HTTP_HOST explícito; HTTPS y loopback se mantienen. No se configura esa variable en consumidores React ni se expone con NEXT_PUBLIC. [Guía, pruebas y límites](../../../plan/evidencias/H3-DOCKER-2026-10-16.md). La aceptación del cambio de entorno y la integración REAL no se infieren de Docker.

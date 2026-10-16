@@ -2,6 +2,12 @@
 
 Este registro describe documentación y contratos de consumo. No acredita publicación de una biblioteca, revisión humana ni una nueva versión de DS-001.
 
+## 0.2.5 — 16/10/2026 — En revisión
+
+- Documenta Docker como entorno actual solicitado: tres servicios, red interna y volumen PostgreSQL aislado; Render se conserva como referencia futura.
+- Los proxies catálogo/carrito comparten la validación del origen BFF y autorizan HTTP al hostname Docker configurado explícitamente en servidor. No cambian DTO, props ni DS-001.
+- [Evidencia Docker y guías](../../../plan/evidencias/H3-DOCKER-2026-10-16.md): la construcción/arranque y el recorrido con fixtures se verifican separadamente de G6 REAL y aceptación H3.
+
 ## 0.2.4 — 16/10/2026 — En revisión
 
 - Compatibilidad con develop Backend e6fc7f2 y Frontend 843dfde: catálogo y carrito conviven, sin cambiar props, DTO ni DS-001.
