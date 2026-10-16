@@ -2,6 +2,16 @@
 
 Este registro describe documentación y contratos de consumo. No acredita publicación de una biblioteca, revisión humana ni una nueva versión de DS-001.
 
+## 0.2.2 — 15/10/2026 — En revisión
+
+- Backend adopta el baseline NestJS de develop por decisión explícita de Giuliano: CatalogModule/Controller/Service, tipos, proveedor inyectable e interceptor/filtro locales.
+- Se retiran el servidor Node anterior y sus imports internos; las guías del Backend pasan a 0.2.0 y documentan cómo consumir módulos/proveedores TypeScript.
+- Se conservan los archivos compartidos de arranque, salud, Prisma, Render, configuración de build/test, scripts y lockfile del baseline. CORS_ORIGINS y el 404 global siguen su comportamiento.
+- Playwright compila/inicia el BFF NestJS con configuración MOCK y sin una BD real. Pasan 34 pruebas unitarias y 19 HTTP del Backend; 10 de componentes y 16 de navegador del Frontend, más build/tipado/lint y validación de Prisma.
+- Se registra la [evidencia de migración y publicación](../../../plan/evidencias/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md). No se añaden dependencias al baseline ni funciones H4, ni se declara integración real/H3 cerrado.
+
+Compatibilidad: las rutas, DTO y errores de validación/proveedor mantienen su contrato. Los imports internos JavaScript/createApp se reemplazan por TypeScript e inyección NestJS. Las props y el diseño del Frontend no cambian; DS-001 mantiene su versión 0.2.0. CORS y rutas inexistentes respetan el baseline compartido.
+
 ## 0.2.1 — 15/10/2026 — En revisión
 
 - Inicio y Catálogo adoptan la composición de sus frames Figma dentro de H3: shell, hero, categorías, tarjetas, estados y grilla de una columna en móvil.

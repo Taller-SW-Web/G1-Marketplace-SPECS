@@ -41,7 +41,7 @@ También deben revisarse `playwright.config.ts` y las guías de Frontend: actual
 
 El README del baseline conserva referencias históricas de roles y stack; estas no sustituyen la matriz punta a punta vigente ni justifican añadir bibliotecas al Frontend sin decisión del equipo.
 
-**Decisión de base pendiente:** se solicitó a Giuliano aclarar si Backend debe adoptar develop con NestJS o limitarse a main, porque su instrucción menciona ambas posibilidades y finalmente enfatiza main. Hasta esa aclaración no se ha fusionado develop, migrado el catálogo ni modificado la rama de Backend. Si se elige main, ya contiene toda esa base; si se elige develop, la adaptación anterior es trabajo requerido antes de publicar una rama compatible.
+**Decisión confirmada:** Giuliano eligió «Usar develop con el baseline NestJS». La [adaptación posterior](H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md) registra la integración y las pruebas. La tabla de esta auditoría conserva el estado encontrado antes de migrar; Backend se adapta a develop sin modificar esa rama compartida.
 
 Los resultados de build, pruebas y staging descritos en el PR #9 son evidencia del autor del baseline, no ejecuciones nuevas realizadas por esta auditoría.
 
@@ -49,4 +49,4 @@ Los resultados de build, pruebas y staging descritos en el PR #9 son evidencia d
 
 SPECS no necesita resolver divergencias con main en el estado consultado. Se incorpora esta auditoría únicamente a `docs/giuliano-elementos-compartidos`, conservando la documentación H3 propia y el historial normativo existente.
 
-No se modifican main/develop, no se promueven baselines, no se crean PR y no se fusionan ramas de compañeros. Las verificaciones documentales y de Git no acreditan integración real con Productos ni cierre de H3.
+No se modifican main/develop, no se promueven baselines ni se crean PR. Sólo se adopta el baseline compartido autorizado; no se fusionan ramas funcionales de compañeros. Las verificaciones documentales y de Git no acreditan integración real con Productos ni cierre de H3.

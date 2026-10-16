@@ -1,6 +1,6 @@
 # Catálogo de elementos compartidos — Marketplace
 
-Versión documental **0.2.1**, 15/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
+Versión documental **0.2.2**, 15/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
 
 ## 1. Fuentes y ubicación
 
@@ -10,6 +10,7 @@ Versión documental **0.2.1**, 15/10/2026, **en revisión**. Custodio: Giuliano 
 - [O-010](../overlays/O-010-alertas-feedback-global.md): feedback transversal completo; no se considera implementado por tener una alerta de catálogo.
 - [Evidencia local](../../../plan/evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md): comprobaciones ejecutadas y límites.
 - [Adaptación visual H3 a Figma](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md): recursos, composición, verificación y diferencias de alcance.
+- [Adaptación al baseline NestJS](../../../plan/evidencias/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md): módulo, imports, pruebas y compatibilidad del backend compartido.
 - [Changelog de esta documentación](CHANGELOG-COMPARTIDOS.md).
 
 | Repositorio | Documento o carpeta | Propósito |
@@ -109,13 +110,17 @@ En el código actual el vacío es `ready` con un arreglo vacío válido; no exis
 
 ## 5. Elementos comunes del backend
 
-Las utilidades actuales tienen **alcance de catálogo**, no de todo Marketplace:
+Las utilidades actuales tienen **alcance de catálogo**, no de todo Marketplace. Desde el 15/10/2026 se integran en el baseline NestJS de Backend/develop mediante TypeScript:
 
+- `CatalogModule` registra controller, servicio, proveedor por token, interceptor y filtro local; AppModule lo importa sin reemplazar el bootstrap compartido.
+- `CatalogService`, `CatalogProvider` y `CATALOG_PROVIDER`: composición e inyección del proveedor por ConfigService; las pruebas pueden sustituir el token.
 - `CatalogError` y `problem`: errores públicos uniformes; diagnóstico interno separado.
 - `parseQuery`: normalización, límites, parámetros permitidos y rechazo antes del proveedor.
 - `createProvider`: selección explícita de mock/real/no configurado; ningún fallback silencioso.
 - `createRealProvider` y `projectProduct`: HTTP técnico, timeout, revisión contractual fijada, proyección pública y allowlist de medios.
-- `createApp`: enrutamiento, CORS, UUID, log seguro y health inyectable; `server.js` es el punto de arranque, no una utilidad para importar desde tests o frontend.
+- `CatalogRequestInterceptor` y `CatalogExceptionFilter`: UUID, cabeceras, log seguro y errores problem+json del catálogo; no sustituyen el filtro global del baseline.
+
+`createApp`, `src/app.js`, `src/server.js` y los helpers JavaScript anteriores se retiraron. El arranque es `src/main.ts` → `dist/main.js`; CORS_ORIGINS, DATABASE_URL, HealthModule y PrismaService conservan la configuración y ciclo de vida de develop. La guía Backend 0.2.0 documenta la migración de imports internos. Las rutas, DTO y errores de validación/proveedor se conservan; CORS y el 404 global siguen el comportamiento del baseline, sin reinstalar el handler anterior.
 
 Ninguna utilidad da acceso directo a BD de Productos, reemplaza autorización de otros módulos o implementa reglas de precio/pedido. Configuración y ejemplos están en `G1-Marketplace-Backend/docs/ELEMENTOS-COMPARTIDOS.md`.
 
@@ -142,7 +147,7 @@ Revisar ownership antes de tocar archivos compartidos. En esta sesión la coordi
 5. Actualizar este inventario, la guía de uso del repo y el changelog con compatibilidad, migración y evidencia.
 6. Obtener revisión de las personas correspondientes antes de declarar aceptación. Tener un documento no publica ni aprueba una biblioteca.
 
-Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade APIs reutilizables e integración sin retirar exports previos; `0.2.1` documenta la adaptación Figma H3 y la variante opcional de ErrorState. Un cambio incompatible debe explicitar migración y nueva versión de implementación. La versión de DS-001 y la versión de este documento son independientes. La biblioteca aún no se distribuye como paquete npm ni se declara DS-001 0.3.0/1.0.0.
+Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade APIs reutilizables e integración sin retirar exports previos; `0.2.1` documenta la adaptación Figma H3 y la variante opcional de ErrorState; `0.2.2` registra el backend NestJS y la migración de sus imports internos. Un cambio incompatible debe explicitar migración y nueva versión de implementación. La versión de DS-001 y la versión de este documento son independientes. La biblioteca aún no se distribuye como paquete npm ni se declara DS-001 0.3.0/1.0.0.
 
 **Política actualizada de esta sesión, por instrucción de Giuliano:** crear commits y subir las ramas de trabajo de cada repositorio; no subir a main ni abrir PR. Giuliano preparará los PR manualmente al terminar. La revisión se realiza sobre las ramas y sus diffs; las instrucciones históricas de commit directo a main no aplican a esta entrega.
 
@@ -162,4 +167,4 @@ Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade A
 - [ ] Obtener revisión visual humana y resolver diferencias de datos/controles pendientes; la adaptación no certifica identidad con todos los frames ni cierra contratos.
 - [ ] Registrar revisión humana y el proceso/canal de publicación antes de considerar cerrada la gobernanza.
 
-Verificaciones ejecutadas: 10 pruebas de componentes y 16 de navegador del frontend, más lint/TypeScript/build. Las 34 pruebas previas de backend siguen documentadas en la evidencia y ese código no cambia en este incremento. No es certificación completa de accesibilidad ni aceptación de todas las variantes de una biblioteca.
+Verificaciones tras adoptar NestJS: 34 pruebas unitarias y 19 HTTP del Backend; 10 pruebas de componentes y 16 de navegador del Frontend contra el BFF compilado, más lint/TypeScript/build y validación de Prisma sin migraciones. Las pruebas Node anteriores se conservan como evidencia histórica; el runner actual es Jest/SWC/Supertest. No es certificación completa de accesibilidad, integración real ni aceptación de todas las variantes de una biblioteca.
