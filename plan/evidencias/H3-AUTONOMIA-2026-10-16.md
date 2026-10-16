@@ -66,9 +66,11 @@ Las dos revisiones finales de código **terminaron con éxito en GitHub Actions*
 |---|---|---|
 | Backend | 63071c8 | [Run 38854701659 — success](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/38854701659), incluido PostgreSQL/migración/readiness y controles |
 | Frontend | ad7206c | [Run 38854728651 — success](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/38854728651), incluidos Chromium, 16 E2E y controles |
-| SPECS | Commit de esta evidencia | Workflow de enlaces pendiente de observar tras publicar |
+| SPECS | e6cb4e9, publicación inicial de esta evidencia | [Run 38855080128 — success](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS/actions/runs/38855080128), 26 Markdown / 189 destinos / 0 ausentes en Ubuntu |
 
 El validador de SPECS comprobó localmente **26 Markdown modificados, 189 destinos relativos y 0 ausentes** al preparar el paquete. Sólo analiza enlaces inline locales fuera de bloques de código en documentos cambiados desde main a8c3a7e: no verifica disponibilidad de URLs externas, anclas ni toda la documentación del equipo.
+
+La comprobación final confirmó ramas propias sincronizadas (0 commits por subir/bajar), Backend y SPECS limpios y Frontend únicamente con el next-env.d.ts preexistente, conservado byte a byte. Los refs remotos compartidos siguen en BE main d98b01c/develop ed9582e, FE main 0f47537 y SPECS main a8c3a7e. No se abrió PR. Esta anotación documental vuelve a pasar el mismo workflow al publicarse; el enlace anterior identifica la ejecución observada del paquete inicial.
 
 ## Estado y pendientes
 
