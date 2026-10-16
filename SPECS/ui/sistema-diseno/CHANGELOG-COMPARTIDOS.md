@@ -2,6 +2,13 @@
 
 Este registro describe documentación y contratos de consumo. No acredita publicación de una biblioteca, revisión humana ni una nueva versión de DS-001.
 
+## 0.2.3 — 16/10/2026 — En revisión
+
+- Imagen opcional por solicitud de Giuliano: `images` omitido o `[]` en G6 se proyecta a `ProductCardDTO.image: null`.
+- ProductCard presenta un placeholder local «Sin imagen» con alternativa accesible, conservando producto, enlace y paginación; funciona en inicio y listado.
+- Las imágenes suministradas conservan la validación de formato, HTTPS y allowlist. La ausencia no se confunde con una URL insegura o una respuesta mal formada.
+- Se actualizan guías de consumo y specs H3. Los consumidores directos del DTO deben manejar null; sin cambios en selección de destacados, DS-001, elegibilidad o datos comerciales.
+
 ## 0.2.2 — 15/10/2026 — En revisión
 
 - Backend adopta el baseline NestJS de develop por decisión explícita de Giuliano: CatalogModule/Controller/Service, tipos, proveedor inyectable e interceptor/filtro locales.

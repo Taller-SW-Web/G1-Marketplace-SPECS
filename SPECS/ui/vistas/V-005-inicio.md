@@ -70,7 +70,7 @@ V-005 Inicio
 | Cabecera | Logo, búsqueda y accesos globales | Primaria | Permanece coherente con `V-006` y `V-007`; puede compactarse al desplazarse sin ocultar acciones esenciales. |
 | Hero | Mensaje, imagen y CTA editorial | Primaria | Un CTA inequívoco; no depende de carrusel automático. |
 | Categorías | Imagen/icono, nombre y enlace | Primaria | Sólo categorías activas; número y orden definidos por catálogo/editorial. |
-| Destacados | `ProductCard` completa | Primaria | Sólo productos activos con imagen, slug y datos comerciales completos. |
+| Destacados | `ProductCard` con imagen opcional | Primaria | Sólo productos activos con slug y datos comerciales requeridos; ausencia de imagen muestra placeholder local «Sin imagen» (ajuste solicitado 16/10/2026, en revisión). G-FEATURED sigue pendiente. |
 | Pie | Ayuda, políticas y navegación secundaria | Secundaria | No duplica la acción primaria del hero. |
 
 Una sección sin datos se omite completamente, incluyendo su título y espacio reservado. La ausencia de categorías o destacados no bloquea la cabecera, búsqueda ni navegación restante.

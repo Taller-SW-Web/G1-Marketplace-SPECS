@@ -1,6 +1,6 @@
 # Catálogo de elementos compartidos — Marketplace
 
-Versión documental **0.2.2**, 15/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
+Versión documental **0.2.3**, 16/10/2026, **en revisión**. Custodio: Giuliano Macchiavello. Describe la base local del corte F-006/F-007 y sus componentes reutilizables; la biblioteca completa y su aceptación siguen pendientes. No cambia la versión ni las reglas de DS-001.
 
 ## 1. Fuentes y ubicación
 
@@ -94,7 +94,7 @@ Button, TextField, EmptyState y Skeleton/LoadingState tienen APIs React implemen
 | Tipo implementado | Campos / significado |
 |---|---|
 | `Category` | `categoryId`, `name` |
-| `ProductCardDTO` | `productId`, `slug`, `name`, `categoryId`, `brandId`, `image: {url, alt}` |
+| `ProductCardDTO` | `productId`, `slug`, `name`, `categoryId`, `brandId`, `image: {url, alt} \| null`; null indica imagen ausente |
 | `HomeDTO` | `categories[]`, `featuredProducts[]` |
 | `PageMeta` | `number`, `size`, `totalElements`, `totalPages`; página API desde cero |
 | `CatalogPageDTO` | `data[]`, `page` |
@@ -102,6 +102,10 @@ Button, TextField, EmptyState y Skeleton/LoadingState tienen APIs React implemen
 | `QueryState<T>` | `loading`, `ready(data,source)`, `error(message,code)` |
 
 En el código actual el vacío es `ready` con un arreglo vacío válido; no existe una rama `empty` independiente. Un error nunca se transforma en vacío. La propuesta más general de arquitectura no implica que todos sus tipos estén implementados.
+
+Por solicitud de Giuliano del 16/10/2026, el adaptador acepta `images` omitido o vacío en G6 y emite `image: null`. ProductCard usa `/images/product-placeholder.svg`, con texto visible «Sin imagen» y alt contextual. La tarjeta, su enlace/returnTo y los totales de página se conservan. Los consumidores de ProductCardDTO deben contemplar null; el placeholder es presentación de Marketplace, no una imagen de G6. Datos/URL de imágenes mal formados o no permitidos mantienen el error.
+
+[Evidencia del ajuste, pruebas y captura](../../../plan/evidencias/H3-IMAGEN-OPCIONAL-2026-10-16.md). La documentación anterior de cada corte conserva sus resultados históricos.
 
 - Producto, variante y SKU son identidades distintas; la tarjeta no autoriza compra ni construye SKU.
 - El contrato candidato G6 del primer corte no incluye precio/stock/nombre de marca. La tarjeta completa requiere acuerdo y enriquecimiento autorizado; no se rellenan valores ficticios.
