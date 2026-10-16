@@ -1,6 +1,6 @@
 # Tareas y seguimiento — F-006 Visualizar inicio, categorías y destacados
 
-Versión 0.2.0 · Avance local parcial MOCK registrado el 14/10/2026; integración, revisión y cierre pendientes.
+Versión 0.2.1 · Corte MOCK y automatización actualizados al 16/10/2026; integración, revisión y cierre pendientes.
 
 ## Fuente y control
 
@@ -18,8 +18,8 @@ Versión 0.2.0 · Avance local parcial MOCK registrado el 14/10/2026; integraci�
 | TASK-F006-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 | En progreso |
 | TASK-F006-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-BE-001 + I-01 | 8 | Bloqueado |
 | TASK-F006-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 | 8 | En progreso |
-| TASK-F006-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 + TASK-TRANS-S01-OPS-002 | 8 | Pendiente |
-| TASK-F006-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-INT-001 + TASK-F006-QA-001 + TASK-F006-QA-002 | 8 | Pendiente |
+| TASK-F006-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 + TASK-TRANS-S01-OPS-002 | 8 | En progreso |
+| TASK-F006-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-INT-001 + TASK-F006-QA-001 + TASK-F006-QA-002 | 8 | En progreso |
 
 La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs. Los aportes de shell/buscador de Giuliano se coordinan con Fernando y Sebastian sin duplicar estos IDs.
 
@@ -57,15 +57,15 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 
 - **Trabajo:** Producto inactivo no publicable, enlaces hero seguros y medios allowlist.
 - **Terminado cuando:** Negativos de seguridad pasan en entorno propio/autorizado, scans SAST/SCA/secrets y DAST aplicable adjuntos sin secretos. Sin hallazgo crítico/alto explotable abierto.
-- **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
-- **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
+- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
+- **Bloqueo / liberación:** Avance independiente documentado; requiere entorno REAL autorizado, DAST staging, revisión y aceptación de riesgos para el cierre. Ninguna tarea se declara terminada.
 
 ### TASK-F006-DOC-001
 
 - **Trabajo:** Actualizar trazabilidad specs↔implementación↔pruebas, enlaces Figma y decisiones resueltas; documentar operación/errores relevantes.
 - **Terminado cuando:** Fuentes vigentes coherentes, evidencias reales y revisión independiente; no marcar funcionalidad terminada con integración pendiente.
-- **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
-- **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
+- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
+- **Bloqueo / liberación:** Avance independiente documentado; requiere entorno REAL autorizado, DAST staging, revisión y aceptación de riesgos para el cierre. Ninguna tarea se declara terminada.
 
 
 ## Registro de revisión
@@ -76,5 +76,6 @@ Avance local del 14/10/2026: [evidencia individual y límites](../evidencias/H3-
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 | 14/10/2026, avance local | FE/BE/QA-001 en progreso; INT bloqueada | Corte MOCK, pruebas/build y evidencia enlazada; ninguna tarea terminada | Revisión de Sebastian/Leonidas pendiente |
+| 16/10/2026, automatización H3 | QA-002 y DOC-001 en progreso; INT sigue bloqueada | [Pruebas, seguridad, CI y límites](../evidencias/H3-AUTONOMIA-2026-10-16.md); [paquete de entrega](../entrega/H3-GIULIANO.md). FE/BE/QA-001 mantienen estado hasta revisión | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.

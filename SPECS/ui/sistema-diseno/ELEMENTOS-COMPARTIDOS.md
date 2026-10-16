@@ -11,6 +11,7 @@ Versión documental **0.2.2**, 15/10/2026, **en revisión**. Custodio: Giuliano 
 - [Evidencia local](../../../plan/evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md): comprobaciones ejecutadas y límites.
 - [Adaptación visual H3 a Figma](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md): recursos, composición, verificación y diferencias de alcance.
 - [Adaptación al baseline NestJS](../../../plan/evidencias/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md): módulo, imports, pruebas y compatibilidad del backend compartido.
+- [Entrega H3 de Giuliano](../../../plan/entrega/H3-GIULIANO.md): trazabilidad, demo, borradores de PR y pendientes; [automatización y seguridad](../../../plan/evidencias/H3-AUTONOMIA-2026-10-16.md). Añadido el 16/10/2026 sin cambiar contratos de componentes ni DS-001.
 - [Changelog de esta documentación](CHANGELOG-COMPARTIDOS.md).
 
 | Repositorio | Documento o carpeta | Propósito |
