@@ -24,12 +24,12 @@ Entregar simular pago y revalidar stock conforme comportamiento/UI/API/React, no
 | Persistencia | CheckoutOperation. Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
 | Remoto / caché | CheckoutOperation del BFF es autoridad; almacenar referencia opaca según estrategia de recuperación aún abierta. |
 | Seguridad específica | Fingerprint/clave reutilizada, replay de POST y concurrencia; no tarjeta/CVV ni reserva. |
-| UI Kit | DS-001 v0.2.0; G-STACK pendiente, no fijar versiones no verificadas. |
+| UI Kit | Checkout: componentes propios existentes (`Button`, `TextField`) y tokens DS-001; no instalar Mantine. Decisión de G-STACK para este slice registrada el 2026-10-15. |
 
 ## 4. Dependencias y Definition of Ready
 
 - Dependencias de comportamiento/flujo: [F-023](F-023-calcular-resumen-envio.md), [F-024](F-024-validar-aplicar-cupon-promocion.md).
-- Gates: I-01, I-02, I-06, G-CHECKOUT; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
+- Gates: I-01, I-02, I-06, G-CHECKOUT; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK para Checkout está resuelto; el UI kit global de otras familias sigue abierto. Para la UI, usar V-010–V-014 del [canvas Checkout en Figma](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) como referencia de G-SHELL. Revisar los frames desktop/mobile durante la aceptación visual.
 - Pendientes específicos: I-01; I-02 para activar creación posterior; recuperación PREPARED al recargar pendiente.
 - Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
