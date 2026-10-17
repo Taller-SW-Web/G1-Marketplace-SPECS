@@ -22,7 +22,7 @@ No se encontró una rama propia ni un PR de Sebastián en SPECS. La rama `docs/g
 - **Filtro de ficha:** el ID devuelto en cabecera coincide siempre con el cuerpo, incluso cuando un controlador se prueba sin middleware.
 - **Conflicto textual Frontend:** `src/app/api/catalog/[...path]/route.ts` delega en el nuevo `bff-proxy.ts` de Sebastián. El helper conserva su correlación y errores propios Problem Details y reutiliza `marketplaceApiUrl` de Giuliano para admitir sólo HTTP loopback o Docker explícitamente autorizado, además de HTTPS. Se mantienen rutas completas por slug, query, cancelación, timeout y rechazo de redirecciones.
 - **Ficha server-side:** conserva el mismo helper de origen aprobado y el 404 HTTP dentro de Docker.
-- **CTA de ficha:** se incorpora el botón naranja «Agregar al carrito» de Sebastián. Es una demostración visual: confirma en pantalla, sin llamar al carrito ni crear ítems persistidos. No acredita F-016 integrado ni resuelve la coordinación funcional con Andrés. No se añaden precio, stock, variantes ni checkout completo.
+- **Corrección de alcance en ficha:** el merge inicial incorporó el botón simulado «Agregar al carrito». Tras contrastar UI-F011-09 y la sección 3 de la spec UI F-011, se retira el botón, su confirmación ficticia, estado y estilos exclusivos. La región comercial se omite hasta disponer de la integración correspondiente. No se añaden precio, stock, variantes ni checkout completo; F-016 conserva su responsable y evidencia independiente.
 - **Lockfile y suites:** se incorpora la sincronización del lockfile; se conservan todas las suites ya combinadas, el proxy de sesión anónima y el control positivo determinista de seguridad. CI Frontend fija el Backend integrado `1507766`.
 
 ## Verificación
@@ -51,6 +51,12 @@ Los últimos merges, sin cambios de archivos, tienen además estas revalidacione
 La comprobación Docker pasa de seis a siete casos: readiness de PostgreSQL desechable, inicio/listado/detalle correlacionados, 404 server-side, Problem Details 404 correlacionado a través de Next/BFF y carrito anónimo. CI usa su propio stack y aplica las migraciones del baseline sólo a esa base desechable.
 
 ## Conservación y límites
+
+### Alcance parcial de F-011 en H3
+
+El [paquete individual de Sebastián](../../repartición%20por%20integrantes/SEBASTIAN-MALCA-AGUERO.md) incluye en semana 8 abrir una ficha desde una tarjeta, mostrar datos descriptivos y estados mediante BFF MOCK. La funcionalidad completa corresponde a H4/S2, semanas 9–11. Este avance no autoriza controles comerciales que sólo simulen éxito: la [spec UI F-011, sección 3 y UI-F011-09](../../../SPECS/ui/F-011-detalle-producto.md) exige omitir la capacidad no disponible.
+
+La [corrección Frontend 1524fa3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/1524fa303b164bc064f0c740b31cb00f2ac96a9c) mantiene las pruebas existentes de componente y navegador y restaura la expectativa de ausencia de texto/controles de carrito en la ficha. La prueba local focalizada en el checkout Frontend aprobó sus diez casos, sin arrancar Backend ni aplicar migraciones; lint terminó sin errores, con la advertencia heredada de OrdersHistory. El [CI de esta corrección](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/39017167157) verifica el conjunto. Los resultados de integración anteriores conservan sus SHA y no se suman otra vez.
 
 El `.env` privado y el Docker habitual de Giuliano no se reemplazan. `next-env.d.ts` se guardó y restauró byte por byte; se retiró sólo el stash temporal de esta integración. La guía privada de presentación se actualiza y permanece excluida de Git.
 
