@@ -8,7 +8,7 @@ Alcance limitado a semanas 7–8, F-006/F-007 y su verificación/documentación.
 |---|---|---|
 | Backend | `feat/s1-f006-f007-catalogo`, [63071c8](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/commit/63071c833b7bd72f2ffbfca2f47d0695c9d9992b) | CI, controles de seguridad/inventario y smoke del ejecutable compilado; conserva baseline develop ed9582e |
 | Frontend | `feat/s1-f006-f007-catalogo`, [ad7206c](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/ad7206c0c83f5845a1564f7eb03bcf727674ff5f) | CI sobre Backend público fijado a 63071c8, Chromium en CI/Edge local, controles y claridad del ID Figma; conserva baseline main 0f47537 |
-| SPECS | `docs/giuliano-elementos-compartidos` | Seguimiento, evidencia, [entrega/demo/trazabilidad](../entrega/H3-GIULIANO.md), tres borradores manuales de PR y workflow de enlaces; conserva main a8c3a7e |
+| SPECS | `docs/giuliano-elementos-compartidos` | Seguimiento, evidencia, [entrega/demo/trazabilidad](../../entrega/H3-GIULIANO.md), tres borradores manuales de PR y workflow de enlaces; conserva main a8c3a7e |
 
 Las guías operativas están en [Backend/docs/CI-H3.md](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/63071c833b7bd72f2ffbfca2f47d0695c9d9992b/docs/CI-H3.md) y [Frontend/docs/CI-H3.md](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/ad7206c0c83f5845a1564f7eb03bcf727674ff5f/docs/CI-H3.md). Los scripts/reglas comunes son iguales en ambos repositorios; no se añaden dependencias a la aplicación.
 
@@ -76,4 +76,4 @@ La comprobación final confirmó ramas propias sincronizadas (0 commits por subi
 
 TASK-F006/F007-QA-002 y DOC-001 pasan a **En progreso** porque ya existen controles/documentación ejecutables y evidencia. FE/BE/QA-001 mantienen En progreso hasta revisión. INT sigue **Bloqueado** por I-01. No se cambia ningún ID, se completa una revisión en nombre de otro integrante ni se declara Terminado.
 
-Quedan coordinación/configuración y prueba **REAL** de Productos, G-FEATURED/campos comerciales según contrato, URLs de despliegue propias, DAST staging, revisión independiente, aceptación de riesgo/licencias y aceptación H3. La [guía de entrega](../entrega/H3-GIULIANO.md) especifica responsables propuestos y evidencia de salida. No se desarrollan funciones posteriores a semana 8.
+Quedan coordinación/configuración y prueba **REAL** de Productos, G-FEATURED/campos comerciales según contrato, URLs de despliegue propias, DAST staging, revisión independiente, aceptación de riesgo/licencias y aceptación H3. La [guía de entrega](../../entrega/H3-GIULIANO.md) especifica responsables propuestos y evidencia de salida. No se desarrollan funciones posteriores a semana 8.

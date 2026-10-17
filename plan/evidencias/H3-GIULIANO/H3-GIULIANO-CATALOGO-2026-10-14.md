@@ -27,7 +27,7 @@ IA utilizada: Codex, para inspeccionar las fuentes, preparar y escribir el corte
 
 ## Fuentes y decisiones
 
-- [Responsabilidades](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), [paquete individual](../repartici%C3%B3n%20por%20integrantes/GIULIANO-MACCHIAVELLO-PEREZ.md) y [plan de trabajo](../repartici%C3%B3n%20por%20integrantes/PLAN-DE-TRABAJO-GIULIANO.md).
+- [Responsabilidades](../../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), [paquete individual](../../repartici%C3%B3n%20por%20integrantes/GIULIANO-MACCHIAVELLO-PEREZ.md) y [plan de trabajo](../../repartici%C3%B3n%20por%20integrantes/PLAN-DE-TRABAJO-GIULIANO.md).
 - Funcional/UI/API/React F-006/F-007, V-005/V-006, DS-001 v0.2.0, arquitectura React y guía colaborativa.
 - [OpenAPI G6](https://github.com/Taller-SW-Web/G6-Productos-Ofertas-docs/blob/master/contratos/http/openapi.yaml): candidato `0.6.0-rc.1`, blob SHA `f64bfe9a097b2a0f74c2600988305443d92f640e`, consultado por conexión GitHub.
 - [Alineación Marketplace G6](https://github.com/Taller-SW-Web/G6-Productos-Ofertas-docs/blob/master/integraciones/ALINEACION_MARKETPLACE.md): faltan conformidad bilateral, ambiente, credenciales y grants. El primer corte separa catálogo de Pricing/Inventario.
@@ -79,7 +79,7 @@ Los mensajes/acciones del dominio permanecen en los contenedores; los componente
 
 ## Pendientes para cierre
 
-Se incorporó el [catálogo de elementos compartidos](../../SPECS/ui/sistema-diseno/ELEMENTOS-COMPARTIDOS.md), su changelog y las guías de uso en ambos repositorios de código. Esta entrega documental inventaría componentes/estilos reales y pendientes; no agrega implementación ni cambia los resultados de pruebas de la tabla anterior.
+Se incorporó el [catálogo de elementos compartidos](../../../SPECS/ui/sistema-diseno/ELEMENTOS-COMPARTIDOS.md), su changelog y las guías de uso en ambos repositorios de código. Esta entrega documental inventaría componentes/estilos reales y pendientes; no agrega implementación ni cambia los resultados de pruebas de la tabla anterior.
 
 - Revisión de Sebastian; revisión técnica de Leonidas y de seguridad/despliegue con Andres cuando corresponda.
 - Ambiente, token técnico `catalogo:leer`, configuración autorizada, medios y homologación I-01; prueba real y URLs públicas.

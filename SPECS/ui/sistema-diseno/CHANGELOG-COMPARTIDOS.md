@@ -6,13 +6,13 @@ Este registro describe documentación y contratos de consumo. No acredita public
 
 - Documenta Docker como entorno actual solicitado: tres servicios, red interna y volumen PostgreSQL aislado; Render se conserva como referencia futura.
 - Los proxies catálogo/carrito comparten la validación del origen BFF y autorizan HTTP al hostname Docker configurado explícitamente en servidor. No cambian DTO, props ni DS-001.
-- [Evidencia Docker y guías](../../../plan/evidencias/H3-DOCKER-2026-10-16.md): la construcción/arranque y el recorrido con fixtures se verifican separadamente de G6 REAL y aceptación H3.
+- [Evidencia Docker y guías](../../../plan/evidencias/H3-GIULIANO/H3-DOCKER-2026-10-16.md): la construcción/arranque y el recorrido con fixtures se verifican separadamente de G6 REAL y aceptación H3.
 
 ## 0.2.4 — 16/10/2026 — En revisión
 
 - Compatibilidad con develop Backend e6fc7f2 y Frontend 843dfde: catálogo y carrito conviven, sin cambiar props, DTO ni DS-001.
 - Restauración start:prod para Render y eliminación de identidad de prueba automática en el proxy cart; sesión anónima y Authorization explícita preservadas.
-- [Evidencia del corte](../../../plan/evidencias/H3-ACTUALIZACION-DEVELOP-2026-10-16.md): 125 pruebas y 11 comprobaciones smoke locales, incluyendo producción sin credenciales. Preparación de despliegue documentada; revisión/REAL/aceptación pendientes.
+- [Evidencia del corte](../../../plan/evidencias/H3-GIULIANO/H3-ACTUALIZACION-DEVELOP-2026-10-16.md): 125 pruebas y 11 comprobaciones smoke locales, incluyendo producción sin credenciales. Preparación de despliegue documentada; revisión/REAL/aceptación pendientes.
 
 ## 0.2.3 — 16/10/2026 — En revisión
 
@@ -27,7 +27,7 @@ Este registro describe documentación y contratos de consumo. No acredita public
 - Se retiran el servidor Node anterior y sus imports internos; las guías del Backend pasan a 0.2.0 y documentan cómo consumir módulos/proveedores TypeScript.
 - Se conservan los archivos compartidos de arranque, salud, Prisma, Render, configuración de build/test, scripts y lockfile del baseline. CORS_ORIGINS y el 404 global siguen su comportamiento.
 - Playwright compila/inicia el BFF NestJS con configuración MOCK y sin una BD real. Pasan 34 pruebas unitarias y 19 HTTP del Backend; 10 de componentes y 16 de navegador del Frontend, más build/tipado/lint y validación de Prisma.
-- Se registra la [evidencia de migración y publicación](../../../plan/evidencias/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md). No se añaden dependencias al baseline ni funciones H4, ni se declara integración real/H3 cerrado.
+- Se registra la [evidencia de migración y publicación](../../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md). No se añaden dependencias al baseline ni funciones H4, ni se declara integración real/H3 cerrado.
 
 Compatibilidad: las rutas, DTO y errores de validación/proveedor mantienen su contrato. Los imports internos JavaScript/createApp se reemplazan por TypeScript e inyección NestJS. Las props y el diseño del Frontend no cambian; DS-001 mantiene su versión 0.2.0. CORS y rutas inexistentes respetan el baseline compartido.
 
@@ -37,7 +37,7 @@ Compatibilidad: las rutas, DTO y errores de validación/proveedor mantienen su c
 - Se añaden CategoryNavigation y CategoryArtwork dentro de catálogo; ErrorState incorpora `home?: boolean` sin romper consumidores existentes.
 - ProductSkeletons compone seis tarjetas; SearchBox conserva etiqueta visible y botón accesible con icono.
 - Se registran recursos exactos de Figma en Frontend con nodos de origen, dimensiones y SHA-256. Productos y categorías siguen sujetos al BFF; no se inventan precio/stock/destacados ni se añade funcionalidad H4.
-- Se actualizan guías de consumo y la [evidencia de adaptación](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md). Revisión humana y gates externos pendientes.
+- Se actualizan guías de consumo y la [evidencia de adaptación](../../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-FIGMA-2026-10-15.md). Revisión humana y gates externos pendientes.
 
 Compatibilidad: Button, TextField, EmptyState, Skeleton, DTO y rutas HTTP mantienen sus contratos. La nueva prop de ErrorState es opcional. DS-001 conserva su versión 0.2.0.
 

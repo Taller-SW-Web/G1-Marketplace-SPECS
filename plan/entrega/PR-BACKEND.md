@@ -12,6 +12,6 @@ Home y búsqueda exponen DTO públicos, validación de query y paginación, erro
 
 Añade CI de pruebas, PostgreSQL 16 temporal para migraciones/readiness, smoke del ejecutable compilado, escaneos y reportes sanitizados con retención de 7 días. El pipeline no despliega.
 
-Validación, hallazgos y límites: [evidencia H3](../evidencias/H3-AUTONOMIA-2026-10-16.md). Guía operativa en `docs/CATALOGO-S1.md`; controles en `docs/CI-H3.md`. Los enlaces relativos de este borrador pertenecen a SPECS: al copiar a GitHub, usar el [documento de evidencia publicado](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS/blob/docs/giuliano-elementos-compartidos/plan/evidencias/H3-AUTONOMIA-2026-10-16.md).
+Validación, hallazgos y límites: [evidencia H3](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md). Guía operativa en `docs/CATALOGO-S1.md`; controles en `docs/CI-H3.md`. Los enlaces relativos de este borrador pertenecen a SPECS: al copiar a GitHub, usar el [documento de evidencia publicado](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS/blob/docs/giuliano-elementos-compartidos/plan/evidencias/H3-AUTONOMIA-2026-10-16.md).
 
 Pendientes: integración G6 REAL autorizada, despliegue, DAST staging y revisión de Sebastian/Leonidas. No declara Done ni incorpora funciones posteriores a semana 8.

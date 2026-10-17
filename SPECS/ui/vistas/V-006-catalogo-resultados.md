@@ -206,7 +206,7 @@ Estos frames existen en el archivo consultado; se registran como referencias vis
 | `V-006 / Desktop / Página fuera de rango` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=367-2155) |
 | `V-006 / Mobile / Página fuera de rango` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=367-2263) |
 
-Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de un frame no acredita aprobación, integración de datos ni fidelidad de la web. La [comparación del corte H3](../../../plan/evidencias/H3-COMPARACION-FIGMA-2026-10-14.md) registra las diferencias encontradas. Las capacidades mostradas en el mockup se habilitan sólo cuando lo permitan el alcance y los contratos vigentes.
+Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de un frame no acredita aprobación, integración de datos ni fidelidad de la web. La [comparación del corte H3](../../../plan/evidencias/H3-GIULIANO/H3-COMPARACION-FIGMA-2026-10-14.md) registra las diferencias encontradas. Las capacidades mostradas en el mockup se habilitan sólo cuando lo permitan el alcance y los contratos vigentes.
 
 ## 13. Criterios de aceptación visual
 

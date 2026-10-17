@@ -7,8 +7,8 @@ Giuliano solicitó actualizar el diseño según Figma, conservando el límite pr
 ## Referencias y código publicado
 
 - [Mockups — página Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3).
-- [V-005](../../SPECS/ui/vistas/V-005-inicio.md): principal desktop `274:111`, mobile `274:293`; estados de carga `294:720`, vacío `294:827` y error `294:911`.
-- [V-006](../../SPECS/ui/vistas/V-006-catalogo-resultados.md): catálogo desktop `339:881`, mobile `339:1026`, resultados mobile `360:1734`; carga `351:1188`, vacío `351:1338` y error `351:1565`.
+- [V-005](../../../SPECS/ui/vistas/V-005-inicio.md): principal desktop `274:111`, mobile `274:293`; estados de carga `294:720`, vacío `294:827` y error `294:911`.
+- [V-006](../../../SPECS/ui/vistas/V-006-catalogo-resultados.md): catálogo desktop `339:881`, mobile `339:1026`, resultados mobile `360:1734`; carga `351:1188`, vacío `351:1338` y error `351:1565`.
 - Frontend, rama [feat/s1-f006-f007-catalogo](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/tree/feat/s1-f006-f007-catalogo): [cambio visual `9f39e0c`](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/9f39e0c58ace011a0c910c27bcc43e46a80d8108) y [conservación de exports `3a5a20b`](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/3a5a20bf776c3cf3e9be9d4dfcdfa71dfaf42b0c).
 - [Guía de adaptación del Frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s1-f006-f007-catalogo/docs/FIGMA-H3.md) y [guía de elementos compartidos](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s1-f006-f007-catalogo/docs/ELEMENTOS-COMPARTIDOS.md), versión documental 0.2.1.
 

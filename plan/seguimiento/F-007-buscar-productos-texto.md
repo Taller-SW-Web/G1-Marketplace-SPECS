@@ -29,14 +29,14 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 
 - **Trabajo:** Implementar SearchBox, SearchResultsHeading y todos los estados de React/UI.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
-- **Evidencia:** [Corte local y verificaciones del 14/10](../evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md): buscador, resultados, validación, cancelación, URL, vacío/error y paginación básica MOCK.
+- **Evidencia:** [Corte local y verificaciones del 14/10](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md): buscador, resultados, validación, cancelación, URL, vacío/error y paginación básica MOCK.
 - **Bloqueo / liberación:** Revisión de Sebastian, integración de ficha y conformidad de tarjeta completa pendientes; respetar dependencias para cierre.
 
 ### TASK-F007-BE-001
 
 - **Trabajo:** Validar q de 2–120 caracteres y adaptar búsqueda paginada pública, proteger query de logs identificables.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
-- **Evidencia:** [BFF y pruebas locales](../evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md): ruta de búsqueda, validación antes del proveedor, proyección pública, errores, timeout y mapeo de paginación con respuestas sintéticas.
+- **Evidencia:** [BFF y pruebas locales](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md): ruta de búsqueda, validación antes del proveedor, proyección pública, errores, timeout y mapeo de paginación con respuestas sintéticas.
 - **Bloqueo / liberación:** I-01 sin configuración/prueba real; adaptador candidato requiere revisión de Leonidas y homologación antes de activarse.
 
 ### TASK-F007-INT-001
@@ -50,32 +50,32 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 
 - **Trabajo:** Probar 1 y 121 caracteres no consultan; query vacía vuelve catálogo; respuesta lenta anterior no reemplaza nueva; cero resultados conserva q y limpiar; incluir cada estado visual y transición documentada.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
-- **Evidencia:** [Resultados y retest MOCK](../evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md): consulta válida/inválida, cero, error/reintento, respuesta anterior ignorada, foco, mobile y URL.
+- **Evidencia:** [Resultados y retest MOCK](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md): consulta válida/inválida, cero, error/reintento, respuesta anterior ignorada, foco, mobile y URL.
 - **Bloqueo / liberación:** QA local parcial; faltan revisión independiente y ejecución contra proveedor autorizado antes del cierre.
 
 ### TASK-F007-QA-002
 
 - **Trabajo:** Entradas XSS/inyección y longitudes, consulta pública sin datos privados.
 - **Terminado cuando:** Negativos de seguridad pasan en entorno propio/autorizado, scans SAST/SCA/secrets y DAST aplicable adjuntos sin secretos. Sin hallazgo crítico/alto explotable abierto.
-- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
+- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
 - **Bloqueo / liberación:** Avance independiente documentado; requiere entorno REAL autorizado, DAST staging, revisión y aceptación de riesgos para el cierre. Ninguna tarea se declara terminada.
 
 ### TASK-F007-DOC-001
 
 - **Trabajo:** Actualizar trazabilidad specs↔implementación↔pruebas, enlaces Figma y decisiones resueltas; documentar operación/errores relevantes.
 - **Terminado cuando:** Fuentes vigentes coherentes, evidencias reales y revisión independiente; no marcar funcionalidad terminada con integración pendiente.
-- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
+- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
 - **Bloqueo / liberación:** Avance independiente documentado; requiere entorno REAL autorizado, DAST staging, revisión y aceptación de riesgos para el cierre. Ninguna tarea se declara terminada.
 
 
 ## Registro de revisión
 
-Avance local del 14/10/2026: [evidencia individual y límites](../evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md). Búsqueda UI→Next→BFF con consulta válida/inválida, estados, URL, cancelación y pruebas MOCK; adaptador candidato sin llamada real a G6. Revisión independiente, tarjeta comercial completa y ficha de Sebastian pendientes. INT permanece bloqueada por I-01. QA-001 refleja ejecución local parcial, no cierre de QA REAL. Los resultados iniciales pendientes de las fichas de tarea se complementan con esta evidencia, sin declarar Done.
+Avance local del 14/10/2026: [evidencia individual y límites](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md). Búsqueda UI→Next→BFF con consulta válida/inválida, estados, URL, cancelación y pruebas MOCK; adaptador candidato sin llamada real a G6. Revisión independiente, tarjeta comercial completa y ficha de Sebastian pendientes. INT permanece bloqueada por I-01. QA-001 refleja ejecución local parcial, no cierre de QA REAL. Los resultados iniciales pendientes de las fichas de tarea se complementan con esta evidencia, sin declarar Done.
 
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 | 14/10/2026, avance local | FE/BE/QA-001 en progreso; INT bloqueada | Corte MOCK, pruebas/build y evidencia enlazada; ninguna tarea terminada | Revisión de Sebastian/Leonidas pendiente |
-| 16/10/2026, automatización H3 | QA-002 y DOC-001 en progreso; INT sigue bloqueada | [Pruebas, seguridad, CI y límites](../evidencias/H3-AUTONOMIA-2026-10-16.md); [paquete de entrega](../entrega/H3-GIULIANO.md). FE/BE/QA-001 mantienen estado hasta revisión | Revisión humana pendiente |
+| 16/10/2026, automatización H3 | QA-002 y DOC-001 en progreso; INT sigue bloqueada | [Pruebas, seguridad, CI y límites](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md); [paquete de entrega](../entrega/H3-GIULIANO.md). FE/BE/QA-001 mantienen estado hasta revisión | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.

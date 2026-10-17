@@ -1,6 +1,6 @@
 # Plan de trabajo — Giuliano — H3, semanas 7–8
 
-Alcance indicado por Giuliano: únicamente hasta la semana 8. Este plan cubre F-006/F-007 y la base compartida necesaria para su entrega. El estado de ejecución se consulta en los archivos de seguimiento y en la [evidencia H3](../evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md).
+Alcance indicado por Giuliano: únicamente hasta la semana 8. Este plan cubre F-006/F-007 y la base compartida necesaria para su entrega. El estado de ejecución se consulta en los archivos de seguimiento y en la [evidencia H3](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md).
 
 Trabajar en ramas independientes por repositorio, crear commits y subir únicamente esas ramas. No modificar main ni abrir PR; Giuliano preparará los PR manualmente.
 

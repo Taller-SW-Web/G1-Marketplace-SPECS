@@ -182,7 +182,7 @@ Estos frames existen en el archivo consultado; se registran como referencias vis
 | `V-005 / Mobile / ProductCard favorita` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-998) |
 | `V-005 / Desktop / Producto no disponible` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=294-1037) |
 
-Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de un frame no acredita aprobación, integración de datos ni fidelidad de la web. La [comparación del corte H3](../../../plan/evidencias/H3-COMPARACION-FIGMA-2026-10-14.md) registra las diferencias encontradas. Las capacidades mostradas en el mockup se habilitan sólo cuando lo permitan el alcance y los contratos vigentes.
+Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de un frame no acredita aprobación, integración de datos ni fidelidad de la web. La [comparación del corte H3](../../../plan/evidencias/H3-GIULIANO/H3-COMPARACION-FIGMA-2026-10-14.md) registra las diferencias encontradas. Las capacidades mostradas en el mockup se habilitan sólo cuando lo permitan el alcance y los contratos vigentes.
 
 ## 13. Criterios de aceptación visual
 

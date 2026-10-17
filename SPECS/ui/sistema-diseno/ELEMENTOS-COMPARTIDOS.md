@@ -8,10 +8,10 @@ Versión documental **0.2.5**, 16/10/2026, **en revisión**. Custodio: Giuliano 
 - [Arquitectura React](../../componentes-react/ARQUITECTURA-REACT.md): composición, separación de datos y contratos compartidos.
 - [Matriz de responsabilidades](../../RESPONSABILIDADES-PUNTA-A-PUNTA.md): responsables de implementación y revisión.
 - [O-010](../overlays/O-010-alertas-feedback-global.md): feedback transversal completo; no se considera implementado por tener una alerta de catálogo.
-- [Evidencia local](../../../plan/evidencias/H3-GIULIANO-CATALOGO-2026-10-14.md): comprobaciones ejecutadas y límites.
-- [Adaptación visual H3 a Figma](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md): recursos, composición, verificación y diferencias de alcance.
-- [Adaptación al baseline NestJS](../../../plan/evidencias/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md): módulo, imports, pruebas y compatibilidad del backend compartido.
-- [Entrega H3 de Giuliano](../../../plan/entrega/H3-GIULIANO.md): trazabilidad, demo, borradores de PR y pendientes; [automatización y seguridad](../../../plan/evidencias/H3-AUTONOMIA-2026-10-16.md). Añadido el 16/10/2026 sin cambiar contratos de componentes ni DS-001.
+- [Evidencia local](../../../plan/evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md): comprobaciones ejecutadas y límites.
+- [Adaptación visual H3 a Figma](../../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-FIGMA-2026-10-15.md): recursos, composición, verificación y diferencias de alcance.
+- [Adaptación al baseline NestJS](../../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md): módulo, imports, pruebas y compatibilidad del backend compartido.
+- [Entrega H3 de Giuliano](../../../plan/entrega/H3-GIULIANO.md): trazabilidad, demo, borradores de PR y pendientes; [automatización y seguridad](../../../plan/evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md). Añadido el 16/10/2026 sin cambiar contratos de componentes ni DS-001.
 - [Changelog de esta documentación](CHANGELOG-COMPARTIDOS.md).
 
 | Repositorio | Documento o carpeta | Propósito |
@@ -105,7 +105,7 @@ En el código actual el vacío es `ready` con un arreglo vacío válido; no exis
 
 Por solicitud de Giuliano del 16/10/2026, el adaptador acepta `images` omitido o vacío en G6 y emite `image: null`. ProductCard usa `/images/product-placeholder.svg`, con texto visible «Sin imagen» y alt contextual. La tarjeta, su enlace/returnTo y los totales de página se conservan. Los consumidores de ProductCardDTO deben contemplar null; el placeholder es presentación de Marketplace, no una imagen de G6. Datos/URL de imágenes mal formados o no permitidos mantienen el error.
 
-[Evidencia del ajuste, pruebas y captura](../../../plan/evidencias/H3-IMAGEN-OPCIONAL-2026-10-16.md). La documentación anterior de cada corte conserva sus resultados históricos.
+[Evidencia del ajuste, pruebas y captura](../../../plan/evidencias/H3-GIULIANO/H3-IMAGEN-OPCIONAL-2026-10-16.md). La documentación anterior de cada corte conserva sus resultados históricos.
 
 - Producto, variante y SKU son identidades distintas; la tarjeta no autoriza compra ni construye SKU.
 - El contrato candidato G6 del primer corte no incluye precio/stock/nombre de marca. La tarjeta completa requiere acuerdo y enriquecimiento autorizado; no se rellenan valores ficticios.
@@ -167,8 +167,8 @@ Versiones documentales: `0.1.x` registra el inventario inicial; `0.2.0` añade A
 - [ ] Implementar O-010 completo: severidades, cola, deduplicación, acciones, persistencia y reglas de temporización; ErrorState por sí solo no lo cubre.
 - [ ] Incorporar los patrones requeridos por otros bloques cuando sus responsables los integren: galería, carrito, resumen y timelines; no atribuir todo su backend a Giuliano.
 - [ ] Resolver InternalPath y la conservación segura de retorno con los flujos que lo consumen.
-- [x] Registrar los enlaces verificados de V-005/V-006 y sus variantes existentes; véase la [comparación H3](../../../plan/evidencias/H3-COMPARACION-FIGMA-2026-10-14.md).
-- [x] Adaptar visualmente el corte H3 a los frames aplicables y verificar recursos y composición responsive; véase la [evidencia de adaptación](../../../plan/evidencias/H3-ADAPTACION-FIGMA-2026-10-15.md).
+- [x] Registrar los enlaces verificados de V-005/V-006 y sus variantes existentes; véase la [comparación H3](../../../plan/evidencias/H3-GIULIANO/H3-COMPARACION-FIGMA-2026-10-14.md).
+- [x] Adaptar visualmente el corte H3 a los frames aplicables y verificar recursos y composición responsive; véase la [evidencia de adaptación](../../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-FIGMA-2026-10-15.md).
 - [ ] Obtener revisión visual humana y resolver diferencias de datos/controles pendientes; la adaptación no certifica identidad con todos los frames ni cierra contratos.
 - [ ] Registrar revisión humana y el proceso/canal de publicación antes de considerar cerrada la gobernanza.
 
@@ -176,8 +176,8 @@ Verificaciones tras adoptar NestJS: 34 pruebas unitarias y 19 HTTP del Backend; 
 
 ## Compatibilidad con develop — 16/10/2026
 
-La documentación 0.2.4 registra las bases e6fc7f2 Backend y 843dfde Frontend incorporadas en las ramas de Giuliano. CatalogModule convive con CartModule y se conservan estilos, alias y lockfile compartidos. No cambian props, DTO ni DS-001. El arranque Render vuelve a resolver start:prod y el proxy cart conserva sesiones anónimas sin asignar el usuario de prueba default. [Evidencia, pruebas y preparación de despliegue](../../../plan/evidencias/H3-ACTUALIZACION-DEVELOP-2026-10-16.md). Los estados de aceptación/integración REAL siguen pendientes y los conteos anteriores corresponden a sus cortes históricos.
+La documentación 0.2.4 registra las bases e6fc7f2 Backend y 843dfde Frontend incorporadas en las ramas de Giuliano. CatalogModule convive con CartModule y se conservan estilos, alias y lockfile compartidos. No cambian props, DTO ni DS-001. El arranque Render vuelve a resolver start:prod y el proxy cart conserva sesiones anónimas sin asignar el usuario de prueba default. [Evidencia, pruebas y preparación de despliegue](../../../plan/evidencias/H3-GIULIANO/H3-ACTUALIZACION-DEVELOP-2026-10-16.md). Los estados de aceptación/integración REAL siguen pendientes y los conteos anteriores corresponden a sus cortes históricos.
 
 ## Entorno Docker del equipo — 16/10/2026
 
-Por indicación de Giuliano, el entorno actual se prepara con Compose: Frontend Next, Backend Nest y PostgreSQL propios. Los contratos/props de catálogo y DS-001 se conservan. Los proxies de catálogo y carrito comparten marketplaceApiUrl, de uso exclusivo en servidor, que admite HTTP al hostname interno sólo mediante MARKETPLACE_INTERNAL_HTTP_HOST explícito; HTTPS y loopback se mantienen. No se configura esa variable en consumidores React ni se expone con NEXT_PUBLIC. [Guía, pruebas y límites](../../../plan/evidencias/H3-DOCKER-2026-10-16.md). La aceptación del cambio de entorno y la integración REAL no se infieren de Docker.
+Por indicación de Giuliano, el entorno actual se prepara con Compose: Frontend Next, Backend Nest y PostgreSQL propios. Los contratos/props de catálogo y DS-001 se conservan. Los proxies de catálogo y carrito comparten marketplaceApiUrl, de uso exclusivo en servidor, que admite HTTP al hostname interno sólo mediante MARKETPLACE_INTERNAL_HTTP_HOST explícito; HTTPS y loopback se mantienen. No se configura esa variable en consumidores React ni se expone con NEXT_PUBLIC. [Guía, pruebas y límites](../../../plan/evidencias/H3-GIULIANO/H3-DOCKER-2026-10-16.md). La aceptación del cambio de entorno y la integración REAL no se infieren de Docker.

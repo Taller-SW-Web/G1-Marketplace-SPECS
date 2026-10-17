@@ -1,14 +1,16 @@
 # Entrega de Giuliano — H3, semanas 7–8
 
-> **Entorno actual solicitado por Giuliano: Docker local del equipo; Render queda fuera de este paso.** Consultar la [evidencia Docker](../evidencias/H3-DOCKER-2026-10-16.md). Las referencias anteriores de nube se conservan como contexto; el cambio no acredita cierre H3.
+> **Entorno actual solicitado por Giuliano: Docker local del equipo; Render queda fuera de este paso.** Consultar la [evidencia Docker](../evidencias/H3-GIULIANO/H3-DOCKER-2026-10-16.md). Las referencias anteriores de nube se conservan como contexto; el cambio no acredita cierre H3.
 
 Corte 16/10/2026. Alcance: F-006 inicio/categorías y F-007 búsqueda pública, con componentes compartidos. Implementación asistida por Codex; revisión humana y aceptación pendientes. Las pruebas usan **MOCK**. Ningún recorrido local acredita integración real con Productos.
+
+La [evidencia manual de Giuliano](../evidencias/H3-GIULIANO/README.md) reúne seis capturas de Inicio, búsqueda con resultados y vacío en escritorio y emulación móvil, además del índice del historial técnico. El recorrido se hizo en Docker local con catálogo MOCK.
 
 ## Qué está preparado
 
 Frontend conserva el diseño H3 obtenido de [Mockups Figma](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3), navegación por categorías, búsqueda, URL compartible, validación, vacío, carga, error/reintento y paginación básica. Los enlaces a cada ventana están en las specs UI. Backend incorpora el catálogo como módulo del baseline NestJS de develop, con validación, proyección pública, errores seguros y adaptador candidato para Productos.
 
-El [inventario de elementos compartidos](../../SPECS/ui/sistema-diseno/ELEMENTOS-COMPARTIDOS.md) enlaza las guías de imports/props en los dos repositorios. El [corte técnico de NestJS](../evidencias/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md) explica la compatibilidad con el baseline. La [evidencia de automatización](../evidencias/H3-AUTONOMIA-2026-10-16.md) registra resultados y límites actuales.
+El [inventario de elementos compartidos](../../SPECS/ui/sistema-diseno/ELEMENTOS-COMPARTIDOS.md) enlaza las guías de imports/props en los dos repositorios. El [corte técnico de NestJS](../evidencias/H3-GIULIANO/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md) explica la compatibilidad con el baseline. La [evidencia de automatización](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md) registra resultados y límites actuales.
 
 ## Demostración local
 
@@ -88,7 +90,7 @@ Los workflows se activan al push a tus ramas o por ejecución manual sobre ellas
 
 ## Corte actualizado: adaptación a develop y despliegue
 
-Se incorporan Backend/develop e6fc7f2 y Frontend/develop 843dfde en las ramas personales, conservando el carrito del equipo. Publicados Backend **2095c05** y Frontend **c58f596**, con start:prod restaurado, proxy de carrito sin identidad de prueba automática y **125 pruebas + 11 comprobaciones smoke** locales aprobadas. [Evidencia actual, guías y límites](../evidencias/H3-ACTUALIZACION-DEVELOP-2026-10-16.md). Las cifras anteriores describen sus cortes históricos.
+Se incorporan Backend/develop e6fc7f2 y Frontend/develop 843dfde en las ramas personales, conservando el carrito del equipo. Publicados Backend **2095c05** y Frontend **c58f596**, con start:prod restaurado, proxy de carrito sin identidad de prueba automática y **125 pruebas + 11 comprobaciones smoke** locales aprobadas. [Evidencia actual, guías y límites](../evidencias/H3-GIULIANO/H3-ACTUALIZACION-DEVELOP-2026-10-16.md). Las cifras anteriores describen sus cortes históricos.
 
 Backend #11, Frontend #3 y SPECS #2 continúan en draft hacia develop. El catálogo sin credenciales devuelve 503 en producción; arrancar el servidor no acredita integración REAL ni cierre H3. No se despliega ni se cambian main/develop.
 
