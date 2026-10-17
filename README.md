@@ -61,10 +61,11 @@ La API de Productos **alimenta** estas vistas: conectarse con otro módulo no cr
 
 ## Diseño, arquitectura y tecnología
 
+- [Modelo C4](Arquitectura%20de%20la%20Aplicación/Modelo%20C4.md): diagramas de contexto, contenedores y componentes de frontend/backend. [Arquitectura de la Aplicación](Arquitectura%20de%20la%20Aplicación/Arquitectura.md): vista por capas, stack, despliegue, persistencia, CI y responsabilidades; ambos documentos actualizados al corte H3 de `develop`.
 - [Sistema de diseño DS-001](SPECS/ui/DS-001-sistema-diseno-marketplace.md) y [catálogo visual](SPECS/ui/INVENTARIO-VISUAL-Y-ESTIMACION.md): fuente de composición, identidad y estados. Los [mockups de Figma](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) están separados de la biblioteca de sistema de diseño.
 - [Arquitectura React](SPECS/componentes-react/ARQUITECTURA-REACT.md): diseño técnico de frontend, no prueba de que el código ya exista.
 - [Arquitectura y base de datos](Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/): PostgreSQL/Prisma y el despliegue previsto se contrastan con el backend real antes de migrar o publicar.
-- **Frontend decidido por el PO (2026-10-10):** React + TypeScript + Next.js App Router. Siguen pendientes la versión/lockfile y el UI kit: DS-001 propone Mantine/Tabler, mientras documentos históricos citan Tailwind/shadcn. NestJS aparece en propuestas anteriores, pero el backend actual es un servidor Node con Prisma y `/health`. [G-STACK](plan/DECISIONES-Y-BLOQUEOS.md) conserva esas decisiones pendientes; la elección del framework no acredita una app ya implementada. La existencia de `render.yaml` tampoco acredita una URL desplegada y funcionando.
+- **Corte de código del 17/10/2026:** el frontend `develop` usa Next.js 16, React 19 y TypeScript; el backend `develop` usa NestJS 11 y Prisma. Consultar la [arquitectura actualizada](Arquitectura%20de%20la%20Aplicación/Arquitectura.md) para rutas, persistencia, estado del despliegue y límites de las integraciones. Las propuestas de bibliotecas contenidas en documentos históricos no acreditan su uso en el código.
 
 ## Cómo contribuir
 

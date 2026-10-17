@@ -1,158 +1,269 @@
-A continuación se presenta el **Modelo C4 Completo** para el **Canal Marketplace**, formalizado en sus tres primeros niveles de abstracción (Contexto, Contenedores y Componentes) en sintaxis **Mermaid C4** [70, 71, 73–76].
+# Modelo C4 — Canal Marketplace
 
-> [!WARNING]
-> **Nota de vigencia de persistencia:** los diagramas que muestran únicamente `CartItem` y `WishlistItem` describen el diseño preliminar y quedan como referencia histórica. Para nuevas decisiones o implementación se debe usar el [modelo lógico de datos](./Base%20de%20Datos/01-Modelo-logico-inicial.md). PostgreSQL 16, Prisma y Render continúan como la plataforma prevista.
+**Inka Athletics · Grupo 1 · Hito 3**
 
----
+**Corte de referencia:** 17/10/2026, frontend `develop@0b0ed1c` y backend `develop@62f077d`.
 
-### **Nivel 1: Diagrama de Contexto del Sistema (System Context)**
+El modelo conserva los tres niveles de aproximación del documento original: **contexto**, **contenedores** y **componentes**. La vista de componentes incluye frontend y backend. La explicación del stack, las capas, la persistencia, los entornos, el CI y las responsabilidades está en [Arquitectura de la Aplicación](Arquitectura.md).
 
-El Nivel 1 muestra la visión global del **Canal Marketplace** dentro del ecosistema de microservicios deportivos, detallando sus interacciones con el cliente y con los sistemas externos.
+## Convenciones de lectura
 
-```mermaid.js
+| Elemento | Significado |
+| --- | --- |
+| Persona | Cliente o visitante que utiliza el canal. |
+| Sistema azul | Marketplace, sistema que desarrolla el Grupo 1. |
+| Sistema gris | Módulo externo dueño de sus datos y reglas. |
+| Contenedor / componente azul | Unidad de aplicación o componente existente en el corte de código. |
+| Elemento ámbar / etiqueta MOCK | Demostración o implementación de prueba. |
+| Relación con etiqueta «previsto» | Interacción del diseño funcional sin integración real acreditada en este corte. |
+
+Los diagramas C4 utilizan relaciones rotuladas. La presencia de una flecha expresa responsabilidad o comunicación; cuando indica «previsto» no acredita una llamada real. La disponibilidad pública y el cierre de funcionalidades se sustentan en pruebas y evidencias adicionales.
+
+## Nivel 1. Diagrama de contexto del sistema
+
+**Pregunta que responde:** ¿quién utiliza Marketplace y con qué sistemas se relaciona?
+
+El cliente emplea Marketplace como canal de compra. Seguridad conserva la identidad; Productos, el catálogo y el inventario; Ventas, el pedido; Despacho, el envío. El correo aparece como capacidad prevista cuyo proveedor todavía debe concretarse.
+
+![Diagrama c4-01-contexto](diagramas/c4-01-contexto.svg)
+
+<details>
+<summary>Ver fuente Mermaid del diagrama</summary>
+
+```mermaid
 C4Context
-    title C4 - Nivel 1: Diagrama de Contexto para el Canal Marketplace
+    title Marketplace - C4 nivel 1: contexto del sistema
 
-    Person(cliente, "Cliente / Visitante", "Usuario final que explora la vitrina, busca productos, gestiona su carrito/favoritos, realiza compras y consulta el estado de sus pedidos.")
+    Person(cliente, "Cliente / Visitante", "Explora productos y realiza el recorrido de compra.")
+    System(marketplace, "Canal Marketplace", "Canal web de compra: catálogo, ficha, carrito, favoritos, checkout y pedidos.")
 
-    System(marketplace, "Canal Marketplace", "Plataforma e-commerce e interfaz cliente para la exploración del catálogo, carrito de compras, checkout multipaso, favoritos y seguimiento de envíos.")
+    System_Ext(seguridad, "Seguridad y Usuarios", "Identidad, credenciales y direcciones.")
+    System_Ext(productos, "Productos y Ofertas", "Catálogo, precios, promociones y stock.")
+    System_Ext(ventas, "Ventas y Postventa", "Pedidos, comprobantes y atención posterior.")
+    System_Ext(despacho, "Despacho y Entrega", "Cotización y estado del envío.")
+    System_Ext(correo, "Proveedor de correo [PREVISTO]", "Entrega de notificaciones; proveedor por definir.")
 
-    System_Ext(seguridad, "Módulo de Seguridad y Usuarios", "Microservicio dueño de las credenciales y cuentas de usuario. Emite y gestiona tokens JWT.")
-    System_Ext(productos, "Módulo de Productos y Ofertas", "Microservicio dueño del catálogo, precios, categorías, marcas, promociones e inventario (stock).")
-    System_Ext(ventas, "Módulo de Ventas y Postventa", "Microservicio dueño de la entidad Pedido. Registra las órdenes aprobadas y mantiene el historial de compras.")
-    System_Ext(despacho, "Módulo de Despacho y Entrega", "Microservicio dueño de la entidad Despacho. Gestiona las rutas y el estado en tiempo real de los envíos.")
-    System_Ext(resend, "Resend API (SaaS)", "Plataforma externa para el envío masivo y asíncrono de correos electrónicos transaccionales.")
+    Rel(cliente, marketplace, "Utiliza el canal web")
+    Rel(marketplace, seguridad, "Previsto: delega acceso e identidad")
+    Rel(marketplace, productos, "Previsto: consulta productos y stock")
+    Rel(marketplace, ventas, "Previsto: crea y consulta pedidos")
+    Rel(marketplace, despacho, "Previsto: consulta cotización y envío")
+    Rel(marketplace, correo, "Previsto: envía notificaciones")
 
-    Rel(cliente, marketplace, "Navega, agrega productos al carrito, realiza pagos y consulta pedidos", "HTTPS")
-    Rel(marketplace, seguridad, "Delega el registro, autenticación de usuarios y recuperación de clave", "REST / HTTPS")
-    Rel(marketplace, productos, "Consulta catálogo, obtiene precios/ofertas y revalida stock pre-pago", "REST / HTTPS")
-    Rel(marketplace, ventas, "Transmite órdenes de compra aprobadas y lee el historial 'Mis Pedidos'", "REST / HTTPS")
-    Rel(marketplace, despacho, "Consulta el progreso del paquete en ruta para la barra de tracking", "REST / HTTPS")
-    Rel(marketplace, resend, "Dispara notificaciones de confirmación de compra y avisos de despacho", "REST / HTTPS")
+    UpdateElementStyle(correo, "#FFF2D6", "#6B450D", "#B7791F")
+    UpdateLayoutConfig("3", "1")
 ```
 
----
+</details>
 
-### **Nivel 2: Diagrama de Contenedores (Containers)**
+### Límites y estado de las relaciones
 
-El Nivel 2 desglosa la arquitectura tecnológica del **Canal Marketplace** en sus unidades de ejecución y despliegue independientes (Frontend, Backend y Persistencia Local).
+| Relación | Rol dentro del sistema | Evidencia H3 del corte |
+| --- | --- | --- |
+| Cliente → Marketplace | Uso de la interfaz y del recorrido de compra. | Frontend publicado y avances locales parciales. |
+| Marketplace → Productos | Lectura pública y revalidación comercial. | Ficha F-011 con fixture; integración real I-01 pendiente. |
+| Marketplace → Seguridad | Acceso e identidad del titular. | Login de ejemplo y validación técnica de tokens; sesión real no acreditada. |
+| Marketplace → Ventas | Creación y consulta de pedidos. | Gateway/proveedor MOCK; llamada real pendiente de evidencia. |
+| Marketplace → Despacho | Cotización y seguimiento. | Dependencia funcional prevista. |
+| Marketplace → correo | Confirmación de compra y actualización de envío. | Sin worker/proveedor de envío operativo acreditado. |
 
-```mermaid.js
+El contexto representa el alcance funcional completo del canal. No contiene frameworks ni tablas: esos detalles aparecen en los siguientes niveles.
+
+## Nivel 2. Diagrama de contenedores
+
+**Pregunta que responde:** ¿qué aplicaciones y almacenes forman Marketplace y cómo se comunican?
+
+La aplicación Next.js se divide aquí por su ejecución: la interfaz React en el navegador y el servidor Next.js que resuelve páginas y rutas de API. Ambos pertenecen al mismo repositorio frontend y al despliegue web. El backend NestJS es una aplicación separada; PostgreSQL es el almacén propio del canal.
+
+![Diagrama c4-02-contenedores](diagramas/c4-02-contenedores.svg)
+
+<details>
+<summary>Ver fuente Mermaid del diagrama</summary>
+
+```mermaid
 C4Container
-    title C4 - Nivel 2: Diagrama de Contenedores para el Canal Marketplace
+    title Marketplace - C4 nivel 2: contenedores
 
-    Person(cliente, "Cliente / Visitante", "Usuario del e-commerce desde navegador web o dispositivo móvil.")
+    Person(cliente, "Cliente / Visitante", "Utiliza el canal desde su navegador.")
 
-    Container_Boundary(c1, "Canal Marketplace (Límite del Módulo)") {
-        Container(web_app, "Web App (Frontend)", "Next.js 14 / React (Vercel PaaS)", "Proporciona las 15 pantallas web independientes, gestión de estado del carrito con Zustand y peticiones asíncronas con TanStack Query/Axios.")
-        Container(api_app, "API Application (Backend)", "Node.js / NestJS (Render PaaS)", "Procesa los controladores REST, orquestación de checkout, gestión de accesos, adaptadores API y workers de eventos de correo.")
-        ContainerDb(db_local, "Base de Datos Local", "PostgreSQL 16 / Prisma ORM (Render DB)", "Almacena de forma aislada e independiente el carrito temporal (CartItem) y los favoritos (WishlistItem).")
+    System_Boundary(marketplace, "Canal Marketplace - Grupo 1") {
+        Container(ui, "Interfaz web", "React 19 / TypeScript", "Páginas, formularios y estado de la experiencia de compra.")
+        Container(next, "Servidor web y fachada", "Next.js 16 / App Router", "Entrega la web y expone proxies /api para el navegador.")
+        Container(api, "API Marketplace", "NestJS 11 / Node.js", "Validación, servicios, persistencia y proveedores de demo.")
+        ContainerDb(db, "Base de datos propia", "PostgreSQL 16 / Prisma 5", "Carrito, favoritos y control operativo de checkout y notificaciones.")
     }
 
-    System_Ext(seguridad, "Módulo de Seguridad", "API REST Externa")
-    System_Ext(productos, "Módulo de Productos", "API REST Externa")
-    System_Ext(ventas, "Módulo de Ventas", "API REST Externa")
-    System_Ext(despacho, "Módulo de Despacho", "API REST Externa")
-    System_Ext(resend, "Resend SaaS", "API REST Externa")
+    System_Ext(productos, "Productos y Ofertas", "Catálogo, precios y stock.")
+    System_Ext(seguridad, "Seguridad y Usuarios", "Identidad y acceso.")
+    System_Ext(ventas, "Ventas y Postventa", "Pedido e historial.")
+    System_Ext(despacho, "Despacho y Entrega", "Cotización y seguimiento.")
 
-    Rel(cliente, web_app, "Renderiza interfaz e-commerce responsiva", "HTTPS / TLS")
-    Rel(web_app, api_app, "Consume la API Interna del Marketplace", "HTTPS / JSON")
-    Rel(api_app, db_local, "Persiste y lee carrito y favoritos", "Prisma TCP")
+    Rel(cliente, ui, "Interactúa")
+    Rel(ui, next, "Solicita datos y acciones", "Fetch / mismo origen")
+    Rel(next, api, "Reenvía solicitudes del canal", "HTTP JSON")
+    Rel(api, db, "Lee y escribe datos propios", "Prisma")
+    Rel(api, productos, "Previsto: contrato real")
+    Rel(api, seguridad, "Previsto: sesión real")
+    Rel(api, ventas, "Previsto: pedido real")
+    Rel(api, despacho, "Previsto: entrega real")
 
-    Rel(api_app, seguridad, "Valida credenciales y emite tokens JWT", "HTTPS / REST")
-    Rel(api_app, productos, "Consulta productos y revalida stock pre-pago", "HTTPS / REST")
-    Rel(api_app, ventas, "Envía órdenes empaquetadas", "HTTPS / REST")
-    Rel(api_app, despacho, "Obtiene la etapa del paquete", "HTTPS / REST")
-    Rel(api_app, resend, "Despacha emails transaccionales en segundo plano", "HTTPS / REST")
+    UpdateLayoutConfig("2", "1")
 ```
 
----
+</details>
 
-### **Nivel 3: Diagrama de Componentes (Components)**
+### Contenedores y despliegue
 
-El Nivel 3 hace un _zoom-in_ dentro de la **API Application (Backend de NestJS)**, detallando la interacción entre los **Controladores HTTP (Capa A)**, los **Servicios de Dominio (Capa B)**, la **Persistencia Local (Capa C)** y los **Adaptadores Externe API / Capa Anti-Corrupción (Capa D)** [73–76].
+| Contenedor | Ubicación del código | Entorno / estado |
+| --- | --- | --- |
+| Interfaz React | Frontend: `src/app`, `src/features`, `src/shared/ui`. | Se ejecuta en el navegador; la versión pública debe contrastarse con el commit de la demo. |
+| Servidor Next.js | Frontend: páginas servidor y `src/app/api`. | Vercel público accesible. `MARKETPLACE_API_URL` se resuelve en servidor. |
+| API NestJS | Backend: `src/app.module.ts` y módulos por funcionalidad. | Probada localmente para F-011 MOCK. Render está definido en infraestructura; versión pública no registrada en este corte. |
+| PostgreSQL | Backend: `prisma/schema.prisma` y migraciones. | Prisma define seis modelos; el despliegue y las migraciones aplicadas se comprueban por entorno. |
 
-```mermaid.js
+Los fixtures del backend son componentes internos de la aplicación; no se representan como un microservicio externo. C4 utiliza «contenedor» para una aplicación o almacén, incluso si no se empaqueta con Docker.
+
+## Nivel 3A. Componentes del frontend
+
+**Pregunta que responde:** ¿cómo se reparte la interfaz y dónde se encuentran sus llamadas al backend?
+
+![Diagrama c4-03-componentes-frontend](diagramas/c4-03-componentes-frontend.svg)
+
+<details>
+<summary>Ver fuente Mermaid del diagrama</summary>
+
+```mermaid
 C4Component
-    title C4 - Nivel 3: Diagrama de Componentes Internos (Backend NestJS)
+    title Marketplace - C4 nivel 3A: componentes del frontend
 
-    Container(web_app, "Web App (Next.js)", "Frontend Client", "Envía peticiones HTTP/REST.")
-    ContainerDb(db_local, "PostgreSQL Local", "Prisma ORM", "Almacena CartItem y WishlistItem.")
+    Person(cliente, "Cliente", "Navega y utiliza los controles.")
 
-    Container_Boundary(b1, "API Application (Backend NestJS)") {
-
-        %% CAPA A: CONTROLADORES REST
-        Component(auth_ctrl, "Auth Controller", "@Controller('/auth')", "Maneja peticiones de login, registro y recuperación.")
-        Component(catalog_ctrl, "Catalog Controller", "@Controller('/products')", "Recibe peticiones de búsqueda, catálogo, filtros y ficha técnica.")
-        Component(cart_ctrl, "Cart Controller", "@Controller('/cart')", "EP-ITC: adición, edición y eliminación de ítems del carrito.")
-        Component(wishlist_ctrl, "Wishlist Controller", "@Controller('/wishlist')", "EP-FAV: guardado, consulta, eliminación y transferencia de favoritos.")
-        Component(checkout_ctrl, "Checkout Controller", "@Controller('/checkout')", "Recibe direcciones, cupones y simulación de pago.")
-        Component(orders_ctrl, "Orders & Tracking Controller", "@Controller('/orders')", "Recibe solicitudes de historial 'Mis Pedidos' y tracking.")
-
-        %% CAPA B: SERVICIOS DE DOMINIO Y ORQUESTADORES
-        Component(cart_srv, "Cart Service", "@Injectable()", "EP-ITC / Sebastián: subtotales, unificación de carritos y CartItem.")
-        Component(wishlist_srv, "Wishlist Service", "@Injectable()", "EP-FAV / Leonidas: asociaciones únicas de favoritos y WishlistItem.")
-        Component(transfer_srv, "Coordinación de Transferencias", "Capa de aplicación", "Coordina las acciones existentes entre carrito y favoritos utilizando ambos servicios sin dependencias circulares.")
-        Component(checkout_orch, "Checkout Orchestrator", "@Injectable()", "Coordina el flujo multipaso: ejecuta la revalidación de stock pre-pago y empaqueta la orden.")
-        Component(notif_worker, "Notification Worker", "@Injectable()", "Event Listener que escucha 'order.created' y despacha emails con React Email/Resend SDK.")
-        Component(event_emitter, "NestJS Event Emitter", "EventEmitter2", "Bus de eventos interno para desacoplar el envío de correos.")
-
-        %% CAPA C: PERSISTENCIA LOCAL
-        Component(prisma_srv, "Prisma Service", "@Injectable()", "Cliente ORM tipado para acceso a PostgreSQL local.")
-
-        %% CAPA D: ADAPTADORES DE INTEGRACIÓN (CAPA ANTI-CORRUPCIÓN)
-        Component(sec_adapter, "Security Adapter", "Adapter Service", "Aísla llamadas al Módulo de Seguridad.")
-        Component(prod_adapter, "Products Adapter", "Adapter Service", "Aísla consultas de catálogo y revalidación de stock.")
-        Component(sales_adapter, "Sales Adapter", "Adapter Service", "Aísla el empaquetado de órdenes hacia Ventas.")
-        Component(disp_adapter, "Dispatch Adapter", "Adapter Service", "Aísla consultas de tracking hacia Despacho.")
-        Component(http_srv, "HttpService / Mocks", "@nestjs/axios", "Wrapper Axios con interceptor axios-mock-adapter según USE_MOCKS.")
+    Container_Boundary(frontend, "Aplicación web Next.js / React") {
+        Component(paginas, "Páginas App Router", "src/app", "Define las rutas y compone cada funcionalidad.")
+        Component(ui, "UI y funcionalidades", "src/features", "Catálogo, ficha, acceso, carrito, checkout, favoritos y pedidos.")
+        Component(compartidos, "Componentes visuales", "src/shared/ui + CSS", "Cabecera, pie, campos, botones y estados reutilizables.")
+        Component(estado, "Estado y servicios cliente", "Hooks / Context / Fetch", "Gestiona solicitudes, estado local y WishlistProvider.")
+        Component(proxies, "Fachada HTTP", "Route Handlers /api", "Valida transporte y conecta con la API Marketplace.")
+        Component(sandbox, "Sandbox local [MOCK]", "features/wishlist/server", "Sesión y tokens de prueba limitados a desarrollo.")
     }
 
-    System_Ext(ext_sec, "Módulo Seguridad", "API REST")
-    System_Ext(ext_prod, "Módulo Productos", "API REST")
-    System_Ext(ext_sales, "Módulo Ventas", "API REST")
-    System_Ext(ext_disp, "Módulo Despacho", "API REST")
-    System_Ext(ext_resend, "Resend API", "SaaS REST")
+    Container(api, "API Marketplace", "NestJS", "Servicios del canal.")
 
-    %% RELACIONES INTERNAS
-    Rel(web_app, auth_ctrl, "POST /auth/*", "JSON")
-    Rel(web_app, catalog_ctrl, "GET /products/*", "JSON")
-    Rel(web_app, cart_ctrl, "GET, POST, DELETE /cart/*", "JSON")
-    Rel(web_app, wishlist_ctrl, "Operaciones /wishlist/*", "JSON")
-    Rel(web_app, checkout_ctrl, "POST /checkout/*", "JSON")
-    Rel(web_app, orders_ctrl, "GET /orders/*", "JSON")
+    Rel(cliente, paginas, "Abre una ruta")
+    Rel(paginas, ui, "Compone")
+    Rel(ui, compartidos, "Reutiliza")
+    Rel(ui, estado, "Dispara acciones y refleja estado")
+    Rel(estado, proxies, "Consulta o envía datos", "Fetch")
+    Rel(proxies, api, "Reenvía al backend", "HTTP JSON")
+    Rel(proxies, sandbox, "Usa solo en demo habilitada")
 
-    Rel(auth_ctrl, sec_adapter, "Delega autenticación")
-    Rel(catalog_ctrl, prod_adapter, "Delega consultas de catálogo")
-    Rel(cart_ctrl, cart_srv, "Delega cálculo e ítems")
-    Rel(wishlist_ctrl, wishlist_srv, "Delega gestión de favoritos")
-    Rel(cart_ctrl, transfer_srv, "Mover a favoritos: HU-ITC-CAR")
-    Rel(wishlist_ctrl, transfer_srv, "Mover al carrito: HU-FAV-CAR")
-    Rel(transfer_srv, cart_srv, "Reutiliza operaciones y validaciones de carrito")
-    Rel(transfer_srv, wishlist_srv, "Reutiliza operaciones de favoritos")
-    Rel(checkout_ctrl, checkout_orch, "Delega orquestación de pago")
-    Rel(orders_ctrl, sales_adapter, "Consulta historial")
-    Rel(orders_ctrl, disp_adapter, "Consulta tracking")
-
-    Rel(cart_srv, prisma_srv, "CRUD CartItem")
-    Rel(wishlist_srv, prisma_srv, "CRUD WishlistItem")
-    Rel(wishlist_srv, prod_adapter, "Obtiene datos de productos guardados")
-    Rel(cart_srv, prod_adapter, "Valida stock de ítems")
-    Rel(checkout_orch, prod_adapter, "Ejecuta revalidación pre-pago")
-    Rel(checkout_orch, sales_adapter, "Transmite orden empaquetada")
-    Rel(checkout_orch, event_emitter, "Emite evento 'order.created'")
-    Rel(event_emitter, notif_worker, "Dispara notificación asíncrona")
-
-    Rel(prisma_srv, db_local, "Consulta / Modifica", "Prisma TCP")
-
-    Rel(sec_adapter, http_srv, "Llamada HTTP saliente")
-    Rel(prod_adapter, http_srv, "Llamada HTTP saliente")
-    Rel(sales_adapter, http_srv, "Llamada HTTP saliente")
-    Rel(disp_adapter, http_srv, "Llamada HTTP saliente")
-
-    Rel(http_srv, ext_sec, "Petición REST / Mocks", "HTTPS")
-    Rel(http_srv, ext_prod, "Petición REST / Mocks", "HTTPS")
-    Rel(http_srv, ext_sales, "Petición REST / Mocks", "HTTPS")
-    Rel(http_srv, ext_disp, "Petición REST / Mocks", "HTTPS")
-    Rel(notif_worker, ext_resend, "Despacha email en segundo plano", "HTTPS")
+    UpdateElementStyle(sandbox, "#FFF2D6", "#6B450D", "#B7791F")
+    UpdateLayoutConfig("2", "1")
 ```
+
+</details>
+
+| Área funcional | Ruta de pantalla | Entrada de datos / API |
+| --- | --- | --- |
+| Inicio y búsqueda | `/`, `/catalogo` | `/api/catalog/home`, `/api/catalog/products`. |
+| Ficha | `/productos/[slug]` | `/api/catalog/products/[slug]`. |
+| Acceso | `/login` | `/api/v1/auth/login`; registro y recuperación son páginas informativas del corte. |
+| Carrito | `/carrito` | `/api/cart/*`. |
+| Checkout | `/checkout`, `/checkout/confirmado/[orderId]` | `/api/checkout/*` y modo local/servidor según configuración. |
+| Favoritos | `/favoritos` y rutas `/demo/h3/favoritos` | `WishlistProvider`, `/api/wishlist/*` y sesión sandbox cuando está habilitada. |
+| Historial | `/mis-pedidos` | `/api/orders/me`. |
+
+El listado de rutas describe su presencia en código, no la finalización de todas sus funciones. Los estados y límites se explican en [Arquitectura.md](Arquitectura.md#1-resumen-ejecutivo-y-visión-general-del-sistema).
+
+## Nivel 3B. Componentes del backend
+
+**Pregunta que responde:** ¿cómo organiza NestJS la entrada, los servicios, la persistencia y las respuestas MOCK?
+
+![Diagrama c4-04-componentes-backend](diagramas/c4-04-componentes-backend.svg)
+
+<details>
+<summary>Ver fuente Mermaid del diagrama</summary>
+
+```mermaid
+C4Component
+    title Marketplace - C4 nivel 3B: componentes del backend
+
+    Container(next, "Fachada web", "Next.js /api", "Solicitudes del navegador.")
+
+    Container_Boundary(backend, "API Marketplace - NestJS") {
+        Component(controllers, "Controladores REST", "NestJS + DTO", "Entrada de catálogo, acceso, carrito, favoritos, checkout y pedidos.")
+        Component(guards, "Identidad y autorización", "AuthGuard / IdentityGuard", "Valida tokens y principal en las rutas protegidas.")
+        Component(producto, "Detalle y acceso", "ProductDetailService / AuthService", "Ficha F-011 y validación F-002 de demostración.")
+        Component(carrito, "Carrito", "CartService", "Ítems y estado del carrito propio.")
+        Component(favoritos, "Favoritos", "Wishlist services", "Guardar, leer y coordinar adición al carrito.")
+        Component(checkout, "Checkout", "CheckoutService / QuotesService", "Preparación, resumen e idempotencia.")
+        Component(pedidos, "Historial", "OrdersService", "Proyección de pedidos del titular de prueba.")
+        Component(prisma, "Persistencia", "PrismaService / repositorios", "Acceso al esquema de datos propio.")
+        Component(proveedores, "Proveedores de demo [MOCK]", "Gateway / puertos / fixtures", "Datos sintéticos, elegibilidad y respuestas de checkout.")
+    }
+
+    ContainerDb(db, "Base de datos propia", "PostgreSQL", "Seis modelos locales.")
+
+    Rel(next, controllers, "Llama a la API", "HTTP JSON")
+    Rel(controllers, guards, "Protege rutas aplicables")
+    Rel(controllers, producto, "Detalle y login")
+    Rel(controllers, carrito, "Operaciones de carrito")
+    Rel(controllers, favoritos, "Operaciones de favoritos")
+    Rel(controllers, checkout, "Flujo de checkout")
+    Rel(controllers, pedidos, "Consulta historial")
+    Rel(producto, proveedores, "Usa fixture")
+    Rel(favoritos, proveedores, "Consulta puertos sandbox")
+    Rel(favoritos, carrito, "Coordina alta en carrito")
+    Rel(checkout, proveedores, "Usa MarketplaceGateway")
+    Rel(pedidos, proveedores, "Usa ORDERS_PROVIDER")
+    Rel(carrito, prisma, "Lee y escribe")
+    Rel(favoritos, prisma, "Usa repositorio")
+    Rel(checkout, prisma, "Registra operación")
+    Rel(prisma, db, "Consulta y transacciona")
+
+    UpdateElementStyle(proveedores, "#FFF2D6", "#6B450D", "#B7791F")
+    UpdateLayoutConfig("3", "1")
+```
+
+</details>
+
+### Correspondencia con el código
+
+| Componente dibujado | Clases / módulos concretos | Aclaración |
+| --- | --- | --- |
+| Controladores REST | `ProductDetailController`, `AuthController`, `CartController`, `WishlistController`, `CheckoutController`, `OrdersController`. | No se incluye un controlador de tracking implementado ni un worker de correo. |
+| Identidad | `AuthGuard`, `IdentityGuard`, `IdentityPort`. | La validación de JWT/JWKS no acredita el flujo real de inicio de sesión con Seguridad. |
+| Detalle y acceso | `ProductDetailService`, `AuthService`. | Componentes separados, agrupados en el dibujo para mantenerlo legible; ambos contienen cortes MOCK. |
+| Favoritos | `WishlistService`, `WishlistReadService`, `WishlistCartService`, `PrismaWishlistRepository`. | La transferencia a carrito reutiliza `CartService`. |
+| Checkout | `CheckoutService`, `QuotesService`, `MarketplaceGateway`. | Maneja datos de preparación y control de operación; el gateway bloquea integraciones reales no configuradas. |
+| Historial | `OrdersService`, `ORDERS_PROVIDER`, `MockOrdersProvider`. | Fuente MOCK optativa fuera de producción. |
+| Proveedores de demo | Fixture F-011, `SandboxProductEligibility`, `SandboxWishlistCatalog`, `MockHttpAdapter` y proveedor de pedidos. | Son implementaciones de prueba; no son APIs reales de otros equipos. |
+| Persistencia | `PrismaService`, repositorios y esquema Prisma. | El código define Cart, CartItem, WishlistItem, CheckoutOperation, PostDeliveryPrompt y NotificationDelivery. |
+| Infraestructura adicional | `ConfigModule`, `PrismaModule`, `HealthModule`. | Configuración, conexión y estado de salud; se omiten del gráfico para centrar las dependencias funcionales. |
+
+## Recorrido comprobado y relaciones que faltan
+
+El recorrido local de referencia es:
+
+**Cliente → ficha React → proxy Next.js → ProductDetailController → ProductDetailService → fixture MOCK.**
+
+La ficha respondió con datos de prueba, galería y estados de error. En el mismo corte, inicio y listado de catálogo devolvieron 404; no se acreditó aún el recorrido completo catálogo → ficha. Tampoco se acredita una conexión real a Productos, Seguridad, Ventas o Despacho mediante estas pruebas.
+
+El esquema contiene modelos para notificación e invitación postentrega. Eso prepara persistencia; el worker de correo, su proveedor y la entrega efectiva siguen por implementar/verificar.
+
+## Cómo utilizar estos gráficos en la presentación
+
+- **Contexto:** mostrar el nivel 1 para explicar cliente, Marketplace y módulos dueños.
+- **Arquitectura:** mostrar el nivel 2 para explicar frontend, fachada Next.js, API NestJS y base propia.
+- **Componentes:** utilizar nivel 3A o 3B si se necesita explicar una parte del código.
+- **Flujo funcional y nube:** complementar con los diagramas de secuencia y despliegue de [Arquitectura.md](Arquitectura.md).
+
+Cada gráfico incluye una vista SVG para mostrar figuras y relaciones con una distribución estable. Su fuente Mermaid está desplegable debajo. Las vistas vectoriales se mantienen con el [generador de diagramas](diagramas/generar-c4.py), que utiliza Python estándar.
+
+## Fuentes
+
+- [Arquitectura de la Aplicación](Arquitectura.md): stack, capas, despliegue, persistencia, responsables y modos de demo.
+- [Modelo lógico de datos](Base%20de%20Datos/01-Modelo-logico-inicial.md).
+- [Repositorios, prototipos y demo](../ENLACES-DEL-PROYECTO-Y-DEMO-H3.md).
+- [Código frontend del corte](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/tree/0b0ed1c) y [backend del corte](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/tree/62f077d).
+- [Modelo C4 oficial](https://c4model.com/diagrams) y [sintaxis C4 en Mermaid](https://mermaid.js.org/syntax/c4.html).

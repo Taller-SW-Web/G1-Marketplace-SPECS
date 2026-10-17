@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-labelledby="title desc">
+<title id="title">Canal Marketplace · C4 nivel 3A</title><desc id="desc">Componentes del frontend · Aplicación Next.js / React</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker><marker id="planned" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b7791f"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="800.0" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#142e49">Canal Marketplace · C4 nivel 3A</text>
+<text x="800.0" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526477">Componentes del frontend · Aplicación Next.js / React</text>
+<rect x="45" y="210" width="1510" height="625" rx="16" fill="#f8fbff" stroke="#8ca4be" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="70" y="243" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#173655">Aplicación web Marketplace</text>
+<text x="70" y="268" text-anchor="start" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526477">Páginas, funcionalidades, estado y fachada de servidor</text>
+<rect x="110" y="335" width="300" height="150" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="260.0" y="366" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Páginas App Router</text>
+<text x="260.0" y="391" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · src/app]</text>
+<text x="260.0" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Define rutas y compone la</text>
+<text x="260.0" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">pantalla</text>
+<rect x="590" y="335" width="340" height="150" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="760.0" y="366" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">UI de funcionalidades</text>
+<text x="760.0" y="391" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · src/features]</text>
+<text x="760.0" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Catálogo, ficha, acceso, carrito,</text>
+<text x="760.0" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">checkout, favoritos y pedidos</text>
+<rect x="1110" y="335" width="300" height="150" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="1260.0" y="366" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Componentes visuales</text>
+<text x="1260.0" y="391" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · shared/ui]</text>
+<text x="1260.0" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Campos, botones, estados y</text>
+<text x="1260.0" y="441" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">elementos del marco visual</text>
+<rect x="590" y="615" width="340" height="150" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="760.0" y="646" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Estado y servicios</text>
+<text x="760.0" y="671" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · Hooks / Context]</text>
+<text x="760.0" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Fetch, estados y WishlistProvider</text>
+<rect x="1110" y="615" width="300" height="150" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="1260.0" y="646" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Fachada HTTP</text>
+<text x="1260.0" y="671" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · /api]</text>
+<text x="1260.0" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Proxies y validación del</text>
+<text x="1260.0" y="721" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">transporte al backend</text>
+<rect x="110" y="615" width="300" height="150" rx="13" fill="#fff2d6" stroke="#b7791f" stroke-width="2"/>
+<text x="260.0" y="646" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#6b450d">Sandbox local</text>
+<text x="260.0" y="671" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#6b450d">[Componente · MOCK]</text>
+<text x="260.0" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">Sesión y tokens sintéticos de</text>
+<text x="260.0" y="721" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">desarrollo</text>
+<rect x="1110" y="915" width="300" height="120" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="1260.0" y="946" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">API Marketplace</text>
+<text x="1260.0" y="971" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Contenedor · NestJS]</text>
+<text x="1260.0" y="1000" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Servicios del canal</text>
+<polyline points="410,410 590,410" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="467.03" y="379" width="65.94" height="21" rx="4" fill="#fff"/>
+<text x="500" y="393" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Compone</text>
+<polyline points="930,410 1110,410" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="979.61" y="379" width="80.78" height="21" rx="4" fill="#fff"/>
+<text x="1020" y="393" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Reutiliza</text>
+<polyline points="760,485 760,615" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="689.9300000000001" y="544" width="140.14" height="21" rx="4" fill="#fff"/>
+<text x="760" y="558" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Acciones y estado</text>
+<polyline points="930,690 1110,690" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="994.45" y="659" width="51.1" height="21" rx="4" fill="#fff"/>
+<text x="1020" y="673" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Fetch</text>
+<polyline points="1260,765 1260,915" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1219.61" y="862" width="80.78" height="21" rx="4" fill="#fff"/>
+<text x="1260" y="876" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">HTTP JSON</text>
+<polyline points="1110,725 1020,725 1020,798 260,798 260,765" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="538.96" y="776" width="192.08" height="21" rx="4" fill="#fff"/>
+<text x="635" y="790" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Solo con demo habilitada</text>
+<rect x="420" y="115" width="300" height="80" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="570.0" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Cliente / Navegador</text>
+<text x="570.0" y="171" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Actor externo]</text>
+<polyline points="570,195 570,315 260,315 260,335" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="525.9" y="281" width="88.2" height="21" rx="4" fill="#fff"/>
+<text x="570" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Navegación</text>
+</svg>
