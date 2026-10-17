@@ -48,8 +48,22 @@ Backend publicado: [merge f258574](https://github.com/Taller-SW-Web/G1-Marketpla
 
 Frontend publicado: [merge 9696bd1](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/9696bd1a58e5cce786849b5e480d3df970bce803). El CI de esta rama fija el Backend integrado anterior y conserva las suites de servidor. Sus resultados se consultan en los checks del PR #3.
 
+Se verificó además el runner habitual de Windows/Edge: 25 PASS y el mismo caso optativo omitido. No se suma otra vez al total. En el primer CI Frontend pasó la regresión funcional, pero el escáner de fuente detectó `fileKey` en `public/figma/favorites-manifest.json`: es el ID público del Figma ya enlazado por el proyecto. [Corrección b5b92db](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/b5b92dbfe54a20c2bfcf013fba0795738486820a) lo alinea con `figmaFileId`, igual que el manifiesto de catálogo, conservando el valor, nodos y hashes. No hay consumidores del nombre anterior y no se desactiva ni excluye el escaneo. [CI de la corrección](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/39014369019).
+
 ## Archivos privados y límites
 
+### Corrección del control positivo de seguridad
+
+En la segunda ejecución Frontend pasaron los análisis de fuente, historial, artefactos, SAST, dependencias y licencias; falló únicamente el control positivo de secretos generado al azar. Se sustituye el valor hexadecimal aleatorio por una secuencia determinista de letras intercaladas con dígitos, construida sólo en una carpeta temporal. Su entropía es 5,509 bits por carácter y evita palabras aleatorias que el detector excluye. No es una credencial ni se versiona su valor; no se desactiva ninguna regla ni se añade una exclusión.
+
+Se validó con el binario Gitleaks 8.30.1 y su checksum fijado: 100 archivos de control detectados; control negativo y scripts revisados sin hallazgos. Esta verificación del escáner se registra aparte de los 507 casos funcionales. La misma corrección se aplica a ambos repositorios porque compartían el control.
+
+Revisiones finales: [Backend df64047](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/commit/df6404777f75695830f2ccd1626859954fe4a6ed) y [Frontend 9655561](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/9655561373fa23d5ebac46094cfd1ccb939d93a3). El CI Frontend fija esta revisión Backend. Comprobaciones finales: [H3 Backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/39015243218), [validación de PR Backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/39015246378) y [H3 Frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/39015256760).
+
+### Conservación del entorno local
+
 Los cambios locales de `next-env.d.ts` se guardan antes del merge y se restauran después de las pruebas. El `.env` de Backend no se versiona ni se reemplaza. La preparación personal de presentación se actualiza con esta integración y permanece excluida de Git.
+
+Se comprobó la restauración byte por byte de `next-env.d.ts` y `CategoryNavigation.tsx`; se retiró sólo el stash temporal de esta tarea. El stack, volumen e imágenes temporales se limpiaron al terminar; el entorno Docker habitual permanece disponible con sus datos.
 
 Los PR existentes de [Backend #11](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/11), [Frontend #3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/3) y [SPECS #2](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS/pull/2) permanecen draft. La integración de ramas no acredita aceptación humana, despliegue público ni llamada real a G6.
