@@ -24,12 +24,12 @@ POST benefits no consume. Quitar solicita nueva quote base con F-023 según V-01
 | Persistencia | Sin persistencia de dominio local. Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
 | Remoto / caché | Quote nuevo sustituye atómicamente anterior y su total/vencimiento; invalida preparación. |
 | Seguridad específica | Quote ajena/vencida, cupón no logs, no consumo en validación ni fraude por total del cliente. |
-| UI Kit | DS-001 v0.2.0; G-STACK pendiente, no fijar versiones no verificadas. |
+| UI Kit | Checkout: componentes propios existentes (`Button`, `TextField`) y tokens DS-001; no instalar Mantine. Decisión de G-STACK para este slice registrada el 2026-10-15. |
 
 ## 4. Dependencias y Definition of Ready
 
 - Dependencias de comportamiento/flujo: [F-023](F-023-calcular-resumen-envio.md).
-- Gates: I-01, G-BENEFIT; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
+- Gates: I-01, G-BENEFIT; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK para Checkout está resuelto; el UI kit global de otras familias sigue abierto. Para la UI, usar V-010–V-014 del [canvas Checkout en Figma](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) como referencia de G-SHELL. Revisar los frames desktop/mobile durante la aceptación visual.
 - Pendientes específicos: I-01, OPEN-11/12 y V-011-OPEN-04.
 - Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.

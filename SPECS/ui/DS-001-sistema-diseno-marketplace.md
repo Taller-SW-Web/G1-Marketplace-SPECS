@@ -20,19 +20,20 @@
 | Archivo de mockups de vistas | [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) |
 | Página de inicio, catálogo y producto | [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) — enlaces de V-005/V-006 verificados el 14/10/2026 |
 | Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; versión y lockfile por validar |
-| UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; pendiente de aprobación `DS-OPEN-03` |
-| Última actualización | 2026-10-14 (referencias Figma; sin cambio de tokens) |
+| UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; propuesta, no aprobación. Checkout F-022–F-027 usa la base kit-neutral existente; `DS-OPEN-03` permanece abierto para las demás familias. |
+| Última actualización | 2026-10-17 (integración de referencias Figma y decisión kit-neutral de Checkout; sin cambio de tokens) |
 | Alcance | Canal Marketplace web responsive y componentes compartidos |
 
 ### 1.1 Vigencia y decisión técnica preliminar
 
 Este documento es la fuente visual vigente para los mockups. La versión `0.2.0` incorpora la identidad Inka Athletics y reemplaza los tokens provisionales de `DS-001` v0.1.0.
 
-El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. Esta decisión no aprueba automáticamente Mantine ni su versión. La guía recibida propone Mantine `9.6.2` y Tabler Icons; otros documentos todavía mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Para no mezclar dos sistemas:
+El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. El 2026-10-15 decidió que el slice Checkout F-022–F-027 use los componentes propios y tokens DS-001 que ya existen en `G1-Marketplace-Frontend`, sin instalar Mantine/Tabler. Esto resuelve G-STACK para Checkout, no para todo el Marketplace. La guía recibida propone Mantine `9.6.2` y Tabler Icons, sin aprobación general; otros documentos todavía mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Para no mezclar sistemas:
 
 - los mockups y la biblioteca de Figma seguirán los tokens y propiedades documentados aquí;
-- Mantine + Tabler se consideran la dirección técnica preliminar más reciente del UI Kit;
-- antes de instalar componentes visuales, el equipo debe aprobar el UI kit y actualizar los documentos que aún indiquen el kit anterior;
+- Checkout conserva la implementación kit-neutral existente (`Button`, `TextField`, tokens DS-001 y estilos base), ajustándola a los frames aprobados;
+- Mantine + Tabler siguen siendo una propuesta para decisión global, no dependencia de Checkout;
+- antes de instalar otro UI kit en las demás familias, el equipo debe aprobarlo y actualizar los documentos que aún indiquen el kit anterior;
 - mientras esa decisión no se cierre, las reglas de comportamiento, accesibilidad, tokens y composición de este documento sí son obligatorias.
 
 ## 2. Propósito y principios
@@ -276,7 +277,8 @@ Reglas comunes:
 | Principal | `filled` | `action/primary` | `text/primary` |
 | Secundaria | `outline` | `action/primary-hover` | `action/primary-hover` |
 | Terciaria | `subtle` | `action/primary-hover` | `action/primary-hover` |
-| Confirmación/pago | `filled` | `accent/signal` | Blanco |
+| Confirmación/pago general | `filled` | `accent/signal` | Blanco |
+| CTA principal de Checkout F-022–F-027 | `filled` | `action/primary` (naranja) | Texto de alto contraste según token |
 | Destructiva | `filled` | `error/default` | Blanco |
 
 - Tamaños: `sm`, `md`, `lg`; predeterminado `md`.
@@ -433,7 +435,7 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 |---|---|---|
 | `DS-OPEN-01` | Autoría/licencia, SVG, versión inversa, favicon, área de seguridad y tamaño mínimo del logo. | Identidad final |
 | `DS-OPEN-02` | Responsable único de biblioteca y canal de propuestas. | Gobernanza |
-| `DS-OPEN-03` | Aprobar Mantine + Tabler o definir equivalencia definitiva con el stack histórico. | Implementación |
+| `DS-OPEN-03` | Definir UI kit global para familias distintas del slice Checkout. Para Checkout F-022–F-027 se decidió usar los componentes propios/tokens existentes, sin Mantine. | Implementación transversal |
 | `DS-OPEN-04` | Completar diez tonalidades de Volt, Signal, Ink y Cloud. | Tema Mantine |
 | `DS-OPEN-05` | Enlazar `src/theme/theme.ts` en el frontend. | Código-diseño |
 | `DS-OPEN-06` | Completar ProductCard, navegación, modales, filtros y skeletons desde specs por vista. | Mockups |

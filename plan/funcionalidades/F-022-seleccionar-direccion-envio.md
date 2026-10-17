@@ -24,12 +24,12 @@ BFF GET/POST consulta y registra con token titular, nunca técnico. 201 seleccio
 | Persistencia | Sin persistencia de dominio local. Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
 | Remoto / caché | ['checkout','addresses',sessionScope] con caché efímera; sólo addressId seleccionado en contexto de flujo. |
 | Seguridad específica | Token titular no técnico, dirección ajena rechazada y cuerpos excluidos storage/logs. |
-| UI Kit | DS-001 v0.2.0; G-STACK pendiente, no fijar versiones no verificadas. |
+| UI Kit | Checkout: componentes propios existentes (`Button`, `TextField`) y tokens DS-001; no instalar Mantine. Decisión de G-STACK para este slice registrada el 2026-10-15. |
 
 ## 4. Dependencias y Definition of Ready
 
 - Dependencias de comportamiento/flujo: [F-002](F-002-iniciar-sesion.md), [F-019](F-019-visualizar-carrito.md).
-- Gates: G-ADDRESS; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
+- Gates: G-ADDRESS; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK para Checkout está resuelto; el UI kit global de otras familias sigue abierto. Para la UI, usar V-010–V-014 del [canvas Checkout en Figma](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) como referencia de G-SHELL. Revisar los frames desktop/mobile durante la aceptación visual.
 - Pendientes específicos: Contrato Seguridad confirmado; límites/maestros aún abiertos V-010-OPEN-01/02.
 - Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.

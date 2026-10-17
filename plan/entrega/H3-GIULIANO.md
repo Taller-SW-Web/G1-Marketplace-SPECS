@@ -4,6 +4,8 @@
 
 Corte 16/10/2026. Alcance: F-006 inicio/categorías y F-007 búsqueda pública, con componentes compartidos. Implementación asistida por Codex; revisión humana y aceptación pendientes. Las pruebas usan **MOCK**. Ningún recorrido local acredita integración real con Productos.
 
+**Actualización 17/10/2026:** [preparación de conexión G6](../evidencias/H3-GIULIANO/H3-PREPARACION-G6-2026-10-17.md) y [nueva integración de develop](../evidencias/H3-GIULIANO/H3-INTEGRACION-DEVELOP-2026-10-17.md). Estos registros identifican las bases y validaciones actuales; las cifras y guiones anteriores conservan su fecha.
+
 La [evidencia manual de Giuliano](../evidencias/H3-GIULIANO/README.md) reúne seis capturas de Inicio, búsqueda con resultados y vacío en escritorio y emulación móvil, además del índice del historial técnico. El recorrido se hizo en Docker local con catálogo MOCK.
 
 ## Qué está preparado
