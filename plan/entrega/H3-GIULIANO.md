@@ -6,6 +6,8 @@ Corte 16/10/2026. Alcance: F-006 inicio/categorías y F-007 búsqueda pública, 
 
 **Actualización 17/10/2026:** [preparación de conexión G6](../evidencias/H3-GIULIANO/H3-PREPARACION-G6-2026-10-17.md) y [nueva integración de develop](../evidencias/H3-GIULIANO/H3-INTEGRACION-DEVELOP-2026-10-17.md). Estos registros identifican las bases y validaciones actuales; las cifras y guiones anteriores conservan su fecha.
 
+**Actualización posterior del 17/10:** [integración de las correcciones nuevas de Sebastián](../evidencias/H3-GIULIANO/H3-INTEGRACION-SEBASTIAN-2026-10-17.md), con Problem Details de ficha, correlación compartida y conservación del acceso Docker. Su botón de carrito es sólo una demostración visual; no se declara persistencia ni integración funcional con el bloque de Andrés.
+
 La [evidencia manual de Giuliano](../evidencias/H3-GIULIANO/README.md) reúne seis capturas de Inicio, búsqueda con resultados y vacío en escritorio y emulación móvil, además del índice del historial técnico. El recorrido se hizo en Docker local con catálogo MOCK.
 
 ## Qué está preparado

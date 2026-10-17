@@ -55,6 +55,7 @@ La evidencia corresponde al entorno local con datos MOCK. Quedan la prueba autor
 | [Imagen opcional](H3-IMAGEN-OPCIONAL-2026-10-16.md) | Contrato nullable, placeholder y pruebas del adaptador |
 | [Preparación G6, 17/10](H3-PREPARACION-G6-2026-10-17.md) | Ensayo HTTP de contrato, activación Docker REAL y comprobación futura del BFF; integración externa pendiente |
 | [Integración develop, 17/10](H3-INTEGRACION-DEVELOP-2026-10-17.md) | Resolución de conflictos, conservación de módulos del equipo y regresión de catálogo/detalle/Docker |
+| [Integración de Sebastián, 17/10](H3-INTEGRACION-SEBASTIAN-2026-10-17.md) | Problem Details, correlación compartida, proxy Docker combinado y alcance visual del botón de carrito |
 
 ## Historial técnico conservado
 
