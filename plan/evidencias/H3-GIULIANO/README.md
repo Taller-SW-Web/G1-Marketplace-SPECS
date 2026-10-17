@@ -2,6 +2,8 @@
 
 Este documento es el punto de entrada a las evidencias del catálogo y búsqueda, F-006/F-007. Reúne la prueba manual de Giuliano y enlaza los registros técnicos anteriores, que conservan las versiones y resultados de cada avance.
 
+**Actualización 17/10/2026, 07:45 Lima:** [conexión parcial real con G6](H3-G6-DEMO-2026-10-17.md). La web en localhost:3300 carga ocho categorías reales; productos devuelve 503 y la interfaz ofrece Reintentar. El registro incluye capturas, IDs y logs sanitizados. La demo habitual en 3000 y las capturas siguientes conservan su fuente MOCK.
+
 ## Prueba manual del 16/10/2026
 
 | Dato | Registro |
@@ -44,7 +46,7 @@ Alcance y asignaciones: [plan de implementación](../../PLAN-IMPLEMENTACION.md) 
 
 ### Pendientes del cierre
 
-La evidencia corresponde al entorno local con datos MOCK. Quedan la prueba autorizada web → BFF → G6 con datos reales, revisión independiente y aceptación. El responsable del hito debe registrar la modalidad Docker acordada frente al requisito original de nube/URL pública. Las capturas no cambian el estado de las tareas ni acreditan por sí solas el cierre de H3.
+La prueba manual del 16/10 corresponde al entorno local con datos MOCK. El ensayo del 17/10 ya acredita web → BFF → G6 para categorías y el error real de productos. Quedan las lecturas positivas de productos/búsqueda, revisión independiente y aceptación. El responsable del hito debe registrar la modalidad Docker acordada frente al requisito original de nube/URL pública. Las capturas no cambian por sí solas el estado de cierre H3.
 
 ## Documentos para consultar
 
@@ -54,6 +56,7 @@ La evidencia corresponde al entorno local con datos MOCK. Quedan la prueba autor
 | [Entorno Docker](H3-DOCKER-2026-10-16.md) | Arranque local, servicios, configuración y validaciones actuales |
 | [Imagen opcional](H3-IMAGEN-OPCIONAL-2026-10-16.md) | Contrato nullable, placeholder y pruebas del adaptador |
 | [Preparación G6, 17/10](H3-PREPARACION-G6-2026-10-17.md) | Ensayo HTTP de contrato, activación Docker REAL y comprobación futura del BFF; integración externa pendiente |
+| [Demo real G6, 17/10](H3-G6-DEMO-2026-10-17.md) | Categorías 200 REAL, búsqueda 503 REAL, modo demo sin JWT, capturas y trazas del recorrido conectado |
 | [Integración develop, 17/10](H3-INTEGRACION-DEVELOP-2026-10-17.md) | Resolución de conflictos, conservación de módulos del equipo y regresión de catálogo/detalle/Docker |
 | [Integración de Sebastián, 17/10](H3-INTEGRACION-SEBASTIAN-2026-10-17.md) | Problem Details, correlación compartida, proxy Docker combinado y ficha H3 sin controles comerciales simulados |
 

@@ -1,0 +1,65 @@
+{
+  "observedAtUtc": "2026-10-17T12:45:52.916Z",
+  "environment": "Docker local, isolated G6 demo on 3300/10300",
+  "upstream": "https://g6-productos-ofertas.duckdns.org",
+  "source": "REAL",
+  "authMode": "demo-no-auth",
+  "home": {
+    "path": "/api/catalog/home",
+    "status": 200,
+    "source": "REAL",
+    "requestId": "3b133c68-9c96-4c51-9b6c-0c7e055b0aec",
+    "cacheControl": "no-store",
+    "categories": 8,
+    "idsMatchPublicProvider": true
+  },
+  "products": {
+    "path": "/api/catalog/products",
+    "status": 503,
+    "source": "REAL",
+    "requestId": "9b8322c8-ca5b-42bd-a963-396c5b358bbb",
+    "cacheControl": "no-store",
+    "code": "CATALOG_UNAVAILABLE",
+    "noEmptyOrMockFallback": true
+  },
+  "retry": {
+    "path": "/api/catalog/products",
+    "status": 503,
+    "source": "REAL",
+    "requestId": "3dfeea38-6a1d-45e9-b316-f008304c5fa8",
+    "cacheControl": "no-store"
+  },
+  "validation": {
+    "oneCharacterRejectedBeforeFetch": true
+  },
+  "pageErrors": 0,
+  "directPublicChecks": {
+    "categoriesStatus": 200,
+    "productsStatus": 503
+  },
+  "correlatedLogs": [
+    {
+      "event": "catalog_read",
+      "requestId": "3b133c68-9c96-4c51-9b6c-0c7e055b0aec",
+      "path": "/api/v1/catalog/home",
+      "source": "REAL",
+      "status": 200,
+      "durationMs": 1110
+    },
+    {
+      "event": "catalog_error",
+      "requestId": "9b8322c8-ca5b-42bd-a963-396c5b358bbb",
+      "status": 503,
+      "diagnostic": "PROVIDER_HTTP_503",
+      "durationMs": 49
+    },
+    {
+      "event": "catalog_error",
+      "requestId": "3dfeea38-6a1d-45e9-b316-f008304c5fa8",
+      "status": 503,
+      "diagnostic": "PROVIDER_HTTP_503",
+      "durationMs": 49
+    }
+  ],
+  "scope": "Real public-provider categories and real product failure. No successful product search, G7 authentication, public G1 deployment or H3 acceptance is claimed."
+}

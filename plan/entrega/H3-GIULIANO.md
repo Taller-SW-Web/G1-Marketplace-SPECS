@@ -2,7 +2,9 @@
 
 > **Entorno actual solicitado por Giuliano: Docker local del equipo; Render queda fuera de este paso.** Consultar la [evidencia Docker](../evidencias/H3-GIULIANO/H3-DOCKER-2026-10-16.md). Las referencias anteriores de nube se conservan como contexto; el cambio no acredita cierre H3.
 
-Corte 16/10/2026. Alcance: F-006 inicio/categorías y F-007 búsqueda pública, con componentes compartidos. Implementación asistida por Codex; revisión humana y aceptación pendientes. Las pruebas usan **MOCK**. Ningún recorrido local acredita integración real con Productos.
+**Estado actualizado 17/10, 07:45 Lima:** [conexión parcial real de categorías](../evidencias/H3-GIULIANO/H3-G6-DEMO-2026-10-17.md), con demo sin JWT explícita en localhost:3300, ocho categorías 200 REAL y búsqueda 503 REAL con reintento. La demo habitual en 3000 conserva MOCK. Faltan lecturas positivas de productos y los registros de revisión/aceptación; no se declara cierre H3.
+
+Corte histórico 16/10/2026. Alcance: F-006 inicio/categorías y F-007 búsqueda pública, con componentes compartidos. Implementación asistida por Codex; revisión humana y aceptación pendientes. Las pruebas de ese corte usan **MOCK**; la conexión parcial posterior se documenta arriba.
 
 **Actualización 17/10/2026:** [preparación de conexión G6](../evidencias/H3-GIULIANO/H3-PREPARACION-G6-2026-10-17.md) y [nueva integración de develop](../evidencias/H3-GIULIANO/H3-INTEGRACION-DEVELOP-2026-10-17.md). Estos registros identifican las bases y validaciones actuales; las cifras y guiones anteriores conservan su fecha.
 
