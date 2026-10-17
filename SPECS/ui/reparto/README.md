@@ -2,7 +2,7 @@
 
 Esta carpeta convierte el inventario visual aprobado documentalmente en cinco paquetes ejecutables. Cada paquete reúne las specs, los frames exactos, las dependencias compartidas, las decisiones abiertas y el orden de trabajo de una persona. **Estos paquetes asignan autoría de diseño visual; la implementación FE+BE se rige por la [matriz punta a punta](../../RESPONSABILIDADES-PUNTA-A-PUNTA.md) y sus paquetes en plan.**
 
-Los mockups se trabajarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394). La biblioteca visual permanece en el archivo [Sistema de Diseño](../DS-001-sistema-diseno-marketplace.md). La carpeta de vistas todavía no sustituye los enlaces directos al archivo y a cada frame que deben incorporarse a las specs.
+Los mockups se trabajarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394). La biblioteca visual permanece en el archivo [Sistema de Diseño](../DS-001-sistema-diseno-marketplace.md). El archivo [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) ya está identificado y se verificaron los enlaces de [V-005](../vistas/V-005-inicio.md) y [V-006](../vistas/V-006-catalogo-resultados.md) en la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3). Los enlaces de otros entregables y su aprobación permanecen pendientes de verificación.
 
 ## Reglas comunes
 

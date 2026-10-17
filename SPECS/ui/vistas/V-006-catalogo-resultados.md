@@ -14,7 +14,9 @@
 | Responsable | Fernando José Saire Tello |
 | Revisor | Giuliano Macchiavello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Sección V-006](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-870) |
+| Página de Figma | [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) |
+| Enlaces verificados | 2026-10-14; consulta de nodos del archivo Mockups. Revisión humana pendiente |
 
 ## 2. Propósito, actor y acceso
 
@@ -176,16 +178,35 @@ V-006 Catálogo y resultados
 
 | Frame | Plataforma | Estado | Contenido diferencial |
 |---|---|---|---|
-| `V-006 / Desktop / Catálogo` | Desktop | General | Panel lateral y grilla. |
-| `V-006 / Mobile / Catálogo` | Mobile | General | Acceso a `O-001` y grilla compacta. |
-| `V-006 / Desktop / Búsqueda con filtros` | Desktop | Resultados | Query, chips, orden y paginación. |
-| `V-006 / Mobile / Resultados` | Mobile | Resultados | Resumen de criterios y cantidad. |
-| `V-006 / Desktop / Cargando` | Desktop | Skeleton | Filtros y resultados. |
-| `V-006 / Mobile / Sin resultados` | Mobile | Vacío | Recuperación y criterios visibles. |
-| `V-006 / Desktop / Query o rango inválido` | Desktop | Validación | Sin consulta al catálogo. |
-| `V-006 / Mobile / Catálogo no disponible` | Mobile | Error `503` | Reintento y criterios conservados. |
-| `V-006 / Desktop / Página intermedia` | Desktop | Paginación | Anterior/siguiente y foco documentado. |
-| `V-006 / Mobile / ProductCard favorita` | Mobile | Variante | Guardando y guardado anotados. |
+| [`V-006 / Desktop / Catálogo`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-881) | Desktop | General | Panel lateral y grilla. |
+| [`V-006 / Mobile / Catálogo`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-1026) | Mobile | General | Acceso a `O-001` y grilla compacta. |
+| [`V-006 / Desktop / Búsqueda con filtros`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1043) | Desktop | Resultados | Query, chips, orden y paginación. |
+| [`V-006 / Mobile / Resultados`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1734) | Mobile | Resultados | Resumen de criterios y cantidad. |
+| [`V-006 / Desktop / Cargando`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1188) | Desktop | Skeleton | Filtros y resultados. |
+| [`V-006 / Mobile / Sin resultados`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1958) | Mobile | Vacío | Recuperación y criterios visibles. |
+| [`V-006 / Desktop / Query o rango inválido`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1454) | Desktop | Validación | Sin consulta al catálogo. |
+| [`V-006 / Mobile / Catálogo no disponible`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-2182) | Mobile | Error `503` | Reintento y criterios conservados. |
+| [`V-006 / Desktop / Página intermedia`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1678) | Desktop | Paginación | Anterior/siguiente y foco documentado. |
+| [`V-006 / Mobile / ProductCard favorita`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-2406) | Mobile | Variante | Guardando y guardado anotados. |
+
+### Referencias adicionales localizadas
+
+Estos frames existen en el archivo consultado; se registran como referencias visuales, sin ampliar por ello los requisitos de implementación de H3 ni aprobar su diseño.
+
+| Frame existente | Enlace directo |
+|---|---|
+| `V-006 / Desktop / Sin resultados` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1338) |
+| `V-006 / Desktop / Catálogo no disponible` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1565) |
+| `V-006 / Desktop / ProductCard favorita` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1823) |
+| `V-006 / Mobile / Cargando` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1846) |
+| `V-006 / Mobile / Query o rango inválido` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-2070) |
+| `V-006 / Mobile / Página intermedia` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-2294) |
+| `V-006 / Desktop / Actualizando criterios` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=367-1893) |
+| `V-006 / Mobile / Actualizando criterios` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=367-2039) |
+| `V-006 / Desktop / Página fuera de rango` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=367-2155) |
+| `V-006 / Mobile / Página fuera de rango` | [Abrir frame](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=367-2263) |
+
+Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de un frame no acredita aprobación, integración de datos ni fidelidad de la web. La [comparación del corte H3](../../../plan/evidencias/H3-GIULIANO/H3-COMPARACION-FIGMA-2026-10-14.md) registra las diferencias encontradas. Las capacidades mostradas en el mockup se habilitan sólo cuando lo permitan el alcance y los contratos vigentes.
 
 ## 13. Criterios de aceptación visual
 

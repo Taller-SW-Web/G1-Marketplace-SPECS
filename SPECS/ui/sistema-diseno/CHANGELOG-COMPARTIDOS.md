@@ -1,0 +1,65 @@
+# Changelog — documentación de elementos compartidos
+
+Este registro describe documentación y contratos de consumo. No acredita publicación de una biblioteca, revisión humana ni una nueva versión de DS-001.
+
+## 0.2.5 — 16/10/2026 — En revisión
+
+- Documenta Docker como entorno actual solicitado: tres servicios, red interna y volumen PostgreSQL aislado; Render se conserva como referencia futura.
+- Los proxies catálogo/carrito comparten la validación del origen BFF y autorizan HTTP al hostname Docker configurado explícitamente en servidor. No cambian DTO, props ni DS-001.
+- [Evidencia Docker y guías](../../../plan/evidencias/H3-GIULIANO/H3-DOCKER-2026-10-16.md): la construcción/arranque y el recorrido con fixtures se verifican separadamente de G6 REAL y aceptación H3.
+
+## 0.2.4 — 16/10/2026 — En revisión
+
+- Compatibilidad con develop Backend e6fc7f2 y Frontend 843dfde: catálogo y carrito conviven, sin cambiar props, DTO ni DS-001.
+- Restauración start:prod para Render y eliminación de identidad de prueba automática en el proxy cart; sesión anónima y Authorization explícita preservadas.
+- [Evidencia del corte](../../../plan/evidencias/H3-GIULIANO/H3-ACTUALIZACION-DEVELOP-2026-10-16.md): 125 pruebas y 11 comprobaciones smoke locales, incluyendo producción sin credenciales. Preparación de despliegue documentada; revisión/REAL/aceptación pendientes.
+
+## 0.2.3 — 16/10/2026 — En revisión
+
+- Imagen opcional por solicitud de Giuliano: `images` omitido o `[]` en G6 se proyecta a `ProductCardDTO.image: null`.
+- ProductCard presenta un placeholder local «Sin imagen» con alternativa accesible, conservando producto, enlace y paginación; funciona en inicio y listado.
+- Las imágenes suministradas conservan la validación de formato, HTTPS y allowlist. La ausencia no se confunde con una URL insegura o una respuesta mal formada.
+- Se actualizan guías de consumo y specs H3. Los consumidores directos del DTO deben manejar null; sin cambios en selección de destacados, DS-001, elegibilidad o datos comerciales.
+
+## 0.2.2 — 15/10/2026 — En revisión
+
+- Backend adopta el baseline NestJS de develop por decisión explícita de Giuliano: CatalogModule/Controller/Service, tipos, proveedor inyectable e interceptor/filtro locales.
+- Se retiran el servidor Node anterior y sus imports internos; las guías del Backend pasan a 0.2.0 y documentan cómo consumir módulos/proveedores TypeScript.
+- Se conservan los archivos compartidos de arranque, salud, Prisma, Render, configuración de build/test, scripts y lockfile del baseline. CORS_ORIGINS y el 404 global siguen su comportamiento.
+- Playwright compila/inicia el BFF NestJS con configuración MOCK y sin una BD real. Pasan 34 pruebas unitarias y 19 HTTP del Backend; 10 de componentes y 16 de navegador del Frontend, más build/tipado/lint y validación de Prisma.
+- Se registra la [evidencia de migración y publicación](../../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md). No se añaden dependencias al baseline ni funciones H4, ni se declara integración real/H3 cerrado.
+
+Compatibilidad: las rutas, DTO y errores de validación/proveedor mantienen su contrato. Los imports internos JavaScript/createApp se reemplazan por TypeScript e inyección NestJS. Las props y el diseño del Frontend no cambian; DS-001 mantiene su versión 0.2.0. CORS y rutas inexistentes respetan el baseline compartido.
+
+## 0.2.1 — 15/10/2026 — En revisión
+
+- Inicio y Catálogo adoptan la composición de sus frames Figma dentro de H3: shell, hero, categorías, tarjetas, estados y grilla de una columna en móvil.
+- Se añaden CategoryNavigation y CategoryArtwork dentro de catálogo; ErrorState incorpora `home?: boolean` sin romper consumidores existentes.
+- ProductSkeletons compone seis tarjetas; SearchBox conserva etiqueta visible y botón accesible con icono.
+- Se registran recursos exactos de Figma en Frontend con nodos de origen, dimensiones y SHA-256. Productos y categorías siguen sujetos al BFF; no se inventan precio/stock/destacados ni se añade funcionalidad H4.
+- Se actualizan guías de consumo y la [evidencia de adaptación](../../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-FIGMA-2026-10-15.md). Revisión humana y gates externos pendientes.
+
+Compatibilidad: Button, TextField, EmptyState, Skeleton, DTO y rutas HTTP mantienen sus contratos. La nueva prop de ErrorState es opcional. DS-001 conserva su versión 0.2.0.
+
+## 0.2.0 — 14/10/2026 — En revisión
+
+- Se implementan Button (variantes, tamaños, loading/disabled e iconos), TextField (IDs únicos y label/hint/error asociados), EmptyState y Skeleton/LoadingState.
+- Se integran en SearchBox, reintento, vacíos y carga de categorías/productos, conservando los exports de feedback existentes.
+- El buscador deja de utilizar IDs fijos y bloquea envíos mientras la navegación está pendiente.
+- Se añaden action-soft y cinco tokens de espaciado de DS-001: la traducción local pasa de 18 a 24 variables CSS.
+- Se añaden 10 pruebas de componentes con Vitest/Happy DOM; pasan las 13 pruebas de navegador existentes, lint, TypeScript y build. Dependencias de prueba compatibles con Node 22.18; auditoría de instalación sin vulnerabilidades reportadas.
+- Se actualizan contratos, ejemplos y pendientes de la guía del frontend y este inventario. Modal, campos especializados y feedback O-010 completo permanecen pendientes.
+
+Compatibilidad: los componentes anteriores mantienen sus contratos. Los IDs del campo son un detalle interno generado; los consumidores y pruebas deben usar label/rol en lugar de depender de buscar-productos/search-error. DS-001 conserva su versión 0.2.0 y revisión pendiente.
+
+## 0.1.0 — 14/10/2026 — En revisión
+
+- Se crea [el catálogo de elementos compartidos](ELEMENTOS-COMPARTIDOS.md) con ubicación, responsabilidades, foundations, DTO y límites de uso.
+- Se registran los elementos presentes en el corte local: Header/Footer, SearchBox, ProductCard, feedback de catálogo, skeletons, CategoryChip y hook/validadores.
+- Se distinguen los estilos CSS de los componentes React todavía pendientes; ErrorState no se declara O-010 completo.
+- Se documenta el subconjunto de 18 variables CSS, tipografías instaladas y diferencias responsive pendientes de aceptación.
+- Se añaden guías de consumo en los repositorios Frontend y Backend, con ejemplos y handoff.
+- Se registra la política actualizada de la sesión: commits y publicación de las ramas de trabajo por repositorio, sin cambios publicados a main ni apertura automática de PR; Giuliano los preparará manualmente al terminar.
+- Se enlazan las guías compartidas desde las ramas de código y se registran los commits publicados de Frontend/Backend en la evidencia del corte.
+
+Compatibilidad: este cambio es documental; no modifica exports, props, comportamiento ni contratos HTTP. Conserva como pendientes las revisiones y los gates externos.
