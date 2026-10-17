@@ -8,7 +8,7 @@ Cubre F-001–F-040, 17 vistas, 10 overlays y 2 correos. Las funcionalidades sig
 
 Orden de autoridad: funcional para comportamiento, API para operaciones/datos, UI funcional y V/O/C para composición/estados, DS-001 v0.2.0 para tokens, esta carpeta para estructura React. Ante conflicto registrar decisión en [plan](../../plan/DECISIONES-Y-BLOQUEOS.md), no modificar silenciosamente comportamiento.
 
-DS-001 v0.2.0 reemplaza los tokens 0.1.0 aún citados por algunas specs. Mantine/Tabler es dirección preliminar, no migración aprobada. No instalar ni fijar Mantine 9.6.2 sólo porque figure en la guía: validar disponibilidad/compatibilidad y aprobar DS-OPEN-03 al preparar el frontend. No mezclar dos UI kits.
+DS-001 v0.2.0 reemplaza los tokens 0.1.0 aún citados por algunas specs. Para Checkout F-022–F-027, el PO decidió usar la base propia existente (`Button`, `TextField`, tokens y estilos) sin Mantine/Tabler; esta decisión kit-neutral no se extiende automáticamente a las demás familias. Mantine/Tabler sigue siendo propuesta, no migración aprobada. No mezclar dos UI kits; consultar G-STACK/DS-OPEN-03 para el alcance transversal.
 
 **Decisión del PO (2026-10-10):** el frontend se implementará con React + TypeScript + Next.js App Router. Esta decisión fija el framework, no una versión ni la biblioteca de componentes. El repositorio frontend aún no acredita una aplicación ejecutable; el backend remoto publica una base Node/Prisma con `/health`, pero no el BFF de catálogo. TanStack Query, formularios tipados y NestJS siguen siendo propuestas sujetas a implementación/validación, no afirmaciones de código instalado. Seleccionar versiones compatibles y registrar el lockfile al iniciar S1.
 
@@ -77,7 +77,7 @@ La protección de ruta React es UX, no autorización. BFF valida JWT, ownership,
 | Componente | Props / eventos principales | Contrato de uso |
 |---|---|---|
 | AppShell / CommercialHeader | sessionState, navItems permitidos; onSearch/onLogin/onLogout | Marca, búsqueda, catálogo, cuenta, favoritos/carrito según DS. Sin enlaces ficticios. |
-| CheckoutHeader / CheckoutProgress | currentStep, completedSteps, orderSucceeded | Propuesta previa de Jim: sólo logo + Dirección/Resumen/Pago/Confirmación, sin perfil ni pago seguro. Sin saltar pasos; V-013 confirmación activa, V-014 completo sólo SUCCEEDED. Cierre visual G-SHELL pendiente antes de pixel final. |
+| CheckoutHeader / CheckoutProgress | currentStep, completedSteps, orderSucceeded | Usar los mockups Figma V-010–V-014 del [canvas Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) como referencia visual del shell; no diseñar otro en paralelo. Mantener las etapas/elementos mostrados, sin señales de pago real ni saltos de paso. V-014 completo sólo con SUCCEEDED. El canvas incluye frames desktop y mobile; G-SHELL no bloquea iniciar FE checkout. La aprobación visual sigue pendiente. |
 | CommercialFooter / CheckoutFooter | approvedLinks, brandAsset, legalText | Anatomía definitiva no formalizada en UI; no crear páginas de ayuda/legal ni enlaces rotos. Propuesta oscura requiere logo inverso aprobado. No tratar pendiente como implementación concluida. |
 | ProductCard | DTO público, favoriteState privado separado; onFavorite | Enlace de producto y botón corazón no anidados. Skeleton/error local, sin carrito rápido no especificado. |
 | ProductGallery / GalleryViewer | medios, índice, opened; onSelect/onClose | F-011/O-002, finitos, fallback y foco. |
@@ -104,7 +104,7 @@ Pruebas comunes: aviso repetido de la misma operación no duplica anuncio; acci�
 |---|---|---|
 | Acceso | V-001–V-004 | Marca/formulario, ayuda y retorno seguro según cada V |
 | Comercial | V-005–V-009 | Navegación comercial y footer por aprobar |
-| Checkout | V-010–V-014 | CheckoutHeader compartido, 4 etapas, footer simplificado por aprobar |
+| Checkout | V-010–V-014 | CheckoutHeader y composición compartida según mockups Figma de checkout, con variantes desktop/mobile. No crear un shell alternativo. |
 | Cuenta/pedidos | V-015–V-017 | Navegación comercial autenticada, datos privados y retorno |
 | Correo | C-001/C-002 | Renderer HTML/texto servidor, sin app shell ni scripts |
 

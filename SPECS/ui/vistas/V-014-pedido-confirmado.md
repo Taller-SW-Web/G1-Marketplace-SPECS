@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Canvas Checkout — V-014](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) |
 
 ## 2. Propósito, actor y acceso
 
@@ -70,7 +70,7 @@ El estado de verificación pendiente sustituye el bloque de éxito: usa título,
 |---|---|---|---|
 | Título de éxito | “¡Pedido confirmado!” | — | Sólo `SUCCEEDED` con `orderId` y `PAGADO` verificado. |
 | Código | “Pedido {orderId}” | Copiar mediante botón etiquetado | Éxito. |
-| Estado | “Pago simulado confirmado” | — | Éxito verificado por Ventas; se aclara que no hubo cargo real. |
+| Estado | “PAGADO · Pago simulado confirmado” | — | Sólo éxito verificado por Ventas para el mismo `orderId`; se aclara que no hubo cargo real. |
 | Fecha | Fecha/hora localizada | — | Éxito. |
 | Total | Importe y moneda del snapshot de Ventas | — | Éxito. |
 | Resumen | Conteo o lista corta autorizada | — | Si contrato lo entrega. |
@@ -175,3 +175,4 @@ No existen formularios. “Copiar código” es un botón, confirma el resultado
 | `V-014-OPEN-03` | Confirmar si se muestra correo enmascarado y cuál es su fuente autorizada. | Seguridad + UX | Antes del diseño final | Abierta |
 | `V-014-OPEN-04` | Definir salida y soporte para estados `FAILED` sin pedido. | Backend + Producto | Antes del diseño final | Abierta |
 | `V-014-OPEN-05` | Ventas publicó `GET /api/v1/pedidos/{pedidoId}` con `estado`, total y snapshot. G1 debe probar el mapeo, recuperación local y presentación de `ANULADO` antes de actualizar los frames aprobados. | Arquitectura + UX | Antes de implementación real | Contrato resuelto; integración pendiente |
+| `V-014-OPEN-06` | Los frames desktop/mobile de éxito muestran `CREADO` pese al titular “Pedido confirmado”. Se conserva Figma sin cambios; en la interfaz implementada sólo se muestra éxito/confirmación al verificar `PAGADO` para el mismo pedido. | Producto + Frontend | Decidido el 2026-10-15 | Cerrado como divergencia visual aceptada; no bloquea implementación |
