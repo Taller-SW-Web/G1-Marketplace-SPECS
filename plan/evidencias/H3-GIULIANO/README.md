@@ -53,6 +53,7 @@ La evidencia corresponde al entorno local con datos MOCK. Quedan la prueba autor
 | [Entrega y trazabilidad H3](../../entrega/H3-GIULIANO.md) | Guion, responsabilidades, implementación y pendientes |
 | [Entorno Docker](H3-DOCKER-2026-10-16.md) | Arranque local, servicios, configuración y validaciones actuales |
 | [Imagen opcional](H3-IMAGEN-OPCIONAL-2026-10-16.md) | Contrato nullable, placeholder y pruebas del adaptador |
+| [Preparación G6, 17/10](H3-PREPARACION-G6-2026-10-17.md) | Ensayo HTTP de contrato, activación Docker REAL y comprobación futura del BFF; integración externa pendiente |
 
 ## Historial técnico conservado
 
