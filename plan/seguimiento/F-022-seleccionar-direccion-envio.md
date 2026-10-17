@@ -28,7 +28,7 @@ Referente de BD: Leonidas Garcia para este bloque, con revisión de Diego Espino
 ### TASK-F022-FE-001
 
 - **Trabajo:** Implementar DeliveryAddressPicker, NewDeliveryAddressForm, AddressStepContainer y todos los estados de React/UI.
-- **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
+- **Terminado cuando:** Props/eventos tipados, estado específico y sin requests internos navegador; usar los frames V-010 del [canvas Checkout en Figma](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) como referencia visual. Cubrir estados desktop/mobile y casos de spec React.
 - **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
 - **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
 
