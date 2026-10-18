@@ -2,9 +2,19 @@
 
 `POST /api/v1/carts/current/items`
 
+Entrada normal, con la identidad comercial ya resuelta:
+
 ```json
 {"sku":"AERO-42-BLK","quantity":1}
 ```
+
+Durante el gate I-01, el BFF acepta además una entrada **sólo para productos MOCK** cuando el fixture tiene un mapeo de servidor conocido:
+
+```json
+{"productId":"PRD-MOCK-001","quantity":1}
+```
+
+El BFF resuelve `productId` a un SKU MOCK; el cliente nunca trata ambos identificadores como equivalentes. Un ID sin mapeo devuelve `400 PRODUCT_NOT_PURCHASABLE`. Esta ruta sólo está habilitada en `BFF_MODE=mock`; en modo REAL se requiere el `sku` autorizado por el contrato de variantes/precio. F-011 no se amplía ni expone SKU.
 
 Respuesta `200` (línea existente) o `201` (línea creada):
 
