@@ -2,15 +2,16 @@
 
 Repositorio de **especificaciones, arquitectura, diseño visual y planificación** del canal Marketplace de Inka Athletics. El código se desarrolla en repositorios separados: [frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend) y [backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend). Marketplace presenta la experiencia de compra y coordina servicios propietarios de Productos y Ofertas, Seguridad y Gestión de Usuarios, Ventas y Postventa y Despacho; no lee directamente las bases de datos de otros módulos.
 
-> **Estado documental al 13 de octubre de 2026:** los mockups están elaborados y aprobados según el PO, pero eso no equivale a software implementado. El plan de desarrollo de semanas 8–16 tiene responsables y estimación base decididos por el PO; cada tarea se cierra únicamente con código, pruebas y evidencia. La integración real con Productos para la semana 8 depende de que ese módulo publique entorno, datos y autorización utilizables.
+> **Corte revisado el 18 de octubre de 2026:** frontend y backend contienen avances fusionados en `main`, principalmente con fixtures y modos MOCK. La web pública responde, pero su ruta de catálogo devolvió 503 en esta revisión. La [comparación H1–H3 y traspaso a H4](plan/CORTE-H3-Y-TRASPASO-H4.md) separa código, prueba local, integración y despliegue. Los mockups aprobados según el PO no acreditan esas etapas.
 
 ## Por dónde empezar
 
 1. [Plan de implementación](plan/PLAN-IMPLEMENTACION.md): hitos de semanas 8, 11, 14 y 16, alcance y criterios de evidencia.
 2. [Matriz de bloques y responsables punta a punta](SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) y [paquetes individuales](plan/repartición%20por%20integrantes/README.md) para H3–H6. Leer también la [guía de colaboración](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) antes de abrir ramas o PR.
 3. [Decisiones y bloqueos](plan/DECISIONES-Y-BLOQUEOS.md): dependencias intermodulares y técnicas pendientes; no asumir que una API o un despliegue está listo porque exista un documento.
-4. [Nomenclatura SDD](SPECS/NOMENCLATURA-SDD.md) y [fuentes](SPECS/INVENTARIO-FUENTES.md): cómo identificar specs y rastrear su origen.
-5. Para una funcionalidad, leer en orden su spec [funcional](SPECS/funcional/), [UI](SPECS/ui/), [contrato API](SPECS/contrato-api/) y [componentes React](SPECS/componentes-react/); después su archivo en [plan/funcionalidades](plan/funcionalidades/) y sus tareas en [plan/seguimiento](plan/seguimiento/).
+4. [Corte H1–H3 y traspaso a H4](plan/CORTE-H3-Y-TRASPASO-H4.md) y [auditoría de la issue #5](plan/AUDITORIA-ISSUE-5.md): evidencia, discrepancias y pendientes con responsable.
+5. [Nomenclatura SDD](SPECS/NOMENCLATURA-SDD.md) y [fuentes](SPECS/INVENTARIO-FUENTES.md): cómo identificar specs y rastrear su origen.
+6. Para una funcionalidad, leer en orden su spec [funcional](SPECS/funcional/), [UI](SPECS/ui/), [contrato API](SPECS/contrato-api/) y [componentes React](SPECS/componentes-react/); después su archivo en [plan/funcionalidades](plan/funcionalidades/) y sus tareas en [plan/seguimiento](plan/seguimiento/).
 
 La documentación en [specs históricas](SPECS/specs-depreciadas/) y las épicas/historias originales es **antecedente**, no sustituto de las specs vigentes F-001–F-040. Ante una contradicción, registrar la decisión y actualizar la fuente vigente antes de implementar.
 

@@ -2,7 +2,7 @@
 
 **Inka Athletics · Grupo 1 · Hito 3**
 
-**Corte de referencia:** 17/10/2026, frontend `develop@0b0ed1c` y backend `develop@62f077d`.
+**Snapshot de referencia:** 17/10/2026, frontend `develop@0b0ed1c` y backend `develop@62f077d`. Es una fotografía histórica de esas revisiones. Para el corte posterior FE `main@ec1acfb`/BE `main@c7e8e8e` y los gates H3 pendientes, consultar el [registro del 18/10](../plan/CORTE-H3-Y-TRASPASO-H4.md); las frases sobre rutas 404, PR abiertas o despliegues de este snapshot no describen automáticamente el estado actual.
 
 Este documento reúne la arquitectura de frontend, backend, persistencia, integración y despliegue. Los diagramas describen el código de ese corte y señalan los elementos previstos para completar el módulo. El [Modelo C4](Modelo%20C4.md) amplía las vistas de contexto, contenedores y componentes.
 

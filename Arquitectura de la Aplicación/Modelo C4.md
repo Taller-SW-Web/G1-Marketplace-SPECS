@@ -2,7 +2,7 @@
 
 **Inka Athletics · Grupo 1 · Hito 3**
 
-**Corte de referencia:** 17/10/2026, frontend `develop@0b0ed1c` y backend `develop@62f077d`.
+**Snapshot de referencia:** 17/10/2026, frontend `develop@0b0ed1c` y backend `develop@62f077d`. Para la comparación con FE `main@ec1acfb`/BE `main@c7e8e8e`, categorías G6 locales y gates aún pendientes, ver el [corte del 18/10](../plan/CORTE-H3-Y-TRASPASO-H4.md). Las relaciones «previsto» de este diagrama se interpretan en el contexto de su snapshot.
 
 El modelo conserva los tres niveles de aproximación del documento original: **contexto**, **contenedores** y **componentes**. La vista de componentes incluye frontend y backend. La explicación del stack, las capas, la persistencia, los entornos, el CI y las responsabilidades está en [Arquitectura de la Aplicación](Arquitectura.md).
 

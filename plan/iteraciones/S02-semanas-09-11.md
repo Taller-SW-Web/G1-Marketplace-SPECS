@@ -1,14 +1,14 @@
 # S2 — Segundo demo, APIs y autenticación (semanas 9–11)
 
-Versión 0.4.0 · Replanificación para Hito 4. Carga alta: usar estimación base y avance observado antes de prometer cierre completo.
+Versión 0.5.0 · Revisión 2026-10-18. H4 recibe [pendientes de H3](../CORTE-H3-Y-TRASPASO-H4.md); comparar capacidad observada antes de prometer cierre completo.
 
 ## Objetivo y alcance
 
-Cerrar F-001–003 (registro, login, logout), F-008–014 (filtro, orden, paginación, ficha, precio/oferta, variantes y stock), F-016 (agregar al carrito), F-019 (ver carrito) y F-036–038 (favoritos). F-004/005 de recuperación se programan en S5; no simular que son parte del login implementado. F-015 relacionados queda en S5. Contratos externos vigentes y propiedad de datos prevalecen sobre mockups.
+Primero cerrar el gate pendiente de H3 para F-006/F-007: búsqueda con Productos REAL por la web desplegada y FE/BE trazables al mismo corte. Después cerrar F-001–003 (registro, login, logout), F-008–014 (filtro, orden, paginación, ficha, precio/oferta, variantes y stock), F-016 (agregar al carrito), F-019 (ver carrito) y F-036–038 (favoritos). F-004/005 de recuperación se programan en S5; F-015 relacionados también. Los avances MOCK integrados son base de trabajo, no cierre de integración.
 
 ## Secuencia por semana
 
-- **Semana 9:** publicar/validar diseño OpenAPI del BFF y mapa de adaptadores; acordar G-AUTH con Seguridad (token, MFA, retorno, expiración, CORS/cookies). Activar CI con build, typecheck, tests y secretos; preparar despliegue automático por entorno. Completar filtro/orden/página y ficha con datos comerciales autorizados.
+- **Semana 9:** verificar y reparar FE pública → BFF → G6, con búsqueda positiva, vacío/error, commit desplegado y readiness; publicar/validar OpenAPI del BFF y mapa de adaptadores; acordar G-AUTH con Seguridad. Activar CI con build, typecheck, tests y secretos; preparar deploy por entorno. Completar filtro/orden/página y ficha con datos comerciales autorizados según capacidad.
 - **Semana 10:** integrar registro/login/logout con Seguridad en pantallas **y** APIs protegidas; probar usuario ajeno, token vencido y MFA. Entregar variantes/SKU/precio/stock sin inferir cantidades desde estado comercial. Agregar/ver carrito con persistencia propia y errores controlados; favoritos básicos si la capacidad lo permite.
 - **Semana 11:** ejecutar pipeline build→test→deploy, revisión de seguridad, prueba de contrato/e2e y segundo demo en nube. Evidenciar funciones nuevas, autenticación, diseño de APIs y CI/CD. Cerrar I-02/I-06 y escoger contrato/evento real para H5; no postergar esa coordinación a semana 14.
 

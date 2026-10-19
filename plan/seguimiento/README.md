@@ -1,6 +1,6 @@
 # Seguimiento de tareas — Marketplace
 
-Corte replanificado 2026-10-10 · Semanas 7–16 · El tablero no prueba ejecución de software.
+Corte planificado 2026-10-10 · Revisión de H3 2026-10-18. El tablero no prueba ejecución de software. F-006/F-007 y gates de nube pasan como arrastre prioritario a S2/H4 según el [corte verificable](../CORTE-H3-Y-TRASPASO-H4.md); los IDs y semanas originales se conservan para trazabilidad.
 
 ## 1. Inventario y responsables
 

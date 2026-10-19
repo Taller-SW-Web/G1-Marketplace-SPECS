@@ -11,7 +11,7 @@ Las **40 funcionalidades F-001–F-040** constituyen el catálogo de implementac
 
 ## Límites vigentes
 
-- Frontend decidido por el PO: **React + TypeScript + Next.js App Router**. UI kit/versiones/lockfile siguen pendientes; no deducir una aplicación funcional de estas specs.
+- Frontend decidido por el PO e instalado en FE `main@ec1acfb`: **React 19.3.1 + TypeScript 5.9.3 + Next.js 16.4.1 App Router**, con lockfile. El código observado usa componentes propios y CSS; la selección global de UI kit sigue abierta en `DS-OPEN-03`. Checkout F-022–F-027 mantiene una decisión neutral respecto del kit. Ver [corte H3](../plan/CORTE-H3-Y-TRASPASO-H4.md) para el nivel de prueba y despliegue.
 - Marketplace implementa su propio BFF/adaptadores y persistencia definida por el [modelo lógico](../Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/01-Modelo-logico-inicial.md). Seguridad, Productos, Ventas y Despacho conservan datos y reglas de sus dominios. Contratos y entornos se comprueban antes de codificar rutas ajenas.
 - [`specs-depreciadas/`](specs-depreciadas/) contiene los antiguos SPEC-01–SPEC-08, épicas e historias como **antecedente histórico**. Sus nombres, puntos y responsables no gobiernan F-001–F-040, el reparto actual ni la fecha de integración. F-040, evaluación postentrega, es adicional a los ocho bloques literales del sílabo.
 - Plan, código, pruebas y despliegues tienen fuentes de verdad distintas. Una spec aprobada o un mockup no acredita software ejecutado; el cierre se prueba en el seguimiento con PR, commit, pruebas y evidencia `REAL` cuando corresponda.

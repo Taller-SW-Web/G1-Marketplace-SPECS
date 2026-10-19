@@ -10,7 +10,7 @@ Orden de autoridad: funcional para comportamiento, API para operaciones/datos, U
 
 DS-001 v0.2.0 reemplaza los tokens 0.1.0 aún citados por algunas specs. Mantine/Tabler es dirección preliminar, no migración aprobada. No instalar ni fijar Mantine 9.6.2 sólo porque figure en la guía: validar disponibilidad/compatibilidad y aprobar DS-OPEN-03 al preparar el frontend. No mezclar dos UI kits.
 
-**Decisión del PO (2026-10-10):** el frontend se implementará con React + TypeScript + Next.js App Router. Esta decisión fija el framework, no una versión ni la biblioteca de componentes. El repositorio frontend aún no acredita una aplicación ejecutable; el backend remoto publica una base Node/Prisma con `/health`, pero no el BFF de catálogo. TanStack Query, formularios tipados y NestJS siguen siendo propuestas sujetas a implementación/validación, no afirmaciones de código instalado. Seleccionar versiones compatibles y registrar el lockfile al iniciar S1.
+**Decisión del PO (2026-10-10), contrastada el 18/10:** FE `main@ec1acfb` ejecuta Next.js `16.4.1`, React `19.3.1` y TypeScript `5.9.3`, con lockfile, Route Handlers y componentes propios/CSS. BE `main@c7e8e8e` ejecuta NestJS `11`, Prisma `5` y módulos de catálogo, carrito, favoritos y checkout; varios proveedores siguen MOCK. No se observaron Mantine, Tabler, TanStack Query ni una librería de formularios en `package.json` del FE. Estas versiones describen código integrado, no un despliegue identificado. Checkout F-022–F-027 conserva componentes propios neutrales al kit; la selección global de DS-001 sigue pendiente para las otras familias.
 
 ## 2. Separación por capas y organización propuesta
 

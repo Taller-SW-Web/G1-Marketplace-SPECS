@@ -8,6 +8,8 @@
 |---|---|
 | ID funcional | `F-###` |
 | Versión del contrato | `v1` |
+| Estado documental | Borrador / En revisión / Aprobada para planificación / Aprobada / Obsoleta |
+| Fecha de revisión | [YYYY-MM-DD] |
 | Responsable | [Nombre] |
 | Revisor | [Nombre] |
 | Spec funcional relacionada | [Ruta] |

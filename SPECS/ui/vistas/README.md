@@ -2,7 +2,7 @@
 
 Este directorio contiene las especificaciones visuales por pantalla o ruta principal. La [matriz de responsabilidad de implementación](../../RESPONSABILIDADES-PUNTA-A-PUNTA.md) asigna los bloques/F-### del código; cualquier responsable de diseño mencionado aquí conserva únicamente ese alcance visual. Una vista puede reunir varias funcionalidades `F-###`; las specs funcionales y UI atómicas continúan siendo las fuentes del comportamiento, mientras que cada documento `V-###` define cómo se compone el entregable que se diseñará en Figma.
 
-Los mockups de estas vistas se ubicarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394), separada del archivo de la biblioteca del sistema de diseño enlazado en [`DS-001`](../DS-001-sistema-diseno-marketplace.md). El enlace recibido es de carpeta; falta registrar la URL directa del archivo de pantallas y los enlaces específicos de páginas y frames.
+Los mockups se ubican en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394), separada de la biblioteca enlazada en [`DS-001`](../DS-001-sistema-diseno-marketplace.md). El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) enlazado en los paquetes individuales se pudo leer el 18/10: en la conexión disponible expuso la página «Acceso y cuenta», con frames V-001–V-004. No se encontraron allí V-010–V-014. Falta el enlace directo del archivo/página de Checkout y de sus frames para verificarlo; esto no demuestra que no existan en otro archivo.
 
 ## Reglas
 
@@ -13,7 +13,7 @@ Los mockups de estas vistas se ubicarán en la [carpeta de vistas de Figma](http
 - Desktop y mobile son variantes obligatorias de la misma vista, salvo que la spec justifique una excepción.
 - El nombre del frame de Figma debe comenzar con el ID `V-###`.
 
-El diseño puede avanzar por etapas sin cambiar ese alcance. En el paquete de checkout (`V-010` a `V-014`), Jim está trabajando primero los frames desktop; los frames mobile se diseñarán después. Los estados de la sección 7 siguen vigentes en ambas etapas. Al incorporar un frame desktop adicional, se registra con su nombre exacto en la sección 12 de la spec correspondiente y se enlaza el frame final de Figma.
+El diseño puede avanzar por etapas sin cambiar ese alcance. La afirmación anterior de que los frames mobile de Checkout se diseñarían después era un plan de producción, no un inventario comprobado. El 18/10 no fue posible verificar los frames desktop/mobile V-010–V-014 con los enlaces disponibles; su estado queda **En revisión, verificación visual pendiente**, sin declararlos aprobados ni ausentes. Jim y el responsable de diseño deben aportar los enlaces directos y registrar nombre, plataforma, estado y revisión en la sección 12 de cada spec.
 
 ## Estados documentales
 
