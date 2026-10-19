@@ -1,10 +1,10 @@
 # DevSecOps y estrategia de pruebas por iteración
 
-Versión 0.2.0 · En revisión · Semanas 7–16. Esto especifica trabajo futuro, no escaneos ni pruebas ya ejecutadas.
+Versión 0.7.0 · Replanificación H4 2026-10-19 · En revisión · Semanas 7–16. Esto especifica trabajo futuro, no escaneos ni pruebas ya ejecutadas.
 
 ## 1. Responsabilidad y límites
 
-Las funciones de pipeline/seguridad, QA/verificación, corrección técnica y aceptación de riesgo deben tener responsables y revisores distintos; **la matriz de bloques fija responsables por decisión del PO; la capacidad real se vigila durante la ejecución**. Las tareas transversales proponen responsable/revisor en [TRANSVERSALES](seguimiento/TRANSVERSALES.md). El reparto de mockups no asigna código.
+Las funciones de pipeline/seguridad, QA/verificación, corrección técnica y aceptación de riesgo deben tener responsables y revisores distintos; **la matriz de bloques fija responsables por decisión del PO; la disponibilidad sin restricción horaria no reemplaza contratos ni evidencia**. Las tareas transversales asignan responsable/revisor en [TRANSVERSALES](seguimiento/TRANSVERSALES.md). El reparto de mockups no asigna código.
 
 Sólo pruebas sobre entornos propios o expresamente autorizados. No hacer DAST, fuzzing, carga, intentos de autenticación o escaneos al GitHub/Figma/servicios de otros grupos sin permiso. Proveedor simulado prueba contratos, no seguridad de tercero.
 
@@ -26,10 +26,10 @@ Cada sprint incluye tareas OPS de escaneos y QA-002 por funcionalidad. La config
 | Sprint | Pruebas funcionales | Seguridad / DevSecOps | Evidencia y salida |
 |---|---|---|---|
 | S1 semanas 7–8 | Home/búsqueda real con Productos, backend/frontend desplegados | Query abusiva, errores/timeout, CORS, secretos, XSS y escaneo inicial sobre entorno propio | H3: URL, prueba web→BFF→Productos, build/test y logs sanitizados |
-| S2 semanas 9–11 | Registro/login/logout, catálogo/ficha/carrito/favoritos básicos | JWT expirado, MFA, ownership, rate limit, IDOR, XSS/SSRF y escaneos CI/CD | H4: autenticación UI+API, OpenAPI, ejecución build/test/deploy y segundo demo |
-| S3 semanas 12–13 | Cantidad/quitar, dirección/quote/cupón/pedido y correo asíncrono | CSRF/concurrencia, token titular vs técnico, alteración de montos, idempotencia/replay, PII y DAST propio | Checkout sin pago ficticio; worker/evento y carga de prueba preparados |
+| S2 semanas 9–11 | F-001–F-021 y F-036–F-039: 25 cierres objetivo; partes G1 de las otras 15 implementadas/probadas H4 | JWT/MFA/recuperación/titularidad, rate limit/IDOR/XSS/SSRF, BD/contratos/concurrencia y scans CI-CD | H4: G6/G7 REAL y nube por F, OpenAPI completo, build/compile/test/deploy y cuatro etapas de evidencia |
+| S3 semanas 12–13 | Integración integral checkout/pedido/historial/detalle/correo desde código H4; regresión carrito | CSRF/concurrencia, usuario/técnico, montos, idempotencia/replay, PII y DAST propio | S03: 10 cierres con G5/G2/G6/correo; preparar gateway/evento/performance H5 |
 | S4 semana 14 | Seguimiento/evento de despacho y pruebas de integración/performance | Autenticación del mensaje, duplicados/reintento, gateway, scans y revisión de seguridad CI/CD | H5: traza intermodular, prueba de integración y carga con p50/p95/errores/umbral |
-| S5 semanas 15–16 | Recuperación, fusión, postventa/CSAT y regresión integral | IDOR histórico/CSAT, seguridad de recuperación, OWASP al menos dos evidencias, SAST/SCA/DAST finales, alertas y rollback | H6: release integrado, arquitectura as built, alertas disparadas y riesgo residual registrado |
+| S5 semanas 15–16 | F-029/F-031/F-040 con partes G1 recibidas H4; regresión completa de las 40 | IDOR histórico/CSAT, recuperación, OWASP y scans finales/alertas/rollback | H6: release integrado, arquitectura as built, alertas disparadas y riesgo residual |
 
 ## 4. Matriz de pruebas mínimas por capa
 
@@ -57,3 +57,15 @@ Si se detecta secreto: detener difusión, retirar de logs/artefactos y **coordin
 Formato por tarea: ID, commit/revisión futuro, comando/herramienta/versión, entorno, fixtures y cuentas no sensibles, casos/resultado/fecha, hallazgos, corrección/retest y revisor. Sanitizar screenshots y reportes.
 
 Guardar evidencia en rutas del repo de código o almacenamiento autorizado y enlazarla desde plan/seguimiento; no crear resultados inventados. Inicialmente todas las evidencias están pendientes. Distinguir simulación, sandbox homologado y producción.
+
+## Implementación asignada de API, seguridad y CI/CD en H4
+
+Andres conserva pipeline OPS-001/002 y guard SEC-001, revisados por Leonidas. Instalación lockfile, compile/typecheck/lint/build FE/BE, tests unitarios/componentes/API, PostgreSQL desechable con migraciones desde cero, consumer tests/negativos y scans preceden el deploy. Disparadores PR/develop/main según política, fallo que impida deploy, SHAs/artefactos y CD trazables, smoke y rollback probado. El CI actual de H3 es base a adaptar; YAML/scripts no acreditan ejecución ni CD. G-DB conserva bloqueo y auditoría Render separada.
+
+Leonidas diseña OpenAPI API-001 y coordina token técnico G1→G6 INT-001; Sebastian valida ejemplos/pruebas de contrato API-002. Jim integra sesión G7 AUTH-001. Fernando prepara/verifica cloud OPS-003 y E2E QA-001; Diego verifica integración por F QA-002 y seguimiento de gates DOC-002. Revisores en [TRANSVERSALES](seguimiento/TRANSVERSALES.md); cada dueño funcional aporta y corrige sus rutas/tests. No autoaprobar un artefacto en que se colaboró.
+
+Probar API directa y pantallas: firma/issuer/JWKS/expiración/tipo=acceso, refresh/logout, usuarios A/B, 401/403 o error neutral contractual, público sin login y token técnico rechazado como cliente. Validador técnico separado con aud/scope/cliente; no exigir audiencia humana no publicada. Aislar/rechazar sandbox HS256 en REAL. Cookies/transporte/CSRF/CORS se acuerdan con G7 y se prueban; sin tokens/PII en evidencias. MFA sigue contrato efectivo, no invención de G1.
+
+Registrar los cuatro niveles de evidencia por F definidos en [S02](iteraciones/S02-semanas-09-11.md): diseñado, implementado con datos de prueba, integrado con otro módulo y probado en despliegue. H4 requiere recorrido web→BFF→G6 REAL y G7 real UI/API; fixture contractual y 200 directo del proveedor no los sustituyen. Nada se declara ejecutado por esta estrategia.
+
+Disponibilidad H4 sin restricción horaria. Todo el principal de 25 F y el trabajo G1 definido de las otras 15 se implementa/prueba; sólo contratos/entornos/autorización/calidad condicionan la integración. Fernando colabora build/deploy/runtime, Leonidas contratos y Jim sesión; Andres conserva CI/guard. Probar auth G7 sobre fixture G6 no cierra la integración comercial G6.

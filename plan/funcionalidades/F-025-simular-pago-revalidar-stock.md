@@ -5,10 +5,18 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-025 / 0.1.0 / En revisión |
-| Objetivo académico | S3, semanas 12–13 |
+| Objetivo académico | S03, semanas 12–13; implementación y pruebas propias comienzan en H4 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-025-simular-pago-revalidar-stock.md), [UI](../../SPECS/ui/F-025-simular-pago-revalidar-stock.md), [API](../../SPECS/contrato-api/F-025-simular-pago-revalidar-stock.md), [React](../../SPECS/componentes-react/F-025-simular-pago-revalidar-stock.md) |
 | Ejecución y revisores | [Tareas de F-025](../seguimiento/F-025-simular-pago-revalidar-stock.md); responsable asignado por el PO: **Leonidas Garcia**; revisor principal: **Diego Espinoza**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+
+## Entrega de H4 y cierre objetivo
+
+**Implementación propia y pruebas en H4; integración completa posterior.** Implementar preparación/consentimiento UI+BFF y adaptadores/casos de cantidad/fulfillment/vigencias conforme contrato; fixtures rotulados donde falte proveedor. PREPARED no es pedido ni pago; cierre S03.
+
+**Cierre base:** S03, semanas 12–13; implementación y pruebas propias comienzan en H4. El PO establece disponibilidad sin restricción horaria; todo el trabajo propio definido se implementa y prueba en H4. Los límites son contrato, entorno, datos, autorizaciones y calidad. [Inventario H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md) y [S02](../iteraciones/S02-semanas-09-11.md). Registrar diseñado, implementado con datos de prueba, integrado con otro módulo y probado en el despliegue por separado; no inventar contrato ni liberar gates por planificar.
+
+**Cierre H4 anticipado por contratos:** esta F forma parte de la extensión de cinco funciones que puede llevar H4 de 25 a 30. Si todas las dependencias intermodulares y DoD se prueban antes del corte, aceptar H4 y descontar su cierre base posterior; el tiempo del equipo no limita esa decisión.
 
 ## 2. Objetivo y límites
 
@@ -31,7 +39,7 @@ Entregar simular pago y revalidar stock conforme comportamiento/UI/API/React, no
 - Dependencias de comportamiento/flujo: [F-023](F-023-calcular-resumen-envio.md), [F-024](F-024-validar-aplicar-cupon-promocion.md).
 - Gates: I-01, I-02, I-06, G-CHECKOUT; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
 - Pendientes específicos: I-01; I-02 para activar creación posterior; recuperación PREPARED al recargar pendiente.
-- Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
+- Responsable/revisor confirman alcance, contrato y criterios de prueba; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
 
 ## 5. Fases, entregables y validación
@@ -63,4 +71,4 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 READY → PREPARING → PREPARED | NEEDS_REVIEW | NO_STOCK | ERROR; respuesta incierta consulta operación cuando hay ID, nunca marca pago aprobado por timeout o por `PREPARED`.
 
-No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
+No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Los riesgos de contrato, entorno y calidad se revisan por operación, sin retirar esta funcionalidad por disponibilidad horaria.

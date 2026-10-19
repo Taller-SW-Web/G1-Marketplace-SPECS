@@ -1,6 +1,20 @@
 # Giuliano Macchiavello Perez — UX/UI / Frontend — responsabilidad punta a punta
 
-**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **2. Búsqueda y navegación**; IDs: **F-006–F-010**. Revisor principal: **Sebastian Malca**. Hitos: S1: F-006/007; S2: F-008–010. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **2. Búsqueda y navegación**; IDs: **F-006–F-010**. Revisor principal: **Sebastian Malca**. Hitos: S02/H4 F-006–F-010; F-006/F-007 arrastre H3. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+
+## Trabajo asignado para S02 y Hito 4
+
+El PO confirma **disponibilidad sin restricción horaria**. Todas las funciones del paquete reciben implementación/pruebas G1 H4 donde las reglas/contratos estén definidos; los cierres completos conservan gates externos. [S02](../iteraciones/S02-semanas-09-11.md) y [alcance](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md).
+
+- **F-006:** Integrar inicio/categorías/productos elegibles con G6 REAL y traza web→BFF→G6. Resolver campos de tarjetas y curaduría; destacados omitidos no acreditan su criterio de cierre. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-007:** Integrar búsqueda REAL por texto/canal con producto vendible, vacío/error/timeout, parámetros y evidencia desde la web desplegada. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-008:** Integrar filtros soportados y homologados con G6; probar combinación/reset de página/vacío/error. No activar filtros sin semántica contractual. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-009:** Integrar orden NAME_ASC/DESC→NOMBRE_ASC/DESC y estabilidad entre páginas; otros criterios permanecen en G-SORT hasta homologación. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-010:** Integrar paginación page 0→pagina 1, tamaño/total/límites/última página y cambios de consulta con G6. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+
+**Transversal:** Casos/mapeos G6 y revisión detalle; apoyar enriquecimiento/tarjetas de F-015 sin transferir ownership. IDs TASK-TRANS-S02- en [TRANSVERSALES](../seguimiento/TRANSVERSALES.md).
+
+**Evidencia:** diseño/contrato/frame revisado; commit FE+BE/fixture y pruebas positivo-negativo; integración REAL con proveedor/auth/traza; despliegue con URLs/SHAs/run. Registrar cada nivel sin inferencias. Ante frontera sin acuerdo, implementar la parte propia definida, registrar owner/bloqueo y continuar otras operaciones. No cerrar INT por doble, contrato escrito o tiempo disponible.
 
 ## Fuentes y alcance
 
@@ -28,4 +42,4 @@ F-006/F-007: buscador de V-005 y resultados mínimos V-006 conectados a ruta BFF
 
 F-006/F-007, V-005 y búsqueda de V-006 deben llegar a frontend y BFF desplegados con **llamada real a Productos**. Este paquete aporta a esa ruta mediante su rol transversal cuando corresponda, sin desplazar el incremento vertical propio. Si I-01 no tiene URL, token/datos y respuesta comprobada, Jim/Diego registran el gate bloqueado y presentan sólo avance parcial. Ningún fixture ni `render.yaml` acredita integración o despliegue.
 
-**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos o desvíos de capacidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si la carga o el gate impiden el objetivo del hito, proponer resecuenciación documentada antes del corte.
+**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos contractuales/técnicos o hallazgos de calidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si un gate externo impide integrar, registrar por operación owner, prueba faltante y continuidad del trabajo propio; no reducir el alcance por disponibilidad horaria.

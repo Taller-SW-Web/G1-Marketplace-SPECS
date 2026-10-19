@@ -5,10 +5,16 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-027 / 0.1.0 / En revisión |
-| Objetivo académico | S3, semanas 12–13 |
+| Objetivo académico | S03, semanas 12–13; implementación y pruebas propias comienzan en H4 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-027-confirmacion-orden.md), [UI](../../SPECS/ui/F-027-confirmacion-orden.md), [API](../../SPECS/contrato-api/F-027-confirmacion-orden.md), [React](../../SPECS/componentes-react/F-027-confirmacion-orden.md) |
 | Ejecución y revisores | [Tareas de F-027](../seguimiento/F-027-confirmacion-orden.md); responsable asignado por el PO: **Leonidas Garcia**; revisor principal: **Diego Espinoza**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+
+## Entrega de H4 y cierre objetivo
+
+**Implementación propia y pruebas en H4; integración completa posterior.** Implementar estados UI+BFF incierto/CREADO/PAGADO/ANULADO y recuperación conforme contrato; integrar los frames corregidos por Jim/revisados por Fernando. Cierre S03 exige PAGADO verificado G5.
+
+**Cierre base:** S03, semanas 12–13; implementación y pruebas propias comienzan en H4. El PO establece disponibilidad sin restricción horaria; todo el trabajo propio definido se implementa y prueba en H4. Los límites son contrato, entorno, datos, autorizaciones y calidad. [Inventario H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md) y [S02](../iteraciones/S02-semanas-09-11.md). Registrar diseñado, implementado con datos de prueba, integrado con otro módulo y probado en el despliegue por separado; no inventar contrato ni liberar gates por planificar.
 
 ## 2. Objetivo y límites
 
@@ -31,7 +37,7 @@ F-026 conserva asociación opaca para navegación; cerrar V-014-OPEN-01 antes de
 - Dependencias de comportamiento/flujo: [F-026](F-026-crear-orden-ventas.md).
 - Gates: I-02, G-CHECKOUT, G-CONFIRM; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
 - Pendientes específicos: I-02; resolver mapping y resumen de artículos (no presentes en GET operación actual).
-- Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
+- Responsable/revisor confirman alcance, contrato y criterios de prueba; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
 
 ## 5. Fases, entregables y validación
@@ -64,4 +70,4 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 LOADING → CONFIRMED | VERIFYING | FAILED | NOT_ACCESSIBLE | ERROR; 202 SUBMITTED/`CREADO` conserva neutral; CONFIRMED requiere SUCCEEDED + `orderId` + `PAGADO` confirmado por Ventas.
 
-No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
+No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Los riesgos de contrato, entorno y calidad se revisan por operación, sin retirar esta funcionalidad por disponibilidad horaria.

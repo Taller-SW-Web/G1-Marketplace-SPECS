@@ -54,6 +54,10 @@ Wireframes y Prototipo/             antecedentes visuales
 
 El [modelo lógico vigente](Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/01-Modelo-logico-inicial.md) guía la persistencia propia. La arquitectura o el esquema históricos de dos tablas no reemplazan ese modelo. **Plan y tareas no son specs**: por eso viven fuera de `SPECS/`.
 
+## Segundo corte funcional: H4, semanas 9–11
+
+La [iteración S02](plan/iteraciones/S02-semanas-09-11.md) fija **25 cierres objetivo H4: 20 del circuito Productos y 5 de cuenta/Seguridad**, con disponibilidad sin restricción horaria. Las otras 15 F también reciben implementación/pruebas G1 H4 y conservan su cierre integral posterior por dependencias. El [inventario](plan/ALCANCE-H4-PRODUCTOS-SEGURIDAD.md) clasifica las 40 F y las 25 dependientes G6. CI/CD build/compile/test/deploy, API y auth UI/API conservan autores/revisores. Ninguna asignación acredita ejecución ni libera gates.
+
 ## Primer corte funcional: H3, semana 8
 
 La [iteración S1](plan/iteraciones/S01-semanas-07-08.md) y los [siete paquetes individuales](plan/repartición%20por%20integrantes/README.md) priorizan **F-006** (inicio/categorías) y **F-007** (búsqueda por texto), con un flujo visible `navegador → frontend Marketplace → BFF Marketplace → API real de Productos`. Las pantallas previstas son [V-005 Inicio](SPECS/ui/vistas/V-005-inicio.md) y el alcance de búsqueda de [V-006 Catálogo y resultados](SPECS/ui/vistas/V-006-catalogo-resultados.md), incluidos carga, resultados, vacío y error. Desktop y responsive se validan según sus specs; las funciones de filtros, ordenamiento y paginación completos pertenecen a iteraciones posteriores.
