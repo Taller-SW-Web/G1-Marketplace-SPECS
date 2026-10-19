@@ -9,7 +9,7 @@ Esta carpeta completa el punto 2 de la lista de preparación: **40 specs React F
 3. Leer su spec React y comprobar gates en [decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md).
 4. Implementar según [plan vigente de semanas 8–16](../../plan/PLAN-IMPLEMENTACION.md) y [seguimiento](../../plan/seguimiento/README.md).
 
-Se respeta nomenclatura: mismo ID y nombre de archivo en las cuatro capas. La [matriz de bloques y responsables de implementación](../RESPONSABILIDADES-PUNTA-A-PUNTA.md) enlaza F-001–F-040 con responsables/revisores propuestos; no modifica props, contratos ni autoría de diseño visual. El PO decidió React + TypeScript + Next.js App Router el 2026-10-10; versión/lockfile y aprobación del UI kit siguen pendientes. DS-001 v0.2.0 es fuente visual vigente. Desktop primero, luego mobile; responsive no se elimina. F-033–F-035 describen también el límite no interactivo/servidor de correos, no nuevos endpoints navegador.
+Se respeta nomenclatura: mismo ID y nombre de archivo en las cuatro capas. La [matriz de bloques y responsables de implementación](../RESPONSABILIDADES-PUNTA-A-PUNTA.md) enlaza F-001–F-040 con responsables/revisores asignados por el PO; no modifica props, contratos ni autoría de diseño visual. El PO decidió React + TypeScript + Next.js App Router el 2026-10-10. FE `main@ec1acfb` observado el 18/10 usa Next.js `16.4.1`, React `19.3.1` y TypeScript `5.9.3` con lockfile; la aprobación global del UI kit sigue pendiente. DS-001 v0.2.0 es fuente visual vigente. Desktop y mobile siguen dentro del alcance; responsive no se elimina. F-033–F-035 describen también el límite no interactivo/servidor de correos, no nuevos endpoints navegador.
 
 ## Catálogo y trazabilidad
 
