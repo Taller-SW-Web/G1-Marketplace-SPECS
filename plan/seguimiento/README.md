@@ -1,10 +1,10 @@
 # Seguimiento de tareas — Marketplace
 
-Corte replanificado 2026-10-10 · Semanas 7–16 · El tablero no prueba ejecución de software.
+Corte planificado 2026-10-10 · Revisión de H3 2026-10-18. El tablero no prueba ejecución de software. F-006/F-007 y gates de nube pasan como arrastre prioritario a S2/H4 según el [corte verificable](../CORTE-H3-Y-TRASPASO-H4.md); los IDs y semanas originales se registran junto a la nueva semana objetivo para trazabilidad.
 
 ## 1. Inventario y responsables
 
-256 tareas funcionales en 40 archivos + 27 tareas transversales = **283 tareas**. Son unidades de trabajo por área, no 283 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS trazables.
+256 tareas funcionales en 40 archivos + 30 tareas transversales = **286 tareas**. Son unidades de trabajo por área, no 286 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS y diseño visual trazables.
 
 La [matriz punta a punta](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija un owner y revisor distintos por F-001–F-040 por decisión del PO. Las 256 filas funcionales conservan IDs/estados; la estimación base está en la matriz. Pasar a En progreso requiere inicio efectivo y registro de avance, no aceptación formal previa. La responsabilidad de diseño visual permanece separada.
 
@@ -39,8 +39,8 @@ P0 bloqueo/esencial; P1 capacidad principal; P2 mejora dentro del alcance. INT e
 | F-003 | 6 | S2 | [Tablero](F-003-cerrar-sesion.md) · [Plan](../funcionalidades/F-003-cerrar-sesion.md) |
 | F-004 | 6 | S5 | [Tablero](F-004-solicitar-recuperacion-password.md) · [Plan](../funcionalidades/F-004-solicitar-recuperacion-password.md) |
 | F-005 | 6 | S5 | [Tablero](F-005-restablecer-password.md) · [Plan](../funcionalidades/F-005-restablecer-password.md) |
-| F-006 | 6 | S1 | [Tablero](F-006-inicio-categorias-destacados.md) · [Plan](../funcionalidades/F-006-inicio-categorias-destacados.md) |
-| F-007 | 6 | S1 | [Tablero](F-007-buscar-productos-texto.md) · [Plan](../funcionalidades/F-007-buscar-productos-texto.md) |
+| F-006 | 6 | S1 → S2/H4 | [Tablero](F-006-inicio-categorias-destacados.md) · [Plan](../funcionalidades/F-006-inicio-categorias-destacados.md) |
+| F-007 | 6 | S1 → S2/H4 | [Tablero](F-007-buscar-productos-texto.md) · [Plan](../funcionalidades/F-007-buscar-productos-texto.md) |
 | F-008 | 6 | S2 | [Tablero](F-008-filtrar-catalogo.md) · [Plan](../funcionalidades/F-008-filtrar-catalogo.md) |
 | F-009 | 6 | S2 | [Tablero](F-009-ordenar-catalogo.md) · [Plan](../funcionalidades/F-009-ordenar-catalogo.md) |
 | F-010 | 6 | S2 | [Tablero](F-010-paginar-catalogo.md) · [Plan](../funcionalidades/F-010-paginar-catalogo.md) |

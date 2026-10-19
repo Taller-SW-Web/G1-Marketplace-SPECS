@@ -16,17 +16,17 @@
 | Herramienta oficial | Figma |
 | Biblioteca del sistema de diseño en Figma | [Sistema de Diseño](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=57-15&t=eO6m1Plz1xQ5sFgn-1) |
 | Sección de logos en Figma | [Logos de Inka Athletics](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=56-7&t=0TSK36SaklUJeiyS-4) |
-| Carpeta de mockups de vistas en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) (enlace a carpeta; URL directa del archivo y de sus páginas pendiente) |
-| Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; versión y lockfile por validar |
+| Mockups de vistas en Figma | [Carpeta Marketplace](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) y [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) del archivo Mockups; faltan enlaces finales de otras vistas/estados |
+| Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; FE `main@ec1acfb` instala Next.js `16.4.1`, React `19.3.1` y TypeScript `5.9.3` con lockfile |
 | UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; pendiente de aprobación `DS-OPEN-03` |
-| Última actualización | 2026-10-01 |
+| Última revisión documental | 2026-10-18; guía visual original 2026-10-01 |
 | Alcance | Canal Marketplace web responsive y componentes compartidos |
 
 ### 1.1 Vigencia y decisión técnica preliminar
 
 Este documento es la fuente visual vigente para los mockups. La versión `0.2.0` incorpora la identidad Inka Athletics y reemplaza los tokens provisionales de `DS-001` v0.1.0.
 
-El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. Esta decisión no aprueba automáticamente Mantine ni su versión. La guía recibida propone Mantine `9.6.2` y Tabler Icons; otros documentos todavía mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Para no mezclar dos sistemas:
+El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. FE `main@ec1acfb`, revisado el 18/10, usa Next.js `16.4.1`, React `19.3.1`, CSS, tokens y componentes propios; no tiene Mantine ni Tabler en sus dependencias. La guía recibida propone Mantine `9.6.2` y Tabler Icons; otros documentos históricos mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Esta propuesta no equivale a una decisión global aprobada. Checkout F-022–F-027 se mantiene neutral respecto del kit y usa los tokens del diseño. Para no mezclar dos sistemas:
 
 - los mockups y la biblioteca de Figma seguirán los tokens y propiedades documentados aquí;
 - Mantine + Tabler se consideran la dirección técnica preliminar más reciente del UI Kit;
@@ -363,7 +363,7 @@ El skeleton aproxima la estructura final. Se requieren patrones para tarjeta, li
 
 ## 10. Organización y versionado de Figma
 
-El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. Su enlace actual abre una carpeta de Figma, no un archivo de diseño ni un frame; queda pendiente registrar la URL directa del archivo de pantallas y los enlaces a sus páginas y frames. Las vistas `V-001` a `V-017` se organizarán por páginas dentro de ese archivo, respetando el catálogo vigente.
+El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto. El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) contiene la [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5), verificada el 18/10; los enlaces representativos de V-010–V-014 figuran en cada spec. La existencia del frame no equivale a aprobación de contenido.
 
 Páginas mínimas sugeridas para la biblioteca del sistema de diseño:
 
@@ -388,7 +388,7 @@ Categoría / Componente / Variante
 
 Cada frame indica `DS-001 v0.2.0` y enlaza su spec.
 
-El diseño de checkout (`V-010` a `V-014`) avanza primero en desktop y después en mobile. Este orden de producción no reduce los estados ni las variantes requeridas por las specs. Los nombres y enlaces definitivos de los frames se registran en la sección 12 de cada `V-###` cuando el diseño esté definido.
+El orden desktop→mobile de checkout (`V-010` a `V-014`) fue una intención de producción ya superada: se hallaron variantes en ambas plataformas. El [índice de vistas](vistas/README.md) registra conteos y discrepancias. Conservar ambos formatos, completar estados faltantes y conciliar el contenido de V-014 con el contrato antes de pasar a `Aprobada`.
 
 ## 11. Gobernanza
 
@@ -433,9 +433,9 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 | `DS-OPEN-02` | Responsable único de biblioteca y canal de propuestas. | Gobernanza |
 | `DS-OPEN-03` | Aprobar Mantine + Tabler o definir equivalencia definitiva con el stack histórico. | Implementación |
 | `DS-OPEN-04` | Completar diez tonalidades de Volt, Signal, Ink y Cloud. | Tema Mantine |
-| `DS-OPEN-05` | Enlazar `src/theme/theme.ts` en el frontend. | Código-diseño |
+| `DS-OPEN-05` | Verificar la correspondencia entre tokens de Figma/DS-001 y `src/theme/tokens.css` del frontend; no presuponer un `theme.ts` ni una biblioteca aún no instalada. | Código-diseño |
 | `DS-OPEN-06` | Completar ProductCard, navegación, modales, filtros y skeletons desde specs por vista. | Mockups |
-| `DS-OPEN-07` | La carpeta de mockups ya está registrada; falta la URL directa del archivo de pantallas/prototipo y los enlaces de páginas y frames. | Trazabilidad Figma |
+| `DS-OPEN-07` | Página Checkout y frames representativos V-010–V-014 localizados el 18/10. Falta completar enlaces finales de todos los estados y verificar las demás vistas V-005–V-017. | Trazabilidad Figma |
 | `DS-OPEN-08` | Definir changelog y proceso de publicación. | Mantenimiento |
 
 ## 14. Fuentes

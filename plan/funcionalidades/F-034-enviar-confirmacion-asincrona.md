@@ -13,7 +13,7 @@
 ## 2. Objetivo y límites
 
 Entregar enviar confirmación asíncrona conforme comportamiento/UI/API/React, no una pantalla aislada.
-Backend persiste NotificationDelivery PENDING antes worker, deduplica ORDER_CONFIRMATION+eventKey; UI no espera SENT. Proveedor no se llama al montar V-014.
+Tras verificar `PAGADO` para el mismo pedido, Backend persiste NotificationDelivery PENDING antes del worker y deduplica ORDER_CONFIRMATION+eventKey. `CREADO` no encola C-001; UI no espera SENT. Proveedor no se llama al montar V-014.
 
 ## 3. Decisiones técnicas
 

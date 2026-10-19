@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
 
 ## 2. Propósito, actor y acceso
 
@@ -169,6 +169,8 @@ No existe un campo `userId` o `customerId`. La identidad siempre proviene de la 
 | `V-010 / Mobile / Guardando` | Mobile | Progreso | CTA no repetible. |
 | `V-010 / Desktop / Servicio no disponible` | Desktop | Error | Datos preservados y reintento. |
 | `V-010 / Mobile / Carrito inválido` | Mobile | Conflicto | Retorno a `V-008`. |
+
+**Verificación estructural del 18/10/2026:** existen 7 frames desktop y 10 mobile V-010. Se inspeccionó [Con direcciones mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=390-2); [Con direcciones desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=236-1382) queda enlazado. Estado: **diseñado y localizado**, pendiente de revisión/aceptación visual de todos los estados.
 
 ## 13. Criterios de aceptación visual
 

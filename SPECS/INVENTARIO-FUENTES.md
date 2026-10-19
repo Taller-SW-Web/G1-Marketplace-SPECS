@@ -1,6 +1,6 @@
 # Inventario de fuentes para la migración SDD
 
-Este inventario identifica la documentación existente que se utilizará como fuente para redactar las nuevas especificaciones del módulo Marketplace.
+Versión 0.2.0 · Revisión: 2026-10-18. Este inventario distingue fuentes históricas, archivos vigentes creados y reconciliación semántica pendiente. El registro inicial de migración permanece como antecedente; no representa el estado actual.
 
 ## Regla de uso
 
@@ -68,11 +68,11 @@ Este inventario identifica la documentación existente que se utilizará como fu
 
 | Área destino | Estado | Fuente principal |
 |---|---|---|
-| `SPECS/funcional/` | Pendiente de migración | Requisitos, reglas, documentos funcionales y SPECS existentes |
-| `SPECS/ui/` | Pendiente de migración | Wireframes, navegación y diseño frontend existente |
-| `SPECS/contrato-api/` | Pendiente de migración | Contratos de mocks, integración y SPECS existentes |
-| `SPECS/componentes-react/` | Pendiente de migración | Diseño frontend y arquitectura existente |
+| `SPECS/funcional/` | 40 F-001–F-040 existentes; revisión semántica abierta | [Índice SPECS](README.md), [auditoría #5](../plan/AUDITORIA-ISSUE-5.md) y reglas/requisitos históricos |
+| `SPECS/ui/` | 40 F-001–F-040, DS-001 y vistas/overlays/correos existentes; verificación de frames y reconciliación abierta | [Índice UI](ui/README.md), [vistas](ui/vistas/README.md) y wireframes históricos |
+| `SPECS/contrato-api/` | 40 F-001–F-040 existentes; mapeo con implementaciones y contratos externos parcial | [Contratos API](contrato-api/), [gates](../plan/DECISIONES-Y-BLOQUEOS.md) y contratos anteriores |
+| `SPECS/componentes-react/` | 40 F-001–F-040 existentes; stack observado contrastado, reconciliación por función abierta | [Índice React](componentes-react/README.md), [arquitectura React](componentes-react/ARQUITECTURA-REACT.md) y código FE `main@ec1acfb` |
 
 ## 8. Siguiente paso
 
-Revisar y clasificar el contenido de estas fuentes para detectar información repetida, contradicciones, vacíos y documentos desactualizados antes de redactar las nuevas specs.
+Cerrar las discrepancias registradas en la [auditoría #5](../plan/AUDITORIA-ISSUE-5.md), con owner y prueba. La existencia de 160 archivos F-### no demuestra que todas las fuentes históricas hayan sido reconciliadas ni que todas las funciones estén implementadas.
