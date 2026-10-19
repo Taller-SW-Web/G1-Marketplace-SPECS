@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
 
 ## 2. Propósito, actor y acceso
 
@@ -165,6 +165,8 @@ Los datos son transitorios para crear la orden; la interfaz no afirma que actual
 | `V-013 / Desktop / Resultado incierto` | Desktop | Pendiente | Verificación sin reenvío. |
 | `V-013 / Mobile / Operación no preparada` | Mobile | Conflicto | Retorno al paso correcto. |
 | `V-013 / Desktop / Ventas no disponible` | Desktop | Error/pendiente | Recuperación segura. |
+
+**Verificación estructural del 18/10/2026:** existen 6 frames desktop y 6 mobile V-013; [Listo sin campos desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=240-14026) y [Listo sin campos mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=435-7261) quedan enlazados. **No aparece** el frame requerido `V-013 / Mobile / Operación no preparada`; definir y diseñar ese estado antes de aprobar la vista. Estado: diseñado parcialmente, **En revisión**.
 
 ## 13. Criterios de aceptación visual
 

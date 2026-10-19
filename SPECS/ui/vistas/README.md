@@ -2,7 +2,7 @@
 
 Este directorio contiene las especificaciones visuales por pantalla o ruta principal. La [matriz de responsabilidad de implementación](../../RESPONSABILIDADES-PUNTA-A-PUNTA.md) asigna los bloques/F-### del código; cualquier responsable de diseño mencionado aquí conserva únicamente ese alcance visual. Una vista puede reunir varias funcionalidades `F-###`; las specs funcionales y UI atómicas continúan siendo las fuentes del comportamiento, mientras que cada documento `V-###` define cómo se compone el entregable que se diseñará en Figma.
 
-Los mockups se ubican en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394), separada de la biblioteca enlazada en [`DS-001`](../DS-001-sistema-diseno-marketplace.md). El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) enlazado en los paquetes individuales se pudo leer el 18/10: en la conexión disponible expuso la página «Acceso y cuenta», con frames V-001–V-004. No se encontraron allí V-010–V-014. Falta el enlace directo del archivo/página de Checkout y de sus frames para verificarlo; esto no demuestra que no existan en otro archivo.
+Los mockups se ubican en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394), separada de la biblioteca enlazada en [`DS-001`](../DS-001-sistema-diseno-marketplace.md). El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) contiene la página [Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5), verificada el 18/10 con enlace directo aportado por el PO.
 
 ## Reglas
 
@@ -13,7 +13,15 @@ Los mockups se ubican en la [carpeta de vistas de Figma](https://www.figma.com/f
 - Desktop y mobile son variantes obligatorias de la misma vista, salvo que la spec justifique una excepción.
 - El nombre del frame de Figma debe comenzar con el ID `V-###`.
 
-El diseño puede avanzar por etapas sin cambiar ese alcance. La afirmación anterior de que los frames mobile de Checkout se diseñarían después era un plan de producción, no un inventario comprobado. El 18/10 no fue posible verificar los frames desktop/mobile V-010–V-014 con los enlaces disponibles; su estado queda **En revisión, verificación visual pendiente**, sin declararlos aprobados ni ausentes. Jim y el responsable de diseño deben aportar los enlaces directos y registrar nombre, plataforma, estado y revisión en la sección 12 de cada spec.
+El diseño puede avanzar por etapas sin cambiar ese alcance. La afirmación anterior de que los frames mobile de Checkout se diseñarían después quedó superada: el 18/10 se encontraron frames desktop y mobile en las cinco vistas. Se verificó su existencia y se inspeccionaron visualmente muestras V-010 mobile y V-014 desktop; **no se aprobó** el conjunto. Faltan el frame `V-011 / Mobile / Promoción automática` y el frame `V-013 / Mobile / Operación no preparada` exigidos por sus specs. El frame `V-014 / Desktop / Confirmado` muestra `CREADO` y “Pago simulado aprobado”, en conflicto con la condición `PAGADO` de V-014/F-027. Jim y el responsable visual deben resolver esas brechas antes de cambiar `En revisión` a `Aprobada`.
+
+| Vista | Frames desktop | Frames mobile | Verificación estructural |
+|---|---:|---:|---|
+| `V-010` | 7 | 10 | Diseñada en ambas plataformas; aceptación visual pendiente. |
+| `V-011` | 8 | 8 | Falta el estado mobile de promoción automática requerido. |
+| `V-012` | 7 | 7 | Diseñada en ambas plataformas; aceptación visual pendiente. |
+| `V-013` | 6 | 6 | Falta el estado mobile de operación no preparada requerido. |
+| `V-014` | 6 | 6 | Hay contradicción de estado de pedido en el frame desktop confirmado. |
 
 ## Estados documentales
 

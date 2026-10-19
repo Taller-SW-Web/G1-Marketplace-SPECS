@@ -16,7 +16,7 @@
 | Herramienta oficial | Figma |
 | Biblioteca del sistema de diseño en Figma | [Sistema de Diseño](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=57-15&t=eO6m1Plz1xQ5sFgn-1) |
 | Sección de logos en Figma | [Logos de Inka Athletics](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=56-7&t=0TSK36SaklUJeiyS-4) |
-| Carpeta de mockups de vistas en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) (enlace a carpeta; URL directa del archivo y de sus páginas pendiente) |
+| Mockups de vistas en Figma | [Carpeta Marketplace](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) y [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) del archivo Mockups; faltan enlaces finales de otras vistas/estados |
 | Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; FE `main@ec1acfb` instala Next.js `16.4.1`, React `19.3.1` y TypeScript `5.9.3` con lockfile |
 | UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; pendiente de aprobación `DS-OPEN-03` |
 | Última revisión documental | 2026-10-18; guía visual original 2026-10-01 |
@@ -363,7 +363,7 @@ El skeleton aproxima la estructura final. Se requieren patrones para tarjeta, li
 
 ## 10. Organización y versionado de Figma
 
-El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto. El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups), enlazado en paquetes de trabajo, mostró sólo la página «Acceso y cuenta» mediante la conexión consultada el 18/10. Faltan enlaces verificables a las otras páginas y frames, especialmente V-010–V-014; no se infiere inexistencia de esos diseños.
+El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto. El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) contiene la [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5), verificada el 18/10; los enlaces representativos de V-010–V-014 figuran en cada spec. La existencia del frame no equivale a aprobación de contenido.
 
 Páginas mínimas sugeridas para la biblioteca del sistema de diseño:
 
@@ -388,7 +388,7 @@ Categoría / Componente / Variante
 
 Cada frame indica `DS-001 v0.2.0` y enlaza su spec.
 
-El orden desktop→mobile de checkout (`V-010` a `V-014`) fue una intención de producción. Su avance actual por plataforma no está verificado con los enlaces disponibles; conservar ambas variantes y estados requeridos. Registrar enlaces directos, plataforma y revisión en cada `V-###` antes de cambiar `En revisión` a `Aprobada`.
+El orden desktop→mobile de checkout (`V-010` a `V-014`) fue una intención de producción ya superada: se hallaron variantes en ambas plataformas. El [índice de vistas](vistas/README.md) registra conteos y discrepancias. Conservar ambos formatos, completar estados faltantes y conciliar el contenido de V-014 con el contrato antes de pasar a `Aprobada`.
 
 ## 11. Gobernanza
 
@@ -435,7 +435,7 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 | `DS-OPEN-04` | Completar diez tonalidades de Volt, Signal, Ink y Cloud. | Tema Mantine |
 | `DS-OPEN-05` | Verificar la correspondencia entre tokens de Figma/DS-001 y `src/theme/tokens.css` del frontend; no presuponer un `theme.ts` ni una biblioteca aún no instalada. | Código-diseño |
 | `DS-OPEN-06` | Completar ProductCard, navegación, modales, filtros y skeletons desde specs por vista. | Mockups |
-| `DS-OPEN-07` | Localizar los archivos/páginas de V-005–V-017, en particular Checkout, y registrar URL directa y revisión de cada frame desktop/mobile. El archivo Mockups consultado sólo mostró «Acceso y cuenta». | Trazabilidad Figma |
+| `DS-OPEN-07` | Página Checkout y frames representativos V-010–V-014 localizados el 18/10. Falta completar enlaces finales de todos los estados y verificar las demás vistas V-005–V-017. | Trazabilidad Figma |
 | `DS-OPEN-08` | Definir changelog y proceso de publicación. | Mantenimiento |
 
 ## 14. Fuentes

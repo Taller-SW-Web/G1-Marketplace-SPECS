@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
 
 ## 2. Propósito, actor y acceso
 
@@ -173,6 +173,8 @@ Aplicar no consume el cupón. Quitar sólo solicita una nueva cotización sin es
 | `V-011 / Mobile / Sin cobertura` | Mobile | Atención | Editar dirección. |
 | `V-011 / Desktop / Línea no disponible` | Desktop | Atención | Editar carrito. |
 | `V-011 / Mobile / Error de cotización` | Mobile | Error | Reintento sin montos ficticios. |
+
+**Verificación estructural del 18/10/2026:** existen 8 frames desktop y 8 mobile V-011; [Cotizado desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=238-5238) y [Cotizado mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=413-542) quedan enlazados. **No aparece** el frame requerido `V-011 / Mobile / Promoción automática`; no sustituirlo por `Cupón aplicado` sin decisión de producto/UX. Estado: diseñado parcialmente, **En revisión**.
 
 ## 13. Criterios de aceptación visual
 

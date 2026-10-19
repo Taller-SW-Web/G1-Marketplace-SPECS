@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
 
 ## 2. Propósito, actor y acceso
 
@@ -166,6 +166,8 @@ No existen otros campos. El resumen es de sólo lectura y cualquier corrección 
 | `V-012 / Mobile / Stock no disponible` | Mobile | Atención | Corregir carrito. |
 | `V-012 / Desktop / Revalidación cambió` | Desktop | Conflicto | Lista de cambios. |
 | `V-012 / Mobile / Error recuperable` | Mobile | Error | Reintento seguro. |
+
+**Verificación estructural del 18/10/2026:** existen 7 frames desktop y 7 mobile V-012; [Listo desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=238-6692) y [Listo mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=430-905) quedan enlazados. Estado: **diseñado y localizado**, pendiente de revisión/aceptación visual de todos los estados.
 
 ## 13. Criterios de aceptación visual
 
