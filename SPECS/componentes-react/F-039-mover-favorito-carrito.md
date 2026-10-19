@@ -24,7 +24,7 @@
 |---|---|---|
 | `/favoritos → /productos/{slug} cuando requiere variante` | JWT | `MoveWishlistToCartAction` + `WishlistMoveOutcome` |
 
-Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop se produce primero; mobile sigue dentro del alcance, no se elimina ni se simula reduciendo el desktop.
+Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop y mobile siguen dentro del alcance; consultar frames y estados vigentes en las specs UI enlazadas. Mobile no se simula reduciendo el desktop.
 
 ## 3. Árbol de componentes
 

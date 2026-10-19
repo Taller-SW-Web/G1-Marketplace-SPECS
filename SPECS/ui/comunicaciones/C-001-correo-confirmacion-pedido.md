@@ -1,8 +1,8 @@
 # Comunicación — C-001 Correo de confirmación de pedido
 
-> Correo transaccional asíncrono que confirma un pedido ya creado. Su entrega no condiciona ni modifica el estado del pedido.
+> Correo transaccional asíncrono de confirmación de compra, generado sólo después de verificar `PAGADO` para el mismo pedido en Ventas. Su entrega no condiciona ni modifica el estado del pedido.
 
-> **Decisión abierta G-MAIL:** el disparador y copy de este borrador describen `CREADO`; F-034 dice «tras pedido exitoso» y F-027/V-014 sólo muestran compra confirmada con `PAGADO` verificado. Jim y Fernando deben acordar si este correo avisa creación o confirma compra antes de aprobarlo o implementar su envío. Ver [auditoría A-16](../../../plan/AUDITORIA-ISSUE-5.md).
+> **Decisión del PO, 18/10/2026:** C-001 confirma la compra después de `PAGADO` verificado por Ventas, no al recibir `CREADO`. Marketplace encola su entrega lógica al verificar el resultado, sin suponer que Ventas publica un evento de correo. La fuente de payload y el proveedor siguen en G-MAIL. Ver [auditoría A-16](../../../plan/AUDITORIA-ISSUE-5.md).
 
 ## 1. Metadatos
 
@@ -20,7 +20,7 @@
 
 ## 2. Propósito y trazabilidad
 
-- **Evento de envío:** pedido creado con `orderId` confirmado y entrega lógica `ORDER_CONFIRMATION` encolada.
+- **Disparador de envío:** F-026/F-027 verifica `PAGADO` para el mismo `orderId`; Marketplace encola una única entrega lógica `ORDER_CONFIRMATION`.
 - **Destinatario:** cliente propietario, obtenido por el flujo autorizado y almacenado cifrado para la entrega.
 - **Funcionalidades:** `F-033` Generar plantilla y `F-034` Enviar confirmación asíncrona.
 - **Specs de origen:** [`UI F-033`](../F-033-generar-plantilla-correo.md), [`UI F-034`](../F-034-enviar-confirmacion-asincrona.md) y [`V-014`](../vistas/V-014-pedido-confirmado.md).
@@ -33,7 +33,7 @@ La web no espera este correo. Un fallo temporal o definitivo de entrega no revie
 |---:|---|---|---|---:|
 | 1 | Preheader | Confirmación breve no repetida literalmente en el cuerpo | `orderId` opcional | Sí |
 | 2 | Encabezado | Logo oficial + nombre Inka Athletics/Marketplace | Variante de logo aprobada | Sí |
-| 3 | Estado principal | “Tu pedido fue creado” | `orderId`, estado público | Sí |
+| 3 | Estado principal | “Tu pedido fue confirmado” | `orderId`, estado público | Sí |
 | 4 | Introducción | Agradecimiento y explicación de próximos pasos | Nombre sólo si está autorizado | Sí |
 | 5 | Resumen | Código, fecha y total; líneas resumidas sólo si el payload las incluye | `orderId`, `createdAt`, `total`, `currency`, `items[]` opcional | Sí |
 | 6 | Acción | “Ver mi pedido” | `orderDetailUrl` segura | Sí |
@@ -47,11 +47,11 @@ El correo no consulta ni incluye dirección completa, documento, tarjeta, contra
 
 | Elemento | Texto base propuesto | Variable | Fallback o restricción |
 |---|---|---|---|
-| Asunto | `Tu pedido {{orderId}} fue creado` | `orderId` | Obligatorio; no incluir total o PII. |
-| Preheader | `Ya registramos tu pedido. Consulta aquí sus detalles.` | — | Debe complementar el asunto. |
-| Título | `Tu pedido fue creado` | — | No usar “pago cobrado”. |
+| Asunto | `Tu pedido {{orderId}} fue confirmado` | `orderId` | Obligatorio; no incluir total o PII. |
+| Preheader | `Confirmamos tu pedido. Consulta aquí sus detalles.` | — | Debe complementar el asunto. |
+| Título | `Tu pedido fue confirmado` | — | No usar “pago cobrado”; el flujo usa pago simulado. |
 | Código | `Pedido {{orderId}}` | `orderId` | Visible y copiable como texto. |
-| Estado | `Estado: {{orderStateLabel}}` | Estado público | Inicial esperado “Creado”; no mostrar enum técnico. |
+| Estado | `Estado: {{orderStateLabel}}` | Estado público | Mapeo público de `PAGADO` verificado; no mostrar enum técnico ni “Creado”. |
 | Fecha | `Fecha: {{createdAtLocalized}}` | `createdAt` | Zona `America/Lima` o política aprobada. |
 | Total | `Total: {{formattedTotal}}` | Importe/moneda | Snapshot de Ventas, no cálculo del email. |
 | Introducción | `Gracias por comprar con nosotros. Puedes revisar el estado y los detalles de tu pedido cuando quieras.` | — | No prometer entrega ni correo adicional. |
