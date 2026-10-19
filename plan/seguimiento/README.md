@@ -4,7 +4,7 @@ Corte planificado 2026-10-10 · H3 2026-10-18 · Replanificación H4 2026-10-19.
 
 ## 1. Inventario y responsables
 
-256 tareas funcionales en 40 archivos + 37 tareas transversales = **293 tareas**. Son unidades de trabajo por área, no 286 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS y diseño visual trazables.
+256 tareas funcionales en 40 archivos + 37 tareas transversales = **293 tareas**. Son unidades de trabajo por área, no 293 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS y diseño visual trazables.
 
 La [matriz punta a punta](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija un owner y revisor distintos por F-001–F-040 por decisión del PO. Las 256 filas funcionales conservan IDs/estados; la estimación base está en la matriz. Pasar a En progreso requiere inicio efectivo y registro de avance, no aceptación formal previa. La responsabilidad de diseño visual permanece separada.
 
@@ -103,3 +103,7 @@ Evidencia: revisión/artefacto futuro, herramienta/comando/entorno, casos result
 - [ ] Revisión periódica de tablero practicada y avances aprobados.
 
 Este seguimiento cubre requisitos técnicos de los hitos, no la preparación de PPT ni el relato de uso de IA.
+
+## Projects y asignaciones en GitHub
+
+[Índice de los dos Projects y las 293 issues](../github/README.md): 88 frontend y 205 backend. Una issue por TASK, mismos responsables/revisores y estados de origen; cada issue enlaza fuente, dependencias y tareas de la misma función. El índice conserva el corte inicial y el progreso vivo se registra en issues y se reconcilia aquí. Los cuatro niveles de evidencia se mantienen separados y ninguna publicación libera un gate.
