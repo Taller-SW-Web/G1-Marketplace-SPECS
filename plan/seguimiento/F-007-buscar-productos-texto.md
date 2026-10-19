@@ -8,18 +8,18 @@ Versión 0.2.0 · Revisión 2026-10-18. Hay código integrado; falta búsqueda p
 - [Funcional](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI](../../SPECS/ui/F-007-buscar-productos-texto.md), [API](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React](../../SPECS/componentes-react/F-007-buscar-productos-texto.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
 - Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
-- Mock y real se reportan por separado. FE [#3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/3)/[#12](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/12) y BE [#11](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/11)/[#19](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/19) están integradas. La búsqueda G6 devolvía 503 en la prueba local del 17/10; el 18/10 respondió 200 directo con lista vacía, pero la web G1 devolvió 503 en catálogo. Ver [corte H3](../CORTE-H3-Y-TRASPASO-H4.md). Revisar DoD FE/BE, casos positivos y negativos, INT y QA en H4.
+- Mock y real se reportan por separado. FE [#3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/3)/[#12](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/12) y BE [#11](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/11)/[#19](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/19) están integradas. La búsqueda G6 devolvía 503 en la prueba local del 17/10; el 18/10 respondió 200 directo con lista vacía. La web G1 permite búsqueda de demostración y respondió 200/MOCK al repetir la consulta, sin acreditar G1→G6 REAL. Ver [corte H3](../CORTE-H3-Y-TRASPASO-H4.md). Revisar DoD FE/BE, casos positivos y negativos, INT y QA en H4.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F007-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 → H4 | En revisión |
-| TASK-F007-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 → H4 | En revisión |
-| TASK-F007-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 8 → H4 | Bloqueado |
-| TASK-F007-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 | 8 | Pendiente |
-| TASK-F007-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S01-OPS-002 | 8 | Pendiente |
-| TASK-F007-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 8 | Pendiente |
+| TASK-F007-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 → 9/H4 | En revisión |
+| TASK-F007-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 → 9/H4 | En revisión |
+| TASK-F007-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 8 → 9/H4 | Bloqueado |
+| TASK-F007-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 | 8 → 9/H4 | Pendiente |
+| TASK-F007-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S01-OPS-002 | 8 → 9/H4 | Pendiente |
+| TASK-F007-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 8 → 9/H4 | Pendiente |
 
 La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs. El buscador compartido de Giuliano se coordina con Sebastian sin duplicar estos IDs.
 

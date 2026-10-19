@@ -100,7 +100,7 @@
 
 ## 6. Orden de ejecución recomendado
 
-**Secuencia actual (2026-10-01):** Jim está diseñando primero las variantes desktop de `V-010` a `V-014`. Las variantes mobile se trabajarán después y permanecen dentro del alcance del paquete. Los nuevos frames desktop de estados ya descritos en las specs se incorporarán a la sección 12 de cada vista y se enlazarán individualmente cuando estén definidos en Figma. Esta secuencia no equivale a aprobar los mockups ni a cerrar las decisiones abiertas.
+**Secuencia original (2026-10-01):** Jim planificó primero desktop y después mobile para `V-010` a `V-014`. La [auditoría del 18/10](../../../plan/AUDITORIA-ISSUE-5.md) verificó frames de ambas plataformas en las cinco vistas, enlazó muestras en cada spec y registró dos estados mobile faltantes y la contradicción de V-014. Este paquete conserva el orden histórico; los frames existentes siguen sujetos a revisión y aprobación visual.
 
 1. Definir el shell de checkout, indicador de progreso y resumen persistente.
 2. Diseñar `V-010` y validar edición, guardado y errores.

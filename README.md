@@ -2,7 +2,7 @@
 
 Repositorio de **especificaciones, arquitectura, diseño visual y planificación** del canal Marketplace de Inka Athletics. El código se desarrolla en repositorios separados: [frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend) y [backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend). Marketplace presenta la experiencia de compra y coordina servicios propietarios de Productos y Ofertas, Seguridad y Gestión de Usuarios, Ventas y Postventa y Despacho; no lee directamente las bases de datos de otros módulos.
 
-> **Corte revisado el 18 de octubre de 2026:** frontend y backend contienen avances fusionados en `main`, principalmente con fixtures y modos MOCK. La web pública responde, pero su ruta de catálogo devolvió 503 en esta revisión. La [comparación H1–H3 y traspaso a H4](plan/CORTE-H3-Y-TRASPASO-H4.md) separa código, prueba local, integración y despliegue. Los mockups aprobados según el PO no acreditan esas etapas.
+> **Corte revisado el 18 de octubre de 2026:** frontend y backend contienen avances fusionados en `main`, principalmente con fixtures y modos MOCK. La web pública permite navegar y buscar productos de demostración; `/api/catalog/home` dio 503 en una primera consulta y 200 con `X-Catalog-Source: MOCK` al repetirla. La [comparación H1–H3 y traspaso a H4](plan/CORTE-H3-Y-TRASPASO-H4.md) separa código, prueba local, integración REAL y despliegue. Los mockups aprobados según el PO no acreditan esas etapas.
 
 ## Por dónde empezar
 

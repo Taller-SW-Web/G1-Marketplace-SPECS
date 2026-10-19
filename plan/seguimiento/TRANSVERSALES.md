@@ -1,17 +1,17 @@
 # Tareas transversales — hitos de semanas 8, 11, 14 y 16
 
-Versión 0.3.0 · Propuesta punta a punta 2026-10-13. Se conservan los 27 IDs y estados. Responsables/revisores de S1–S5 son propuestas sujetas a estimación, aceptación y revisión cruzada; ninguna tarea se declara ejecutada por figurar aquí. Las tareas funcionales tienen owner en la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
+Versión 0.4.0 · Propuesta punta a punta 2026-10-13, replanificada el 2026-10-18 con el [corte H3](../CORTE-H3-Y-TRASPASO-H4.md). Se conservan los 27 IDs y estados; las filas S01 arrastradas indican la semana original y la nueva semana objetivo de S2/H4. Responsables/revisores de S1–S5 son propuestas sujetas a estimación, aceptación y revisión cruzada; ninguna tarea se declara ejecutada por figurar aquí. Las tareas funcionales tienen owner en la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Tablero único
 
 | ID | Semana objetivo | Estado | Trabajo y evidencia de cierre |
 |---|---:|---|---|
 | TASK-TRANS-S01-OPS-001 | 7 | Pendiente | Base FE/BFF ejecutable; auditar Prisma/Render remotos; build/test mínimo, configuración de entornos, origen/CORS, secretos fuera de Git. Evidencia: commit, build y configuración saneada. |
-| TASK-TRANS-S01-OPS-002 | 8 | Pendiente | Desplegar FE y BE; `/health` y flujo web→BFF→Productos reales; escaneo inicial y humo de seguridad. Evidencia: URLs, deploy, petición/respuesta y logs sanitizados. |
-| TASK-TRANS-S01-QA-001 | 8 | Pendiente | Probar F-006/F-007 en nube: dato real, vacío, error, timeout, responsive y regresión mínima. Evidencia de integración distinta de fixture. |
+| TASK-TRANS-S01-OPS-002 | 9 (original 8) | Pendiente · arrastre H3→H4 | Demostrar FE y BE desplegados del mismo corte; `/ready` y flujo web→BFF→Productos REAL. Evidencia: commits, URLs, petición/respuesta y logs sanitizados. La web demo MOCK no cierra esta tarea. |
+| TASK-TRANS-S01-QA-001 | 9 (original 8) | Pendiente · arrastre H3→H4 | Probar F-006/F-007 en nube con dato REAL positivo, vacío, error, timeout, responsive y regresión mínima. Evidencia de integración distinta de fixture. |
 | TASK-TRANS-S01-DOC-001 | 8 | Pendiente | Diagrama de contexto/arquitectura conforme despliegue, enlaces de repo/commit/contrato y registro de lo funcional/bloqueado. |
 | TASK-TRANS-S01-DOC-002 | 7 | Pendiente | Estimar S1–S2, registrar capacidad real y decisión de prioridad H3; escalar I-01/entorno si no hay prueba intermodular posible. |
-| TASK-TRANS-S01-DB-001 | 7 | Bloqueado | Auditar esquema/migraciones Prisma publicados contra modelo lógico; resolver G-DB y ensayar migración/rollback en entorno de prueba sin borrar datos. |
+| TASK-TRANS-S01-DB-001 | 9 (original 7) | Bloqueado · arrastre H3→H4 | Reparar la migración que recrea `cart_items_product_id_idx`; probar instalación limpia/rollback en PostgreSQL desechable y auditar por separado historial y esquema real de Render, sin borrar datos compartidos. Ver G-DB. |
 | TASK-TRANS-S02-OPS-001 | 9 | Pendiente | Publicar OpenAPI del BFF; CI/CD build, typecheck, tests y deploy por entorno, versionado/rollback y secretos. Primera corrida reproducible. |
 | TASK-TRANS-S02-OPS-002 | 11 | Pendiente | Ejecutar pipeline con revisión de seguridad, controles SAST/SCA/secret scan y smoke de auth/API; corregir y retestar hallazgos. |
 | TASK-TRANS-S02-QA-001 | 11 | Pendiente | E2E de segundo demo: catálogo/ficha/carrito/favoritos y autenticación UI+API; negativos JWT vencido, ownership y MFA según contrato. |
