@@ -2,6 +2,8 @@
 
 > Correo transaccional asíncrono que confirma un pedido ya creado. Su entrega no condiciona ni modifica el estado del pedido.
 
+> **Decisión abierta G-MAIL:** el disparador y copy de este borrador describen `CREADO`; F-034 dice «tras pedido exitoso» y F-027/V-014 sólo muestran compra confirmada con `PAGADO` verificado. Jim y Fernando deben acordar si este correo avisa creación o confirma compra antes de aprobarlo o implementar su envío. Ver [auditoría A-16](../../../plan/AUDITORIA-ISSUE-5.md).
+
 ## 1. Metadatos
 
 | Campo | Valor |
