@@ -102,6 +102,8 @@
 
 **Secuencia original (2026-10-01):** Jim planificó primero desktop y después mobile para `V-010` a `V-014`. La [auditoría del 18/10](../../../plan/AUDITORIA-ISSUE-5.md) verificó frames de ambas plataformas en las cinco vistas, enlazó muestras en cada spec y registró dos estados mobile faltantes y la contradicción de V-014. Este paquete conserva el orden histórico; los frames existentes siguen sujetos a revisión y aprobación visual.
 
+**Pendientes reprogramados para H4:** Jim es responsable y Fernando José Saire Tello revisa [`TASK-TRANS-S02-UI-001`](../../../plan/seguimiento/TRANSVERSALES.md) (V-011 mobile, promoción automática), `TASK-TRANS-S02-UI-002` (V-013 mobile, operación no preparada) y `TASK-TRANS-S02-UI-003` (V-014 confirmado desktop y consistencia mobile). Se cierran con enlaces a los frames corregidos y aprobación visual; aún no están completos.
+
 1. Definir el shell de checkout, indicador de progreso y resumen persistente.
 2. Diseñar `V-010` y validar edición, guardado y errores.
 3. Diseñar `V-011` para fijar cotización, promoción, cupón y cobertura.

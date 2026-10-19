@@ -9,7 +9,9 @@ Primero cerrar el gate pendiente de H3 para F-006/F-007: búsqueda con Productos
 ## Secuencia por semana
 
 - **Semana 9:** verificar y reparar FE pública → BFF → G6, con búsqueda positiva, vacío/error, commit desplegado y readiness; publicar/validar OpenAPI del BFF y mapa de adaptadores; acordar G-AUTH con Seguridad. Activar CI con build, typecheck, tests y secretos; preparar deploy por entorno. Completar filtro/orden/página y ficha con datos comerciales autorizados según capacidad.
+- **Semana 9, diseño visual pendiente de H3:** Jim crea los frames mobile `V-011 / Promoción automática` y `V-013 / Operación no preparada` (`TASK-TRANS-S02-UI-001/002`); Fernando revisa contra las specs y registra enlaces directos y observaciones.
 - **Semana 10:** integrar registro/login/logout con Seguridad en pantallas **y** APIs protegidas; probar usuario ajeno, token vencido y MFA. Entregar variantes/SKU/precio/stock sin inferir cantidades desde estado comercial. Agregar/ver carrito con persistencia propia y errores controlados; favoritos básicos si la capacidad lo permite.
+- **Semana 10, diseño visual pendiente de H3:** Jim corrige `V-014 / Desktop / Confirmado` para mostrar sólo compra `PAGADO` verificada, comprueba el equivalente mobile y obtiene revisión de Fernando (`TASK-TRANS-S02-UI-003`).
 - **Semana 11:** ejecutar pipeline build→test→deploy, revisión de seguridad, prueba de contrato/e2e y segundo demo en nube. Evidenciar funciones nuevas, autenticación, diseño de APIs y CI/CD. Cerrar I-02/I-06 y escoger contrato/evento real para H5; no postergar esa coordinación a semana 14.
 
 ## Gates y evidencia H4

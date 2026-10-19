@@ -1,6 +1,6 @@
 # Tareas transversales — hitos de semanas 8, 11, 14 y 16
 
-Versión 0.4.0 · Propuesta punta a punta 2026-10-13, replanificada el 2026-10-18 con el [corte H3](../CORTE-H3-Y-TRASPASO-H4.md). Se conservan los 27 IDs y estados; las filas S01 arrastradas indican la semana original y la nueva semana objetivo de S2/H4. Responsables/revisores de S1–S5 son propuestas sujetas a estimación, aceptación y revisión cruzada; ninguna tarea se declara ejecutada por figurar aquí. Las tareas funcionales tienen owner en la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
+Versión 0.5.0 · Propuesta punta a punta 2026-10-13, replanificada el 2026-10-18 con el [corte H3](../CORTE-H3-Y-TRASPASO-H4.md). Se conservan los 27 IDs y estados originales y se añaden tres tareas visuales de H4; las filas S01 arrastradas indican la semana original y la nueva semana objetivo de S2/H4. Responsables/revisores de S1–S5 son propuestas sujetas a estimación, aceptación y revisión cruzada; ninguna tarea se declara ejecutada por figurar aquí. Las tareas funcionales tienen owner en la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
 ## Tablero único
 
@@ -17,6 +17,9 @@ Versión 0.4.0 · Propuesta punta a punta 2026-10-13, replanificada el 2026-10-1
 | TASK-TRANS-S02-QA-001 | 11 | Pendiente | E2E de segundo demo: catálogo/ficha/carrito/favoritos y autenticación UI+API; negativos JWT vencido, ownership y MFA según contrato. |
 | TASK-TRANS-S02-DOC-001 | 11 | Pendiente | Enlazar diseño de APIs, specs, código, contratos externos, pruebas, URL de demo y evidencias CI/CD. |
 | TASK-TRANS-S02-DOC-002 | 9 | Pendiente | Estimar carga S2–S3, revisar capacidad/cuello de botella y escalamiento de I-02/I-05/I-06 antes del hito siguiente. |
+| TASK-TRANS-S02-UI-001 | 9 · H4 | Pendiente · traspaso visual | Crear en la [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) el frame exacto `V-011 / Mobile / Promoción automática`, conforme a [V-011](../../SPECS/ui/vistas/V-011-resumen-envio-beneficio.md) y F-024. Cierre: enlace directo en la spec, estado/promoción comprensibles en mobile y revisión de Fernando registrada. |
+| TASK-TRANS-S02-UI-002 | 9 · H4 | Pendiente · traspaso visual | Crear en la [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) el frame exacto `V-013 / Mobile / Operación no preparada`, conforme a [V-013](../../SPECS/ui/vistas/V-013-creacion-orden.md). Cierre: enlace directo en la spec, mensaje/acción de recuperación sin confirmar compra y revisión de Fernando registrada. |
+| TASK-TRANS-S02-UI-003 | 10 · H4 | Pendiente · traspaso visual | Corregir el [frame V-014 / Desktop / Confirmado](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=420-6225) para que confirme sólo `PAGADO` verificado por Ventas; quitar la combinación de `CREADO` con «pago simulado aprobado», revisar coherencia del equivalente mobile y [V-014](../../SPECS/ui/vistas/V-014-pedido-confirmado.md). Cierre: enlaces a frames corregidos, copy coherente con F-027 y revisión de Fernando registrada. |
 | TASK-TRANS-S03-OPS-001 | 12 | Pendiente | Preparar gateway/API Management, contrato de evento real con otro módulo, outbox/consumer, correlación, retry/deduplicación; entorno de prueba. |
 | TASK-TRANS-S03-OPS-002 | 13 | Pendiente | Probar checkout/idempotencia, seguridad token titular/técnico, CORS/CSRF según transporte; preparar carga/umbrales y traza asíncrona. |
 | TASK-TRANS-S03-QA-001 | 13 | Pendiente | E2E de dirección→cotización→pedido: cupón, timeout, doble clic, resultado incierto; `PREPARED`/`CREADO` nunca pagado. Prueba de F-034 asíncrona. |
@@ -51,6 +54,9 @@ Versión 0.4.0 · Propuesta punta a punta 2026-10-13, replanificada el 2026-10-1
 | TASK-TRANS-S02-QA-001 | Fernando Saire | Jim Segovia |
 | TASK-TRANS-S02-DOC-001 | Sebastian Malca | Jim Segovia |
 | TASK-TRANS-S02-DOC-002 | Diego Espinoza | Jim Segovia |
+| TASK-TRANS-S02-UI-001 | Jim Segovia | Fernando José Saire Tello |
+| TASK-TRANS-S02-UI-002 | Jim Segovia | Fernando José Saire Tello |
+| TASK-TRANS-S02-UI-003 | Jim Segovia | Fernando José Saire Tello |
 | TASK-TRANS-S03-OPS-001 | Andres Morales | Leonidas Garcia |
 | TASK-TRANS-S03-OPS-002 | Andres Morales | Leonidas Garcia |
 | TASK-TRANS-S03-QA-001 | Diego Espinoza | Jim Segovia |

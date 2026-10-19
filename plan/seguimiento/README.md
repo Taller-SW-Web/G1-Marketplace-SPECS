@@ -4,7 +4,7 @@ Corte planificado 2026-10-10 · Revisión de H3 2026-10-18. El tablero no prueba
 
 ## 1. Inventario y responsables
 
-256 tareas funcionales en 40 archivos + 27 tareas transversales = **283 tareas**. Son unidades de trabajo por área, no 283 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS trazables.
+256 tareas funcionales en 40 archivos + 30 tareas transversales = **286 tareas**. Son unidades de trabajo por área, no 286 funcionalidades ni nuevas pantallas. La división permite FE/BE/DB/INT/QA/DOC/OPS y diseño visual trazables.
 
 La [matriz punta a punta](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) fija un owner y revisor distintos por F-001–F-040 por decisión del PO. Las 256 filas funcionales conservan IDs/estados; la estimación base está en la matriz. Pasar a En progreso requiere inicio efectivo y registro de avance, no aceptación formal previa. La responsabilidad de diseño visual permanece separada.
 
