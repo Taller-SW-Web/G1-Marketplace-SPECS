@@ -6,7 +6,7 @@
 | Sistema de diseño vigente | `DS-001` v`0.2.0`; aplicación visual pendiente de revisión |
 | Ruta | `/productos/{slug}` |
 
-El botón primario “Agregar al carrito” aparece después de F-013/F-014. Está deshabilitado con explicación si falta seleccionar variante o el SKU está agotado; no se deshabilita por fallo de consulta, sino que muestra “Reintentar disponibilidad”.
+El botón primario “Agregar al carrito” aparece después de F-013/F-014. Sólo agrega con SKU/precio válidos y estado AVAILABLE o STOCK_LOW. Sin selección, agotado, UNDETERMINED, carga o fallo técnico no ejecuta alta; explicar la causa. Error conserva la acción “Reintentar disponibilidad” e indeterminado ofrece “Volver a consultar”, ambas sin mutación del carrito.
 
 | Estado | Interfaz |
 |---|---|

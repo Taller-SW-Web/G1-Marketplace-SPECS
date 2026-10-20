@@ -12,6 +12,8 @@ Versión 0.1.0 · Planificación inicial · F-014 no está implementada por esto
 
 ## Corte planificado de H4
 
+**Corrección documental 20/10/2026:** funcional/UI/API/React y V-007 incorporan los cuatro estados, incluido `UNDETERMINED`, y la fuente única realizable G6 sin suma de ubicaciones. La aceptación bilateral y la prueba REAL siguen pendientes en I-01/G-G6-COMPAT; ningún TASK cambia a Terminado por esta corrección.
+
 **Objetivo de cierre H4.** Resolver G-G6-COMPAT y luego integrar/probar disponibilidad comercial G6: estados acordados incluido INDETERMINADO, fuente realizable y errores; no sumar ubicaciones ni inferir N unidades.
 
 **Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. Disponibilidad sin restricción horaria por decisión del PO. Las entregas «local» o «con dobles» son etapas del mismo TASK, no cierres de INT. DOC prepara desde specs y QA ejecuta casos propios antes de INT; el cierre completo conserva dependencias/DoD. [Alcance H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md). Los estados no cambian al replanificar.
@@ -49,7 +51,7 @@ Referente de BD: Sebastian Malca para este bloque, con revisión de Giuliano Mac
 
 ### TASK-F014-BE-001
 
-- **Trabajo:** Adaptar disponibilidad agregada por SKU, enum público y caché<=30s, sin saldo / ubicación ni reserva.
+- **Trabajo:** Adaptar disponibilidad G6 por SKU/canal desde fuente única realizable, los cuatro estados incluido UNDETERMINED y caché<=30s; sin sumar ni exponer saldos/ubicación ni reservar.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
 - **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
 - **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
@@ -63,7 +65,7 @@ Referente de BD: Sebastian Malca para este bloque, con revisión de Giuliano Mac
 
 ### TASK-F014-QA-001
 
-- **Trabajo:** Probar 503 nunca agotado; sin SKU no llamada; respuesta SKU anterior descartada; no render cantidades/ubicación; incluir cada estado visual y transición documentada.
+- **Trabajo:** Probar los cuatro estados; HTTP 200 INDETERMINADO→UNDETERMINED con CTA bloqueado; 503/timeout/enum inválido no se convierten en estados comerciales; sin SKU no llamada; respuesta SKU anterior descartada; no render cantidades/ubicación ni sumar fuentes independientes.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
 - **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
 - **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
