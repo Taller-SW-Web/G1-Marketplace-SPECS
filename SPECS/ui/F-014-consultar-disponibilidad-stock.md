@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-014` |
+| Versión y revisión | `0.2.0` · 2026-10-20 |
 | Estado | Aprobada para planificación; integración condicionada por `I-01`. |
 | Sistema de diseño vigente | `DS-001` v`0.2.0`; aplicación visual pendiente de revisión |
 
@@ -15,9 +16,11 @@ La región se sitúa bajo F-012 y F-013 en `/productos/{slug}`.
 | Disponible | Icono y texto “Disponible”. |
 | Stock bajo | Icono y texto “Quedan pocas unidades”. No se muestra cantidad. |
 | Agotado | Icono y texto “Agotado”; F-016 deberá deshabilitar compra. |
+| Indeterminado | HTTP 200 `UNDETERMINED`: “Disponibilidad por confirmar” y acción “Volver a consultar”. CTA de carrito deshabilitado mientras no haya respuesta que permita compra; no usar estilo de agotado ni mensaje de error técnico. |
 | Error | “No pudimos consultar disponibilidad” y botón Reintentar. |
 
 No se comunica ubicación, saldo interno ni promesa de reserva. Estado usa texto, icono y color de DS-001; se anuncia mediante `aria-live="polite"`. En móvil permanece junto al selector, no en un modal.
 
 - [ ] **UI-F014-01:** Agotado, error y carga son distinguibles sin depender sólo del color.
 - [ ] **UI-F014-02:** Cambiar SKU elimina el estado anterior hasta tener respuesta nueva.
+- [ ] **UI-F014-03:** Indeterminado, agotado y error técnico tienen copy y semántica distintos; la consulta manual de indeterminado no agrega ni reserva un producto.

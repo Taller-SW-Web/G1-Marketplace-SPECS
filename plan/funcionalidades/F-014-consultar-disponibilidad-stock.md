@@ -4,7 +4,7 @@
 
 | Campo | Valor |
 |---|---|
-| ID / versión / estado | F-014 / 0.1.0 / En revisión |
+| ID / versión / estado | F-014 / 0.2.0 / En revisión · 2026-10-20 |
 | Objetivo académico | S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-014-consultar-disponibilidad-stock.md), [UI](../../SPECS/ui/F-014-consultar-disponibilidad-stock.md), [API](../../SPECS/contrato-api/F-014-consultar-disponibilidad-stock.md), [React](../../SPECS/componentes-react/F-014-consultar-disponibilidad-stock.md) |
 | Ejecución y revisores | [Tareas de F-014](../seguimiento/F-014-consultar-disponibilidad-stock.md); responsable asignado por el PO: **Sebastian Malca**; revisor principal: **Giuliano Macchiavello**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
@@ -26,7 +26,7 @@ BFF adapta Inventario. F-016 recibe capacidad de acción confirmada por selecci�
 | Área | Trabajo / decisión |
 |---|---|
 | Frontend / render | `AvailabilityRegion`; hook `useProductAvailability`; arquitectura transversal React. |
-| Backend / adaptador | Adaptar disponibilidad agregada por SKU, enum público y caché<=30s, sin saldo / ubicación ni reserva. |
+| Backend / adaptador | Adaptar disponibilidad de fuente única realizable G6 por SKU/canal, con cuatro estados (incluido UNDETERMINED) y caché<=30s; sin sumar saldos, exponer ubicación ni reservar. |
 | Persistencia | Sin persistencia de dominio local. Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
 | Remoto / caché | ['catalog','availability',slug,sku]; máximo 30s, query sin SKU no ejecuta. |
 | Seguridad específica | Saldo/ubicación no expuestos, no confundir falla del proveedor con agotado. |
@@ -36,7 +36,7 @@ BFF adapta Inventario. F-016 recibe capacidad de acción confirmada por selecci�
 
 - Dependencias de comportamiento/flujo: [F-013](F-013-seleccion-atributos-variante.md).
 - Gates: I-01; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
-- Pendientes específicos: I-01, proyección agregada de Inventario.
+- Pendientes específicos: I-01/G-G6-COMPAT, homologación/configuración/runtime y prueba REAL de la proyección comercial G6; la contradicción documental G1 de tres estados/agregación queda corregida el 20/10. G-QUANTITY sigue separado.
 - Responsable/revisor confirman alcance, contrato y criterios de prueba; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
 
@@ -59,6 +59,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 - sin SKU no llamada.
 - respuesta SKU anterior descartada.
 - no render cantidades/ubicación.
+- HTTP 200 INDETERMINADO se adapta a UNDETERMINED, con copy neutral y CTA bloqueado; no se confunde con agotado, 503 ni timeout.
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: Saldo/ubicación no expuestos, no confundir falla del proveedor con agotado.
 - DB si aplica: identidad/constraints/versiones/transacción y rollback probados sin persistencia prohibida.
@@ -67,6 +68,6 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 ## 7. Riesgos y recuperación
 
-WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | ERROR; cambio de SKU limpia dato previo.
+WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | UNDETERMINED | ERROR; cambio de SKU limpia dato previo.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Los riesgos de contrato, entorno y calidad se revisan por operación, sin retirar esta funcionalidad por disponibilidad horaria.

@@ -16,5 +16,7 @@ Autenticación opcional: JWT identifica el carrito autenticado; sin JWT se usa c
 
 `quantity` es entero 1–99. El BFF valida SKU/precio/estado comercial publicado y muta `Cart`/`CartItem` con `version`; la respuesta incluye sólo snapshot de precio. La cantidad no se garantiza hasta validar N unidades (`X-P0-03`) y, finalmente, reservar bajo Ventas. No expone saldos ni reserva. Integraciones externas: Catálogo, Pricing e Inventario (`I-01`).
 
+La precondición comercial usa AVAILABLE o STOCK_LOW según F-014. Una respuesta HTTP 200 UNDETERMINED de F-014 no autoriza la mutación: F-016 devuelve `503 COMMERCE_DATA_UNAVAILABLE` sin alterar carrito ni inventar agotamiento; la UI ofrece volver a consultar.
+
 - [ ] **API-CA-F016-01:** Mismo SKU mantiene unicidad por carrito.
 - [ ] **API-CA-F016-02:** Una solicitud fallida no deja una línea nueva ni una cantidad incrementada.

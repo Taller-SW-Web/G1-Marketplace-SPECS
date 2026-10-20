@@ -7,8 +7,8 @@
 | Campo | Valor |
 |---|---|
 | ID funcional | `F-014` |
-| Versión / estado | `0.1.0` / En revisión |
-| Fecha | 2026-10-02 |
+| Versión / estado | `0.2.0` / En revisión |
+| Fecha | 2026-10-20 |
 | Funcional | [F-014](../funcional/F-014-consultar-disponibilidad-stock.md) |
 | UI funcional | [F-014](../ui/F-014-consultar-disponibilidad-stock.md) |
 | Contrato API | [F-014](../contrato-api/F-014-consultar-disponibilidad-stock.md) |
@@ -60,7 +60,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 | Adaptador tipado | Validar DTO y mapear error público; sin aceptar shape externo no homologado | Contrato API enlazado |
 | Validación local | Ayuda inmediata, nunca reemplaza validación ni autorización del servidor | Reglas siguientes |
 
-Usar enum público BFF, no cálculo de stock frontend. ERROR/LOADING/WAITING no habilitan compra; ERROR ofrece reintentar disponibilidad, no falso agotado.
+Usar enum público BFF, no cálculo de stock frontend. ERROR/LOADING/WAITING_FOR_SKU/UNDETERMINED no habilitan compra. `UNDETERMINED` es resultado HTTP 200 con “Disponibilidad por confirmar” y consulta manual; ERROR muestra fallo técnico y reintento, sin convertirlo a estado comercial.
 
 ### Operaciones documentadas
 
@@ -70,7 +70,7 @@ Auth y rutas `/password` se traducen mediante el límite de integración aprobad
 
 ## 7. Estados, errores y recuperación
 
-WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | ERROR; cambio de SKU limpia dato previo.
+WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | UNDETERMINED | ERROR; cambio de SKU limpia dato previo. El estado comercial UNDETERMINED y ERROR técnico son variantes distintas del estado discriminado.
 
 - **Carga:** skeleton de la región que consulta, o progreso local de mutación; nunca datos o importes de ejemplo.
 - **Vacío / no aplicable:** sólo ante respuesta válida o condición explícita; errores nunca se convierten en colección vacía, precio cero o stock agotado.
@@ -91,6 +91,8 @@ WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | ERROR; ca
 | `RC-F-014-02` | sin SKU no llamada. |
 | `RC-F-014-03` | respuesta SKU anterior descartada. |
 | `RC-F-014-04` | no render cantidades/ubicación. |
+| `RC-F-014-05` | HTTP 200 UNDETERMINED muestra estado neutral, consulta manual y CTA bloqueado; no se muestra agotado ni error técnico. |
+| `RC-F-014-06` | Los cuatro enums se validan exhaustivamente; un valor ajeno al contrato no habilita compra. |
 | Estados UI | Render y transición de cada estado de la sección 7 y de la spec visual relacionada. |
 | Transporte | Fixture de éxito, vacío/no aplicable, validación, autorización, conflicto, timeout y fallo externo que realmente correspondan al contrato. |
 | Accesibilidad | Teclado/foco, nombre de controles, anuncios y contraste; pruebas automáticas más revisión manual. |
@@ -107,7 +109,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01, proyección agregada de Inventario.
+I-01/G-G6-COMPAT: documentación G1 alineada a los cuatro estados y fuente única realizable de G6; siguen pendientes homologación/configuración/runtime y pruebas reales. G-QUANTITY es una operación distinta. No agregar saldos ni elegir ubicaciones desde React/BFF.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 
