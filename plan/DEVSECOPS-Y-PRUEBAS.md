@@ -21,6 +21,12 @@ Sólo pruebas sobre entornos propios o expresamente autorizados. No hacer DAST, 
 
 Cada sprint incluye tareas OPS de escaneos y QA-002 por funcionalidad. La configuración no sustituye la ejecución. Dependencias vulnerables no se declaran seguras porque build pasa.
 
+### Evidencia ejecutada de cuenta H4 — 21/10/2026
+
+F-001–F-005: [FE CI 39687299631](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/39687299631) y [BE CI 39686635460](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/39686635460) PASS con Gitleaks8.30.1 (source/historia/build), Semgrep1.181.0 (cuatro reglas locales), SCA e inventario de licencias. FE0 avisos; BE runtime0 y total19 moderados de desarrollo pendientes de revisión. [Detalle FE](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/SEGURIDAD-H4.md) y [BE](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/SEGURIDAD-H4.md), con resúmenes sanitizados, controles positivos y clasificación estricta de claves privadas generadas por Next.
+
+Este baseline sólo acredita ese corte de cuenta. No certifica las 40 F, análisis completo de taint, aceptación de moderados/licencias, custodia de artefactos en hosting, DAST de staging ni prueba REAL G7. QA-002 permanece En progreso; revisor Andrés. No se escanearon servicios ajenos ni el sitio público sin permiso específico.
+
 ## 3. Cobertura por sprint
 
 | Sprint | Pruebas funcionales | Seguridad / DevSecOps | Evidencia y salida |

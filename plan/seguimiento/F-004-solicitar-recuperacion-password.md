@@ -102,3 +102,13 @@ Registro sólo devuelve pendiente, fija MARKETPLACE y no autentica; verificació
 Jim confirmó pendientes cuentas A/B y URL/revisiones BFF desplegadas. Registro/recuperación/reset aún no publicados por G7; flags por bloque apagados por defecto. Publicación de términos/privacidad G1, prueba REAL de correos/retorno y revocación entre dispositivos, redacción de logs de hosting, G-DB heredado, revisión y SAST/SCA/DAST completos siguen pendientes. F-002 mantiene dependencia F-020; las pruebas no certifican integración G6.
 
 Este registro amplía las casillas iniciales de evidencia Pendiente de cada DoD. FE/BE/QA/DOC permanecen En progreso; INT Bloqueado. No se cierra la F por código ni fixtures. Codex asistió implementación y pruebas; ninguna aprobación humana se infiere.
+
+### QA de seguridad ampliada — 21/10/2026
+
+Se ejecutaron SAST/SCA/secrets e inventario de licencias en los workflows H4 de las mismas PR. [FE: evidencia y resumen](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/SEGURIDAD-H4.md), [BE: evidencia y resumen](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/SEGURIDAD-H4.md). CI FE 39687299631 y BE 39686635460 PASS: Gitleaks8.30.1 source/historia/build, Semgrep1.181.0 con cuatro reglas locales (121/111 archivos), SCA e inventario. FE 0 avisos; BE runtime0 y total19 moderados de herramientas de pruebas, pendientes de revisión/aceptación independiente.
+
+El primer scan FE clasificó claves privadas generadas por Next16.4.1. La corrección `2b2bdf5` sólo permite valores exactos en rutas privadas exactas, mantiene escaneo completo y verifica ausencia en assets; cinco controles con scanner real PASS. No se excluyen archivos completos ni se publican claves. Revisión de esa política pendiente. El intento local Windows/WSL agotó tiempo en SAST; sólo CI Linux acredita ese resultado.
+
+[Propuesta de contenedor temporal de sesión](../../Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/05-Propuesta-sesion-temporal-H4.md) y React F-003 ya explicitan que error de BFF/DB/red no confirma logout, mientras fallo G7 tras invalidación local confirmada sólo deja revocación remota pendiente.
+
+QA-002 sigue En progreso: faltan DAST en staging propio autorizado, revisión de riesgo/licencias, G7 REAL y despliegue. No se libera G-AUTH/G-DB ni se cierran INT por este baseline.
