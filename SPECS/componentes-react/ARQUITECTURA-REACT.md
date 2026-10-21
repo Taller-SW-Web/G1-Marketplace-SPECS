@@ -64,7 +64,7 @@ Mutaciones de carrito serializan por versión y reconcilian snapshot confirmado.
 La protección de ruta React es UX, no autorización. BFF valida JWT, ownership, inputs y scopes, deriva titular, rechaza IDs de cliente manipulados. Sólo APIs autorizadas entre microservicios; nunca Prisma en navegador ni acceso a DB ajena.
 
 - Cookie anónima de F-016: HttpOnly/Secure/SameSite=Lax la administra BFF; JS no la lee.
-- Transporte de access/refresh, refresh y MFA: contrato abreviado F-002/003 no fija estrategia completa. Registrar G-AUTH, evaluar BFF/cookie protegida o mecanismo homologado antes de implementar. No crear token de servicio en navegador ni guardar secretos en localStorage.
+- Transporte de access/refresh, refresh y MFA: propuesta H4 en [F-002](../contrato-api/F-002-iniciar-sesion.md) y [F-003](../contrato-api/F-003-cerrar-sesion.md), implementada localmente para revisión. Navegador → Next → BFF → G7 v1; cookie opaca HttpOnly y sesión temporal compartida cifrada exclusivamente en BFF, con refresh de un uso serializado. Logout distingue invalidación local confirmada, revocación remota pendiente y resultado BFF no confirmado. G-AUTH sigue abierto hasta revisión y prueba REAL. No crear token de servicio en navegador ni guardar secretos en localStorage.
 - Direcciones: BFF de F-022 utiliza token del titular ante Seguridad, no token técnico; sólo memoria temporal web. Sin copia en DB Marketplace.
 - Despacho: token técnico cotizaciones:calcular/seguimientos:leer sólo backend. Scopes mínimos, sin sustituir por token del titular.
 - Registro: canal fijo MARKETPLACE; verificación/reenvío/enlace vencido o usado en Seguridad; URL /login configurada por ambiente, sin token. Recuperación de contraseña es flujo distinto, F-005 sí recibe token efímero.
