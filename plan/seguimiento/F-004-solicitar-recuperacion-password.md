@@ -112,3 +112,11 @@ El primer scan FE clasificó claves privadas generadas por Next16.4.1. La correc
 [Propuesta de contenedor temporal de sesión](../../Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/05-Propuesta-sesion-temporal-H4.md) y React F-003 ya explicitan que error de BFF/DB/red no confirma logout, mientras fallo G7 tras invalidación local confirmada sólo deja revocación remota pendiente.
 
 QA-002 sigue En progreso: faltan DAST en staging propio autorizado, revisión de riesgo/licencias, G7 REAL y despliegue. No se libera G-AUTH/G-DB ni se cierran INT por este baseline.
+
+### Correcciones de foco y teclado — 21/10/2026
+
+FE `98f167916046ced991f1aa4319a81c9ed53881a7`, [PR #105](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/105). [Evidencia, casos y comandos](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/ACCESIBILIDAD-CUENTA-H4.md). Se corrigieron focos de errores/resultados, asociación de422 de contraseña, readonly durante envío y submit sin perder foco ni duplicar POST; MFA enfoca su paso y aviso de vencimiento, contador sin anuncios por tick. Registro/recuperación tienen título de documento específico.
+
+Local201 componentes/73 servidor, build/tipos/lint PASS; seis recorridos de teclado en Edge contra build de producción PASS. [CI39691871642](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/39691871642): mismos seis casos con Chromium y scans PASS. Fixtures sólo de UI, sin G7/BFF/DB; no sustituye evidencia de integración, no certifica WCAG completo ni valida todas las variantes visuales.
+
+Revisión Andrés, lector de pantalla/zoom/visual independientes y gates REAL siguen pendientes. Nuevos accesos Projects y cliente técnico G7 consultados a Jim; no se asume autorización ni disponibilidad por falta de respuesta. Estado En progreso; INT Bloqueado.

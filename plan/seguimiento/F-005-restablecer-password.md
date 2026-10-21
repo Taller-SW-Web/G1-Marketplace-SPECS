@@ -120,3 +120,11 @@ Backend `224486b9f9e4228887c5700af350840107955e46` prepara el contrato observado
 Token técnico sólo servidor; firma de usuario antes de consulta; emisión técnica concurrente compartida, sin caché de decisiones activas. Revocación rechaza cookie/Bearer y recarga elimina su sesión; 503 transitorio no devuelve identidad ni declara logout ni descarta un refresh todavía válido. Se preserva la regla de refresh incierto sin replay. Pruebas locales:148 unitarias,189 e2e (18 nuevas de contrato técnico y13 de sesión DB),4 emisor y6 probe PASS; build/typecheck PASS.
 
 `G7_INTROSPECTION_ENABLED=false`. Falta confirmar cliente G1, tokens:introspeccion/audiencia api-seguridad, credencial privada y despliegue G7; consulta enviada a Jim sin pedir secretos por chat. REAL, cuentas A/B, BFF desplegado, G-DB, DAST y revisión Andrés pendientes. Ninguna aprobación, integración o cierre se infiere del proveedor simulado. Estado En progreso; INT Bloqueado.
+
+### Correcciones de foco y teclado — 21/10/2026
+
+FE `98f167916046ced991f1aa4319a81c9ed53881a7`, [PR #105](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/105). [Evidencia, casos y comandos](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/ACCESIBILIDAD-CUENTA-H4.md). Se corrigieron focos de errores/resultados, asociación de422 de contraseña, readonly durante envío y submit sin perder foco ni duplicar POST; MFA enfoca su paso y aviso de vencimiento, contador sin anuncios por tick. Registro/recuperación tienen título de documento específico.
+
+Local201 componentes/73 servidor, build/tipos/lint PASS; seis recorridos de teclado en Edge contra build de producción PASS. [CI39691871642](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/39691871642): mismos seis casos con Chromium y scans PASS. Fixtures sólo de UI, sin G7/BFF/DB; no sustituye evidencia de integración, no certifica WCAG completo ni valida todas las variantes visuales.
+
+Revisión Andrés, lector de pantalla/zoom/visual independientes y gates REAL siguen pendientes. Nuevos accesos Projects y cliente técnico G7 consultados a Jim; no se asume autorización ni disponibilidad por falta de respuesta. Estado En progreso; INT Bloqueado.

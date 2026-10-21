@@ -62,7 +62,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 | Adaptador tipado | Validar DTO y mapear error público; sin aceptar shape externo no homologado | Contrato API enlazado |
 | Validación local | Ayuda inmediata, nunca reemplaza validación ni autorización del servidor | Reglas siguientes |
 
-No aceptar espacios en nombres; correo válido, contraseñas coincidentes, aceptaTerminos=true. Política y límites de celular vienen de Seguridad; no inventar una política alternativa.
+No aceptar nombres compuestos sólo por espacios; se permiten espacios dentro de un nombre válido conforme UI/G7. Correo válido, contraseñas coincidentes, aceptaTerminos=true. Política y límites de celular vienen de Seguridad; no inventar una política alternativa.
 
 ### Operaciones documentadas
 
