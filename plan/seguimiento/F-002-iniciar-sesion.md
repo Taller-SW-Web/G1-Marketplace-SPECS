@@ -29,12 +29,12 @@ La actualización del 19/10/2026 cambia planificación, no estados de ejecución
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F002-FE-001 | Frontend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
-| TASK-F002-BE-001 | Backend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
+| TASK-F002-FE-001 | Frontend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | En progreso |
+| TASK-F002-BE-001 | Backend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | En progreso |
 | TASK-F002-INT-001 | Integración | Jim Segovia | Andres Morales | P0 | TASK-F002-BE-001 + G-AUTH + TASK-F001-INT-001 | 11/H4 | Bloqueado |
-| TASK-F002-QA-001 | QA funcional | Jim Segovia | Andres Morales | P0 | TASK-F002-FE-001 + TASK-F002-BE-001 | 11/H4 | Pendiente |
-| TASK-F002-QA-002 | QA seguridad / DevSecOps | Jim Segovia | Andres Morales | P0 | TASK-F002-FE-001 + TASK-F002-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | Pendiente |
-| TASK-F002-DOC-001 | Documentación | Jim Segovia | Andres Morales | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F002-INT-001 + TASK-F002-QA-001 + TASK-F002-QA-002 | 11/H4 | Pendiente |
+| TASK-F002-QA-001 | QA funcional | Jim Segovia | Andres Morales | P0 | TASK-F002-FE-001 + TASK-F002-BE-001 | 11/H4 | En progreso |
+| TASK-F002-QA-002 | QA seguridad / DevSecOps | Jim Segovia | Andres Morales | P0 | TASK-F002-FE-001 + TASK-F002-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | En progreso |
+| TASK-F002-DOC-001 | Documentación | Jim Segovia | Andres Morales | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F002-INT-001 + TASK-F002-QA-001 + TASK-F002-QA-002 | 11/H4 | En progreso |
 
 Referente de BD: Jim Segovia para este bloque, con revisión de Andres Morales; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
