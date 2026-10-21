@@ -1,6 +1,6 @@
 # Tareas y seguimiento — F-002 Iniciar sesión
 
-Versión 0.1.0 · Planificación inicial · F-002 no está implementada por estos documentos.
+Versión 0.2.0 · Avance local H4 · integración REAL y revisión humana pendientes.
 
 ## Fuente y control
 
@@ -8,7 +8,7 @@ Versión 0.1.0 · Planificación inicial · F-002 no está implementada por esto
 - [Funcional](../../SPECS/funcional/F-002-iniciar-sesion.md), [UI](../../SPECS/ui/F-002-iniciar-sesion.md), [API](../../SPECS/contrato-api/F-002-iniciar-sesion.md), [React](../../SPECS/componentes-react/F-002-iniciar-sesion.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
 - Responsable asignado por el PO: **Jim Segovia**; revisor principal: **Andres Morales** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
-- Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
+- Mock y real se reportan por separado. Existe evidencia local enlazada abajo; QA REAL, despliegue y aprobación siguen pendientes.
 
 ## Corte planificado de H4
 
@@ -19,7 +19,7 @@ Versión 0.1.0 · Planificación inicial · F-002 no está implementada por esto
 | Nivel de evidencia | Registro del corte de esta F |
 |---|---|
 | Diseñado | Specs enlazadas arriba; añadir revisión del flujo/contrato/frame concreto de H4. Su existencia no acredita aprobación de todas las discrepancias |
-| Implementado con datos de prueba | Enlazar commit FE/BE, fixture explícito, comando y resultado positivo/negativo. Recuperar evidencia del código existente antes de certificar cobertura completa |
+| Implementado con datos de prueba | FE [PR #105](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/105), BE [PR #229](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/229). G7 simulado, PostgreSQL real local; 15 pruebas auth dirigidas y 2 recorridos web. Evidencias y límites en las PR; no acredita cierre integral |
 | Integrado con otro módulo | Pendiente de evidencia por operación: proveedor/versión, entorno, auth, request/response REAL, negativos y traza; respetar gates de esta F |
 | Probado en el despliegue | Pendiente: URLs/SHAs/run CI-CD y caso desde web/API desplegada con revisión independiente. No inferir de prueba local ni de provider directo |
 
@@ -90,3 +90,13 @@ Referente de BD: Jim Segovia para este bloque, con revisión de Andres Morales; 
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
+
+## Avance local — 21/10/2026
+
+Jim inició FE/BE/QA local/DOC. Fuentes G7: docs 1b034d2, backend develop 4bd7b61. Implementación FE 0dc5d6e + CI 59de6cc, BE 068fbf9. [Frontend #105](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/105), [Backend #229](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/229), [contrato propuesto #9](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS/pull/9). Revisor solicitado: Andrés; aprobación pendiente.
+
+[Casos FE y capturas](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/F002-F003.md), [casos BE](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/F002-F003.md) y [preparación G7](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/INTEGRACION-G7-H4.md). Backend CI: auth-session y matriz Node 22/24 PASS. No hay cuentas A/B G7 ni URL/revisión BFF desplegada confirmadas (Jim indicó pendientes). G-DB heredado también continúa abierto.
+
+QA local prueba MFA, credenciales neutras, cookie HttpOnly, refresh concurrente/timeout/reinicio, A/B, expiración, logout y otra pestaña. No acredita SAST/SCA/DAST completos, homologación, validación visual independiente ni despliegue. F-002 conserva la dependencia de fusión F-020; F-003 requiere completar validación de O-004 y su política durante envío. Las tareas permanecen En progreso y las INT Bloqueado.
+
+Los textos iniciales de evidencia Pendiente de cada DoD se completan mediante este registro; no se marca Terminado por pruebas con dobles. Codex generó y probó los cambios; revisión humana de Jim/Andrés pendiente.
