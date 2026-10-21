@@ -112,3 +112,11 @@ El primer scan FE clasificó claves privadas generadas por Next16.4.1. La correc
 [Propuesta de contenedor temporal de sesión](../../Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/05-Propuesta-sesion-temporal-H4.md) y React F-003 ya explicitan que error de BFF/DB/red no confirma logout, mientras fallo G7 tras invalidación local confirmada sólo deja revocación remota pendiente.
 
 QA-002 sigue En progreso: faltan DAST en staging propio autorizado, revisión de riesgo/licencias, G7 REAL y despliegue. No se libera G-AUTH/G-DB ni se cierran INT por este baseline.
+
+### Introspección preparada — 21/10/2026
+
+Backend `224486b9f9e4228887c5700af350840107955e46` prepara el contrato observado G7 develop813b809. [Evidencia y casos](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/INTROSPECCION-H4.md), [BE #229](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/229), [propuesta F-002](../../SPECS/contrato-api/F-002-iniciar-sesion.md#consulta-de-revocación--propuesta-h4-desactivada).
+
+Token técnico sólo servidor; firma de usuario antes de consulta; emisión técnica concurrente compartida, sin caché de decisiones activas. Revocación rechaza cookie/Bearer y recarga elimina su sesión; 503 transitorio no devuelve identidad ni declara logout ni descarta un refresh todavía válido. Se preserva la regla de refresh incierto sin replay. Pruebas locales:148 unitarias,189 e2e (18 nuevas de contrato técnico y13 de sesión DB),4 emisor y6 probe PASS; build/typecheck PASS.
+
+`G7_INTROSPECTION_ENABLED=false`. Falta confirmar cliente G1, tokens:introspeccion/audiencia api-seguridad, credencial privada y despliegue G7; consulta enviada a Jim sin pedir secretos por chat. REAL, cuentas A/B, BFF desplegado, G-DB, DAST y revisión Andrés pendientes. Ninguna aprobación, integración o cierre se infiere del proveedor simulado. Estado En progreso; INT Bloqueado.
