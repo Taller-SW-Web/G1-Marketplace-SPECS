@@ -8,4 +8,6 @@ La UI captura el token una vez en memoria y elimina la query y el estado de esa 
 
 El bloque continúa apagado por defecto (`G7_RECOVERY_ENABLED=false`) hasta publicación y prueba de G7. `401/410` eliminan el formulario y ofrecen otro enlace; `422` permite corregir. Un fallo incierto no provoca reenvío automático.
 
+La propuesta de [introspección del BFF](F-002-iniciar-sesion.md#consulta-de-revocación--propuesta-h4-desactivada) permite consultar la vigencia del `jti`/familia mediante G7, sin conocer el UUID desde el reset ni borrar sesiones de otro usuario por un campo del cliente. Está desactivada hasta confirmar cliente/scope/entorno. Las pruebas con proveedor simulado no demuestran que reset G7 esté publicado ni que revoque realmente todas las familias: ese caso sigue pendiente de homologación.
+
 - [ ] **API-CA-F005-01:** Respuesta exitosa no entrega sesión ni token.

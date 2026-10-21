@@ -22,6 +22,16 @@ Favoritos demuestra autenticación y separación por UUID central G7. La API dir
 
 ## Evidencia y gates
 
+### Consulta de revocación — propuesta H4 desactivada
+
+Fuente adicional: G7 backend develop `813b809`. El BFF prepara `G7_INTROSPECTION_ENABLED=false`, sujeto a revisión, cliente técnico propio y despliegue confirmado. Al activarlo, la validación criptográfica RS256/issuer/tipo/sub precede a la introspección del guard compartido; también se revalida la sesión pública en recarga/refresh. Los endpoints públicos de login/MFA/registro/recuperación y logout conservan sus reglas propias.
+
+Sólo el BFF obtiene `POST /auth/token` por formulario `grant_type=client_credentials`, `client_id`, `client_secret`, `scope=tokens:introspeccion`. Credenciales `G7_SERVICE_CLIENT_ID`/`G7_SERVICE_CLIENT_SECRET` en gestor privado; audiencia/concesión G7 `api-seguridad` confirmadas antes de activar. Se valida `Bearer`, expiración acotada y scope de respuesta; el token técnico permanece en memoria del servidor hasta antes de vencer y su solicitud concurrente se comparte. No es una sesión de usuario ni se entrega al navegador. Rotar credenciales requiere reiniciar las instancias.
+
+`POST /auth/introspeccion`, Bearer de servicio y JSON `{token:accessTokenDelTitular}`, exige `activo` booleano. Si activo, `sub` debe coincidir con el JWT ya verificado, `tipo=acceso`, roles/permisos tipados y `exp` vigente. No se almacenan decisiones activas entre requests. `activo:false` produce rechazo genérico `401`, sin reenviar el motivo de cuenta; la lectura de sesión elimina su contenedor/cookie revocados. JWT inválido se rechaza antes de pedir credenciales técnicas.
+
+Fallo/timeout, scope insuficiente o respuesta incompatible producen `503`, sin fallback a autorización offline ni reintento de la misma solicitud. Un fallo transitorio al consultar una sesión todavía válida no confirma revocación ni elimina su refresh; la identidad no se devuelve y una lectura posterior puede recuperarse. Una respuesta incierta de refresh de usuario conserva su regla anterior de invalidación sin replay. Logout sigue disponible para invalidar localmente aun si G7 no responde. La disponibilidad/latencia y revocación efectiva tras reset deben probarse en el entorno conjunto antes de activar.
+
 - [ ] Implementación y pruebas con proveedor simulado firmante.
 - [ ] G7 REAL: cuentas A/B, entorno, revisión desplegada y pruebas positivas/negativas/timeout.
 - [ ] Prueba web + API en despliegues G1 y revisión independiente.
