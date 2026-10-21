@@ -1,6 +1,6 @@
 # Tareas y seguimiento — F-005 Restablecer contraseña
 
-Versión 0.1.0 · Planificación inicial · F-005 no está implementada por estos documentos.
+Versión 0.2.0 · Avance local H4 · integración REAL y revisión humana pendientes.
 
 ## Fuente y control
 
@@ -8,7 +8,7 @@ Versión 0.1.0 · Planificación inicial · F-005 no está implementada por esto
 - [Funcional](../../SPECS/funcional/F-005-restablecer-password.md), [UI](../../SPECS/ui/F-005-restablecer-password.md), [API](../../SPECS/contrato-api/F-005-restablecer-password.md), [React](../../SPECS/componentes-react/F-005-restablecer-password.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
 - Responsable asignado por el PO: **Jim Segovia**; revisor principal: **Andres Morales** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
-- Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
+- Mock y real se reportan por separado. Existe evidencia local enlazada abajo; QA REAL, despliegue y aprobación siguen pendientes.
 
 ## Corte planificado de H4
 
@@ -29,12 +29,12 @@ La actualización del 19/10/2026 cambia planificación, no estados de ejecución
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F005-FE-001 | Frontend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
-| TASK-F005-BE-001 | Backend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
+| TASK-F005-FE-001 | Frontend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | En progreso |
+| TASK-F005-BE-001 | Backend | Jim Segovia | Andres Morales | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | En progreso |
 | TASK-F005-INT-001 | Integración | Jim Segovia | Andres Morales | P0 | TASK-F005-BE-001 + G-AUTH + TASK-F004-INT-001 | 11/H4 | Bloqueado |
-| TASK-F005-QA-001 | QA funcional | Jim Segovia | Andres Morales | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 | 11/H4 | Pendiente |
-| TASK-F005-QA-002 | QA seguridad / DevSecOps | Jim Segovia | Andres Morales | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | Pendiente |
-| TASK-F005-DOC-001 | Documentación | Jim Segovia | Andres Morales | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F005-INT-001 + TASK-F005-QA-001 + TASK-F005-QA-002 | 11/H4 | Pendiente |
+| TASK-F005-QA-001 | QA funcional | Jim Segovia | Andres Morales | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 | 11/H4 | En progreso |
+| TASK-F005-QA-002 | QA seguridad / DevSecOps | Jim Segovia | Andres Morales | P0 | TASK-F005-FE-001 + TASK-F005-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | En progreso |
+| TASK-F005-DOC-001 | Documentación | Jim Segovia | Andres Morales | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F005-INT-001 + TASK-F005-QA-001 + TASK-F005-QA-002 | 11/H4 | En progreso |
 
 Referente de BD: Jim Segovia para este bloque, con revisión de Andres Morales; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 
@@ -90,3 +90,15 @@ Referente de BD: Jim Segovia para este bloque, con revisión de Andres Morales; 
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
+
+## Avance local — 21/10/2026
+
+FE/BE/QA local/DOC iniciados por Jim; revisión independiente de Andrés pendiente. Implementación FE `49e6281aa62da5726bc8788be1ae25b4ee9112ed`, BE `06f950f455d39de8b9920e840b18ca27c2358b97`. [FE #105](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/105), [BE #229](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/229), [SPECS #9](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS/pull/9).
+
+[Evidencia y capturas FE](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/F001-F005-cuenta.md), [casos BE](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/F001-F005-cuenta.md) y [guía de integración](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/INTEGRACION-G7-H4.md). FE: 201 componentes y 73 servidor PASS; build/typecheck/lint PASS (una advertencia previa). Navegador: 5 recorridos PASS con BFF/DB locales y proveedor simulado. BE: 26 casos dirigidos PASS; CI PostgreSQL 30 PASS incluyendo auth previo; matriz Node 22/24 PASS (las 11 pruebas de sesión se ejecutan en el job de DB, no en la matriz sin DB).
+
+Registro sólo devuelve pendiente, fija MARKETPLACE y no autentica; verificación/reenvío en pantalla G7. Recuperación conserva 202 uniforme y espera Retry-After sin reenvío automático. Reset elimina token de URL/historial, delega consumo/política a G7 y no crea sesión. Se consultaron frames desktop/mobile V-002–V-004; O-004 desktop implementado con foco/Escape, pendiente validación independiente/mobile y política por etapa SUBMITTED.
+
+Jim confirmó pendientes cuentas A/B y URL/revisiones BFF desplegadas. Registro/recuperación/reset aún no publicados por G7; flags por bloque apagados por defecto. Publicación de términos/privacidad G1, prueba REAL de correos/retorno y revocación entre dispositivos, redacción de logs de hosting, G-DB heredado, revisión y SAST/SCA/DAST completos siguen pendientes. F-002 mantiene dependencia F-020; las pruebas no certifican integración G6.
+
+Este registro amplía las casillas iniciales de evidencia Pendiente de cada DoD. FE/BE/QA/DOC permanecen En progreso; INT Bloqueado. No se cierra la F por código ni fixtures. Codex asistió implementación y pruebas; ninguna aprobación humana se infiere.

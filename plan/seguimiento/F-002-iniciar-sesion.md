@@ -100,3 +100,7 @@ Jim inició FE/BE/QA local/DOC. Fuentes G7: docs 1b034d2, backend develop 4bd7b6
 QA local prueba MFA, credenciales neutras, cookie HttpOnly, refresh concurrente/timeout/reinicio, A/B, expiración, logout y otra pestaña. No acredita SAST/SCA/DAST completos, homologación, validación visual independiente ni despliegue. F-002 conserva la dependencia de fusión F-020; F-003 requiere completar validación de O-004 y su política durante envío. Las tareas permanecen En progreso y las INT Bloqueado.
 
 Los textos iniciales de evidencia Pendiente de cada DoD se completan mediante este registro; no se marca Terminado por pruebas con dobles. Codex generó y probó los cambios; revisión humana de Jim/Andrés pendiente.
+
+### Ampliación de cuenta — 21/10/2026
+
+FE `49e6281`, BE `06f950f` amplían las mismas PR a F-001–F-005. [Evidencia FE](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/F001-F005-cuenta.md) y [BE](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/feat/s2-f002-f003-g7/docs/evidencias/H4/jim-segovia/F001-F005-cuenta.md). 201 componentes/73 servidor FE PASS y 5 recorridos navegador con fixture; CI PostgreSQL BE 30 PASS. O-004 desktop incorpora confirmación, foco, Escape, continuar/error; no cierra política SUBMITTED ni recuperación del contexto. F-020, integración REAL, cuentas, BFF desplegado y revisión independiente siguen pendientes. Registro y recuperación permanecen apagados hasta publicación G7. Estado En progreso; INT Bloqueado.

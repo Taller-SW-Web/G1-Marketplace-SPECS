@@ -16,7 +16,7 @@
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
 | Stack | React + TypeScript + Next.js App Router (PO, 2026-10-10); FE main@ec1acfb observado el 18/10: Next.js 16.4.1, React 19.3.1 y TypeScript 5.9.3 con lockfile; kit global pendiente de DS-OPEN-03. Es corte de código, no aprobación de esta spec |
 | Responsables de implementación | Asignación del PO en [plan F-002](../../plan/funcionalidades/F-002-iniciar-sesion.md); no reemplaza el reparto de mockups |
-| Iteración objetivo | Sprint 1, sujeto a puertas de entrada y capacidad confirmada |
+| Iteración objetivo | S02/H4, semanas 9–11; integración sujeta a gates y evidencia, sin restricción horaria por decisión del PO |
 
 ## 2. Rutas y pantallas
 
