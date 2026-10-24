@@ -130,3 +130,7 @@ FE `98f167916046ced991f1aa4319a81c9ed53881a7`, [PR #105](https://github.com/Tall
 Local201 componentes/73 servidor, build/tipos/lint PASS; seis recorridos de teclado en Edge contra build de producción PASS. [CI39691871642](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/39691871642): mismos seis casos con Chromium y scans PASS. Fixtures sólo de UI, sin G7/BFF/DB; no sustituye evidencia de integración, no certifica WCAG completo ni valida todas las variantes visuales.
 
 Revisión Andrés, lector de pantalla/zoom/visual independientes y gates REAL siguen pendientes. Nuevos accesos Projects y cliente técnico G7 consultados a Jim; no se asume autorización ni disponibilidad por falta de respuesta. Estado En progreso; INT Bloqueado.
+
+### Coordinación G7 — 23/10/2026
+
+Jim recibió las cuentas CLIENTE A/B: A con MFA EMAIL y B sin MFA, accesos guardados sólo localmente fuera de Git. [Acuerdos, fuentes actualizadas y resultados de la primera comprobación](../coordinacion/G7-H4-2026-10-23.md). La SPA responde 200; salud/discovery/JWKS y un intento de login B agotan el tiempo de espera. No se validaron login, OTP, refresh, logout ni favoritos. No se pidió OTP. BFF/SHAs desplegados, G-DB y revisión siguen pendientes; INT permanece Bloqueado. Recuperación/reset ahora tienen controladores en G7 develop `66853992`, sin confirmar runtime; conservar flags apagados hasta homologación. Este corte sustituye el pendiente de entrega de cuentas de las notas del 21/10, sin modificar sus resultados históricos.
