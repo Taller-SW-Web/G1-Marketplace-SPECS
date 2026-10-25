@@ -22,4 +22,4 @@ Se inspeccionaron estructuralmente los 13 frames V-013 de la página Checkout y 
 
 ## Revisión y límites
 
-**Pendiente:** revisión de Fernando José Saire Tello (`saire22`) de los cuatro frames y de esta correspondencia antes de cerrar #99–#101. También siguen abiertos los pendientes de contrato y las pruebas de integración de cada spec. La inspección visual de Figma y la lectura del código no sustituyen la revisión independiente, pruebas del frontend en despliegue ni respuestas reales de Ventas. Este avance no depende del despliegue de Andrés ni completa la integración G7.
+Jim Segovia revisó personalmente y aceptó los cuatro mockups el 25/10/2026. Por decisión expresa del responsable, no se espera la aprobación de Fernando José Saire Tello (`saire22`) para cerrar las tareas de traspaso visual #99–#101; no se atribuye a Fernando una revisión que no realizó. Permanecen abiertos los pendientes de contrato y las pruebas de integración de cada spec. Esta aceptación visual no sustituye pruebas del frontend en despliegue ni respuestas reales de Ventas. Este avance no depende del despliegue de Andrés ni completa la integración G7.
