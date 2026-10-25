@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
+| Enlace de Figma | [V-011 / Mobile / Promoción automática](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=528-1644) · [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
 
 ## 2. Propósito, actor y acceso
 
@@ -174,7 +174,7 @@ Aplicar no consume el cupón. Quitar sólo solicita una nueva cotización sin es
 | `V-011 / Desktop / Línea no disponible` | Desktop | Atención | Editar carrito. |
 | `V-011 / Mobile / Error de cotización` | Mobile | Error | Reintento sin montos ficticios. |
 
-**Verificación estructural del 18/10/2026:** existen 8 frames desktop y 8 mobile V-011; [Cotizado desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=238-5238) y [Cotizado mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=413-542) quedan enlazados. **No aparece** el frame requerido `V-011 / Mobile / Promoción automática`; no sustituirlo por `Cupón aplicado` sin decisión de producto/UX. Estado: diseñado parcialmente, **En revisión**.
+**Verificación del 25/10/2026:** se creó el frame exacto [V-011 / Mobile / Promoción automática](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=528-1644), de 390 px. Identifica «Promoción automática: Club Atleta» y el ahorro de S/ 16.00; el cupón manual permanece sin aplicar, el desglose descuenta una sola promoción y muestra «TOTAL ESTIMADO» S/ 439.00 y vigencia antes del CTA. Se inspeccionó la captura completa y la estructura del frame. [Evidencia H4](../../../plan/evidencias/H4-checkout-frames-jim-2026-10-25.md). Estado: **En revisión** de Fernando; no se da por aprobada la vista completa ni sus dependencias de integración.
 
 ## 13. Criterios de aceptación visual
 

@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
+| Enlace de Figma | [V-014 / Desktop / Confirmado](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=420-6225) · [V-014 / Mobile / Confirmado](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=447-7752) |
 
 ## 2. Propósito, actor y acceso
 
@@ -154,7 +154,7 @@ No existen formularios. “Copiar código” es un botón, confirma el resultado
 | `V-014 / Mobile / Pedido no accesible` | Mobile | No disponible | Estado neutral. |
 | `V-014 / Desktop / Error de consulta` | Desktop | Error temporal | Reintento. |
 
-**Verificación del 18/10/2026:** existen 6 frames desktop y 6 mobile V-014; [Confirmado desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=420-6225) y [Confirmado mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=447-7752) quedan enlazados. En la inspección visual del frame desktop «Confirmado», el estado de orden aparece `CREADO` y se afirma “Pago simulado aprobado”. Esto contradice la condición de esta spec/F-027: mostrar confirmación sólo con `PAGADO` verificado por Ventas. Mantener **En revisión**; corregir texto/estado del frame o documentar una decisión de producto aprobada sin debilitar el gate de pago.
+**Verificación del 25/10/2026:** se corrigieron [Confirmado desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=420-6225) y [Confirmado mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=447-7752). Ambos muestran el estado `PAGADO`, atribuyen la verificación a Ventas y dicen «Pago simulado confirmado por Ventas», sin presentar `CREADO` como éxito ni afirmar cobro real. Conservan el código, total confirmado, aviso de correo futuro y las acciones «Ver mi pedido» / «Seguir comprando». Se inspeccionaron capturas completas y texto estructural de ambos frames; [evidencia H4](../../../plan/evidencias/H4-checkout-frames-jim-2026-10-25.md). Estado: **En revisión** de Fernando; la maqueta no acredita por sí sola consulta real a Ventas ni implementación F-027.
 
 ## 13. Criterios de aceptación visual
 
