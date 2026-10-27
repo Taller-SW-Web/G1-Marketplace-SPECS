@@ -1,0 +1,45 @@
+{
+  "time": "2026-10-27T03:36:41.802Z",
+  "cases": [
+    {
+      "name": "Category only",
+      "status": "PASS",
+      "count": 1,
+      "ms": 4199,
+      "request": {
+        "query": "?canal=MARKETPLACE&pagina=1&tamanio=24&q=Nike&categoriaId=fcb3cac1-b14a-b935-fc1a-c147b878a5c6",
+        "status": 200,
+        "server": null,
+        "staticCaddyPendingHandler": false
+      }
+    },
+    {
+      "name": "Price only",
+      "status": 503,
+      "diagnostic": "PROVIDER_HTTP_503",
+      "ms": 147,
+      "request": {
+        "query": "?canal=MARKETPLACE&pagina=1&tamanio=24&q=Nike&precioMin=0",
+        "status": 503,
+        "server": null,
+        "staticCaddyPendingHandler": false,
+        "code": "SERVICIO_NO_DISPONIBLE",
+        "title": "Servicio no disponible"
+      }
+    },
+    {
+      "name": "Category and price",
+      "status": 503,
+      "diagnostic": "PROVIDER_HTTP_503",
+      "ms": 52,
+      "request": {
+        "query": "?canal=MARKETPLACE&pagina=1&tamanio=24&q=Nike&categoriaId=fcb3cac1-b14a-b935-fc1a-c147b878a5c6&precioMin=0",
+        "status": 503,
+        "server": null,
+        "staticCaddyPendingHandler": false,
+        "code": "SERVICIO_NO_DISPONIBLE",
+        "title": "Servicio no disponible"
+      }
+    }
+  ]
+}
