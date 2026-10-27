@@ -4,6 +4,8 @@ Esta carpeta explica la persistencia local del Marketplace para quienes desarrol
 
 > **Estado:** el SQL es una línea base física ejecutable para desarrollo y revisión. Su existencia no autoriza activar en producción checkout, evaluación postentrega ni notificaciones mientras sus contratos continúen bloqueados.
 
+H4 añade una [propuesta de sesión temporal cifrada](../05-Propuesta-sesion-temporal-H4.md), implementada localmente en una migración separada del BFF. Está pendiente de revisión y despliegue; la descripción de seis tablas de esta carpeta corresponde a la línea base SQL inicial, no certifica el esquema de Render ni omite esa propuesta.
+
 ## Lectura recomendada
 
 1. [Visión general](01-vision-general.md): alcance, ownership y decisiones principales.

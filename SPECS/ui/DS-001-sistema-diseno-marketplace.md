@@ -19,16 +19,17 @@
 | Carpeta de mockups de vistas en Figma | [Marketplace — vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) (carpeta organizativa) |
 | Archivo de mockups de vistas | [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) |
 | Página de inicio, catálogo y producto | [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) — enlaces de V-005/V-006 verificados el 14/10/2026 |
-| Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; versión y lockfile por validar |
+| Mockups de vistas en Figma | [Carpeta Marketplace](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) y [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) del archivo Mockups; faltan enlaces finales de otras vistas/estados |
+| Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; FE `main@ec1acfb` instala Next.js `16.4.1`, React `19.3.1` y TypeScript `5.9.3` con lockfile |
 | UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; propuesta, no aprobación. Checkout F-022–F-027 usa la base kit-neutral existente; `DS-OPEN-03` permanece abierto para las demás familias. |
-| Última actualización | 2026-10-17 (integración de referencias Figma y decisión kit-neutral de Checkout; sin cambio de tokens) |
+| Última revisión documental | 2026-10-18; guía visual original 2026-10-01 |
 | Alcance | Canal Marketplace web responsive y componentes compartidos |
 
 ### 1.1 Vigencia y decisión técnica preliminar
 
 Este documento es la fuente visual vigente para los mockups. La versión `0.2.0` incorpora la identidad Inka Athletics y reemplaza los tokens provisionales de `DS-001` v0.1.0.
 
-El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. El 2026-10-15 decidió que el slice Checkout F-022–F-027 use los componentes propios y tokens DS-001 que ya existen en `G1-Marketplace-Frontend`, sin instalar Mantine/Tabler. Esto resuelve G-STACK para Checkout, no para todo el Marketplace. La guía recibida propone Mantine `9.6.2` y Tabler Icons, sin aprobación general; otros documentos todavía mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Para no mezclar sistemas:
+El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. FE `main@ec1acfb`, revisado el 18/10, usa Next.js `16.4.1`, React `19.3.1`, CSS, tokens y componentes propios; no tiene Mantine ni Tabler en sus dependencias. La guía recibida propone Mantine `9.6.2` y Tabler Icons; otros documentos históricos mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Esta propuesta no equivale a una decisión global aprobada. Checkout F-022–F-027 se mantiene neutral respecto del kit y usa los tokens del diseño. Para no mezclar dos sistemas:
 
 - los mockups y la biblioteca de Figma seguirán los tokens y propiedades documentados aquí;
 - Checkout conserva la implementación kit-neutral existente (`Button`, `TextField`, tokens DS-001 y estilos base), ajustándola a los frames aprobados;
@@ -367,7 +368,7 @@ El skeleton aproxima la estructura final. Se requieren patrones para tarjeta, li
 
 ## 10. Organización y versionado de Figma
 
-El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. El archivo de pantallas identificado es [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups); la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) contiene las secciones de Inicio, Catálogo y Ficha. Las specs [V-005](vistas/V-005-inicio.md) y [V-006](vistas/V-006-catalogo-resultados.md) ya enlazan sus respectivas secciones y sus 34 frames desktop/mobile localizados. Las referencias de las demás vistas siguen pendientes de su verificación; este registro no aprueba diseños ni amplía la implementación del corte H3.
+El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. El archivo de pantallas identificado es [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups); la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) contiene las secciones de Inicio, Catálogo y Ficha. Las specs [V-005](vistas/V-005-inicio.md) y [V-006](vistas/V-006-catalogo-resultados.md) ya enlazan sus respectivas secciones y sus 34 frames desktop/mobile localizados. El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) contiene la [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5), verificada el 18/10; los enlaces representativos de V-010–V-014 figuran en cada spec. La existencia del frame no equivale a aprobación de contenido.
 
 Páginas mínimas sugeridas para la biblioteca del sistema de diseño:
 
@@ -392,7 +393,7 @@ Categoría / Componente / Variante
 
 Cada frame indica `DS-001 v0.2.0` y enlaza su spec.
 
-El diseño de checkout (`V-010` a `V-014`) avanza primero en desktop y después en mobile. Este orden de producción no reduce los estados ni las variantes requeridas por las specs. Los nombres y enlaces definitivos de los frames se registran en la sección 12 de cada `V-###` cuando el diseño esté definido.
+El orden desktop→mobile de checkout (`V-010` a `V-014`) fue una intención de producción ya superada: se hallaron variantes en ambas plataformas. El [índice de vistas](vistas/README.md) registra conteos y discrepancias. Conservar ambos formatos, completar estados faltantes y conciliar el contenido de V-014 con el contrato antes de pasar a `Aprobada`.
 
 ## 11. Gobernanza
 
@@ -437,9 +438,9 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 | `DS-OPEN-02` | Responsable único de biblioteca y canal de propuestas. | Gobernanza |
 | `DS-OPEN-03` | Definir UI kit global para familias distintas del slice Checkout. Para Checkout F-022–F-027 se decidió usar los componentes propios/tokens existentes, sin Mantine. | Implementación transversal |
 | `DS-OPEN-04` | Completar diez tonalidades de Volt, Signal, Ink y Cloud. | Tema Mantine |
-| `DS-OPEN-05` | Enlazar `src/theme/theme.ts` en el frontend. | Código-diseño |
+| `DS-OPEN-05` | Verificar la correspondencia entre tokens de Figma/DS-001 y `src/theme/tokens.css` del frontend; no presuponer un `theme.ts` ni una biblioteca aún no instalada. | Código-diseño |
 | `DS-OPEN-06` | Completar ProductCard, navegación, modales, filtros y skeletons desde specs por vista. | Mockups |
-| `DS-OPEN-07` | Archivo Mockups y página de inicio/catálogo/producto registrados; V-005/V-006 enlazadas por frame. Falta verificar/enlazar las demás vistas y el prototipo; aprobación humana pendiente. | Trazabilidad Figma |
+| `DS-OPEN-07` | Archivo Mockups y V-005/V-006 enlazadas por frame; Checkout V-010–V-014 cuenta con enlaces representativos. Falta completar/verificar los demás estados, vistas y prototipo; aprobación humana pendiente. | Trazabilidad Figma |
 | `DS-OPEN-08` | Definir changelog y proceso de publicación. | Mantenimiento |
 
 ## 14. Fuentes

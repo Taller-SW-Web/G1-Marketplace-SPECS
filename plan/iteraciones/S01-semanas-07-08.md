@@ -1,6 +1,6 @@
 # S1 — Primer flujo funcional en nube (semanas 7–8)
 
-Versión 0.3.0 · Replanificación para Hito 3. No se infiere ejecución de este plan.
+Versión 0.4.0 · Plan original de Hito 3, contrastado el 2026-10-18 con [evidencia de corte](../CORTE-H3-Y-TRASPASO-H4.md). Los criterios siguen vigentes; el gate integral no quedó acreditado.
 
 ## Objetivo y alcance
 

@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | [Canvas Checkout — V-014](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) |
+| Enlace de Figma | [V-014 / Desktop / Confirmado](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=420-6225) · [V-014 / Mobile / Confirmado](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=447-7752) |
 
 ## 2. Propósito, actor y acceso
 
@@ -153,6 +153,8 @@ No existen formularios. “Copiar código” es un botón, confirma el resultado
 | `V-014 / Desktop / Creación fallida` | Desktop | Error recuperable | Salida segura. |
 | `V-014 / Mobile / Pedido no accesible` | Mobile | No disponible | Estado neutral. |
 | `V-014 / Desktop / Error de consulta` | Desktop | Error temporal | Reintento. |
+
+**Verificación del 25/10/2026:** se corrigieron [Confirmado desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=420-6225) y [Confirmado mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=447-7752). Ambos muestran el estado `PAGADO`, atribuyen la verificación a Ventas y dicen «Pago simulado confirmado por Ventas», sin presentar `CREADO` como éxito ni afirmar cobro real. Conservan el código, total confirmado, aviso de correo futuro y las acciones «Ver mi pedido» / «Seguir comprando». Se inspeccionaron capturas completas y texto estructural de ambos frames; [evidencia H4](../../../plan/evidencias/H4-checkout-frames-jim-2026-10-25.md). Jim Segovia revisó y aceptó estos mockups; la maqueta no acredita por sí sola consulta real a Ventas ni implementación F-027.
 
 ## 13. Criterios de aceptación visual
 

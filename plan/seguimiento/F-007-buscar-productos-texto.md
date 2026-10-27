@@ -1,25 +1,40 @@
 # Tareas y seguimiento — F-007 Buscar productos por texto
 
-Versión 0.2.1 · Corte MOCK y automatización actualizados al 16/10/2026; integración, revisión y cierre pendientes.
+Versión 0.2.0 · Revisión 2026-10-18. Hay código integrado; falta búsqueda positiva por la ruta pública completa y el gate F-007 pasa a H4.
 
 ## Fuente y control
 
-- [Plan F-007](../funcionalidades/F-007-buscar-productos-texto.md); [iteración S1](../iteraciones/S01-semanas-07-08.md).
+- [Plan F-007](../funcionalidades/F-007-buscar-productos-texto.md); [iteración S02/H4](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI](../../SPECS/ui/F-007-buscar-productos-texto.md), [API](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React](../../SPECS/componentes-react/F-007-buscar-productos-texto.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
 - Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
-- Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. La evidencia local del 14/10 está enlazada en el registro; no acredita QA REAL.
+- Mock y real se reportan por separado. FE [#3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/3)/[#12](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/12) y BE [#11](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/11)/[#19](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/19) están integradas. La búsqueda G6 devolvía 503 en la prueba local del 17/10; el 18/10 respondió 200 directo con lista vacía. La web G1 permite búsqueda de demostración y respondió 200/MOCK al repetir la consulta, sin acreditar G1→G6 REAL. Ver [corte H3](../CORTE-H3-Y-TRASPASO-H4.md). Revisar DoD FE/BE, casos positivos y negativos, INT y QA en H4.
+
+## Corte planificado de H4
+
+**Objetivo de cierre H4.** Integrar búsqueda REAL por texto/canal con producto vendible, vacío/error/timeout, parámetros y evidencia desde la web desplegada.
+
+**Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. Disponibilidad sin restricción horaria por decisión del PO. Las entregas «local» o «con dobles» son etapas del mismo TASK, no cierres de INT. DOC prepara desde specs y QA ejecuta casos propios antes de INT; el cierre completo conserva dependencias/DoD. [Alcance H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md). Los estados no cambian al replanificar.
+
+| Nivel de evidencia | Registro del corte de esta F |
+|---|---|
+| Diseñado | Specs enlazadas arriba; añadir revisión del flujo/contrato/frame concreto de H4. Su existencia no acredita aprobación de todas las discrepancias |
+| Implementado con datos de prueba | Enlazar commit FE/BE, fixture explícito, comando y resultado positivo/negativo. Recuperar evidencia del código existente antes de certificar cobertura completa |
+| Integrado con otro módulo | Pendiente de evidencia por operación: proveedor/versión, entorno, auth, request/response REAL, negativos y traza; respetar gates de esta F |
+| Probado en el despliegue | Pendiente: URLs/SHAs/run CI-CD y caso desde web/API desplegada con revisión independiente. No inferir de prueba local ni de provider directo |
+
+La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
 
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F007-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 | En progreso |
-| TASK-F007-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 7 | En progreso |
-| TASK-F007-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 8 | Bloqueado |
-| TASK-F007-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 | 8 | En progreso |
-| TASK-F007-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S01-OPS-002 | 8 | En progreso |
-| TASK-F007-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 8 | En progreso |
+| TASK-F007-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 9/H4 (arrastre H3) | En revisión |
+| TASK-F007-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 9/H4 (arrastre H3) | En revisión |
+| TASK-F007-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-BE-001 + I-01 + TASK-F006-INT-001 | 9/H4 (arrastre H3) | Bloqueado |
+| TASK-F007-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 | 9/H4 (arrastre H3) | Pendiente |
+| TASK-F007-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F007-FE-001 + TASK-F007-BE-001 + TASK-TRANS-S01-OPS-002 | 9/H4 (arrastre H3) | Pendiente |
+| TASK-F007-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F007-INT-001 + TASK-F007-QA-001 + TASK-F007-QA-002 | 9/H4 (arrastre H3) | Pendiente |
 
 La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs. El buscador compartido de Giuliano se coordina con Sebastian sin duplicar estos IDs.
 
