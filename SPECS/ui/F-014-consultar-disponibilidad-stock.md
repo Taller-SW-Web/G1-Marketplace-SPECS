@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-014` |
-| Estado | Aprobada para planificación; integración condicionada por `I-01`. |
+| Estado | Aprobada para planificación; actualización a cuatro estados propuesta y pendiente de homologación `G-G6-COMPAT`; integración condicionada por `I-01`. |
 | Sistema de diseño vigente | `DS-001` v`0.2.0`; aplicación visual pendiente de revisión |
 
 La región se sitúa bajo F-012 y F-013 en `/productos/{slug}`.
@@ -15,9 +15,11 @@ La región se sitúa bajo F-012 y F-013 en `/productos/{slug}`.
 | Disponible | Icono y texto “Disponible”. |
 | Stock bajo | Icono y texto “Quedan pocas unidades”. No se muestra cantidad. |
 | Agotado | Icono y texto “Agotado”; F-016 deberá deshabilitar compra. |
+| Disponibilidad por confirmar | Icono y texto “Disponibilidad por confirmar”; botón “Volver a consultar”. Es un resultado comercial válido, no un error: no se muestra “Agotado” ni se prometen unidades. |
 | Error | “No pudimos consultar disponibilidad” y botón Reintentar. |
 
 No se comunica ubicación, saldo interno ni promesa de reserva. Estado usa texto, icono y color de DS-001; se anuncia mediante `aria-live="polite"`. En móvil permanece junto al selector, no en un modal.
 
 - [ ] **UI-F014-01:** Agotado, error y carga son distinguibles sin depender sólo del color.
 - [ ] **UI-F014-02:** Cambiar SKU elimina el estado anterior hasta tener respuesta nueva.
+- [ ] **UI-F014-03:** “Disponibilidad por confirmar” se distingue de “Agotado” y del error técnico por texto e icono, no sólo por color.
