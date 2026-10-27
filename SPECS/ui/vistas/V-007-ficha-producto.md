@@ -82,8 +82,8 @@ V-007 Ficha del producto
 | Identidad | Marca y nombre | Primaria | Nombre como único `h1`; contenido sanitizado. |
 | Precio | Actual, referencia, descuento y vigencia | Primaria | Se actualiza por SKU sin recargar descripción. |
 | Variantes | Grupos de atributos | Primaria | Combinaciones existentes; cambiar invalida SKU/precio/stock previos. |
-| Disponibilidad | Disponible/stock bajo/agotado/error | Primaria | Nunca muestra cantidad, ubicación o reserva. |
-| Compra | “Agregar al carrito” | Primaria | Sólo SKU válido con disponibilidad distinta de agotado. |
+| Disponibilidad | Disponible/stock bajo/agotado/por confirmar/error | Primaria | Nunca muestra cantidad, ubicación o reserva. |
+| Compra | “Agregar al carrito” | Primaria | Sólo SKU válido con disponibilidad comprable; por defecto “por confirmar” no habilita compra hasta que UX defina otra conducta para F-016. |
 | Favorito | Control por producto | Secundaria | Independiente de talla/color; requiere sesión. |
 | Descripción/especificaciones | Texto y pares técnicos | Secundaria | Sección ausente se omite; no se muestra vacía. |
 | Relacionados | 1–8 `ProductCard` | Secundaria | Vacío o fallo se degrada omitiendo toda la sección. |
@@ -99,7 +99,7 @@ V-007 Ficha del producto
 | Oferta | Precio actual, referencia, descuento y fecha | — | Oferta válida. |
 | Selección requerida | “Selecciona una opción para ver precio y disponibilidad” | Orientar a atributos | Producto variable incompleto. |
 | Atributos | Valores con etiqueta textual | Elegir combinación | Producto con variantes. |
-| Disponibilidad | “Disponible”, “Quedan pocas unidades” o “Agotado” | Reintentar sólo ante error | SKU resuelto. |
+| Disponibilidad | “Disponible”, “Quedan pocas unidades”, “Agotado” o “Disponibilidad por confirmar” | Reintentar ante error o disponibilidad por confirmar | SKU resuelto. |
 | CTA carrito | “Agregar al carrito” | Agregar/incrementar SKU | SKU válido y comprable. |
 | Favorito | “Guardar/Quitar de favoritos” | Cambiar estado o autenticar | Producto válido. |
 | Descripción | Texto sanitizado | Expandir si se justifica | Contenido válido. |
@@ -121,7 +121,8 @@ Las regiones de precio, variantes, stock y relacionados cargan de forma independ
 | Precio no disponible | Error/ausencia de Pricing | Región de precio neutral; ficha visible; compra no afirma importe | Reintentar precio | Sí |
 | Disponible/stock bajo | Inventario responde | Texto + icono; CTA habilitable | Agregar | Anotado en principal |
 | Agotado | `OUT_OF_STOCK` | Estado explícito y CTA deshabilitado | Cambiar variante/explorar | Sí |
-| Stock desconocido | Error de Inventario | “No pudimos consultar disponibilidad”; no se muestra “Agotado” | Reintentar stock | Sí |
+| Disponibilidad por confirmar | `UNDETERMINED` | “Disponibilidad por confirmar”; no se muestra “Agotado” ni se prometen unidades | Volver a consultar | Sí |
+| Error de inventario | Error técnico de Inventario | “No pudimos consultar disponibilidad”; no se muestra “Agotado” | Reintentar stock | Sí |
 | Agregando | Pulsación válida | CTA ocupado y no repetible | Esperar | Sí, variante |
 | Agregado/ajustado | `200/201` o límite | `O-005`; cantidad/ajuste comprensible | Ver carrito/seguir | Se diseña en `O-005` |
 | Error de adición | No mutación o conflicto | Mensaje junto al CTA y acción segura | Reintentar/actualizar | Sí |
@@ -147,7 +148,7 @@ Las regiones de precio, variantes, stock y relacionados cargan de forma independ
 | Grupo de atributo | Botones de opción | Para producto variable | Un valor activo por atributo; combinación existente | “Selecciona {atributo}” | Default/seleccionado/no disponible/error |
 | Cantidad de adición | Fija en 1 en este alcance | Sí | F-016 envía `quantity=1`; posteriores adiciones incrementan la línea | No se presenta selector si no está especificado | No aplica |
 
-Los colores se acompañan de nombre textual; agotado no convierte una variante existente en inexistente. El CTA no se habilita mientras falte SKU o el stock sea agotado/desconocido.
+Los colores se acompañan de nombre textual; agotado no convierte una variante existente en inexistente. El CTA no se habilita mientras falte SKU o el stock sea agotado, desconocido o esté por confirmar, salvo que UX defina otra conducta en F-016.
 
 ## 10. Responsive
 
@@ -206,7 +207,7 @@ Los overlays `O-002`, `O-003` y `O-005` tienen sus propios frames y no se duplic
 
 - [ ] `UI-V007-001`: La ficha integra F-011–F-016 y F-036 sin mostrar precio, SKU, stock o promociones ficticios.
 - [ ] `UI-V007-002`: Cambiar una variante descarta el SKU, precio y stock anteriores hasta obtener respuestas de la nueva selección.
-- [ ] `UI-V007-003`: Agotado, stock desconocido y combinación inexistente son estados diferentes y comprensibles.
+- [ ] `UI-V007-003`: Agotado, disponibilidad por confirmar, error de inventario y combinación inexistente son estados diferentes y comprensibles por texto e icono, no sólo por color.
 - [ ] `UI-V007-004`: Precio/oferta se comunica con texto y orden semántico, no sólo color o tachado.
 - [ ] `UI-V007-005`: Agregar al carrito funciona para visitantes y clientes, evita doble envío y no implica reserva.
 - [ ] `UI-V007-006`: Guardar favorito sin sesión usa `O-003` y conserva la ficha/acción de origen.
