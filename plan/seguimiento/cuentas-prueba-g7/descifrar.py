@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from getpass import getpass
 from pathlib import Path
+import os
 import sys
 
 from cryptography.exceptions import InvalidTag
@@ -28,7 +29,9 @@ def main() -> int:
     salt = data[len(MAGIC) : len(MAGIC) + 16]
     nonce = data[len(MAGIC) + 16 : len(MAGIC) + 28]
     ciphertext = data[len(MAGIC) + 28 :]
-    password = getpass("Contraseña para cuentas G7 H4: ")
+    password = os.environ.get("G7_H4_PASSPHRASE") or getpass(
+        "Contraseña para cuentas G7 H4: "
+    )
     key = PBKDF2HMAC(
         algorithm=hashes.SHA256(), length=32, salt=salt, iterations=ITERATIONS
     ).derive(password.encode("utf-8"))
