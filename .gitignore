@@ -4,3 +4,4 @@ Thumbs.db
 
 # Accesos de integración y resultados privados: nunca publicar en Git.
 /.local-private/
+__pycache__/
