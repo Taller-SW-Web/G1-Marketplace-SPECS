@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-26",
+  "repo": "Taller-SW-Web/G1-Marketplace-Backend",
+  "head": "25768e327b9d37fcceef9b9e8045530b53b2890e",
+  "runId": 40429702568,
+  "url": "https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/40429702568",
+  "conclusion": "success",
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Initialize containers",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run build",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run typecheck",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify catalog OpenAPI is reproducible",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run test:unit -- --testPathPatterns=catalog",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run test:g6:contract",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run test:e2e -- --testPathPatterns=catalog.e2e",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Migrate disposable PostgreSQL from scratch",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Compiled API and database readiness smoke",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run python -m pip install -r .security/requirements.txt",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run python scripts/install-gitleaks.py",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run python scripts/security-check.py --base 9dc5cfd --artifact dist",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Sanitized security evidence",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Stop containers",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}
