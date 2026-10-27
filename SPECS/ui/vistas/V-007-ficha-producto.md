@@ -179,7 +179,7 @@ Los colores se acompañan de nombre textual; agotado no convierte una variante e
 - Precio actual se anuncia antes de referencia/descuento; oferta no depende de tachado o color.
 - Variantes usan `fieldset`/`legend`, nombre textual, estado seleccionado/no disponible y objetivos de al menos 44 px.
 - Cambiar SKU anuncia selección y actualiza precio/stock con `aria-live="polite"` sin mover foco.
-- Agotado, error de stock y carga son semántica y visualmente diferentes.
+- Agotado, disponibilidad por confirmar, error de stock y carga son semántica y visualmente diferentes.
 - Favorito es control separado del contenido; doble pulsación no duplica estado.
 - CTA ocupado evita repetición y conserva un nombre accesible.
 - Imágenes usan alternativa útil; contenido decorativo se omite del árbol accesible.
@@ -194,6 +194,7 @@ Los colores se acompañan de nombre textual; agotado no convierte una variante e
 | `V-007 / Mobile / Variante seleccionada` | Mobile | Lista | Imagen/precio/stock actualizados. |
 | `V-007 / Desktop / Oferta vigente` | Desktop | Comercial | Precio actual, referencia, descuento y vigencia. |
 | `V-007 / Mobile / Agotado` | Mobile | No disponible | CTA explicado y alternativa. |
+| `V-007 / Desktop / Disponibilidad por confirmar` | Desktop | Resultado comercial | Texto, icono y reintento; CTA no habilitado por defecto. Frame pendiente de Figma. |
 | `V-007 / Desktop / Precio o stock error` | Desktop | Error regional | Reintentos independientes. |
 | `V-007 / Mobile / Agregando` | Mobile | Progreso | CTA ocupado/persistente si aplica. |
 | `V-007 / Desktop / Error de adición` | Desktop | Error transaccional | Mensaje junto al CTA. |
