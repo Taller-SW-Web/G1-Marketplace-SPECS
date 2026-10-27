@@ -32,8 +32,8 @@ La actualización del 19/10/2026 cambia planificación, no estados de ejecución
 | TASK-F006-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 9/H4 (arrastre H3) | En revisión |
 | TASK-F006-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-TRANS-S01-OPS-001 | 9/H4 (arrastre H3) | En revisión |
 | TASK-F006-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-BE-001 + I-01 | 9/H4 (arrastre H3) | Bloqueado |
-| TASK-F006-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 | 9/H4 (arrastre H3) | Pendiente |
-| TASK-F006-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 + TASK-TRANS-S01-OPS-002 | 9/H4 (arrastre H3) | Pendiente |
+| TASK-F006-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 | 9/H4 (arrastre H3) | En progreso |
+| TASK-F006-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 + TASK-TRANS-S01-OPS-002 | 9/H4 (arrastre H3) | En progreso |
 | TASK-F006-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F006-INT-001 + TASK-F006-QA-001 + TASK-F006-QA-002 | 9/H4 (arrastre H3) | Pendiente |
 
 La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs. Los aportes de shell/buscador de Giuliano se coordinan con Fernando y Sebastian sin duplicar estos IDs.
@@ -82,6 +82,12 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 - **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
 - **Bloqueo / liberación:** Avance independiente documentado; requiere entorno REAL autorizado, DAST staging, revisión y aceptación de riesgos para el cierre. Ninguna tarea se declara terminada.
 
+
+## Avance H4 de Giuliano — 26/10/2026
+
+Implementación/pruebas propias actualizadas en las ramas `feat/giuliano-hito4` de FE y BE. [Evidencia del corte, comandos y resultados](../evidencias/H4-GIULIANO-2026-10-26.md). FE/BE de F-006/F-007 conservan revisión pendiente; el trabajo nuevo de F-008–F-010 y QA/DOC queda En progreso hasta revisión y DoD. Ninguna INT se cierra por los tests locales.
+
+Se comprobaron categorías y búsqueda positiva/vacía por Next→BFF→G6 en el modo histórico demo sin JWT; no acredita grants técnicos ni despliegue. Marcas devolvió 503 y página/orden/filtros conservan fallos de integración por operación. Destacados, homologación de API/visual, revisión independiente y aceptación siguen pendientes. Los cuatro niveles de evidencia se detallan en la nota; no se infieren entre sí.
 
 ## Registro de revisión
 

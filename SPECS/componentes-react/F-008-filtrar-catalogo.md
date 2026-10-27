@@ -50,7 +50,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 
 - **Local:** Draft del panel y apertura mobile; no cambiar resultados hasta Aplicar. Cancelar mantiene filtros aplicados.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
-- **Remoto / caché:** Maestros sólo publicados; contrato BFF de maestros pendiente, no crear endpoint. Criterios aplicados en URL y cache key completa.
+- **Remoto / caché:** Maestros públicos mediante `GET /api/v1/catalog/filters`, contrato aditivo G1 implementado para revisión H4; usar únicamente las lecturas G6 publicadas. Criterios aplicados en URL y cache key completa.
 - **Flujo específico:** Aplicar reinicia page=0 y conserva q/sort; chips reflejan criterio aplicado, no borrador; error conserva draft.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
@@ -109,7 +109,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01; contrato de maestros/conteos de categoría y marca.
+I-01; revisar el contrato G1 de maestros implementado el 26/10/2026. El corte admite una categoría y una marca; multiselección/conteos previstos requieren homologación adicional. Marcas REAL continúa sin prueba satisfactoria.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

@@ -29,11 +29,11 @@ La actualización del 19/10/2026 cambia planificación, no estados de ejecución
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F008-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
-| TASK-F008-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
+| TASK-F008-FE-001 | Frontend | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | En progreso |
+| TASK-F008-BE-001 | Backend | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | En progreso |
 | TASK-F008-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-BE-001 + I-01 + TASK-F007-INT-001 | 11/H4 | Bloqueado |
-| TASK-F008-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 | 11/H4 | Pendiente |
-| TASK-F008-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | Pendiente |
+| TASK-F008-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 | 11/H4 | En progreso |
+| TASK-F008-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P1 | TASK-F008-FE-001 + TASK-F008-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | En progreso |
 | TASK-F008-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P1 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F008-INT-001 + TASK-F008-QA-001 + TASK-F008-QA-002 | 11/H4 | Pendiente |
 
 Referente de BD: Giuliano Macchiavello para este bloque, con revisión de Sebastian Malca; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
@@ -82,6 +82,12 @@ Referente de BD: Giuliano Macchiavello para este bloque, con revisión de Sebast
 - **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
 - **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
 
+
+## Avance H4 de Giuliano — 26/10/2026
+
+Implementación/pruebas propias actualizadas en las ramas `feat/giuliano-hito4` de FE y BE. [Evidencia del corte, comandos y resultados](../evidencias/H4-GIULIANO-2026-10-26.md). FE/BE de F-006/F-007 conservan revisión pendiente; el trabajo nuevo de F-008–F-010 y QA/DOC queda En progreso hasta revisión y DoD. Ninguna INT se cierra por los tests locales.
+
+Se comprobaron categorías y búsqueda positiva/vacía por Next→BFF→G6 en el modo histórico demo sin JWT; no acredita grants técnicos ni despliegue. Marcas devolvió 503 y página/orden/filtros conservan fallos de integración por operación. Destacados, homologación de API/visual, revisión independiente y aceptación siguen pendientes. Los cuatro niveles de evidencia se detallan en la nota; no se infieren entre sí.
 
 ## Registro de revisión
 
