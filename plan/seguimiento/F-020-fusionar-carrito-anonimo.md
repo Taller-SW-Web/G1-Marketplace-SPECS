@@ -4,23 +4,38 @@ Versión 0.1.0 · Planificación inicial · F-020 no está implementada por esto
 
 ## Fuente y control
 
-- [Plan F-020](../funcionalidades/F-020-fusionar-carrito-anonimo.md); [iteración S5](../iteraciones/S05-semanas-15-16.md).
+- [Plan F-020](../funcionalidades/F-020-fusionar-carrito-anonimo.md); [iteración S02/H4](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-020-fusionar-carrito-anonimo.md), [UI](../../SPECS/ui/F-020-fusionar-carrito-anonimo.md), [API](../../SPECS/contrato-api/F-020-fusionar-carrito-anonimo.md), [React](../../SPECS/componentes-react/F-020-fusionar-carrito-anonimo.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
 - Responsable asignado por el PO: **Andres Morales**; revisor principal: **Leonidas Garcia** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
+## Corte planificado de H4
+
+**Objetivo de cierre H4.** Implementar fusión invitado→login con G7 y revalidación G6, transacción/dedupe/replay/carreras y fallo sin pérdida. Login no acredita por sí solo fusión.
+
+**Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. Disponibilidad sin restricción horaria por decisión del PO. Las entregas «local» o «con dobles» son etapas del mismo TASK, no cierres de INT. DOC prepara desde specs y QA ejecuta casos propios antes de INT; el cierre completo conserva dependencias/DoD. [Alcance H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md). Los estados no cambian al replanificar.
+
+| Nivel de evidencia | Registro del corte de esta F |
+|---|---|
+| Diseñado | Specs enlazadas arriba; añadir revisión del flujo/contrato/frame concreto de H4. Su existencia no acredita aprobación de todas las discrepancias |
+| Implementado con datos de prueba | Enlazar commit FE/BE, fixture explícito, comando y resultado positivo/negativo. Recuperar evidencia del código existente antes de certificar cobertura completa |
+| Integrado con otro módulo | Pendiente de evidencia por operación: proveedor/versión, entorno, auth, request/response REAL, negativos y traza; respetar gates de esta F |
+| Probado en el despliegue | Pendiente: URLs/SHAs/run CI-CD y caso desde web/API desplegada con revisión independiente. No inferir de prueba local ni de provider directo |
+
+La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
+
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F020-FE-001 | Frontend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 | 15 | Pendiente |
-| TASK-F020-BE-001 | Backend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 15 | Pendiente |
-| TASK-F020-DB-001 | BD / Prisma | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-DB-001 | 16 | Pendiente |
-| TASK-F020-INT-001 | Integración | Andres Morales | Leonidas Garcia | P0 | TASK-F020-BE-001 + TASK-F020-DB-001 + I-01 + TASK-F002-INT-001 + TASK-F019-INT-001 | 16 | Bloqueado |
-| TASK-F020-QA-001 | QA funcional | Andres Morales | Leonidas Garcia | P0 | TASK-F020-FE-001 + TASK-F020-BE-001 + TASK-F020-DB-001 | 16 | Pendiente |
-| TASK-F020-QA-002 | QA seguridad / DevSecOps | Andres Morales | Leonidas Garcia | P0 | TASK-F020-FE-001 + TASK-F020-BE-001 + TASK-TRANS-S05-OPS-002 | 16 | Pendiente |
-| TASK-F020-DOC-001 | Documentación | Andres Morales | Leonidas Garcia | P0 | TASK-F020-INT-001 + TASK-F020-QA-001 + TASK-F020-QA-002 | 16 | Pendiente |
+| TASK-F020-FE-001 | Frontend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
+| TASK-F020-BE-001 | Backend | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 9–10/H4 | Pendiente |
+| TASK-F020-DB-001 | BD / Prisma | Andres Morales | Leonidas Garcia | P0 | TASK-TRANS-S01-DB-001 | 9–10/H4 | Pendiente |
+| TASK-F020-INT-001 | Integración | Andres Morales | Leonidas Garcia | P0 | TASK-F020-BE-001 + TASK-F020-DB-001 + I-01 + TASK-F002-INT-001 + TASK-F019-INT-001 + G-QUANTITY + G-AUTH | 11/H4 | Bloqueado |
+| TASK-F020-QA-001 | QA funcional | Andres Morales | Leonidas Garcia | P0 | TASK-F020-FE-001 + TASK-F020-BE-001 + TASK-F020-DB-001 | 11/H4 | Pendiente |
+| TASK-F020-QA-002 | QA seguridad / DevSecOps | Andres Morales | Leonidas Garcia | P0 | TASK-F020-FE-001 + TASK-F020-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | Pendiente |
+| TASK-F020-DOC-001 | Documentación | Andres Morales | Leonidas Garcia | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F020-INT-001 + TASK-F020-QA-001 + TASK-F020-QA-002 | 11/H4 | Pendiente |
 
 Referente de BD: Andres Morales para este bloque, con revisión de Leonidas Garcia; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 

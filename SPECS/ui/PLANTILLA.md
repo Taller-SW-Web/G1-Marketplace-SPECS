@@ -9,6 +9,8 @@
 | ID funcional | `F-###` |
 | Nombre | [Nombre] |
 | Versión | `0.1.0` |
+| Estado documental | Borrador / En revisión / Aprobada para planificación / Aprobada / Obsoleta |
+| Fecha de revisión | [YYYY-MM-DD] |
 | Responsable | [Nombre] |
 | Revisor | [Nombre] |
 | Spec funcional relacionada | [Ruta] |

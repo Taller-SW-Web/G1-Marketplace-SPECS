@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "timestampUtc": "2026-10-28T19:22:21.557231+00:00",
+  "checks": {
+    "gitleaks-version": {
+      "passed": true,
+      "expected": "8.30.1"
+    },
+    "semgrep-version": {
+      "passed": true,
+      "expected": "1.181.0"
+    },
+    "secrets-positive-control": {
+      "passed": true
+    },
+    "sast-positive-control": {
+      "passed": true
+    },
+    "secrets-source": {
+      "passed": true,
+      "findings": []
+    },
+    "secrets-history": {
+      "passed": true,
+      "findings": []
+    },
+    "secrets-artifact": {
+      "passed": true,
+      "findings": []
+    },
+    "sast": {
+      "passed": true,
+      "findings": [],
+      "errorCount": 0,
+      "scannedFiles": 116,
+      "scope": "src and scripts; four local rules, no interfile/taint certification"
+    },
+    "sca-all": {
+      "passed": true,
+      "counts": {
+        "info": 0,
+        "low": 7,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 7
+      },
+      "findings": [
+        {
+          "package": "@jest/core",
+          "severity": "low",
+          "direct": false,
+          "fixAvailable": true
+        },
+        {
+          "package": "@nestjs/cli",
+          "severity": "low",
+          "direct": true,
+          "fixAvailable": true
+        },
+        {
+          "package": "deepmerge",
+          "severity": "low",
+          "direct": false,
+          "fixAvailable": true
+        },
+        {
+          "package": "fork-ts-checker-webpack-plugin",
+          "severity": "low",
+          "direct": false,
+          "fixAvailable": true
+        },
+        {
+          "package": "jest",
+          "severity": "low",
+          "direct": true,
+          "fixAvailable": true
+        },
+        {
+          "package": "jest-cli",
+          "severity": "low",
+          "direct": false,
+          "fixAvailable": true
+        },
+        {
+          "package": "jest-config",
+          "severity": "low",
+          "direct": false,
+          "fixAvailable": true
+        }
+      ],
+      "gate": "No high/critical; moderate/low require human acceptance"
+    },
+    "sca-runtime": {
+      "passed": true,
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "findings": [],
+      "gate": "No high/critical; moderate/low require human acceptance"
+    },
+    "license-inventory": {
+      "passed": true,
+      "packages": 663,
+      "review": "Inventory only; no legal approval or automatic license acceptance"
+    }
+  },
+  "base": "25768e327b9d37fcceef9b9e8045530b53b2890e",
+  "head": "cc9ecab9eee424b0c1b024d778b6f906f1fac2b5",
+  "passed": true
+}

@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-016` |
-| Sistema de diseño | `DS-001` v`0.1.0` |
+| Sistema de diseño vigente | `DS-001` v`0.2.0`; aplicación visual pendiente de revisión |
 | Ruta | `/productos/{slug}` |
 
 El botón primario “Agregar al carrito” aparece después de F-013/F-014. Está deshabilitado con explicación si falta seleccionar variante o el SKU está agotado; no se deshabilita por fallo de consulta, sino que muestra “Reintentar disponibilidad”.

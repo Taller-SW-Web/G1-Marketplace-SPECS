@@ -9,7 +9,7 @@
 | ID | `V-006` |
 | Nombre | Catálogo y resultados |
 | Ruta | `/catalogo` |
-| Versión | `0.1.0` |
+| Versión | `0.2.0` |
 | Estado | En revisión |
 | Responsable | Fernando José Saire Tello |
 | Revisor | Giuliano Macchiavello |
@@ -32,7 +32,7 @@
 |---|---|---|---|
 | `F-007` | [`Buscar productos`](../../funcional/F-007-buscar-productos-texto.md) | [`UI F-007`](../F-007-buscar-productos-texto.md) | Consulta de 2–120 caracteres, estados y limpieza. |
 | `F-008` | [`Filtrar catálogo`](../../funcional/F-008-filtrar-catalogo.md) | [`UI F-008`](../F-008-filtrar-catalogo.md) | Categoría, marca, rango, chips, aplicar y limpiar. |
-| `F-009` | [`Ordenar resultados`](../../funcional/F-009-ordenar-catalogo.md) | [`UI F-009`](../F-009-ordenar-catalogo.md) | Relevancia, novedades y precio con orden estable. |
+| `F-009` | [`Ordenar resultados`](../../funcional/F-009-ordenar-catalogo.md) | [`UI F-009`](../F-009-ordenar-catalogo.md) | Nombre A–Z/Z–A delegado al proveedor; estabilidad externa pendiente de homologación. |
 | `F-010` | [`Paginar resultados`](../../funcional/F-010-paginar-catalogo.md) | [`UI F-010`](../F-010-paginar-catalogo.md) | Página, tamaño, límites y foco tras actualizar. |
 | `F-036` | [`Agregar favorito`](../../funcional/F-036-agregar-favorito.md) | [`UI F-036`](../F-036-agregar-favorito.md) | Estado de favorito en tarjetas y autenticación requerida. |
 
@@ -83,7 +83,7 @@ V-006 Catálogo y resultados
 | Filtros desktop | Categoría, marca y precio | Primaria | Panel lateral; aplicar/limpiar explícitos. |
 | Filtros mobile | Botón y resumen | Primaria | Abre `O-001`; criterios sin aplicar no alteran resultados. |
 | Chips | Criterios aplicados | Secundaria | Cada chip removible actualiza URL y página cero. |
-| Orden | Selector permitido | Primaria | Relevancia sólo si existe query y el proveedor la define. |
+| Orden | Selector permitido | Primaria | Sólo Nombre A–Z/Z–A; sin sort explícito se conserva el orden del proveedor. Otros criterios bajo G-SORT. |
 | Resultados | Grilla de `ProductCard` | Primaria | Máximo inicial de 24 por página. |
 | Paginación | Anterior, estado y siguiente | Primaria | Sólo páginas existentes operables. |
 
@@ -99,7 +99,7 @@ V-006 Catálogo y resultados
 | Precio mínimo/máximo | Importes PEN | Editar y validar | Siempre en filtros. |
 | Aplicar | “Aplicar filtros” | Confirmar filtros y cerrar mobile | Criterios válidos. |
 | Limpiar | “Limpiar filtros” | Retirar filtros, conservar query/orden | Existe filtro aplicado o borrador. |
-| Orden | Relevancia, novedades, menor/mayor precio | Cambiar orden | Según query y capacidades. |
+| Orden | Orden del catálogo, Nombre A–Z y Nombre Z–A | Cambiar orden | Únicos criterios publicados/habilitados del corte H4. |
 | Tarjeta | Imagen, marca, nombre, precio/oferta, favorito | Abrir producto o guardar favorito | Producto activo. |
 | Vacío | “No encontramos productos con estos criterios” | Limpiar filtros o editar búsqueda | Cero resultados. |
 | Paginación | “Anterior”, “Página X de Y”, “Siguiente” | Navegar | Más de una página. |
@@ -109,7 +109,7 @@ V-006 Catálogo y resultados
 | Estado | Disparador | Cambios visibles | Acción o recuperación | Frame requerido |
 |---|---|---|---|---|
 | Catálogo general | Sin query ni filtros | Productos, orden por defecto y filtros | Explorar | Sí |
-| Resultados de búsqueda | Query válida | Título con query; relevancia disponible si aplica | Refinar/abrir producto | Sí |
+| Resultados de búsqueda | Query válida | Título con query; orden por nombre disponible | Refinar/abrir producto | Sí |
 | Filtros aplicados | Uno o más criterios | Chips, contador y resultados combinados con AND | Quitar/limpiar | Sí |
 | Cargando inicial | Entrada o enlace compartido | Skeleton de filtros/resultados; cabecera operativa | Esperar | Sí |
 | Actualizando criterios | Aplicar filtro, orden o página | Región de resultados ocupada sin resultados ficticios; controles coherentes | Esperar | Sí |
@@ -117,7 +117,7 @@ V-006 Catálogo y resultados
 | Query inválida | Menos de 2 o más de 120 caracteres confirmados | Ayuda/error; no se consulta catálogo | Corregir o limpiar | Sí |
 | Rango inválido | Min negativo o mayor que max | Errores junto a precio; no se consulta | Corregir | Se diseña en `O-001` y panel desktop |
 | Catálogo no disponible | `503` | Error en resultados, criterios conservados | Reintentar | Sí |
-| Página fuera de rango | URL o datos cambiaron | Resultado controlado y retorno a página válida | Ir a primera/última permitida | Sí |
+| Página fuera de rango | URL o datos cambiaron | Resultado controlado y retorno a página válida | Volver explícitamente a primera página conservando criterios; sin redirección ni retry automático | Sí |
 | Favorito guardando/guardado | Acción autenticada | Variante de tarjeta y anuncio | Continuar | Sí, variante de tarjeta |
 | Favorito sin sesión | Acción protegida | `O-003` con retorno a esta URL y producto | Login/cancelar | Se diseña en `O-003` |
 
@@ -134,11 +134,11 @@ V-006 Catálogo y resultados
 | Campo | Tipo | Obligatorio | Regla | Mensaje o ayuda | Estado visual |
 |---|---|---:|---|---|---|
 | Buscar | Search | No | Vacía abre catálogo; si contiene texto, 2–120 caracteres tras normalizar espacios | “Escribe al menos 2 caracteres” | Default/foco/error |
-| Categorías | Selección múltiple | No | Sólo IDs activos | Opción inactiva no se ofrece | Default/seleccionado |
-| Marcas | Selección múltiple | No | Sólo IDs activos | Opción inactiva no se ofrece | Default/seleccionado |
+| Categoría | Selección única | No | Un ID activo; CSV y claves repetidas se rechazan | Opción inactiva no se ofrece | Default/seleccionado |
+| Marca | Selección única | No | Un ID activo; AND con categoría; CSV y claves repetidas se rechazan | Opción inactiva no se ofrece | Default/seleccionado |
 | Precio mínimo | Numérico/moneda | No | PEN, valor ≥ 0 y ≤ máximo | “Revisa el precio mínimo” | Default/foco/error |
 | Precio máximo | Numérico/moneda | No | PEN, valor ≥ mínimo | “El máximo debe ser mayor o igual al mínimo” | Default/foco/error |
-| Orden | Select | Sí | Enum permitido | Valor inválido vuelve a orden seguro | Default/foco |
+| Orden | Select | No | NAME_ASC o NAME_DESC; sin sort conserva el orden del proveedor | Valor inválido ofrece corregir o volver al catálogo, sin consultar | Default/foco/error |
 
 ## 10. Responsive
 
@@ -215,7 +215,7 @@ Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de 
 - [ ] `UI-V006-003`: En mobile los filtros usan `O-001`; cancelar no altera resultados y aplicar devuelve foco al encabezado.
 - [ ] `UI-V006-004`: Query y rango inválidos no generan una solicitud ni presentan resultados ficticios.
 - [ ] `UI-V006-005`: El estado vacío conserva los criterios y ofrece limpiar o corregir.
-- [ ] `UI-V006-006`: Relevancia no aparece como opción válida sin búsqueda si Catálogo no la define.
+- [ ] `UI-V006-006`: Sólo se ofrecen Nombre A–Z/Z–A; relevancia, novedades y precio permanecen fuera hasta homologación de G-SORT.
 - [ ] `UI-V006-007`: No existe control operable hacia una página inexistente.
 - [ ] `UI-V006-008`: Favoritos, precios y resultados se comunican sin depender sólo del color.
 - [ ] La vista aplica `DS-001` y comparte cabecera y `ProductCard` con `V-005`/`V-007`.
@@ -226,5 +226,10 @@ Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de 
 |---|---|---|---|---|
 | `V-006-OPEN-01` | Confirmar maestros, orden y conteos disponibles para categorías y marcas. | Catálogo | Antes del diseño final | Abierta |
 | `V-006-OPEN-02` | Confirmar si Relevancia existe sin query y el criterio exacto de Novedades. | Catálogo + Producto | Antes del diseño final | Abierta |
-| `V-006-OPEN-03` | Definir comportamiento del BFF ante página fuera de rango: vacía controlada o redirección a última página. | Backend + Catálogo | Antes del diseño final | Abierta |
+| `V-006-OPEN-03` | Página numéricamente válida fuera del total: 200 con data vacía y metadatos válidos; acción explícita a primera página conservando criterios, sin redirección ni retry automático. | Backend + Catálogo | 2026-10-28 | Resuelta como decisión de implementación; aceptación final de la F pendiente |
 | `V-006-OPEN-04` | Aprobar ancho mínimo y número máximo de columnas de `ProductCard` por breakpoint. | UX/UI | Antes del diseño final | Abierta |
+
+
+### Decisiones del corte H4 — 28/10/2026
+
+Se adopta una categoría y una marca, combinadas con AND, según el contrato G6 singular; se alinean API/React/UI. Multiselección requiere un contrato posterior y no se implementa con CSV ni filtrando páginas parciales. La decisión técnica de OPEN-03 corresponde a la opción recomendada por Leonidas en la [revisión de PR #13](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS/pull/13#pullrequestreview-5675094280); se resuelve la alternativa de comportamiento, sin atribuir aprobación final al revisor ni cerrar I-01, QA, despliegue o aceptación humana. Los mockups con otras opciones no habilitan capacidades del proveedor.

@@ -14,7 +14,7 @@
 | Responsable | Giuliano Macchiavello |
 | Revisor | Jim Segovia |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=96-347) · [Mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=97-772) |
 
 El token puede llegar como parámetro opaco requerido por Seguridad, pero no forma parte del nombre visible de la vista, no se muestra y no se persiste en almacenamiento del Marketplace.
 

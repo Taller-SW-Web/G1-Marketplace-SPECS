@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | [Canvas Checkout — V-013](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) |
+| Enlace de Figma | [V-013 / Mobile / Operación no preparada](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=528-1696) · [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
 
 ## 2. Propósito, actor y acceso
 
@@ -165,6 +165,8 @@ Los datos son transitorios para crear la orden; la interfaz no afirma que actual
 | `V-013 / Desktop / Resultado incierto` | Desktop | Pendiente | Verificación sin reenvío. |
 | `V-013 / Mobile / Operación no preparada` | Mobile | Conflicto | Retorno al paso correcto. |
 | `V-013 / Desktop / Ventas no disponible` | Desktop | Error/pendiente | Recuperación segura. |
+
+**Verificación del 25/10/2026:** se creó el frame exacto [V-013 / Mobile / Operación no preparada](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=528-1696), de 390 px. Explica que la operación no está preparada, no confirma compra y ofrece «Revisar resumen» para retornar al paso seguro V-011 antes de preparar otra operación. Se retiró la afirmación prematura «Pago simulado aprobado» de los 13 frames V-013 inspeccionados; los estados de envío e incertidumbre conservan el lenguaje de verificación. Se inspeccionó la captura completa y la estructura del frame. [Evidencia H4](../../../plan/evidencias/H4-checkout-frames-jim-2026-10-25.md). Jim Segovia revisó y aceptó este mockup; integración y reglas abiertas permanecen pendientes.
 
 ## 13. Criterios de aceptación visual
 
