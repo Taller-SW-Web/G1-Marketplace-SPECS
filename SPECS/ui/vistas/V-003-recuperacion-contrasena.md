@@ -2,13 +2,15 @@
 
 > Pantalla pública para solicitar instrucciones de recuperación sin revelar si el correo pertenece a una cuenta.
 
+> **Referencia visual histórica de G1.** Por [decisión del PO del 26/10/2026](../../../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md), el formulario, los estados y el resultado de esta vista se ejecutan en la SPA G7. Los frames G1 siguientes no acreditan la UI final. La tarea vigente de G1 es la entrada desde `V-001` hacia G7 y su regreso seguro; conservar los requisitos de neutralidad, accesibilidad y responsive como criterios que deben comprobarse en el flujo real.
+
 ## 1. Metadatos
 
 | Campo | Valor |
 |---|---|
 | ID | `V-003` |
 | Nombre | Recuperación de contraseña |
-| Ruta | `/recuperar-contrasena` |
+| Ruta | `/recuperar-contrasena` en SPA G7; la ruta homónima G1 es legado por resolver |
 | Versión | `0.1.0` |
 | Estado | En revisión |
 | Responsable | Giuliano Macchiavello |
@@ -36,9 +38,9 @@ Contrato consultado: [`API F-004`](../../contrato-api/F-004-solicitar-recuperaci
 
 | Origen o acción | Destino | Condición | Contexto conservado |
 |---|---|---|---|
-| `V-001` → “¿Olvidaste tu contraseña?” | `V-003` | Recuperación solicitada | Correo sólo si la política aprobada permite precarga. |
+| `V-001` → “¿Olvidaste tu contraseña?” | Recuperación SPA G7 | Destino configurado y confiable | No enviar correo ni datos privados en la URL. |
 | “Volver a iniciar sesión” | `V-001` | Antes o después de solicitar | Retorno interno seguro, si existía. |
-| Enlace recibido por correo | `V-004` | Token válido administrado por Seguridad | Sólo parámetros opacos requeridos; nunca se presentan completos. |
+| Enlace recibido por correo | Restablecimiento SPA G7 | Token administrado por Seguridad | La URL con token no pasa por G1. |
 | “Intentar nuevamente” | `V-003` | Usuario decide enviar otra solicitud permitida | Correo conservado, contraseña inexistente. |
 
 ## 5. Jerarquía y composición visual

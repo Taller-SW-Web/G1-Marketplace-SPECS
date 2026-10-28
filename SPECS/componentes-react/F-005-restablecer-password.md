@@ -1,6 +1,6 @@
 # Spec de componentes React — F-005 Restablecer contraseña
 
-> Traducción técnica de las specs vigentes; no es código implementado ni aprobación de un contrato externo pendiente.
+> **Alcance actualizado por el PO el 26/10/2026:** el formulario de restablecimiento, sus estados y el token del correo pertenecen a la SPA G7. Las secciones de `ResetPasswordForm`, `ResetLinkOutcome` y sus casos de componente describen la implementación G1 anterior; ya no son la composición web objetivo. G1 prueba el regreso al login Marketplace sin sesión implícita. Véase [decisión y gates](../../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md). Esta spec no certifica código ni integración.
 
 ## 1. Metadatos y trazabilidad
 
@@ -22,7 +22,9 @@
 
 | Ruta / superficie | Acceso | Composición |
 |---|---|---|
-| `/restablecer-contrasena?token=...` | Pública con enlace de recuperación (no verificación de correo) | `ResetPasswordForm` + `ResetLinkOutcome` |
+| `/restablecer-contrasena?token=...` en la SPA G7 | Pública con enlace de recuperación (no verificación de correo) | Formulario y estados G7; retorno a login G1 mediante destino fijo permitido. |
+
+G1 no recibe el token en su ruta homónima en el recorrido acordado. El árbol y contratos de `ResetPasswordForm` siguientes quedan como referencia histórica del código ya preparado, sujetos a reemplazo en G1 FE; no son nuevos entregables de cierre.
 
 Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop y mobile siguen dentro del alcance; consultar frames y estados vigentes en las specs UI enlazadas. Mobile no se simula reduciendo el desktop.
 
@@ -51,7 +53,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Token de recuperación y contraseñas en memoria; ocultar token en URL visible con reemplazo tras capturarlo, no en history state; no analytics del enlace original.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** Sin query inventada de validación de token. Sólo POST definido; estado inicial comprueba presencia/forma local.
-- **Flujo específico:** Token sólo enviado a Seguridad por la capa de transporte aprobada. No confundir con token de verificación F-001. 204 borra secretos y ofrece /login, sin sesión automática.
+- **Flujo específico vigente:** El enlace abre G7 y el token permanece allí; no se confunde con verificación F-001. G7 procesa el `204`, borra secretos y ofrece el login G1 permitido, sin sesión automática. El retorno aún necesita implementación y prueba.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -66,7 +68,7 @@ Confirmación coincide; política publicada. 401/410 eliminan formulario y ofrec
 
 ### Operaciones documentadas
 
-- `POST /api/v1/password/restablecer`
+- `POST /api/v1/password/restablecer` permanece como adaptador BFF y caso API G1, no como operación obligatoria de la UI G1 en el recorrido acordado.
 
 Auth y rutas `/password` se traducen mediante el límite de integración aprobado; no se presupone que ya exista proxy BFF ni CORS habilitado. Rutas `/internal` jamás se consumen desde el navegador. Header, request y response exactos pertenecen al contrato API, no a las props.
 
@@ -97,7 +99,7 @@ CHECKING_INPUT → EDITING → SAVING → SUCCESS | INVALID | EXPIRED | POLICY_E
 | Transporte | Fixture de éxito, vacío/no aplicable, validación, autorización, conflicto, timeout y fallo externo que realmente correspondan al contrato. |
 | Accesibilidad | Teclado/foco, nombre de controles, anuncios y contraste; pruebas automáticas más revisión manual. |
 
-Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del adaptador externo sólo al cerrar la homologación aplicable. Una demo con mocks no acredita integración real.
+Los casos `RC-F-005-*` de formulario G1 son regresión de la implementación anterior, no sustituyen las pruebas en la SPA G7. Probar enlace del correo hacia G7, token válido/vencido/usado, política, ausencia de sesión implícita y retorno G7 → login G1 en navegador; probar el adaptador BFF por API de forma separada. Una demo con mocks no acredita integración real.
 
 ## 9. Criterios de aceptación técnica
 

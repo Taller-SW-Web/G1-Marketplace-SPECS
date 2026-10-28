@@ -40,7 +40,7 @@ Contratos consultados: [`API F-002`](../../contrato-api/F-002-iniciar-sesion.md)
 | Cabecera pública | `V-001` | Selección de “Iniciar sesión” | Ruta anterior segura. |
 | `O-003` Autenticación requerida | `V-001` | Acción protegida sin sesión | Ruta de origen, intención pendiente y parámetros no sensibles. |
 | `V-001` → “Crear cuenta” | `V-002` | Usuario sin cuenta | Retorno seguro, si existe. Nunca contraseña ni errores. |
-| `V-001` → “Olvidé mi contraseña” | `V-003` | Recuperación solicitada | Correo sólo si la política de privacidad y seguridad lo permite. |
+| `V-001` → “Olvidé mi contraseña” | Recuperación SPA G7 | Destino configurado y confiable según [decisión del PO F-004/F-005](../../../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md) | No enviar correo ni datos privados en la URL. |
 | Seguridad → `V-001` | Correo verificado correctamente tras un registro con `canalOrigen=MARKETPLACE` | Destino `/login` configurado por Seguridad | Formulario de inicio de sesión; no llega el token de verificación ni una sesión iniciada. |
 | Seguridad → `V-001` | Enlace de verificación ya usado; usuario pulsa “Iniciar sesión” en Seguridad | Destino `/login` configurado por Seguridad | El mismo formulario principal, sin token ni sesión transferida; no se afirma un nuevo éxito. |
 | Inicio exitoso | Ruta de origen | Existe retorno interno válido | Intención pendiente, filtros y scroll cuando puedan restaurarse. |
@@ -75,7 +75,7 @@ Cuando Seguridad devuelve un desafío MFA, la tarjeta conserva el contexto de ac
 | Marca | Logo principal | Secundaria | No compite con el título ni actúa como única forma de volver. |
 | Contexto | Título “Inicia sesión” y explicación breve | Primaria | Si existe retorno, puede explicar de forma genérica que se continuará con la acción solicitada. |
 | Formulario | Correo y contraseña | Primaria | Una columna, etiquetas persistentes y errores junto al campo. |
-| Ayuda | Recuperación de contraseña | Secundaria | Navega a `V-003`. |
+| Ayuda | Recuperación de contraseña | Secundaria | Navega a la SPA G7; `V-003` G1 queda como referencia visual histórica. |
 | CTA | “Iniciar sesión” | Primaria | Una sola acción por envío; muestra progreso y queda bloqueada durante la solicitud. |
 | Alternativa | “Crear cuenta” | Secundaria | Navega a `V-002` conservando retorno seguro. |
 
@@ -87,7 +87,7 @@ Cuando Seguridad devuelve un desafío MFA, la tarjeta conserva el contexto de ac
 | Campo correo | Etiqueta “Correo electrónico” | Capturar identidad | Estado de credenciales. |
 | Campo contraseña | Etiqueta “Contraseña” | Capturar secreto | Estado de credenciales. |
 | Visibilidad | “Mostrar contraseña” / “Ocultar contraseña” | Alternar presentación sin alterar el valor | Campo contraseña presente. |
-| Recuperación | “¿Olvidaste tu contraseña?” | Abrir `V-003` | Estado de credenciales. |
+| Recuperación | “¿Olvidaste tu contraseña?” | Abrir recuperación SPA G7 | Estado de credenciales. |
 | Acción primaria | “Iniciar sesión” | Enviar una vez | Formulario válido y no ocupado. |
 | Registro | “¿Aún no tienes cuenta? Crear cuenta” | Abrir `V-002` | Estado de credenciales. |
 | Desafío MFA | Instrucción neutral y campo de código | Verificar segundo factor | Sólo tras desafío válido. |
