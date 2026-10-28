@@ -118,3 +118,6 @@ No requiere frame desktop: allí los filtros están integrados en `V-006` y `V-0
 | `O-001-OPEN-01` | Aprobar drawer, bottom sheet alta o pantalla completa como patrón mobile definitivo. | UX/UI | Abierta |
 | `O-001-OPEN-02` | Confirmar componente y localización del selector de rango de fechas. | UX/UI | Abierta |
 | `O-001-OPEN-03` | Definir si el CTA muestra una cantidad de resultados prevista; no incorporarla sin contrato. | Producto + Backend | Abierta |
+
+
+Corte H4 alineado el 28/10/2026: selección única de categoría y única de marca, AND entre dimensiones; precio conserva su validación. No se acepta CSV ni IDs repetidos. Multiselección queda fuera hasta contrato compatible. Aplicar confirma borrador y reinicia página; cancelar conserva criterios. La disponibilidad REAL de marcas/precio y la aceptación independiente se registran aparte.

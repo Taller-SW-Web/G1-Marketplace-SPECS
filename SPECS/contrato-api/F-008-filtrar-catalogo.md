@@ -26,3 +26,6 @@ Sólo expone IDs/nombres de maestros activos; arreglos vacíos son válidos si e
 La implementación y las pruebas locales no acreditan aprobación de API, grants, disponibilidad de marcas ni integración completa. Evidencia y límites en [corte H4 de Giuliano](../../plan/evidencias/H4-GIULIANO-2026-10-26.md).
 
 - [ ] **API-CA-F008-01:** IDs inactivos no se presentan como opciones.
+
+
+Alineación del 28/10/2026: [errores, metadatos y límites comunes de catálogo H4](CATALOGO-H4-ERRORES-Y-METADATOS.md). La distinción pública de timeout usa 503/CATALOG_TIMEOUT; otras indisponibilidades conservan 503/CATALOG_UNAVAILABLE. Home/filtros rechazan query. No implica aceptación ni liberación de I-01.

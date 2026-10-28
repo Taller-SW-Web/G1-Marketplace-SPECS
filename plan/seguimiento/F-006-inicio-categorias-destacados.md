@@ -34,7 +34,7 @@ La actualización del 19/10/2026 cambia planificación, no estados de ejecución
 | TASK-F006-INT-001 | Integración | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-BE-001 + I-01 | 9/H4 (arrastre H3) | Bloqueado |
 | TASK-F006-QA-001 | QA funcional | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 | 9/H4 (arrastre H3) | En progreso |
 | TASK-F006-QA-002 | QA seguridad / DevSecOps | Giuliano Macchiavello | Sebastian Malca | P0 | TASK-F006-FE-001 + TASK-F006-BE-001 + TASK-TRANS-S01-OPS-002 | 9/H4 (arrastre H3) | En progreso |
-| TASK-F006-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F006-INT-001 + TASK-F006-QA-001 + TASK-F006-QA-002 | 9/H4 (arrastre H3) | Pendiente |
+| TASK-F006-DOC-001 | Documentación | Giuliano Macchiavello | Sebastian Malca | P0 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F006-INT-001 + TASK-F006-QA-001 + TASK-F006-QA-002 | 9/H4 (arrastre H3) | En progreso |
 
 La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALES.md). Los IDs DOC/OPS son extensiones de tareas, no specs. Los aportes de shell/buscador de Giuliano se coordinan con Fernando y Sebastian sin duplicar estos IDs.
 
@@ -44,43 +44,43 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 
 - **Trabajo:** Implementar HomePageContainer, CategoryGrid, FeaturedProducts y todos los estados de React/UI.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
-- **Evidencia:** [Corte local y verificaciones del 14/10](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md): home/categorías, vacío/error, responsive y pruebas de navegador MOCK. Revisión independiente pendiente.
-- **Bloqueo / liberación:** G-SHELL/G-STACK y conformidad de tarjeta/frames pendientes; respetar dependencias y Ready para cierre.
+- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
+- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-BE-001
 
 - **Trabajo:** Adaptar home Catálogo, filtrar tarjetas/categorías activas completas y permitir listas vacías.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
-- **Evidencia:** [BFF y pruebas locales](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md): ruta home, categorías activas y adaptador candidato con respuestas sintéticas. Revisión de Leonidas/Sebastian pendiente.
-- **Bloqueo / liberación:** I-01 sin configuración/prueba real; G-FEATURED mantiene destacados vacíos. La implementación local no libera INT.
+- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
+- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-INT-001
 
 - **Trabajo:** Homologar y probar integración real y condiciones: I-01; no sólo fixture.
 - **Terminado cuando:** Contrato/configuración y gates enlazados, pruebas positivas/negativas y timeout autorizadas pasan; evidencia distingue sandbox de mock.
-- **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
-- **Bloqueo / liberación:** Falta cierre documentado de I-01. Contrato/configuración y prueba enlazados antes de cambiar a En progreso.
+- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
+- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Liberar I-01 con contrato/configuración autorizada, grant técnico y positivos/negativos/timeout desde web→BFF→G6. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-QA-001
 
 - **Trabajo:** Probar ambos arreglos vacíos ofrecen catálogo; error no rompe cabecera; categoría genera URL válida; favorito sin sesión abre O-003; incluir cada estado visual y transición documentada.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
-- **Evidencia:** [Resultados y retest MOCK](../evidencias/H3-GIULIANO/H3-GIULIANO-CATALOGO-2026-10-14.md): ejecución de pruebas BFF y navegador; inicio vacío, categorías y errores incluidos.
-- **Bloqueo / liberación:** QA parcial local; favorito/auth, revisión y cobertura real requieren sus dependencias. No es aceptación completa de F-006.
+- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
+- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-QA-002
 
 - **Trabajo:** Producto inactivo no publicable, enlaces hero seguros y medios allowlist.
 - **Terminado cuando:** Negativos de seguridad pasan en entorno propio/autorizado, scans SAST/SCA/secrets y DAST aplicable adjuntos sin secretos. Sin hallazgo crítico/alto explotable abierto.
-- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
-- **Bloqueo / liberación:** Avance independiente documentado; requiere entorno REAL autorizado, DAST staging, revisión y aceptación de riesgos para el cierre. Ninguna tarea se declara terminada.
+- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
+- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Completar DAST aplicable en staging autorizado y revisión independiente de riesgos; los scans locales/CI no certifican ese paso. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-DOC-001
 
 - **Trabajo:** Actualizar trazabilidad specs↔implementación↔pruebas, enlaces Figma y decisiones resueltas; documentar operación/errores relevantes.
 - **Terminado cuando:** Fuentes vigentes coherentes, evidencias reales y revisión independiente; no marcar funcionalidad terminada con integración pendiente.
-- **Evidencia:** [Controles locales/CI y hallazgos](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md), [entrega, trazabilidad y demo](../entrega/H3-GIULIANO.md). Revisión humana, QA REAL y aceptación pendientes.
-- **Bloqueo / liberación:** Avance independiente documentado; requiere entorno REAL autorizado, DAST staging, revisión y aceptación de riesgos para el cierre. Ninguna tarea se declara terminada.
+- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
+- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Validación independiente de la documentación y cierre de INT/QA-001/QA-002 de esta misma función. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 
 ## Avance H4 de Giuliano — 26/10/2026
@@ -100,3 +100,8 @@ Avance local del 14/10/2026: [evidencia individual y límites](../evidencias/H3-
 | 16/10/2026, automatización H3 | QA-002 y DOC-001 en progreso; INT sigue bloqueada | [Pruebas, seguridad, CI y límites](../evidencias/H3-GIULIANO/H3-AUTONOMIA-2026-10-16.md); [paquete de entrega](../entrega/H3-GIULIANO.md). FE/BE/QA-001 mantienen estado hasta revisión | Revisión humana pendiente |
 
 Actualizar filas existentes; no crear un segundo conjunto de tareas por variante desktop/mobile ni por cada estado visual. Si hace falta dividir una tarea, conservar ID padre y crear sufijo incremental con alcance/existencia verificable.
+
+
+## Auditoría por issue — 28/10/2026
+
+[Resultado individual y pendientes verificables](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Se actualizan los estados del avance propio del tablero; ninguna tarea se declara Terminado ni issue cerrada. Las notas anteriores se conservan como cortes históricos, no como estado vigente de las pruebas.
