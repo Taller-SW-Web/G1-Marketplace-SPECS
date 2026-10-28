@@ -64,3 +64,19 @@ Los recorridos REAL locales anteriores y la validación manual comunicada por Gi
 - DOC depende de INT/QA-001/QA-002; su trazabilidad local se actualiza ahora, pero su cierre completo conserva esas dependencias.
 
 Los PR y cada issue se relacionan con esta auditoría y sus commits. Se registran avances verificables, sin usar palabras de cierre automático en los PR. Los informes personales permanecen ignorados y fuera de Git/GitHub.
+
+## Verificación de publicación y CI
+
+Se actualizaron las 30 issues con el bloque de auditoría, sus PR y el pendiente específico; se conservó su DoD y su estado abierto. Los tres PR también incluyen la matriz cruzada de 30 referencias. No se fusionaron PR ni se atribuyó aprobación a los revisores.
+
+[Resultados saneados de CI](H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28/ci-results.json): Backend cc9ecab pasó H4 verify y los checks de PR en Node 22/24; Frontend d4be0aa pasó H4 verify y el check web del PR. CI aprobado no sustituye los gates de despliegue, DAST o revisión independiente.
+
+## Referencias de pruebas por función
+
+| F | Pruebas y alcance propio |
+|---|---|
+| F-006 | FE tests/catalog.spec.ts cubre inicio/vacío/error; tests/components/wishlist.test.tsx cubre el diálogo compartido sin sesión. BE src/catalog/catalog.spec.ts prueba proyección, actividad y allowlist de medios. Curaduría y aceptación del recorrido completo siguen pendientes. |
+| F-007 | FE tests/catalog.spec.ts: longitudes, vacío, cancelación, escape de texto y reintento. BE src/catalog/catalog.spec.ts y catálogo HTTP: validación y errores del adaptador. |
+| F-008 | FE tests/catalog-h4.spec.ts y tests/components/catalog-controls-h4.test.tsx: borrador, rango, chips, recuperación parcial y foco. BE src/catalog/catalog-h4.spec.ts y catalog-review.spec.ts: AND, IDs únicos y validación antes del proveedor. |
+| F-009 | FE tests/catalog-h4.spec.ts: orden entre páginas y metadato sort. BE catalog-review.spec.ts prueba ambos mapeos/metadata; catalog-h4.spec.ts verifica orden global de fixtures. El desempate externo no está certificado. |
+| F-010 | FE tests/catalog.spec.ts y catalog-h4.spec.ts: límites y recuperación con contexto. BE src/catalog/catalog.spec.ts, catalog-h4.spec.ts y HTTP: límites/metadata/duplicados. Prueba desplegada pendiente. |
