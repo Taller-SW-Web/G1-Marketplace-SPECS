@@ -4,6 +4,8 @@
 
 ## Resultado de cierre
 
+Actualización posterior: se incorpora la [conformidad de Jim con la demo local conjunta en escritorio y móvil](H4-GIULIANO-REVISION-CONJUNTA-JIM-2026-10-28.md), comunicada por Giuliano. Acredita el recorrido local revisado; no equivale a revisión técnica de Sebas/Leo ni a aceptación del SHA desplegado. El cierre completo y los bloqueos por operación conservan sus criterios.
+
 **30 revisadas. Ninguna cumple todavía todos los requisitos de cierre escritos.** Las issues exigen revisión independiente/gates y prueba en despliegue; los tres PR siguen abiertos y los tres tienen una revisión de Leo con cambios solicitados al comenzar esta auditoría. Se corrige el código/contrato y se prepara nueva revisión, sin autoaprobar ni fusionar PR. No se cambia el DoD ni se cierra INT con fixtures.
 
 ## Correcciones y pruebas completadas
