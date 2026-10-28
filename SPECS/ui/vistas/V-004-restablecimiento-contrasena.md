@@ -2,13 +2,15 @@
 
 > Pantalla pública abierta desde un enlace de recuperación para definir una contraseña nueva con un token de un solo uso.
 
+> **Referencia visual histórica de G1.** Por [decisión del PO del 26/10/2026](../../../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md), el formulario, los estados y el token se procesan en la SPA G7. Los frames G1 siguientes no acreditan la UI final. G1 debe comprobar el regreso de G7 a su login sin sesión implícita; los requisitos de seguridad, accesibilidad y responsive se verifican en el flujo real.
+
 ## 1. Metadatos
 
 | Campo | Valor |
 |---|---|
 | ID | `V-004` |
 | Nombre | Restablecimiento de contraseña |
-| Ruta | `/restablecer-contrasena` |
+| Ruta | `/restablecer-contrasena` en SPA G7; la ruta homónima G1 es legado por resolver |
 | Versión | `0.1.0` |
 | Estado | En revisión |
 | Responsable | Giuliano Macchiavello |
@@ -38,9 +40,9 @@ Contrato consultado: [`API F-005`](../../contrato-api/F-005-restablecer-password
 
 | Origen o acción | Destino | Condición | Contexto conservado |
 |---|---|---|---|
-| Enlace de recuperación | `V-004` | Token presente | Token sólo en memoria el tiempo mínimo necesario. |
+| Enlace de recuperación | Restablecimiento SPA G7 | Token presente | El token no entra en rutas web G1. |
 | “Solicitar otro enlace” | `V-003` | Token ausente, inválido, vencido o utilizado | Ningún token; correo sólo si la política lo permite. |
-| “Iniciar sesión” | `V-001` | Contraseña actualizada | Retorno seguro; nunca contraseña ni token. |
+| “Iniciar sesión” | `V-001` de Marketplace | Contraseña actualizada; destino fijo permitido por G7 | Retorno seguro; nunca contraseña ni token. Pendiente de implementación y prueba. |
 | “Volver al inicio” | `V-005` | Usuario abandona el flujo | Ningún dato secreto. |
 
 Recargar o volver atrás no debe reutilizar un token ya consumido ni reponer los campos de contraseña.

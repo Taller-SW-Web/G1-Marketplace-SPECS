@@ -9,8 +9,8 @@ El PO confirma **disponibilidad sin restricción horaria**. Todas las funciones 
 - **F-001:** Implementar registro MARKETPLACE, validación/errores neutros, verificación de correo y retorno al login conforme G7; probar enlace válido/vencido/usado. Registro no inicia sesión por inferencia. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
 - **F-002:** Implementar login y desafío OTP según política efectiva G7, sesión/refresh, transporte seguro y retorno seguro; probar credenciales inválidas, expiración y separación usuario/servicio. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
 - **F-003:** Implementar logout G7 y limpieza de sesión/caché de usuario; probar UI y API después de salir, expiración y repetición idempotente. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
-- **F-004:** Implementar solicitud de recuperación UI+BFF, 202 uniforme, rate limit y antienumeración según G7. Integrar/probar entorno y entrega del enlace de recuperación sin emitir identidad propia. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
-- **F-005:** Implementar restablecimiento UI+BFF y política de contraseña G7; probar enlace/token válido, vencido y usado, errores neutros y retorno al login sin sesión implícita. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-004:** Por [decisión PO 26/10](../coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md), implementar entrada G1 a recuperación en SPA G7; conservar BFF y probar API/entrega del correo, 202 uniforme, límite y antienumeración. Cierre objetivo: S02/H4, semanas 9–11; sólo con gates y prueba en despliegue.
+- **F-005:** G7 opera formulario y política de reset en su SPA. G1 conserva BFF e integración, prueba enlace/token válido, vencido y usado y retorno G7 → login G1 sin sesión implícita. Cierre objetivo: S02/H4, semanas 9–11; sólo con gates y prueba en despliegue.
 
 **Transversal:** AUTH-001: las cinco F de cuenta con G7, revisadas por Andres. Corregir los tres estados visuales Checkout con revisión Fernando; no omitir recuperación por tiempo. IDs TASK-TRANS-S02- en [TRANSVERSALES](../seguimiento/TRANSVERSALES.md).
 
@@ -32,7 +32,7 @@ F-002: formulario V-001 que muestre validación y error neutro, conectado a una 
 
 ## Trabajo posterior hasta el cierre
 
-- **Frontend:** Implementar estados de V-001/V-002 y después V-003/V-004 según specs; integrar el resultado de F-020 sólo mediante contrato con Andres. Respetar foco, errores neutros y responsive.
+- **Frontend:** Implementar estados de V-001/V-002; para F-004/F-005, reemplazar la entrada/formularios G1 preparados por la navegación acordada con SPA G7 y probar retorno. V-003/V-004 G1 son referencias históricas, no la UI final. Integrar F-020 sólo mediante contrato con Andres. Respetar foco, errores neutros y responsive.
 - **Backend Marketplace:** Implementar adaptador BFF de identidad y validación de respuesta sin guardar contraseñas ni emitir tokens propios. Seguir contrato publicado por Seguridad para registro, sesión, salida y recuperación; tokens/cookies/MFA requieren G-AUTH.
 - **Pruebas:** Válido/inválido, antienumeración, expiración y usuario ajeno; prueba de contrato local, después entorno real autorizado. Evidenciar UI y API protegida en H4.
 - **Documentación y evidencia:** actualizar tareas del bloque sin cambiar IDs/estados por anticipado. Citar spec y mockup usados, IA (herramienta/propósito/código generado/revisión humana o “No se usó IA”), comandos y resultados, commit, PR, revisor, URL si existe y clasificación `MOCK`/`REAL`. Adjuntar prueba autorizada de proveedor antes de cerrar cualquier INT.
