@@ -5,10 +5,16 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-039 / 0.1.0 / En revisión |
-| Objetivo académico | S5, semanas 15–16 |
+| Objetivo académico | S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-039-mover-favorito-carrito.md), [UI](../../SPECS/ui/F-039-mover-favorito-carrito.md), [API](../../SPECS/contrato-api/F-039-mover-favorito-carrito.md), [React](../../SPECS/componentes-react/F-039-mover-favorito-carrito.md) |
 | Ejecución y revisores | [Tareas de F-039](../seguimiento/F-039-mover-favorito-carrito.md); responsable asignado por el PO: **Diego Espinoza**; revisor principal: **Fernando Saire**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+
+## Entrega de H4 y cierre objetivo
+
+**Objetivo de cierre H4.** Implementar favorito→carrito con selección SKU, precio/cantidad G6, identidad G7 y handoff con Andres; destino confirmado antes de quitar origen y pruebas de replay/fallo sin pérdida.
+
+**Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. El PO establece disponibilidad sin restricción horaria; todo el trabajo propio definido se implementa y prueba en H4. Los límites son contrato, entorno, datos, autorizaciones y calidad. [Inventario H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md) y [S02](../iteraciones/S02-semanas-09-11.md). Registrar diseñado, implementado con datos de prueba, integrado con otro módulo y probado en el despliegue por separado; no inventar contrato ni liberar gates por planificar.
 
 ## 2. Objetivo y límites
 
@@ -31,7 +37,7 @@ Producto variable abre ficha, selecciona F-013 y añade F-016; la eliminación d
 - Dependencias de comportamiento/flujo: [F-037](F-037-visualizar-favoritos.md), [F-016](F-016-agregar-item-carrito.md).
 - Gates: I-01; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
 - Pendientes específicos: I-01; flujo completar traslado variante requiere aclaración adicional si se desea borrar tras adición.
-- Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
+- Responsable/revisor confirman alcance, contrato y criterios de prueba; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
 
 ## 5. Fases, entregables y validación
@@ -63,4 +69,4 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 READY → MOVING → MOVED | VARIANT_REQUIRED | OUT_OF_STOCK | NOT_AVAILABLE | ERROR.
 
-No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
+No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Los riesgos de contrato, entorno y calidad se revisan por operación, sin retirar esta funcionalidad por disponibilidad horaria.

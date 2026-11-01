@@ -1,6 +1,21 @@
 # Andres Fernando Morales Usca — DevOps / Seguridad — responsabilidad punta a punta
 
-**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **4. Carrito de compras**; IDs: **F-016–F-021**. Revisor principal: **Leonidas Garcia**. Hitos: S2: F-016/019; S3: F-017/018; S5: F-020/021. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **4. Carrito de compras**; IDs: **F-016–F-021**. Revisor principal: **Leonidas Garcia**. Hitos: S02/H4 F-016–F-021. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+
+## Trabajo asignado para S02 y Hito 4
+
+El PO confirma **disponibilidad sin restricción horaria**. Todas las funciones del paquete reciben implementación/pruebas G1 H4 donde las reglas/contratos estén definidos; los cierres completos conservan gates externos. [S02](../iteraciones/S02-semanas-09-11.md) y [alcance](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md).
+
+- **F-016:** Implementar alta FE+BE por SKU elegible con precio/cantidad G6, BD propia, cookie invitado o titular G7; probar duplicado/rechazo/carrera y resolver G-ADD/G-DB/G-QUANTITY. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-017:** Implementar cambio de cantidad absoluta, versión/concurrencia, insuficiencia y reconciliación; verificar N con G6, sin deducirlo del estado comercial. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-018:** Implementar DELETE idempotente y Deshacer acordado con versión/concurrencia/revalidación; DELETE aislado no libera G-UNDO ni cierra toda la función. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-019:** Implementar carrito vacío/con líneas, snapshot, precio/elegibilidad G6, totales autorizados y errores/titularidad. Total de carrito no es total final de pedido. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-020:** Implementar fusión invitado→login con G7 y revalidación G6, transacción/dedupe/replay/carreras y fallo sin pérdida. Login no acredita por sí solo fusión. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+- **F-021:** Implementar carrito→favoritos con G7/G6 y contrato Andres–Diego: confirmar destino antes de quitar origen, dedupe/compensación y prueba de fallos. Cierre objetivo: S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue.
+
+**Transversal:** G-DB, OPS-001/002 CI-CD y SEC-001 guard, revisados por Leonidas. Fernando colabora implementando build/deploy/runtime; Jim sesión y Leonidas contratos. Cada F de carrito incluye sus pruebas y evidencia propias. IDs TASK-TRANS-S02- en [TRANSVERSALES](../seguimiento/TRANSVERSALES.md).
+
+**Evidencia:** diseño/contrato/frame revisado; commit FE+BE/fixture y pruebas positivo-negativo; integración REAL con proveedor/auth/traza; despliegue con URLs/SHAs/run. Registrar cada nivel sin inferencias. Ante frontera sin acuerdo, implementar la parte propia definida, registrar owner/bloqueo y continuar otras operaciones. No cerrar INT por doble, contrato escrito o tiempo disponible.
 
 ## Fuentes y alcance
 
@@ -28,4 +43,4 @@ F-016/F-019: control de agregar un ítem y V-008 con endpoint BFF y persistencia
 
 F-006/F-007, V-005 y búsqueda de V-006 deben llegar a frontend y BFF desplegados con **llamada real a Productos**. Este paquete aporta a esa ruta mediante su rol transversal cuando corresponda, sin desplazar el incremento vertical propio. Si I-01 no tiene URL, token/datos y respuesta comprobada, Jim/Diego registran el gate bloqueado y presentan sólo avance parcial. Ningún fixture ni `render.yaml` acredita integración o despliegue.
 
-**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos o desvíos de capacidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si la carga o el gate impiden el objetivo del hito, proponer resecuenciación documentada antes del corte.
+**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos contractuales/técnicos o hallazgos de calidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si un gate externo impide integrar, registrar por operación owner, prueba faltante y continuidad del trabajo propio; no reducir el alcance por disponibilidad horaria.

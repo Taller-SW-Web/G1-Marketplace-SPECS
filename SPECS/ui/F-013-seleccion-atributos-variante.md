@@ -4,7 +4,7 @@
 |---|---|
 | ID | `F-013` |
 | Estado | Aprobada para planificación; integración condicionada por `I-01`. |
-| Sistema de diseño | `DS-001` v`0.1.0` |
+| Sistema de diseño vigente | `DS-001` v`0.2.0`; aplicación visual pendiente de revisión |
 | Ruta | `/productos/{slug}` |
 
 ```text

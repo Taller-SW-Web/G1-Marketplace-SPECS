@@ -11,7 +11,7 @@
 | Versión | `0.1.0` |
 | Estado | Aprobada para planificación; integración externa condicionada por `I-01`. |
 | Spec funcional relacionada | `../funcional/F-012-precio-oferta-descuento.md` |
-| Sistema de diseño aplicado | `DS-001-sistema-diseno-marketplace.md` v`0.1.0` |
+| Sistema de diseño vigente | `DS-001-sistema-diseno-marketplace.md` v`0.2.0`; aplicación visual de esta ficha pendiente de revisión |
 | Prototipo oficial | Pendiente de crear en Figma. |
 | Última actualización | `2026-09-27` |
 

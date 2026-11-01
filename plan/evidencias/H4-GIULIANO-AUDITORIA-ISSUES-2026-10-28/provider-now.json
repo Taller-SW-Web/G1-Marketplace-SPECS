@@ -1,0 +1,65 @@
+{
+  "dateLima": "2026-10-28",
+  "scope": "Read-only public demo probes; no bearer, no grants or deployment SHA inferred.",
+  "cases": [
+    {
+      "name": "G6 categories",
+      "url": "https://g6-productos-ofertas.duckdns.org/api/v1/categorias",
+      "startedAt": "2026-10-28T19:12:35.386Z",
+      "finishedAt": "2026-10-28T19:12:36.725Z",
+      "ms": 1328,
+      "requestId": "58585ec4-de40-4aa1-bb91-847a64d9f311",
+      "status": 200,
+      "source": null,
+      "count": 8,
+      "staticPendingHandler": false
+    },
+    {
+      "name": "G6 brands",
+      "url": "https://g6-productos-ofertas.duckdns.org/api/v1/marcas",
+      "startedAt": "2026-10-28T19:12:35.545Z",
+      "finishedAt": "2026-10-28T19:12:35.854Z",
+      "ms": 309,
+      "requestId": "98170734-555d-4294-8f76-1cd651f06a8f",
+      "status": 503,
+      "source": null,
+      "staticPendingHandler": true
+    },
+    {
+      "name": "G6 price",
+      "url": "https://g6-productos-ofertas.duckdns.org/api/v1/productos?canal=MARKETPLACE&pagina=1&tamanio=4&precioMin=0",
+      "startedAt": "2026-10-28T19:12:35.548Z",
+      "finishedAt": "2026-10-28T19:12:35.847Z",
+      "ms": 299,
+      "requestId": "9351ca58-39ec-441e-83b9-4554753ca916",
+      "status": 503,
+      "source": null,
+      "code": "SERVICIO_NO_DISPONIBLE",
+      "staticPendingHandler": false
+    },
+    {
+      "name": "G1 deployed home",
+      "url": "https://g1-marketplace-frontend.vercel.app/api/catalog/home",
+      "startedAt": "2026-10-28T19:12:35.549Z",
+      "finishedAt": "2026-10-28T19:12:44.987Z",
+      "ms": 9438,
+      "requestId": "08e69206-815d-4116-90e3-722cda96f52e",
+      "status": 503,
+      "source": null,
+      "code": "CATALOG_UNAVAILABLE",
+      "staticPendingHandler": false
+    },
+    {
+      "name": "G1 deployed products",
+      "url": "https://g1-marketplace-frontend.vercel.app/api/catalog/products?pageSize=4",
+      "startedAt": "2026-10-28T19:12:35.551Z",
+      "finishedAt": "2026-10-28T19:12:45.028Z",
+      "ms": 9477,
+      "requestId": "b37484cb-1ab8-47ce-b551-94ed26cb66a7",
+      "status": 503,
+      "source": null,
+      "code": "CATALOG_UNAVAILABLE",
+      "staticPendingHandler": false
+    }
+  ]
+}

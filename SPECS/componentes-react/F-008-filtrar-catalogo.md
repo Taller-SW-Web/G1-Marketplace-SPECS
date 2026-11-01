@@ -14,8 +14,8 @@
 | Contrato API | [F-008](../contrato-api/F-008-filtrar-catalogo.md) |
 | Entregables visuales | [V-006](../ui/vistas/V-006-catalogo-resultados.md), [O-001](../ui/overlays/O-001-filtros-mobile.md) |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
-| Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
-| Responsables de implementación | Propuesta explícita en [plan F-008](../../plan/funcionalidades/F-008-filtrar-catalogo.md); no reemplaza el reparto de mockups |
+| Stack | React + TypeScript + Next.js App Router (PO, 2026-10-10); FE main@ec1acfb observado el 18/10: Next.js 16.4.1, React 19.3.1 y TypeScript 5.9.3 con lockfile; kit global pendiente de DS-OPEN-03. Es corte de código, no aprobación de esta spec |
+| Responsables de implementación | Asignación del PO en [plan F-008](../../plan/funcionalidades/F-008-filtrar-catalogo.md); no reemplaza el reparto de mockups |
 | Iteración objetivo | Sprint 2, sujeto a puertas de entrada y capacidad confirmada |
 
 ## 2. Rutas y pantallas
@@ -24,7 +24,7 @@
 |---|---|---|
 | `/catalogo (panel y query de filtros)` | Pública | `CatalogFilters` + `ActiveFilterChips` |
 
-Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop se produce primero; mobile sigue dentro del alcance, no se elimina ni se simula reduciendo el desktop.
+Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop y mobile siguen dentro del alcance; consultar frames y estados vigentes en las specs UI enlazadas. Mobile no se simula reduciendo el desktop.
 
 ## 3. Árbol de componentes
 
@@ -50,7 +50,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 
 - **Local:** Draft del panel y apertura mobile; no cambiar resultados hasta Aplicar. Cancelar mantiene filtros aplicados.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
-- **Remoto / caché:** Maestros sólo publicados; contrato BFF de maestros pendiente, no crear endpoint. Criterios aplicados en URL y cache key completa.
+- **Remoto / caché:** Maestros públicos mediante `GET /api/v1/catalog/filters`, contrato aditivo G1 implementado para revisión H4; usar únicamente las lecturas G6 publicadas. Criterios aplicados en URL y cache key completa.
 - **Flujo específico:** Aplicar reinicia page=0 y conserva q/sort; chips reflejan criterio aplicado, no borrador; error conserva draft.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
@@ -109,7 +109,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01; contrato de maestros/conteos de categoría y marca.
+I-01; revisar el contrato G1 de maestros implementado el 26/10/2026. El corte admite una categoría y una marca; multiselección/conteos previstos requieren homologación adicional. Marcas REAL continúa sin prueba satisfactoria.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

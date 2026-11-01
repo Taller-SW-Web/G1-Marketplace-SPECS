@@ -4,23 +4,38 @@ Versión 0.1.0 · Planificación inicial · F-037 no está implementada por esto
 
 ## Fuente y control
 
-- [Plan F-037](../funcionalidades/F-037-visualizar-favoritos.md); [iteración S2](../iteraciones/S02-semanas-09-11.md).
+- [Plan F-037](../funcionalidades/F-037-visualizar-favoritos.md); [iteración S02/H4](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-037-visualizar-favoritos.md), [UI](../../SPECS/ui/F-037-visualizar-favoritos.md), [API](../../SPECS/contrato-api/F-037-visualizar-favoritos.md), [React](../../SPECS/componentes-react/F-037-visualizar-favoritos.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
 - Responsable asignado por el PO: **Diego Espinoza**; revisor principal: **Fernando Saire** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
+## Corte planificado de H4
+
+**Objetivo de cierre H4.** Implementar lista por titular con enriquecimiento G6, precio/elegibilidad/vacío/error y aislamiento A/B; no copiar catálogo ajeno a BD G1.
+
+**Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. Disponibilidad sin restricción horaria por decisión del PO. Las entregas «local» o «con dobles» son etapas del mismo TASK, no cierres de INT. DOC prepara desde specs y QA ejecuta casos propios antes de INT; el cierre completo conserva dependencias/DoD. [Alcance H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md). Los estados no cambian al replanificar.
+
+| Nivel de evidencia | Registro del corte de esta F |
+|---|---|
+| Diseñado | Specs enlazadas arriba; añadir revisión del flujo/contrato/frame concreto de H4. Su existencia no acredita aprobación de todas las discrepancias |
+| Implementado con datos de prueba | Enlazar commit FE/BE, fixture explícito, comando y resultado positivo/negativo. Recuperar evidencia del código existente antes de certificar cobertura completa |
+| Integrado con otro módulo | Pendiente de evidencia por operación: proveedor/versión, entorno, auth, request/response REAL, negativos y traza; respetar gates de esta F |
+| Probado en el despliegue | Pendiente: URLs/SHAs/run CI-CD y caso desde web/API desplegada con revisión independiente. No inferir de prueba local ni de provider directo |
+
+La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
+
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
 |---|---|---|---|---|---|---|---|
-| TASK-F037-FE-001 | Frontend | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-OPS-001 | 9 | Pendiente |
-| TASK-F037-BE-001 | Backend | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 9 | Pendiente |
-| TASK-F037-DB-001 | BD / Prisma | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-DB-001 | 11 | Pendiente |
-| TASK-F037-INT-001 | Integración | Diego Espinoza | Fernando Saire | P1 | TASK-F037-BE-001 + TASK-F037-DB-001 + I-01 + TASK-F036-INT-001 | 11 | Bloqueado |
-| TASK-F037-QA-001 | QA funcional | Diego Espinoza | Fernando Saire | P1 | TASK-F037-FE-001 + TASK-F037-BE-001 + TASK-F037-DB-001 | 11 | Pendiente |
-| TASK-F037-QA-002 | QA seguridad / DevSecOps | Diego Espinoza | Fernando Saire | P1 | TASK-F037-FE-001 + TASK-F037-BE-001 + TASK-TRANS-S02-OPS-002 | 11 | Pendiente |
-| TASK-F037-DOC-001 | Documentación | Diego Espinoza | Fernando Saire | P1 | TASK-F037-INT-001 + TASK-F037-QA-001 + TASK-F037-QA-002 | 11 | Pendiente |
+| TASK-F037-FE-001 | Frontend | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-OPS-001 | 9–10/H4 | Pendiente |
+| TASK-F037-BE-001 | Backend | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-OPS-001 + TASK-TRANS-S01-DB-001 | 9–10/H4 | Pendiente |
+| TASK-F037-DB-001 | BD / Prisma | Diego Espinoza | Fernando Saire | P1 | TASK-TRANS-S01-DB-001 | 9–10/H4 | Pendiente |
+| TASK-F037-INT-001 | Integración | Diego Espinoza | Fernando Saire | P1 | TASK-F037-BE-001 + TASK-F037-DB-001 + I-01 + TASK-F036-INT-001 + G-AUTH | 11/H4 | Bloqueado |
+| TASK-F037-QA-001 | QA funcional | Diego Espinoza | Fernando Saire | P1 | TASK-F037-FE-001 + TASK-F037-BE-001 + TASK-F037-DB-001 | 11/H4 | Pendiente |
+| TASK-F037-QA-002 | QA seguridad / DevSecOps | Diego Espinoza | Fernando Saire | P1 | TASK-F037-FE-001 + TASK-F037-BE-001 + TASK-TRANS-S02-OPS-002 | 11/H4 | Pendiente |
+| TASK-F037-DOC-001 | Documentación | Diego Espinoza | Fernando Saire | P1 | H4 diseño/implementación: specs y pruebas locales; cierre completo: TASK-F037-INT-001 + TASK-F037-QA-001 + TASK-F037-QA-002 | 11/H4 | Pendiente |
 
 Referente de BD: Diego Espinoza para este bloque, con revisión de Fernando Saire; Andres mantiene soporte transversal de migraciones. Ver [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md).
 

@@ -1,6 +1,21 @@
 # Leonidas Garcia Lescano — Arquitecto de Software / Backend — responsabilidad punta a punta
 
-**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **6. Checkout y generación del pedido**; IDs: **F-022–F-027**. Revisor principal: **Diego Espinoza**. Hitos: S3: F-022–F-027 antes de H5, sujetos a gates. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+**Asignación decidida por el PO el 13/10/2026; estimación base fijada en la matriz.** Bloque: **6. Checkout y generación del pedido**; IDs: **F-022–F-027**. Revisor principal: **Diego Espinoza**. Hitos: Implementación propia H4 de F-022–F-027; cierre integral S03. Leer la [matriz vigente](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md), la [guía común](GUIA-DE-TRABAJO-COLABORATIVO.md) y las [decisiones/gates](../DECISIONES-Y-BLOQUEOS.md). Conservar el rol general del README; el ownership de implementación es distinto de los paquetes de diseño de vistas.
+
+## Trabajo asignado para S02 y Hito 4
+
+El PO confirma **disponibilidad sin restricción horaria**. Todas las funciones del paquete reciben implementación/pruebas G1 H4 donde las reglas/contratos estén definidos; los cierres completos conservan gates externos. [S02](../iteraciones/S02-semanas-09-11.md) y [alcance](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md).
+
+- **F-022:** Implementar UI+BFF/adaptador de dirección del titular, estados y pruebas con contrato/fixture explícito; integrar G7/G2 donde exista entorno. Cierre completo S03 con logística y titularidad probadas. Cierre objetivo: S03, semanas 12–13; implementación y pruebas propias comienzan en H4.
+- **F-023:** Implementar resumen FE+BE, adaptadores/precio/beneficios G6 y pruebas positivas/negativas; usar envío/total de prueba si G2/G5 siguen bloqueados. Cierre integral S03 exige snapshot autoritativo conjunto. Cierre objetivo: S03, semanas 12–13; implementación y pruebas propias comienzan en H4.
+- **F-024:** Implementar cupón/promoción FE+BE, evaluación/validación G6 y errores/timeout; consumo/restauración sólo por G5/G6 y contrato G-BENEFIT/G-MONEY/G-COUPON-RELEASE. Cierre completo S03. Cierre objetivo: S03, semanas 12–13; implementación y pruebas propias comienzan en H4.
+- **F-025:** Implementar preparación/consentimiento UI+BFF y adaptadores/casos de cantidad/fulfillment/vigencias conforme contrato; fixtures rotulados donde falte proveedor. PREPARED no es pedido ni pago; cierre S03. Cierre objetivo: S03, semanas 12–13; implementación y pruebas propias comienzan en H4.
+- **F-026:** Implementar orquestación G1, payload/clave/fingerprint, persistencia permitida y recuperación idempotente; probar con dobles y con G5 al habilitarse. G5 crea/reserva/inicia simulador; cierre S03. Cierre objetivo: S03, semanas 12–13; implementación y pruebas propias comienzan en H4.
+- **F-027:** Implementar estados UI+BFF incierto/CREADO/PAGADO/ANULADO y recuperación conforme contrato; integrar los frames corregidos por Jim/revisados por Fernando. Cierre S03 exige PAGADO verificado G5. Cierre objetivo: S03, semanas 12–13; implementación y pruebas propias comienzan en H4.
+
+**Transversal:** API-001 diseño OpenAPI e INT-001 identidad técnica G6 revisados por Jim; revisión DB/pipeline/guard. Implementar todas las partes G1 definidas y conectar tramos G6 disponibles, aislando la frontera G5/G2 pendiente. IDs TASK-TRANS-S02- en [TRANSVERSALES](../seguimiento/TRANSVERSALES.md).
+
+**Evidencia:** diseño/contrato/frame revisado; commit FE+BE/fixture y pruebas positivo-negativo; integración REAL con proveedor/auth/traza; despliegue con URLs/SHAs/run. Registrar cada nivel sin inferencias. Ante frontera sin acuerdo, implementar la parte propia definida, registrar owner/bloqueo y continuar otras operaciones. No cerrar INT por doble, contrato escrito o tiempo disponible.
 
 ## Fuentes y alcance
 
@@ -28,4 +43,4 @@ F-023: resumen V-011 con snapshot de prueba y ruta BFF que valida entradas e inf
 
 F-006/F-007, V-005 y búsqueda de V-006 deben llegar a frontend y BFF desplegados con **llamada real a Productos**. Este paquete aporta a esa ruta mediante su rol transversal cuando corresponda, sin desplazar el incremento vertical propio. Si I-01 no tiene URL, token/datos y respuesta comprobada, Jim/Diego registran el gate bloqueado y presentan sólo avance parcial. Ningún fixture ni `render.yaml` acredita integración o despliegue.
 
-**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos o desvíos de capacidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si la carga o el gate impiden el objetivo del hito, proponer resecuenciación documentada antes del corte.
+**Al iniciar:** usar la estimación base de la matriz, acordar archivos compartidos y comunicar bloqueos contractuales/técnicos o hallazgos de calidad a Diego/Jim. No codificar contratos/rutas ajenos sin versión publicada. Si un gate externo impide integrar, registrar por operación owner, prueba faltante y continuidad del trabajo propio; no reducir el alcance por disponibilidad horaria.

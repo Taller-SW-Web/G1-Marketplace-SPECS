@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1340" viewBox="0 0 1800 1340" role="img" aria-labelledby="title desc">
+<title id="title">Arquitectura de la Aplicación · Canal Marketplace</title><desc id="desc">Frontend, backend, persistencia e integración · Inka Athletics · Hito 3</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker><marker id="planned" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b7791f"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="900.0" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#142e49">Arquitectura de la Aplicación · Canal Marketplace</text>
+<text x="900.0" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526477">Frontend, backend, persistencia e integración · Inka Athletics · Hito 3</text>
+<text x="900" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#334155">Cliente / Visitante · Accede desde el navegador web</text>
+<rect x="60" y="155" width="1680" height="290" rx="16" fill="#f8fbff" stroke="#8ca4be" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="85" y="188" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#173655">A · Frontend web — Next.js / React</text>
+<text x="85" y="213" text-anchor="start" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526477">Páginas y componentes, estado de la experiencia y fachada de servidor</text>
+<rect x="170" y="265" width="400" height="140" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="370.0" y="296" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Interfaz React</text>
+<text x="370.0" y="321" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">Páginas y componentes</text>
+<text x="370.0" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Catálogo, ficha, acceso, carrito, favoritos,</text>
+<text x="370.0" y="371" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">checkout y pedidos</text>
+<rect x="700" y="265" width="400" height="140" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="900.0" y="296" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Estado de funcionalidad</text>
+<text x="900.0" y="321" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">Hooks / Context / Fetch</text>
+<text x="900.0" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Estado local, solicitudes y WishlistProvider</text>
+<rect x="1230" y="265" width="400" height="140" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="1430.0" y="296" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Fachada de servidor</text>
+<text x="1430.0" y="321" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">Next.js · Route Handlers</text>
+<text x="1430.0" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Proxies /api y controles de transporte</text>
+<polyline points="570,335 700,335" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="598.32" y="304" width="73.36" height="21" rx="4" fill="#fff"/>
+<text x="635" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Acciones</text>
+<polyline points="1100,335 1230,335" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1139.45" y="304" width="51.1" height="21" rx="4" fill="#fff"/>
+<text x="1165" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Fetch</text>
+<rect x="60" y="525" width="1680" height="415" rx="16" fill="#f8fbff" stroke="#8ca4be" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="85" y="558" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#173655">B · Backend de aplicación — NestJS</text>
+<text x="85" y="583" text-anchor="start" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526477">Controladores, servicios, guards, persistencia y proveedores</text>
+<rect x="170" y="635" width="300" height="140" rx="13" fill="#e5f4ec" stroke="#29754f" stroke-width="2"/>
+<text x="320.0" y="666" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#17462f">Entrada HTTP</text>
+<text x="320.0" y="691" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#17462f">Controladores / DTO</text>
+<text x="320.0" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#17462f">Validación y respuesta de API</text>
+<rect x="700" y="635" width="400" height="140" rx="13" fill="#e5f4ec" stroke="#29754f" stroke-width="2"/>
+<text x="900.0" y="666" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#17462f">Servicios de aplicación</text>
+<text x="900.0" y="691" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#17462f">Módulos por funcionalidad</text>
+<text x="900.0" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#17462f">Producto, carrito, favoritos, checkout e</text>
+<text x="900.0" y="741" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#17462f">historial</text>
+<rect x="1230" y="635" width="400" height="140" rx="13" fill="#e5f4ec" stroke="#29754f" stroke-width="2"/>
+<text x="1430.0" y="666" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#17462f">Puertos y gateway</text>
+<text x="1430.0" y="691" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#17462f">Contratos de integración</text>
+<text x="1430.0" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#17462f">Traduce contratos y encapsula proveedores</text>
+<rect x="170" y="820" width="300" height="90" rx="13" fill="#e5f4ec" stroke="#29754f" stroke-width="2"/>
+<text x="320.0" y="851" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#17462f">Identidad y autorización</text>
+<text x="320.0" y="876" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#17462f">Guards de rutas protegidas</text>
+<rect x="700" y="820" width="400" height="90" rx="13" fill="#e5f4ec" stroke="#29754f" stroke-width="2"/>
+<text x="900.0" y="851" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#17462f">Persistencia</text>
+<text x="900.0" y="876" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#17462f">PrismaService / repositorios</text>
+<polyline points="1430,405 1430,483 585,483 585,610 320,610 320,635" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="852.19" y="462" width="95.62" height="21" rx="4" fill="#fff"/>
+<text x="900" y="476" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">HTTP / JSON</text>
+<polyline points="470,705 700,705" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="555.74" y="674" width="58.52" height="21" rx="4" fill="#fff"/>
+<text x="585" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Delega</text>
+<polyline points="1100,705 1230,705" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1128.32" y="674" width="73.36" height="21" rx="4" fill="#fff"/>
+<text x="1165" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Consulta</text>
+<polyline points="320,775 320,820" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="900,775 900,820" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M170 1100 C170 1070 570 1070 570 1100 V1215 C570 1248 170 1248 170 1215Z" fill="#1769b8" stroke="#0e4982" stroke-width="2"/><ellipse cx="370.0" cy="1100" rx="200.0" ry="25" fill="#428ad0" stroke="#0e4982" stroke-width="2"/>
+<text x="370.0" y="1151" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">PostgreSQL propio</text>
+<text x="370.0" y="1175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">Prisma · seis modelos</text>
+<text x="370.0" y="1206" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff">Carrito, favoritos y control operativo</text>
+<rect x="700" y="1075" width="400" height="165" rx="13" fill="#fff2d6" stroke="#b7791f" stroke-width="2"/>
+<text x="900.0" y="1106" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#6b450d">Datos de demostración</text>
+<text x="900.0" y="1131" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#6b450d">Fixtures / adaptadores MOCK</text>
+<text x="900.0" y="1160" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">Producto, acceso, historial, elegibilidad y</text>
+<text x="900.0" y="1181" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">checkout</text>
+<rect x="1230" y="1075" width="400" height="165" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="1430.0" y="1106" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Sistemas externos</text>
+<text x="1430.0" y="1131" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">Integraciones reales previstas</text>
+<text x="1430.0" y="1160" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Seguridad · Productos · Ventas · Despacho</text>
+<polyline points="900,910 900,990 370,990 370,1075" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="554.77" y="968" width="110.46000000000001" height="21" rx="4" fill="#fff"/>
+<text x="610" y="982" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Datos propios</text>
+<polyline points="1100,740 1170,740 1170,1030 900,1030 900,1075" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="1111.06" y="991" width="117.88000000000001" height="21" rx="4" fill="#fff"/>
+<text x="1170" y="1005" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Respuesta MOCK</text>
+<polyline points="1430,775 1430,1075" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="1337.67" y="991" width="184.66" height="21" rx="4" fill="#fff"/>
+<text x="1430" y="1005" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Contratos por verificar</text>
+<text x="900" y="1300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#334155">Azul: frontend · Verde: backend · Ámbar: demostración · Gris: sistemas propietarios externos</text>
+</svg>

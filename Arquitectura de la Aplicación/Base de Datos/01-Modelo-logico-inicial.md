@@ -192,7 +192,7 @@ Restricciones lógicas:
 ## 6. Datos que deliberadamente no se modelan localmente
 
 - `User`, `Address`, credenciales, roles y tokens.
-- Sesiones de acceso, refresh tokens, desafíos MFA y solicitudes/tokens de recuperación: pertenecen a Seguridad y Usuarios; no son entidades de Marketplace.
+- Sesiones de acceso, refresh tokens, desafíos MFA y solicitudes/tokens de recuperación: pertenecen a Seguridad y Usuarios. H4 propone una [excepción limitada para contenedor temporal cifrado del BFF](05-Propuesta-sesion-temporal-H4.md), con revisión pendiente; no incluye contraseñas ni recuperación y no convierte esos datos en maestros de Marketplace.
 - `Product`, `ProductVariant`, `SKU`, inventario, precio y cupón como tablas propias.
 - `Order`, `OrderItem`, `Payment`, `Shipment` o su historial.
 - Calificación, motivos y comentario de CSAT.

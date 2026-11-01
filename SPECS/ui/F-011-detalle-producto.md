@@ -11,7 +11,7 @@
 | Versión | `0.1.0` |
 | Estado | Aprobada para planificación; integración externa condicionada por `I-01`. |
 | Spec funcional relacionada | `../funcional/F-011-detalle-producto.md` |
-| Sistema de diseño aplicado | `DS-001-sistema-diseno-marketplace.md` versión `0.1.0` |
+| Sistema de diseño vigente | `DS-001-sistema-diseno-marketplace.md` versión `0.2.0`; aplicación visual de esta ficha pendiente de revisión |
 | Wireframe o prototipo | Pantalla 7 del documento histórico. El prototipo oficial deberá enlazarse desde Figma antes de aprobar esta spec. |
 | Última actualización | `2026-09-27` |
 

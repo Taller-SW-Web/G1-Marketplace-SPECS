@@ -14,7 +14,7 @@
 | Responsable | Giuliano Macchiavello |
 | Revisor | Jim Segovia |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=75-109) · [Mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=64-141) |
 
 ## 2. Propósito, actor y acceso
 

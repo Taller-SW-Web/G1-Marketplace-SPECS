@@ -14,9 +14,9 @@
 | Contrato API | [F-003](../contrato-api/F-003-cerrar-sesion.md) |
 | Entregables visuales | [V-001](../ui/vistas/V-001-inicio-sesion.md), [V-005](../ui/vistas/V-005-inicio.md), [V-010](../ui/vistas/V-010-direccion-envio.md), [O-004](../ui/overlays/O-004-confirmacion-cierre-checkout.md) |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
-| Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
-| Responsables de implementación | Propuesta explícita en [plan F-003](../../plan/funcionalidades/F-003-cerrar-sesion.md); no reemplaza el reparto de mockups |
-| Iteración objetivo | Sprint 1, sujeto a puertas de entrada y capacidad confirmada |
+| Stack | React + TypeScript + Next.js App Router (PO, 2026-10-10); FE main@ec1acfb observado el 18/10: Next.js 16.4.1, React 19.3.1 y TypeScript 5.9.3 con lockfile; kit global pendiente de DS-OPEN-03. Es corte de código, no aprobación de esta spec |
+| Responsables de implementación | Asignación del PO en [plan F-003](../../plan/funcionalidades/F-003-cerrar-sesion.md); no reemplaza el reparto de mockups |
+| Iteración objetivo | S02/H4, semanas 9–11; integración sujeta a gates y evidencia, sin restricción horaria por decisión del PO |
 
 ## 2. Rutas y pantallas
 
@@ -24,7 +24,7 @@
 |---|---|---|
 | `Acción de cuenta, sin ruta nueva` | Sesión activa | `LogoutAction` + `CheckoutLogoutDialog` |
 
-Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop se produce primero; mobile sigue dentro del alcance, no se elimina ni se simula reduciendo el desktop.
+Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop y mobile siguen dentro del alcance; consultar frames y estados vigentes en las specs UI enlazadas. Mobile no se simula reduciendo el desktop.
 
 ## 3. Árbol de componentes
 
@@ -51,7 +51,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Apertura de diálogo y envío; cancelar no revoca ni descarta contexto.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** Al cerrar, cancelar queries privadas, limpiar caché por titular, estado de checkout y datos sensibles.
-- **Flujo específico:** Solicitar revocación protegida, realizar limpieza local también si red falla y navegar /. Evitar que respuestas en vuelo repueblen la UI con datos del titular anterior.
+- **Flujo específico:** Solicitar logout protegido al BFF. Sólo `200 authenticated:false` confirma invalidación local y permite limpiar vistas privadas y navegar a inicio. Si `remoteRevocationPending=true`, informar que G7 no confirmó revocación remota. Un error de red entre navegador y BFF o `503` de persistencia deja el resultado sin confirmar: mostrar error/reintento sin anunciar sesión cerrada. Evitar que respuestas en vuelo repueblen la UI con datos del titular anterior.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -72,7 +72,7 @@ Auth y rutas `/password` se traducen mediante el límite de integración aprobad
 
 ## 7. Estados, errores y recuperación
 
-IDLE → CONFIRMING (si checkout) → REVOKING → LOGGED_OUT; revocación fallida termina igualmente LOGGED_OUT local.
+IDLE → CONFIRMING (si checkout) → REVOKING → LOGGED_OUT ante `200 authenticated:false`. Fallo de G7 después de invalidación local termina LOGGED_OUT con aviso remoto; fallo entre navegador y BFF o al invalidar persistencia termina ERROR_UNCONFIRMED y permite reintentar.
 
 - **Carga:** skeleton de la región que consulta, o progreso local de mutación; nunca datos o importes de ejemplo.
 - **Vacío / no aplicable:** sólo ante respuesta válida o condición explícita; errores nunca se convierten en colección vacía, precio cero o stock agotado.
@@ -90,7 +90,7 @@ IDLE → CONFIRMING (si checkout) → REVOKING → LOGGED_OUT; revocación falli
 | Caso técnico | Verificación mínima |
 |---|---|
 | `RC-F-003-01` | cancelar mantiene sesión. |
-| `RC-F-003-02` | fallo remoto cierra localmente. |
+| `RC-F-003-02` | fallo de G7 con invalidación BFF confirmada cierra localmente y muestra aviso; error de BFF/red no anuncia cierre confirmado. |
 | `RC-F-003-03` | otro usuario no ve caché anterior. |
 | `RC-F-003-04` | O-004 devuelve foco al cancelar. |
 | Estados UI | Render y transición de cada estado de la sección 7 y de la spec visual relacionada. |
@@ -109,7 +109,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-Contrato de transporte y revocación; diseño compartido de cuenta vigente.
+Transporte propuesto y semántica local/remota en el [contrato F-003](../contrato-api/F-003-cerrar-sesion.md); homologación G7, despliegue y revisión pendientes. O-004 conserva decisiones SUBMITTED/recuperación de contexto abiertas.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

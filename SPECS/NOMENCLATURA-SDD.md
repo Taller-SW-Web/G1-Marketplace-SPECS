@@ -15,7 +15,7 @@ Este documento define los nombres e identificadores oficiales para las especific
 
 Cada funcionalidad atómica usa el formato `F-###`, con numeración consecutiva de tres dígitos. Ejemplo: `F-011` para visualizar ficha y galería del producto.
 
-El catálogo oficial, sus nombres cortos y sus fuentes están en [`03-Catalogo-de-funcionalidades-Marketplace.md`](../../../Almacen%20de%20Contexto/03-Catalogo-de-funcionalidades-Marketplace.md). El análisis que sustenta el catálogo está en [`ANALISIS-FASE-2.md`](../../../Almacen%20de%20Contexto/ANALISIS-FASE-2.md). El ID `F-###` conecta todos los documentos de una misma funcionalidad.
+El catálogo original y su análisis están en `Almacen de Contexto/03-Catalogo-de-funcionalidades-Marketplace.md` y `Almacen de Contexto/ANALISIS-FASE-2.md`, **fuera de este repositorio**. Esas rutas sólo son accesibles en el workspace local que contiene ambas carpetas; un lector de GitHub debe pedir la fuente al PO. El [índice vigente](README.md) y la [matriz F-001–F-040](RESPONSABILIDADES-PUNTA-A-PUNTA.md) sí están versionados aquí. El ID `F-###` conecta los documentos de cada funcionalidad.
 
 Las ocho agrupaciones anteriores se conservan únicamente como **áreas de organización**; no son IDs de specs ni unidades de implementación.
 
@@ -115,8 +115,13 @@ Cada documento debe indicar una versión con formato `MAJOR.MINOR.PATCH`:
 - `Borrador`: contenido inicial en elaboración.
 - `En revisión`: pendiente de validación del responsable y revisor.
 - `Aprobada`: validada por el equipo y lista para derivar el siguiente artefacto.
+- `Aprobada para planificación`: alcance suficiente para estimar, asignar y preparar trabajo; puede conservar gates externos y preguntas. No autoriza afirmar implementación, integración, diseño aprobado ni prueba ejecutada.
 - `En cambio`: se está modificando por una decisión nueva.
 - `Obsoleta`: reemplazada por una versión posterior.
+
+El estado de la **spec** se registra por documento. El estado de **diseño** se prueba con frame/enlace y revisión visual; el de **implementación** con commit integrado; el de **prueba** con caso, entorno y resultado; el de **despliegue** con revisión y URL; el de **integración REAL** con contrato/configuración y petición/respuesta entre módulos. Una aprobación en una dimensión no transfiere las otras.
+
+Cada fuente vigente debe exponer al menos **versión**, **estado documental** y **fecha de revisión**. Las plantillas incluyen esos campos. Los documentos existentes que no los tengan se actualizan cuando se revise su contenido; ausencia del dato no se rellena con una fecha inventada.
 
 ## 7. Reglas de trazabilidad
 
@@ -127,6 +132,12 @@ Cada documento debe indicar una versión con formato `MAJOR.MINOR.PATCH`:
 - Todo cambio visual debe actualizar la spec UI.
 - Todo cambio de integración debe actualizar la spec de contrato API.
 - Todo cambio de estructura React debe actualizar la spec de componentes React.
+
+### Precedencia y discrepancias
+
+La spec funcional rige el comportamiento aceptado; el contrato API rige operaciones, DTO y errores; la spec UI y V/O/C rigen presentación, estados y navegación; DS-001 rige tokens; componentes React rige composición; el plan rige secuencia y responsables. El **código y las pruebas** acreditan lo implementado, pero una divergencia de código no modifica por sí sola una decisión de producto. Los contratos externos requieren versión y acuerdo del dueño del módulo. Una fecha posterior no resuelve automáticamente una contradicción.
+
+Ante discrepancia: registrar ID, archivos/secciones, diferencia, autoridad aplicable, decisión/evidencia, cambio necesario, owner y estado en [auditoría #5](../plan/AUDITORIA-ISSUE-5.md) o en [decisiones y bloqueos](../plan/DECISIONES-Y-BLOQUEOS.md). Si falta una decisión, marcarla pendiente y mantener la afirmación condicionada; no copiar el comportamiento observado como requisito sin validación.
 
 ## 8. Referencias de migración
 

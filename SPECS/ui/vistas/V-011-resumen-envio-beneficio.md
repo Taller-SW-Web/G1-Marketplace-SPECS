@@ -14,7 +14,7 @@
 | Responsable | Jim Segovia |
 | Revisor | Fernando José Saire Tello |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | [Canvas Checkout — V-011](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) |
+| Enlace de Figma | [V-011 / Mobile / Promoción automática](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=528-1644) · [Página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) |
 
 ## 2. Propósito, actor y acceso
 
@@ -173,6 +173,8 @@ Aplicar no consume el cupón. Quitar sólo solicita una nueva cotización sin es
 | `V-011 / Mobile / Sin cobertura` | Mobile | Atención | Editar dirección. |
 | `V-011 / Desktop / Línea no disponible` | Desktop | Atención | Editar carrito. |
 | `V-011 / Mobile / Error de cotización` | Mobile | Error | Reintento sin montos ficticios. |
+
+**Verificación del 25/10/2026:** se creó el frame exacto [V-011 / Mobile / Promoción automática](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=528-1644), de 390 px. Identifica «Promoción automática: Club Atleta» y el ahorro de S/ 16.00; el cupón manual permanece sin aplicar, el desglose descuenta una sola promoción y muestra «TOTAL ESTIMADO» S/ 439.00 y vigencia antes del CTA. Se inspeccionó la captura completa y la estructura del frame. [Evidencia H4](../../../plan/evidencias/H4-checkout-frames-jim-2026-10-25.md). Jim Segovia revisó y aceptó este mockup; la vista completa y sus dependencias de integración siguen en revisión.
 
 ## 13. Criterios de aceptación visual
 

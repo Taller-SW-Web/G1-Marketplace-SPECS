@@ -25,7 +25,13 @@ Cada paquete personal define además un **avance vertical parcial** del bloque p
 1. Jim confirma contrato/versión, entorno, credenciales técnicas y datos de Productos; registra I-01. Ningún equipo programa endpoint ajeno por suposición.
 2. Andres audita base FE/BE, Prisma y Render, prepara CI/entornos y coordina deploy. Leonidas revisa arquitectura del BFF y secretos; Giuliano integra el catálogo. El backend Marketplace existente no equivale a BFF completo.
 3. Los demás autores construyen sus cortes verticales **aislados** con fixtures sanitizados y tareas propias, sin exponer acciones incompletas como activas en la demo pública. Cada uno registra revisión de PR, IA y pruebas.
-4. Diego/Jim comparan la estimación base con la capacidad observada, priorizan la ruta H3, verifican web→BFF→Productos desde fuera del equipo y mantienen gates abiertos donde falta prueba. F-006/F-007 sólo pasan a terminadas tras DoD completo.
-5. S2–S5 mantienen los mismos owners y revisores. Cada iteración valida capacidad, contrato externo, progreso y evidencia; si no cabe un hito, se resecuencia por decisión documentada sin borrar IDs ni rebautizar mocks como integraciones.
+4. Diego/Jim verifican dependencias y evidencia, priorizan la ruta histórica H3, verifican web→BFF→Productos desde fuera del equipo y mantienen gates abiertos donde falta prueba. F-006/F-007 sólo pasan a terminadas tras DoD completo.
+5. S2–S5 mantienen los mismos owners y revisores. Cada iteración valida contrato externo, entorno, progreso y evidencia; si una frontera queda bloqueada, se registra por operación sin borrar IDs ni rebautizar mocks como integraciones.
 
 Leer la [guía colaborativa](GUIA-DE-TRABAJO-COLABORATIVO.md) antes de abrir ramas o PR. Los paquetes personales son instrucciones prácticas; las cuatro specs F-### siguen siendo fuente de comportamiento, UI, API y React.
+
+## Entregas y responsabilidades H4
+
+[S02](../iteraciones/S02-semanas-09-11.md) fija 25 cierres objetivo: Jim 5 (F-001–005), Giuliano 5 (F-006–010), Sebastian 5 (F-011–015), Andres 6 (F-016–021), Diego 4 (F-036–039). Leonidas implementa/prueba sus 6 F-022–027; Fernando sus 8 F-028–035; Diego además F-040 en su parte propia G1. Estos 15 cierres integrales conservan S03/S04/S05 por dependencias, aunque se adelanta código/pruebas H4.
+
+Disponibilidad sin restricción horaria; no hay ampliaciones por tiempo. CI/guard siguen con Andres y colaboración build/deploy/runtime Fernando; API/identidad técnica Leonidas; cuenta G7 Jim; ejemplos/consumer tests Sebastian; QA/gates Diego. Se mantienen revisores y reparto visual. Toda integración y despliegue exige evidencia por F, nunca sólo contrato/mock. [Inventario completo](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md).

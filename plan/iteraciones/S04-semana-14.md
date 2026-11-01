@@ -1,6 +1,6 @@
 # S4 — Evidencia de integración, rendimiento y asincronía (semana 14)
 
-Versión 0.3.0 · Corte del Hito 5. Semana de cierre/medición, no de diseño inicial.
+Versión 0.7.0 · Revisión de coherencia 2026-10-19 · Corte del Hito 5. Semana de cierre/medición, no de diseño inicial.
 
 ## Objetivo y alcance
 
@@ -16,8 +16,12 @@ Cerrar F-032 (seguimiento) y F-035 (actualización de despacho) si I-05/I-06 pub
 | API Management | Ruta externa publicada/configurada, autenticación/limitación/traza y prueba de tráfico por gateway; no confundir un proxy local con una política aplicada. |
 | Asincronía | Evento/mensaje versionado, productor y consumidor de **módulos distintos**, correlación en logs, reintento/dedupe y prueba de fallo/recuperación. Una llamada REST o correo síncrono no bastan. |
 
-Si Despacho/Ventas no ofrece evento apto para F-035, acordar otro intercambio intermodular real **antes** de esta semana, actualizar specs/contratos y registrar cuál funcionalidad queda bloqueada. No inventar un mensaje ni marcar H5 cumplido con un mock. La asignación y estimación base del PO ya están fijadas; [plan general](../PLAN-IMPLEMENTACION.md) gobierna capacidad y escalamiento.
+Si Despacho/Ventas no ofrece evento apto para F-035, acordar otro intercambio intermodular real **antes** de esta semana, actualizar specs/contratos y registrar cuál funcionalidad queda bloqueada. No inventar un mensaje ni marcar H5 cumplido con un mock. La asignación y estimación base del PO ya están fijadas; [plan general](../PLAN-IMPLEMENTACION.md) gobierna contratos, evidencia y escalamiento.
 
 ## Responsable de F-032/F-035
 
 Fernando es dueño de FE+BE Marketplace de seguimiento y notificación; Jim revisa aceptación y Leonidas el contrato/evento. Andres apoya gateway y despliegue; Diego lidera verificación cruzada. Mantener F-032/F-035 `Bloqueado` donde falten I-05/I-06 o prueba de dos módulos reales. La [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md) no cambia el gate H5 ni la necesidad de medición, API Management y asincronía efectiva.
+
+## Preparación desde H4
+
+Fernando implementa y prueba en H4 las partes G1 definidas de F-032/F-035 y coordina con Leonidas el contrato/evento I-05/I-06; Andres prepara arquitectura operativa. Código y pruebas con dobles no demuestran evento, gateway ni performance reales. S03 integra/prepara y S04 ejecuta la medición e intercambio real. Conservar las cuatro etapas de evidencia definidas en [S02](S02-semanas-09-11.md), sin convertir diseño/fixture en cierre H5.

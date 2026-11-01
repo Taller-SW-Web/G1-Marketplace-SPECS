@@ -14,8 +14,8 @@
 | Contrato API | [F-012](../contrato-api/F-012-precio-oferta-descuento.md) |
 | Entregables visuales | [V-007](../ui/vistas/V-007-ficha-producto.md) |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
-| Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
-| Responsables de implementación | Propuesta explícita en [plan F-012](../../plan/funcionalidades/F-012-precio-oferta-descuento.md); no reemplaza el reparto de mockups |
+| Stack | React + TypeScript + Next.js App Router (PO, 2026-10-10); FE main@ec1acfb observado el 18/10: Next.js 16.4.1, React 19.3.1 y TypeScript 5.9.3 con lockfile; kit global pendiente de DS-OPEN-03. Es corte de código, no aprobación de esta spec |
+| Responsables de implementación | Asignación del PO en [plan F-012](../../plan/funcionalidades/F-012-precio-oferta-descuento.md); no reemplaza el reparto de mockups |
 | Iteración objetivo | Sprint 2, sujeto a puertas de entrada y capacidad confirmada |
 
 ## 2. Rutas y pantallas
@@ -24,7 +24,7 @@
 |---|---|---|
 | `/productos/{slug} (precio)` | Pública | `ProductPriceRegion` + `PriceDisplay` |
 
-Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop se produce primero; mobile sigue dentro del alcance, no se elimina ni se simula reduciendo el desktop.
+Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop y mobile siguen dentro del alcance; consultar frames y estados vigentes en las specs UI enlazadas. Mobile no se simula reduciendo el desktop.
 
 ## 3. Árbol de componentes
 

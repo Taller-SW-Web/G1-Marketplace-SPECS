@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1010" viewBox="0 0 1700 1010" role="img" aria-labelledby="title desc">
+<title id="title">Canal Marketplace · C4 nivel 2</title><desc id="desc">Contenedores de aplicación · Frontend, backend y persistencia propia</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker><marker id="planned" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b7791f"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="850.0" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#142e49">Canal Marketplace · C4 nivel 2</text>
+<text x="850.0" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526477">Contenedores de aplicación · Frontend, backend y persistencia propia</text>
+<rect x="295" y="160" width="1360" height="390" rx="16" fill="#f8fbff" stroke="#8ca4be" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="320" y="193" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#173655">Canal Marketplace · Grupo 1</text>
+<text x="320" y="218" text-anchor="start" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526477">React y Next.js pertenecen al repositorio frontend; NestJS tiene su propio repositorio.</text>
+<circle cx="137.5" cy="298" r="34" fill="#123f70"/><rect x="35" y="342" width="205" height="114" rx="39" fill="#123f70"/>
+<text x="137.5" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Cliente</text>
+<text x="137.5" y="396" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Persona]</text>
+<text x="137.5" y="421" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff">Navegador web</text>
+<rect x="345" y="300" width="260" height="180" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="475.0" y="331" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Interfaz web</text>
+<text x="475.0" y="356" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Contenedor · React 19]</text>
+<text x="475.0" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Páginas y componentes de la</text>
+<text x="475.0" y="406" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">experiencia de compra</text>
+<rect x="675" y="300" width="260" height="180" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="805.0" y="331" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Servidor y fachada</text>
+<text x="805.0" y="356" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Contenedor · Next.js 16]</text>
+<text x="805.0" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Páginas servidor y proxies</text>
+<text x="805.0" y="406" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">/api del canal</text>
+<rect x="1005" y="300" width="260" height="180" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="1135.0" y="331" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">API Marketplace</text>
+<text x="1135.0" y="356" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Contenedor · NestJS 11]</text>
+<text x="1135.0" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Servicios, validación y</text>
+<text x="1135.0" y="406" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">proveedores de demo</text>
+<path d="M1335 310 C1335 280 1595 280 1595 310 V455 C1595 488 1335 488 1335 455Z" fill="#1769b8" stroke="#0e4982" stroke-width="2"/><ellipse cx="1465.0" cy="310" rx="130.0" ry="25" fill="#428ad0" stroke="#0e4982" stroke-width="2"/>
+<text x="1465.0" y="361" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Base de datos</text>
+<text x="1465.0" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Almacén · PostgreSQL]</text>
+<text x="1465.0" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff">Datos propios mediante Prisma</text>
+<polyline points="240,390 345,390" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="262.74" y="359" width="58.52" height="21" rx="4" fill="#fff"/>
+<text x="292" y="373" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Usa UI</text>
+<polyline points="605,390 675,390" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="614.45" y="359" width="51.1" height="21" rx="4" fill="#fff"/>
+<text x="640" y="373" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Fetch</text>
+<polyline points="935,390 1005,390" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="948.16" y="359" width="43.68" height="21" rx="4" fill="#fff"/>
+<text x="970" y="373" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">JSON</text>
+<polyline points="1265,390 1335,390" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1270.74" y="359" width="58.52" height="21" rx="4" fill="#fff"/>
+<text x="1300" y="373" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Prisma</text>
+<polyline points="1135,480 1135,640" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<rect x="1016.7" y="589" width="236.60000000000002" height="21" rx="4" fill="#fff"/>
+<text x="1135" y="603" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Contratos reales por verificar</text>
+<polyline points="475,640 1465,640" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="475,640 475,760" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="438.32" y="693" width="73.36" height="21" rx="4" fill="#fff"/>
+<text x="475" y="707" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto</text>
+<rect x="345" y="760" width="260" height="140" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="475.0" y="791" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Seguridad y Usuarios</text>
+<text x="475.0" y="816" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="475.0" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Identidad y acceso</text>
+<polyline points="805,640 805,760" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="768.32" y="693" width="73.36" height="21" rx="4" fill="#fff"/>
+<text x="805" y="707" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto</text>
+<rect x="675" y="760" width="260" height="140" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="805.0" y="791" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Productos y Ofertas</text>
+<text x="805.0" y="816" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="805.0" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Catálogo, precios y stock</text>
+<polyline points="1135,640 1135,760" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="1098.32" y="693" width="73.36" height="21" rx="4" fill="#fff"/>
+<text x="1135" y="707" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto</text>
+<rect x="1005" y="760" width="260" height="140" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="1135.0" y="791" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Ventas y Postventa</text>
+<text x="1135.0" y="816" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="1135.0" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Pedido e historial</text>
+<polyline points="1465,640 1465,760" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="1428.32" y="693" width="73.36" height="21" rx="4" fill="#fff"/>
+<text x="1465" y="707" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto</text>
+<rect x="1335" y="760" width="260" height="140" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="1465.0" y="791" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Despacho y Entrega</text>
+<text x="1465.0" y="816" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="1465.0" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Cotización y envío</text>
+<text x="850" y="961" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#334155">Las conexiones de código no acreditan que el despliegue o la integración real estén completos.</text>
+</svg>

@@ -5,10 +5,16 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-037 / 0.1.0 / En revisión |
-| Objetivo académico | S2, semanas 9–11 |
+| Objetivo académico | S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-037-visualizar-favoritos.md), [UI](../../SPECS/ui/F-037-visualizar-favoritos.md), [API](../../SPECS/contrato-api/F-037-visualizar-favoritos.md), [React](../../SPECS/componentes-react/F-037-visualizar-favoritos.md) |
 | Ejecución y revisores | [Tareas de F-037](../seguimiento/F-037-visualizar-favoritos.md); responsable asignado por el PO: **Diego Espinoza**; revisor principal: **Fernando Saire**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+
+## Entrega de H4 y cierre objetivo
+
+**Objetivo de cierre H4.** Implementar lista por titular con enriquecimiento G6, precio/elegibilidad/vacío/error y aislamiento A/B; no copiar catálogo ajeno a BD G1.
+
+**Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. El PO establece disponibilidad sin restricción horaria; todo el trabajo propio definido se implementa y prueba en H4. Los límites son contrato, entorno, datos, autorizaciones y calidad. [Inventario H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md) y [S02](../iteraciones/S02-semanas-09-11.md). Registrar diseñado, implementado con datos de prueba, integrado con otro módulo y probado en el despliegue por separado; no inventar contrato ni liberar gates por planificar.
 
 ## 2. Objetivo y límites
 
@@ -31,7 +37,7 @@ GET propia lista; F-038/039 mutaciones actualizan colección. Sin sesión redire
 - Dependencias de comportamiento/flujo: [F-036](F-036-agregar-favorito.md).
 - Gates: I-01; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
 - Pendientes específicos: I-01; política mostrar/omitir producto retirado abierta V-009.
-- Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
+- Responsable/revisor confirman alcance, contrato y criterios de prueba; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
 
 ## 5. Fases, entregables y validación
@@ -63,4 +69,4 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 LOADING → READY | EMPTY | ERROR; item UNAVAILABLE distingue producto retirado de fallo global de catálogo.
 
-No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
+No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Los riesgos de contrato, entorno y calidad se revisan por operación, sin retirar esta funcionalidad por disponibilidad horaria.

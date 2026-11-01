@@ -13,6 +13,7 @@
 | Responsable | [Nombre] |
 | Revisor | [Nombre] |
 | Última actualización | [YYYY-MM-DD] |
+| Fecha de revisión | [YYYY-MM-DD] |
 
 ## 2. Objetivo y alcance
 

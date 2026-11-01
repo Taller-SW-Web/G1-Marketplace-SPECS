@@ -15,9 +15,9 @@
 | Entregables visuales | [V-006](../ui/vistas/V-006-catalogo-resultados.md) |
 | Frames Figma verificados | [Catálogo desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-881); [Catálogo mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-1026); [Resultados mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1734) — 14/10/2026, sin aprobación de fidelidad |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
-| Stack | React + TypeScript + Next.js App Router (decisión del PO, 2026-10-10); librería UI pendiente de DS-OPEN-03 y versiones/lockfile por validar |
-| Responsables de implementación | Propuesta explícita en [plan F-007](../../plan/funcionalidades/F-007-buscar-productos-texto.md); no reemplaza el reparto de mockups |
-| Iteración objetivo | S1 / H3, semanas 7–8 según reparto vigente; integración y aceptación pendientes |
+| Stack | React + TypeScript + Next.js App Router (PO, 2026-10-10); FE main@ec1acfb observado el 18/10: Next.js 16.4.1, React 19.3.1 y TypeScript 5.9.3 con lockfile; kit global pendiente de DS-OPEN-03. Es corte de código, no aprobación de esta spec |
+| Responsables de implementación | Asignación del PO en [plan F-007](../../plan/funcionalidades/F-007-buscar-productos-texto.md); no reemplaza el reparto de mockups |
+| Iteración objetivo | Sprint 2, sujeto a puertas de entrada y capacidad confirmada |
 
 ## 2. Rutas y pantallas
 
@@ -25,7 +25,7 @@
 |---|---|---|
 | `/catalogo?q=...` | Pública | `SearchBox` + `SearchResultsHeading` |
 
-Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop se produce primero; mobile sigue dentro del alcance, no se elimina ni se simula reduciendo el desktop.
+Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop y mobile siguen dentro del alcance; consultar frames y estados vigentes en las specs UI enlazadas. Mobile no se simula reduciendo el desktop.
 
 ## 3. Árbol de componentes
 

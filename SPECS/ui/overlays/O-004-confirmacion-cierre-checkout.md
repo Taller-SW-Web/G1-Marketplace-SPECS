@@ -14,7 +14,7 @@
 | Responsable | Giuliano Macchiavello |
 | Revisor | Jim Segovia |
 | Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Enlace de Figma | [Desktop/contexto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=456-2260) · [Diálogo](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=146-19); mobile pendiente de validación |
 
 ## 2. Propósito y trazabilidad
 

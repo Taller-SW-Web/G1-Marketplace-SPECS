@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1010" viewBox="0 0 1600 1010" role="img" aria-labelledby="title desc">
+<title id="title">Canal Marketplace · C4 nivel 1</title><desc id="desc">Contexto del sistema · Inka Athletics · Corte H3 del 17/10/2026</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker><marker id="planned" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b7791f"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="800.0" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#142e49">Canal Marketplace · C4 nivel 1</text>
+<text x="800.0" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526477">Contexto del sistema · Inka Athletics · Corte H3 del 17/10/2026</text>
+<circle cx="800.0" cy="147" r="34" fill="#123f70"/><rect x="675" y="191" width="250" height="114" rx="39" fill="#123f70"/>
+<text x="800.0" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Cliente / Visitante</text>
+<text x="800.0" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Persona]</text>
+<text x="800.0" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff">Explora y utiliza el canal de</text>
+<text x="800.0" y="289" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff">compra</text>
+<rect x="630" y="390" width="340" height="160" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="800.0" y="421" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Canal Marketplace</text>
+<text x="800.0" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema de software]</text>
+<text x="800.0" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Catálogo, ficha, carrito, favoritos,</text>
+<text x="800.0" y="496" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">checkout y consulta de pedidos</text>
+<polyline points="800,305 800,390" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="733.64" y="338" width="132.72" height="21" rx="4" fill="#fff"/>
+<text x="800" y="352" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Usa el canal web</text>
+<polyline points="800,550 800,625" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="195,625 1435,625" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="195,625 195,740" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="84.11999999999999" y="674" width="221.76000000000002" height="21" rx="4" fill="#fff"/>
+<text x="195" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto: Acceso e identidad</text>
+<rect x="60" y="740" width="270" height="170" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="195.0" y="771" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Seguridad y Usuarios</text>
+<text x="195.0" y="796" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="195.0" y="825" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Identidad, credenciales y</text>
+<text x="195.0" y="846" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">direcciones</text>
+<polyline points="505,625 505,740" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="394.12" y="674" width="221.76000000000002" height="21" rx="4" fill="#fff"/>
+<text x="505" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto: Consulta productos</text>
+<rect x="370" y="740" width="270" height="170" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="505.0" y="771" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Productos y Ofertas</text>
+<text x="505.0" y="796" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="505.0" y="825" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Catálogo, precios, ofertas y</text>
+<text x="505.0" y="846" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">stock</text>
+<polyline points="815,625 815,740" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="689.28" y="674" width="251.44" height="21" rx="4" fill="#fff"/>
+<text x="815" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto: Crea / consulta pedido</text>
+<rect x="680" y="740" width="270" height="170" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="815.0" y="771" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Ventas y Postventa</text>
+<text x="815.0" y="796" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="815.0" y="825" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Pedidos y comprobantes</text>
+<polyline points="1125,625 1125,740" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="1028.96" y="674" width="192.08" height="21" rx="4" fill="#fff"/>
+<text x="1125" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto: Consulta envío</text>
+<rect x="990" y="740" width="270" height="170" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="1125.0" y="771" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Despacho y Entrega</text>
+<text x="1125.0" y="796" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Sistema externo]</text>
+<text x="1125.0" y="825" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Cotización y seguimiento</text>
+<polyline points="1435,625 1435,740" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="1316.7" y="674" width="236.60000000000002" height="21" rx="4" fill="#fff"/>
+<text x="1435" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Previsto: Envía notificaciones</text>
+<rect x="1300" y="740" width="270" height="170" rx="13" fill="#fff2d6" stroke="#b7791f" stroke-width="2"/>
+<text x="1435.0" y="771" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#6b450d">Proveedor de correo</text>
+<text x="1435.0" y="796" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#6b450d">[Sistema externo]</text>
+<text x="1435.0" y="825" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">Proveedor pendiente de</text>
+<text x="1435.0" y="846" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">concretar</text>
+<text x="800" y="964" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#334155">Azul: sistema propio · Gris: sistema externo · Ámbar / línea discontinua: integración prevista</text>
+</svg>

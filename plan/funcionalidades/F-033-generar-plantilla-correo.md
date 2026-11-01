@@ -5,10 +5,16 @@
 | Campo | Valor |
 |---|---|
 | ID / versión / estado | F-033 / 0.1.0 / En revisión |
-| Objetivo académico | S3, semanas 12–13 |
+| Objetivo académico | S03, semanas 12–13; implementación y pruebas propias comienzan en H4 |
 | Entrada SDD | [Funcional](../../SPECS/funcional/F-033-generar-plantilla-correo.md), [UI](../../SPECS/ui/F-033-generar-plantilla-correo.md), [API](../../SPECS/contrato-api/F-033-generar-plantilla-correo.md), [React](../../SPECS/componentes-react/F-033-generar-plantilla-correo.md) |
 | Ejecución y revisores | [Tareas de F-033](../seguimiento/F-033-generar-plantilla-correo.md); responsable asignado por el PO: **Fernando Saire**; revisor principal: **Jim Segovia**. [Matriz de bloques](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base en la matriz; ejecución y evidencia pendientes. |
 | Plan general / seguridad | [Semanas 7–16](../PLAN-IMPLEMENTACION.md), [DevSecOps](../DEVSECOPS-Y-PRUEBAS.md) |
+
+## Entrega de H4 y cierre objetivo
+
+**Implementación propia y pruebas en H4; integración completa posterior.** Implementar plantillas accesibles server-only C-001/C-002 y render/pruebas con snapshot autorizado o fixture; no usar precios actuales G6 ni enviar correo fingido. Fuente/payload/motor G-MAIL condicionan cierre S03.
+
+**Cierre base:** S03, semanas 12–13; implementación y pruebas propias comienzan en H4. El PO establece disponibilidad sin restricción horaria; todo el trabajo propio definido se implementa y prueba en H4. Los límites son contrato, entorno, datos, autorizaciones y calidad. [Inventario H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md) y [S02](../iteraciones/S02-semanas-09-11.md). Registrar diseñado, implementado con datos de prueba, integrado con otro módulo y probado en el despliegue por separado; no inventar contrato ni liberar gates por planificar.
 
 ## 2. Objetivo y límites
 
@@ -31,7 +37,7 @@ F-034/F-035 worker invoca renderer interno. React Email u otra librería no eleg
 - Dependencias de comportamiento/flujo: base técnica y contratos aplicables; no otra funcionalidad obligatoria.
 - Gates: G-MAIL; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
 - Pendientes específicos: C-001/C-002, proveedor y motor render por confirmar.
-- Responsable/revisor confirman disponibilidad, estimación y criterio; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
+- Responsable/revisor confirman alcance, contrato y criterios de prueba; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
 
 ## 5. Fases, entregables y validación
@@ -64,4 +70,4 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 VALID_INPUT → RENDERED | RENDER_FAILED; recomendaciones vacías/fallidas omiten sección sin impedir correo.
 
-No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Riesgo de capacidad/fecha se revisa cada sprint sin retirar esta funcionalidad ocultamente.
+No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Los riesgos de contrato, entorno y calidad se revisan por operación, sin retirar esta funcionalidad por disponibilidad horaria.

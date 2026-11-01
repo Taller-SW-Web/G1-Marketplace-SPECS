@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1260" viewBox="0 0 1800 1260" role="img" aria-labelledby="title desc">
+<title id="title">Canal Marketplace · C4 nivel 3B</title><desc id="desc">Componentes del backend · API NestJS y proveedores de demostración</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker><marker id="planned" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b7791f"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="900.0" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#142e49">Canal Marketplace · C4 nivel 3B</text>
+<text x="900.0" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526477">Componentes del backend · API NestJS y proveedores de demostración</text>
+<rect x="45" y="270" width="1700" height="885" rx="16" fill="#f8fbff" stroke="#8ca4be" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="70" y="303" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#173655">API Marketplace · NestJS</text>
+<text x="70" y="328" text-anchor="start" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526477">Controladores y servicios por funcionalidad; datos propios separados de los proveedores externos</text>
+<rect x="690" y="110" width="420" height="120" rx="13" fill="#6b7280" stroke="#4b5563" stroke-width="2"/>
+<text x="900.0" y="141" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Fachada web</text>
+<text x="900.0" y="166" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Contenedor · Next.js /api]</text>
+<text x="900.0" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Solicitudes del navegador</text>
+<rect x="690" y="375" width="420" height="135" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="900.0" y="406" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Controladores REST</text>
+<text x="900.0" y="431" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · NestJS / DTO]</text>
+<text x="900.0" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Catálogo, acceso, carrito, favoritos, checkout y</text>
+<text x="900.0" y="481" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">pedidos</text>
+<rect x="1300" y="375" width="350" height="135" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="1475.0" y="406" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Identidad y autorización</text>
+<text x="1475.0" y="431" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · Guards]</text>
+<text x="1475.0" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Valida tokens y principal en rutas</text>
+<text x="1475.0" y="481" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">protegidas</text>
+<polyline points="900,230 900,375" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="859.61" y="324" width="80.78" height="21" rx="4" fill="#fff"/>
+<text x="900" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">HTTP JSON</text>
+<polyline points="1110,442 1300,442" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1138.64" y="410" width="132.72" height="21" rx="4" fill="#fff"/>
+<text x="1205" y="424" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Rutas protegidas</text>
+<polyline points="900,510 900,585" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+<rect x="826.22" y="548" width="147.56" height="21" rx="4" fill="#fff"/>
+<text x="900" y="562" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Delega a servicios</text>
+<polyline points="230,585 1550,585" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="230,585 230,650" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="90" y="650" width="280" height="165" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="230.0" y="681" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Detalle y acceso</text>
+<text x="230.0" y="706" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">[Componente]</text>
+<text x="230.0" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Ficha F-011 y validación F-002</text>
+<text x="230.0" y="756" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">con datos de prueba</text>
+<polyline points="560,585 560,650" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="420" y="650" width="280" height="165" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="560.0" y="681" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Carrito</text>
+<text x="560.0" y="706" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">[Componente]</text>
+<text x="560.0" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Ítems y estado de carrito</text>
+<polyline points="890,585 890,650" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="750" y="650" width="280" height="165" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="890.0" y="681" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Favoritos</text>
+<text x="890.0" y="706" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">[Componente]</text>
+<text x="890.0" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Guardar, leer y coordinar con</text>
+<text x="890.0" y="756" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">carrito</text>
+<polyline points="1220,585 1220,650" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1080" y="650" width="280" height="165" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="1220.0" y="681" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Checkout</text>
+<text x="1220.0" y="706" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">[Componente]</text>
+<text x="1220.0" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Preparación, resumen e</text>
+<text x="1220.0" y="756" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">idempotencia</text>
+<polyline points="1550,585 1550,650" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1410" y="650" width="280" height="165" rx="13" fill="#e9f2fc" stroke="#4b81b5" stroke-width="2"/>
+<text x="1550.0" y="681" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#173655">Historial</text>
+<text x="1550.0" y="706" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#173655">[Componente]</text>
+<text x="1550.0" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">Proyección de pedidos del</text>
+<text x="1550.0" y="756" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#173655">titular de prueba</text>
+<polyline points="750,730 700,730" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="135" y="980" width="490" height="135" rx="13" fill="#fff2d6" stroke="#b7791f" stroke-width="2"/>
+<text x="380.0" y="1011" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#6b450d">Proveedores de demostración</text>
+<text x="380.0" y="1036" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#6b450d">[Componentes · MOCK]</text>
+<text x="380.0" y="1065" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">Fixtures, puertos sandbox, MarketplaceGateway y</text>
+<text x="380.0" y="1086" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#6b450d">MockHttpAdapter</text>
+<rect x="1090" y="980" width="490" height="135" rx="13" fill="#1769b8" stroke="#0e4982" stroke-width="2"/>
+<text x="1335.0" y="1011" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">Persistencia propia</text>
+<text x="1335.0" y="1036" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Componente · Prisma / repositorios]</text>
+<text x="1335.0" y="1065" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#ffffff">Carrito, favoritos y operación de checkout</text>
+<path d="M1320 125 C1320 95 1690 95 1690 125 V205 C1690 238 1320 238 1320 205Z" fill="#1769b8" stroke="#0e4982" stroke-width="2"/><ellipse cx="1505.0" cy="125" rx="185.0" ry="25" fill="#428ad0" stroke="#0e4982" stroke-width="2"/>
+<text x="1505.0" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">PostgreSQL</text>
+<text x="1505.0" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#ffffff">[Almacén de datos]</text>
+<text x="1505.0" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff">Esquema propio</text>
+<polyline points="230,815 230,866" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="890,815 890,866" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="1220,815 1220,866" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="1550,815 1550,866" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="230,866 1550,866" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<polyline points="380,866 380,980" fill="none" stroke="#b7791f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#planned)"/>
+<rect x="317.35" y="920" width="125.30000000000001" height="21" rx="4" fill="#fff"/>
+<text x="380" y="934" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#b7791f">Datos de prueba</text>
+<polyline points="576,815 576,924" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="906,815 906,924" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1236,815 1236,924" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="576,924 1335,924" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1335,924 1335,980" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1389.77" y="937" width="110.46000000000001" height="21" rx="4" fill="#fff"/>
+<text x="1445" y="951" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Lee y escribe</text>
+<polyline points="1580,1047 1777,1047 1777,185 1690,185" fill="none" stroke="#475569" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1690.74" y="661" width="58.52" height="21" rx="4" fill="#fff"/>
+<text x="1720" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#475569">Prisma</text>
+<text x="900" y="1210" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#334155">MOCK: respuesta sintética · El esquema no acredita integraciones reales ni un worker de correo operativo.</text>
+</svg>

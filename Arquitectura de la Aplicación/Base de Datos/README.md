@@ -10,6 +10,7 @@ Esta carpeta contiene la base arquitectónica de la Fase 2.6 del proceso SDD. No
 | [02-Matriz-de-integracion-y-contratos.md](02-Matriz-de-integracion-y-contratos.md) | Matriz de ownership, identificadores y contratos entre Marketplace y otros módulos. |
 | [03-Decisiones-y-brechas-de-integracion.md](03-Decisiones-y-brechas-de-integracion.md) | Decisiones que refinan el modelo y acuerdos que aún requieren homologación externa. |
 | [04-esquema-inicial-postgresql.sql](04-esquema-inicial-postgresql.sql) | Esquema físico inicial ejecutable para PostgreSQL 16. |
+| [05-Propuesta-sesion-temporal-H4.md](05-Propuesta-sesion-temporal-H4.md) | Excepción propuesta para sesión temporal cifrada del BFF; revisión y despliegue pendientes, fuera de la línea base SQL inicial de seis tablas. |
 | [documentacion/](documentacion/README.md) | Guía técnica para desarrolladores, diccionario de datos, operación y diagramas Mermaid. |
 
 ## Alcance y estado

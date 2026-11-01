@@ -2,7 +2,7 @@
 
 Esta carpeta convierte el inventario visual aprobado documentalmente en cinco paquetes ejecutables. Cada paquete reúne las specs, los frames exactos, las dependencias compartidas, las decisiones abiertas y el orden de trabajo de una persona. **Estos paquetes asignan autoría de diseño visual; la implementación FE+BE se rige por la [matriz punta a punta](../../RESPONSABILIDADES-PUNTA-A-PUNTA.md) y sus paquetes en plan.**
 
-Los mockups se trabajarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394). La biblioteca visual permanece en el archivo [Sistema de Diseño](../DS-001-sistema-diseno-marketplace.md). El archivo [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) ya está identificado y se verificaron los enlaces de [V-005](../vistas/V-005-inicio.md) y [V-006](../vistas/V-006-catalogo-resultados.md) en la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3). Los enlaces de otros entregables y su aprobación permanecen pendientes de verificación.
+Los mockups se trabajarán en la [carpeta de vistas de Figma](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394). La biblioteca visual permanece en el archivo [Sistema de Diseño](../DS-001-sistema-diseno-marketplace.md). El archivo [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) ya está identificado y se verificaron los enlaces de [V-005](../vistas/V-005-inicio.md) y [V-006](../vistas/V-006-catalogo-resultados.md) en la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3). Esa carpeta no sustituye los enlaces directos a frames en las specs; Checkout V-010–V-014 ya enlaza muestras verificadas, mientras las demás vistas se revisan por separado.
 
 ## Reglas comunes
 
@@ -10,7 +10,7 @@ Los mockups se trabajarán en la [carpeta de vistas de Figma](https://www.figma.
 2. Leer la spec enlazada antes de crear sus frames; la lista de este paquete es un índice de ejecución, no un reemplazo de la spec.
 3. Mantener literalmente el nombre de cada frame para conservar trazabilidad entre Markdown y Figma.
 4. Crear desktop y mobile como composiciones propias; no reducir mecánicamente una versión para obtener la otra.
-   El paquete de Jim (`V-010` a `V-014`) se está produciendo primero en desktop; mobile seguirá después y continúa dentro del alcance.
+   La secuencia desktop primero del paquete de Jim (`V-010` a `V-014`) fue el plan del 1/10. La [verificación del 18/10](../../../plan/AUDITORIA-ISSUE-5.md) encontró frames mobile en las cinco vistas, con dos estados mobile específicos todavía ausentes.
 5. Reutilizar instancias de la biblioteca compartida. Un componente transversal se define una sola vez y su dueño coordina los cambios con los consumidores.
 6. No inventar una respuesta para una decisión `OPEN`: resolverla con su responsable o tratarla como supuesto explícito y reversible.
 7. El autor realiza la primera verificación; el revisor cruza spec, estados, responsive, accesibilidad y nombres de frames.

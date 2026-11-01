@@ -7,3 +7,6 @@ Ajuste 16/10/2026 solicitado por Giuliano, en revisión: `ProductCardDTO.image` 
 - [ ] **API-CA-F006-01:** No devuelve datos administrativos.
 
 **Prueba de entorno 17/10/2026:** el [ensayo conectado](../../plan/evidencias/H3-GIULIANO/H3-G6-DEMO-2026-10-17.md) verifica categorías 200 REAL en el proyecto usando el modo temporal sin JWT publicado por G6 (PR #130). El DTO público y la ausencia de destacados inventados se conservan. Esta excepción de demo se selecciona en Backend con `PRODUCTOS_AUTH_MODE=demo-no-auth`; no modifica el requisito de token del modo predeterminado ni acredita autenticación G7, homologación o aceptación del criterio.
+
+
+Alineación del 28/10/2026: [errores, metadatos y límites comunes de catálogo H4](CATALOGO-H4-ERRORES-Y-METADATOS.md). La distinción pública de timeout usa 503/CATALOG_TIMEOUT; otras indisponibilidades conservan 503/CATALOG_UNAVAILABLE. Home/filtros rechazan query. No implica aceptación ni liberación de I-01.
