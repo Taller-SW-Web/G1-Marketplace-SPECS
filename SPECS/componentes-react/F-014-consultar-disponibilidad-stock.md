@@ -7,7 +7,7 @@
 | Campo | Valor |
 |---|---|
 | ID funcional | `F-014` |
-| Versión / estado | `0.2.0` / En revisión; cuarto estado pendiente de homologación `G-G6-COMPAT` |
+| Versión / estado | `0.2.0` / En revisión; cuarto estado alineado con M01 de G6; aprobación G1 e integración pendientes |
 | Fecha | 2026-10-02 |
 | Funcional | [F-014](../funcional/F-014-consultar-disponibilidad-stock.md) |
 | UI funcional | [F-014](../ui/F-014-consultar-disponibilidad-stock.md) |
@@ -108,7 +108,11 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01, ruta de abastecimiento única por SKU (D-INV-01) y conformidad G6 del cuarto estado (`G-G6-COMPAT`).
+I-01, prueba del contexto de cumplimiento y aprobación G1 de este corte. G6 ya comunicó conformidad con el cuarto estado en M01; no se infiere el grant o despliegue a partir de esa conformidad.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 
+
+## Contraste con G6 — 03/11/2026
+
+Fuente: [M01–M03 del acuerdo G1/G6](https://github.com/Taller-SW-Web/G6-Productos-Ofertas-docs/blob/40b566976fb94d924116dcd01d41b3276c2bc9e3/integraciones/ACUERDO_G1_G6_H4_2026-10-20.md). Se adopta la semántica del owner para avanzar diseño y pruebas propias. El código local/MOCK no acredita homologación REAL ni cierra la issue. Se conserva fuente única de cumplimiento; no se suman ubicaciones ni se garantiza cantidad por consultar un estado.
