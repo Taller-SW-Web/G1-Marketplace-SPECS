@@ -10,3 +10,11 @@ Ajuste 16/10/2026 solicitado por Giuliano, en revisión: `ProductCardDTO.image` 
 
 
 Alineación del 28/10/2026: [errores, metadatos y límites comunes de catálogo H4](CATALOGO-H4-ERRORES-Y-METADATOS.md). La distinción pública de timeout usa 503/CATALOG_TIMEOUT; otras indisponibilidades conservan 503/CATALOG_UNAVAILABLE. Home/filtros rechazan query. No implica aceptación ni liberación de I-01.
+
+## Preparación editorial — 03/11/2026
+
+Se preparó la propuesta de selección ordenada por IDs en configuración de G1. El adaptador usa la operación comercial publicada `GET /api/v1/productos/{productoId}?canal=MARKETPLACE`; valida identidad y proyecta el mismo ProductCardDTO. No se añade un campo público de configuración ni se inventa una ruta del owner.
+
+La propuesta tiene máximo técnico de ocho IDs, sin duplicados, tres lecturas simultáneas y un deadline compartido de Home. Se omiten ausencia comercial confirmada, inactividad conocida o slug no publicable; fallos técnicos e imágenes inseguras mantienen error. REAL exige habilitación y aprobación editorial explícitas además de I-01. Los defaults mantienen la selección desactivada.
+
+La demo usa dos IDs sintéticos y no requiere fingir aprobación del grupo. La elección real de IDs, su mantenimiento editorial y la aceptación de la política vacía siguen pendientes. Esta preparación no libera G-FEATURED ni cambia el DTO o el nivel de evidencia.
