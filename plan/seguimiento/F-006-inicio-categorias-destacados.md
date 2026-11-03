@@ -45,42 +45,42 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 - **Trabajo:** Implementar HomePageContainer, CategoryGrid, FeaturedProducts y todos los estados de React/UI.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
 - **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
+- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-BE-001
 
 - **Trabajo:** Adaptar home Catálogo, filtrar tarjetas/categorías activas completas y permitir listas vacías.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
 - **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
+- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-INT-001
 
 - **Trabajo:** Homologar y probar integración real y condiciones: I-01; no sólo fixture.
 - **Terminado cuando:** Contrato/configuración y gates enlazados, pruebas positivas/negativas y timeout autorizadas pasan; evidencia distingue sandbox de mock.
 - **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Liberar I-01 con contrato/configuración autorizada, grant técnico y positivos/negativos/timeout desde web→BFF→G6. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
+- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Liberar I-01 con contrato/configuración autorizada, grant técnico y positivos/negativos/timeout desde web→BFF→G6. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-QA-001
 
 - **Trabajo:** Probar ambos arreglos vacíos ofrecen catálogo; error no rompe cabecera; categoría genera URL válida; favorito sin sesión abre O-003; incluir cada estado visual y transición documentada.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
 - **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
+- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-QA-002
 
 - **Trabajo:** Producto inactivo no publicable, enlaces hero seguros y medios allowlist.
 - **Terminado cuando:** Negativos de seguridad pasan en entorno propio/autorizado, scans SAST/SCA/secrets y DAST aplicable adjuntos sin secretos. Sin hallazgo crítico/alto explotable abierto.
 - **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Completar DAST aplicable en staging autorizado y revisión independiente de riesgos; los scans locales/CI no certifican ese paso. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
+- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Completar DAST aplicable en staging autorizado y revisión independiente de riesgos; los scans locales/CI no certifican ese paso. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 ### TASK-F006-DOC-001
 
 - **Trabajo:** Actualizar trazabilidad specs↔implementación↔pruebas, enlaces Figma y decisiones resueltas; documentar operación/errores relevantes.
 - **Terminado cuando:** Fuentes vigentes coherentes, evidencias reales y revisión independiente; no marcar funcionalidad terminada con integración pendiente.
 - **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Validación independiente de la documentación y cierre de INT/QA-001/QA-002 de esta misma función. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
+- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Validación independiente de la documentación y cierre de INT/QA-001/QA-002 de esta misma función. Faltan curaduría/campos de destacados (G-FEATURED, Jim/PO y G6) y aceptación del recorrido de favoritos/autenticación aplicable.
 
 
 ## Avance H4 de Giuliano — 26/10/2026
@@ -110,3 +110,8 @@ Actualizar filas existentes; no crear un segundo conjunto de tareas por variante
 ## Revisión conjunta local con Jim — registro 28/10/2026
 
 Jim comunicó conformidad con el recorrido local de F-006–F-010 en escritorio y móvil, según el mensaje aportado por Giuliano. [Constancia y límites](../evidencias/H4-GIULIANO-REVISION-CONJUNTA-JIM-2026-10-28.md). La revisión técnica de PR corresponde a Sebas en Frontend y Leo en Backend/contrato, según el circuito indicado. La nota registra evidencia funcional local; despliegue, JWT, marcas y precio conservan sus requisitos. El revisor de la matriz de tareas se conserva mientras no exista una actualización formal de esa asignación.
+
+
+## Reconciliación por issue — 03/11/2026
+
+[Evidencia actualizada y bloqueos](../evidencias/H4-GIULIANO-F006-2026-11-03.md). Los registros del 26–28/10 son históricos. Nuevos cambios propios preparados y probados; las seis issues permanecen abiertas conforme a su DoD.
