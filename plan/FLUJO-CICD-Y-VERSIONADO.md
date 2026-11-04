@@ -79,11 +79,12 @@ Notas:
 
 | Elemento | Estado |
 |---|---|
-| Workflows `cicd.yml`, `.releaserc.json` y `docs/CICD-H4.md` en FE y BE | Fusionados a `develop` (ver PR de cada repo) |
-| Build, Compile y Test en GitHub Actions | Verificado en las PR |
-| Versionado, imagen Docker, Deploy y Smoke test | Se ejecutan por primera vez al fusionar; confirmar el resultado en la pestaña *Actions* |
-| Secretos `RENDER_DEPLOY_HOOK_URL` y `VERCEL_DEPLOY_HOOK_URL` | **Pendiente**: sin ellos el job Deploy falla a propósito |
-| Desactivar auto-deploy de Render y Vercel | **Pendiente**: hasta entonces el proveedor también despliega por su cuenta al hacer push |
-| Versión base | Primera versión automática: **1.0.0** |
+| Workflows `cicd.yml`, `.releaserc.json` y `docs/CICD-H4.md` en FE y BE | Fusionados a `develop` |
+| Build, Compile y Test | Verificado en GitHub Actions (PR y push) |
+| Versionado semántico | Verificado: primera versión `v1.0.0`; un `fix:` posterior generó `v1.0.1` en BE |
+| Imagen Docker etiquetada con la versión | Verificado en BE y FE (`ghcr.io/taller-sw-web/g1-marketplace-*`) |
+| Secretos `RENDER_DEPLOY_HOOK_URL` y `VERCEL_DEPLOY_HOOK_URL` | Configurados |
+| Deploy por hook y Smoke test | Verificado: ambos jobs en verde en BE y FE |
+| Desactivar auto-deploy de Render y Vercel | **Por confirmar**: mientras siga activo, cada push despliega también por el proveedor |
 
-Actualizar esta tabla cuando se cierren los pendientes.
+Actualizar esta tabla si cambia la configuración.
