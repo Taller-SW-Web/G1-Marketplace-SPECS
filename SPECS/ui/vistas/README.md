@@ -32,12 +32,14 @@ El diseño puede avanzar por etapas sin cambiar ese alcance. La afirmación ante
 
 ## Inventario vigente
 
+**Cambio de alcance F-004/F-005:** V-003 y V-004 permanecen en el inventario como referencias de los frames G1 anteriores. Las rutas de recuperación y reset del recorrido elegido viven en la SPA G7; G1 conserva la entrada desde V-001 y verifica el retorno. Ver [decisión PO 26/10/2026](../../../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md). Los enlaces de Figma G1 no son aceptación de la UI G7.
+
 | ID | Vista | Ruta | Funcionalidades | Archivo | Estado |
 |---|---|---|---|---|---|
 | `V-001` | Inicio de sesión | `/login` | F-002, F-020 | [`V-001-inicio-sesion.md`](./V-001-inicio-sesion.md) | En revisión |
 | `V-002` | Registro | `/registro` | F-001 | [`V-002-registro.md`](./V-002-registro.md) | En revisión |
-| `V-003` | Recuperación de contraseña | `/recuperar-contrasena` | F-004 | [`V-003-recuperacion-contrasena.md`](./V-003-recuperacion-contrasena.md) | En revisión |
-| `V-004` | Restablecimiento de contraseña | `/restablecer-contrasena` | F-005 | [`V-004-restablecimiento-contrasena.md`](./V-004-restablecimiento-contrasena.md) | En revisión |
+| `V-003` | Recuperación de contraseña, referencia G1 | `/recuperar-contrasena` en G7 | F-004 | [`V-003-recuperacion-contrasena.md`](./V-003-recuperacion-contrasena.md) | En revisión; UI final G7 |
+| `V-004` | Restablecimiento de contraseña, referencia G1 | `/restablecer-contrasena` en G7 | F-005 | [`V-004-restablecimiento-contrasena.md`](./V-004-restablecimiento-contrasena.md) | En revisión; UI final G7 |
 | `V-005` | Inicio | `/` | F-006, F-036 | [`V-005-inicio.md`](./V-005-inicio.md) | En revisión |
 | `V-006` | Catálogo y resultados | `/catalogo` | F-007–F-010, F-036 | [`V-006-catalogo-resultados.md`](./V-006-catalogo-resultados.md) | En revisión |
 | `V-007` | Ficha del producto | `/productos/{slug}` | F-011–F-016, F-036 | [`V-007-ficha-producto.md`](./V-007-ficha-producto.md) | En revisión |

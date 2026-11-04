@@ -2,6 +2,8 @@
 
 Versión 0.7.0 · Replanificado el 2026-10-19; corte técnico 2026-10-18 contra FE `main@ec1acfb` y BE `main@c7e8e8e`. El reparto y la estimación base fueron decididos por el PO el 2026-10-13. El [corte H3](CORTE-H3-Y-TRASPASO-H4.md) separa evidencia de código, ejecución local, integración y nube; la existencia de un contrato o PR no cierra un gate.
 
+**Actualización F-004/F-005 (26–27/10/2026):** la [decisión del PO](coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md) asigna formularios de recuperación y reset a la SPA G7; G1 conserva entrada, BFF, integración y retorno al login Marketplace. G7 confirmó v1 desplegada y la API web G1 obtuvo 202 con correo y 204 con cambio efectivo, pero la entrada publicada de G1 aún muestra formulario propio y G7 vuelve a su login local. Por ello los textos históricos sobre ausencia de controladores y flags apagados describen cortes anteriores; no liberan G-AUTH ni cierran F-004/F-005. Faltan retorno implementado, negativos, UI real y revisión independiente.
+
 ## Integraciones externas: evidencia pendiente, no solicitudes nuevas
 
 Fuente: [brechas BD/integración](../Arquitectura%20de%20la%20Aplicación/Base%20de%20Datos/03-Decisiones-y-brechas-de-integracion.md) y contratos F individuales. Se respeta el acuerdo de verificación de Seguridad registrado en F-001; los estados siguientes no significan que nadie haya respondido, sino que **falta registrar contrato/configuración/prueba suficiente en repo para activar integración**.

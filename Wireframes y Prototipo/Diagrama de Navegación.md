@@ -1,6 +1,6 @@
 # Diagrama de navegación vigente del Marketplace
 
-Este documento representa la navegación entre las 17 vistas vigentes y sus relaciones principales con overlays y comunicaciones. Los IDs y rutas proceden del [`catálogo de vistas`](../SPECS/ui/vistas/README.md); el comportamiento detallado continúa definido por las specs `F-001` a `F-040`.
+Este documento representa la navegación del Marketplace y sus relaciones principales con overlays y comunicaciones. Los IDs y rutas proceden del [`catálogo de vistas`](../SPECS/ui/vistas/README.md); el comportamiento detallado continúa definido por las specs `F-001` a `F-040`. Para F-004/F-005, la [decisión PO 26/10](../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md) traslada V-003/V-004 a la SPA G7 como vistas externas de referencia; el retorno a G1 aún requiere implementación y prueba.
 
 ## Convenciones
 
@@ -16,8 +16,8 @@ flowchart TD
     subgraph ACCESO["Cuenta y acceso"]
         V001["V-001 · Login<br/>/login"]
         V002["V-002 · Registro<br/>/registro"]
-        V003["V-003 · Recuperación<br/>/recuperar-contrasena"]
-        V004["V-004 · Restablecimiento<br/>/restablecer-contrasena"]
+        V003["V-003 · Recuperación SPA G7<br/>/recuperar-contrasena"]
+        V004["V-004 · Restablecimiento SPA G7<br/>/restablecer-contrasena"]
     end
 
     subgraph DESCUBRIMIENTO["Descubrimiento y producto"]
@@ -54,7 +54,7 @@ flowchart TD
     V001 -->|"Olvidé mi contraseña"| V003
     V003 -.->|"Enlace recibido por correo"| V004
     V003 -->|"Volver"| V001
-    V004 -->|"Contraseña actualizada"| V001
+    V004 -.->|"Retorno permitido pendiente de prueba"| V001
     V001 -.->|"Éxito: volver al origen"| V005
 
     V005 -->|"Abrir carrito"| V008

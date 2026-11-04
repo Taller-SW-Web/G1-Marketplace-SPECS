@@ -12,7 +12,7 @@ Versión 0.2.0 · Avance local H4 · integración REAL y revisión humana pendie
 
 ## Corte planificado de H4
 
-**Objetivo de cierre H4.** Implementar restablecimiento UI+BFF y política de contraseña G7; probar enlace/token válido, vencido y usado, errores neutros y retorno al login sin sesión implícita.
+**Objetivo de cierre H4 actualizado por el PO el 26/10/2026.** G7 opera restablecimiento y política en su SPA; G1 conserva el adaptador BFF y comprueba la integración API y el retorno al login Marketplace. Probar enlace/token válido, vencido y usado, errores neutros y ausencia de sesión implícita. [Decisión y evidencia vigente](../coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md).
 
 **Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. Disponibilidad sin restricción horaria por decisión del PO. Las entregas «local» o «con dobles» son etapas del mismo TASK, no cierres de INT. DOC prepara desde specs y QA ejecuta casos propios antes de INT; el cierre completo conserva dependencias/DoD. [Alcance H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md). Los estados no cambian al replanificar.
 
@@ -42,7 +42,7 @@ Referente de BD: Jim Segovia para este bloque, con revisión de Andres Morales; 
 
 ### TASK-F005-FE-001
 
-- **Trabajo:** Implementar ResetPasswordForm, ResetLinkOutcome y todos los estados de React/UI.
+- **Trabajo vigente:** Tratar la ruta/formulario G1 anterior para que el enlace con token permanezca en la SPA G7; probar el regreso G7 → login G1. `ResetPasswordForm` y `ResetLinkOutcome` quedan como implementación histórica.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
 - **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
 - **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
@@ -63,7 +63,7 @@ Referente de BD: Jim Segovia para este bloque, con revisión de Andres Morales; 
 
 ### TASK-F005-QA-001
 
-- **Trabajo:** Probar sin token no llama API; 401 y 410 ofrecen nuevo enlace; 422 no muestra token; 204 no crea sesión; incluir cada estado visual y transición documentada.
+- **Trabajo vigente:** Probar en G7 enlace/token válido, vencido y usado, política y estados visuales; en G1, retorno al login sin sesión ni token. Conservar casos API del adaptador G1: 401/410/422/204 y ausencia de sesión implícita.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
 - **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
 - **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.

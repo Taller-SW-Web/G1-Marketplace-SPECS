@@ -1,6 +1,6 @@
 # Spec de componentes React — F-004 Solicitar recuperación de contraseña
 
-> Traducción técnica de las specs vigentes; no es código implementado ni aprobación de un contrato externo pendiente.
+> **Alcance actualizado por el PO el 26/10/2026:** el formulario de recuperación y su confirmación pertenecen a la SPA G7. Las secciones de `RecoveryForm`, `RecoveryAcknowledgement` y sus casos de componente describen la implementación G1 anterior; ya no son la composición web objetivo. G1 debe probar la entrada desde login hacia G7, la disponibilidad y el retorno seguro. Véase [decisión y gates](../../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md). Esta spec no certifica código ni integración.
 
 ## 1. Metadatos y trazabilidad
 
@@ -22,7 +22,9 @@
 
 | Ruta / superficie | Acceso | Composición |
 |---|---|---|
-| `/recuperar-contrasena` | Pública | `RecoveryForm` + `RecoveryAcknowledgement` |
+| Login G1 → `/recuperar-contrasena` de G7 | Pública | Enlace o acción de salida a origen G7 configurado; formularios y confirmación en G7. |
+
+La ruta homónima de G1, si se conserva por compatibilidad, debe conducir al destino G7 sin formulario competidor ni `returnUrl` controlada por el navegador. El árbol de componentes y los contratos de `RecoveryForm` siguientes quedan como referencia histórica del código ya preparado, sujetos a reemplazo en G1 FE; no son nuevos entregables de cierre.
 
 Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un nuevo ID V para un estado de la misma pantalla. Desktop y mobile siguen dentro del alcance; consultar frames y estados vigentes en las specs UI enlazadas. Mobile no se simula reduciendo el desktop.
 
@@ -51,7 +53,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Correo en memoria durante la interacción; no persistir en almacenamiento web.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** Mutation sin cachear correo ni resultado por usuario.
-- **Flujo específico:** 202 muestra el mismo copy y composición exista o no cuenta. No invocar email/provider ni crear token desde frontend.
+- **Flujo específico vigente:** G1 inicia la navegación segura a la SPA G7. G7 muestra el 202 neutro exista o no cuenta y administra correo/token. G1 no invoca email/provider ni crea token desde frontend.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -66,7 +68,7 @@ Formato email, sin consulta de existencia. Retry-After sólo si lo publica servi
 
 ### Operaciones documentadas
 
-- `POST /api/v1/password/recuperar`
+- `POST /api/v1/password/recuperar` permanece como adaptador BFF y caso API G1, no como operación obligatoria de la UI G1 en el recorrido acordado.
 
 Auth y rutas `/password` se traducen mediante el límite de integración aprobado; no se presupone que ya exista proxy BFF ni CORS habilitado. Rutas `/internal` jamás se consumen desde el navegador. Header, request y response exactos pertenecen al contrato API, no a las props.
 
@@ -97,7 +99,7 @@ EDITING → REQUESTING → ACCEPTED | RATE_LIMITED | ERROR; 429 conserva correo 
 | Transporte | Fixture de éxito, vacío/no aplicable, validación, autorización, conflicto, timeout y fallo externo que realmente correspondan al contrato. |
 | Accesibilidad | Teclado/foco, nombre de controles, anuncios y contraste; pruebas automáticas más revisión manual. |
 
-Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del adaptador externo sólo al cerrar la homologación aplicable. Una demo con mocks no acredita integración real.
+Los casos `RC-F-004-*` de formulario G1 son regresión de la implementación anterior, no sustituyen pruebas de la entrada G1 → G7 ni del 202/429 en la SPA G7. Probar la salida de login con desktop/mobile, teclado, URL confiable, error de disponibilidad y retorno seguro; probar el adaptador BFF por API de forma separada. Una demo con mocks no acredita integración real.
 
 ## 9. Criterios de aceptación técnica
 

@@ -28,6 +28,8 @@ Se conservan dueños/revisores funcionales y visuales. [S02](../plan/iteraciones
 | Persona | Funciones y entrega propia H4 | Transversal / revisor |
 |---|---|---|
 | Jim | F-001–F-005: 5 cierres principales G7 | AUTH-001 / Andres; coordinación y correcciones visuales Checkout / Fernando |
+
+Para F-004/F-005, la [decisión del PO del 26/10/2026](../plan/coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md) asigna la interfaz de recuperación y restablecimiento a G7. Jim conserva la entrada G1, el adaptador BFF, integración, QA y evidencia de retorno a Marketplace; Andrés revisa G1. Esta distribución no declara cerradas las cinco funciones.
 | Giuliano | F-006–F-010: 5 cierres principales G6 | Casos/mapeos catálogo y revisión detalle |
 | Sebastian | F-011–F-015: 5 cierres principales G6 | API-002 / Leonidas; DOC-001 / Jim |
 | Andres | F-016–F-021: 6 cierres principales carrito/G6/G7 | DB/CI OPS-001/002 y SEC-001 / Leonidas; Fernando colabora build/deploy/runtime |

@@ -58,7 +58,7 @@ Las 20 F del circuito son principales H4; F-023–F-026/F-031 reciben implementa
 | F y dueño | Relación con Productos y avance H4 | Cierre base |
 |---|---|---|
 | F-001–F-003 · Jim | Sin G6; implementar/integrar registro, verificación/retorno, login/MFA efectivo, refresh/logout y protección UI/API G7 | H4 |
-| F-004/F-005 · Jim | Sin G6; implementar UI/BFF y recuperación/restablecimiento G7, enlace/correo/expiración/usado y antienumeración. Si falta provider, conservar INT bloqueada | H4, adelantadas desde S05 |
+| F-004/F-005 · Jim | Sin G6; por decisión PO 26/10, G7 opera UI de recuperación/reset y G1 implementa entrada desde Marketplace, conserva BFF e integra/prueba retorno, enlace/correo/expiración/usado y antienumeración. [Alcance vigente](coordinacion/G7-F004-F005-ALCANCE-2026-10-27.md). Mantener pendientes de INT/QA hasta evidencia real completa | H4, adelantadas desde S05 |
 | F-022 · Leonidas | Dirección del titular G7 y cotización G2; sin llamada G6 propia. Implementación UI/BFF/adaptador y pruebas locales; integración real donde exista entorno | S03 |
 | F-027 · Leonidas | Snapshot G5; implementar estados incierto/CREADO/PAGADO y recuperación con contrato/dobles. No refrescar compra con precios actuales | S03 |
 | F-028–F-030 · Fernando | Histórico G5; implementar F-028/F-030 FE+BFF y F-029 UI/lógica G1 con dobles o G5 autorizado. Aislar brecha del filtro fecha en /me sin inventar interfaz | S03 F-028/F-030; S05 F-029 |
