@@ -76,4 +76,6 @@ La API de Productos **alimenta** estas vistas: conectarse con otro módulo no cr
 
 ## Cómo contribuir
 
+> **Flujo vigente de ramas, CI/CD y versionado (H4):** [plan/FLUJO-CICD-Y-VERSIONADO.md](plan/FLUJO-CICD-Y-VERSIONADO.md). Las PR van hacia `develop`, los commits convencionales determinan la versión y el pipeline despliega solo.
+
 Trabajamos con especificaciones antes de código, contratos versionados y pruebas proporcionales al cambio. Para el código de H3 en frontend/backend, las ramas personales salen de `develop` **cuando el equipo la cree**, los PR se abren hacia `develop` y el corte verificado pasa a `main`. En este repositorio SPECS, la documentación revisada se publica con commit/push directo a `main`, según indicación del PO del 13/10/2026. La [guía colaborativa](plan/repartición%20por%20integrantes/GUIA-DE-TRABAJO-COLABORATIVO.md) define revisores, criterios de cierre y Conventional Commits con descripción en español. Cada autor documenta qué specs/mockups usó, qué código generó o modificó con IA, qué revisó personalmente y qué pruebas ejecutó. No subir secretos, datos personales ni afirmar «integrado» por pruebas con mocks.

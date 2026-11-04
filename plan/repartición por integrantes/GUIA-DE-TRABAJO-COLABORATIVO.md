@@ -1,5 +1,7 @@
 # Guía de trabajo colaborativo — implementación punta a punta
 
+> **Actualización H4:** el flujo de ramas, el pipeline CI/CD y el versionado automático están en [FLUJO-CICD-Y-VERSIONADO](../FLUJO-CICD-Y-VERSIONADO.md); ante contradicción, rige ese documento.
+
 Aplica a los repos de [Frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend), [Backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend) y [SPECS](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS). No crear una base de código dentro de SPECS. Para **frontend y backend**, las ramas y PR a `develop` son la política propuesta para S1–S5; Diego/PO confirman protección y permisos reales antes de usarla. Para **SPECS**, Jim indicó el 13/10/2026 revisar el cambio documental y hacer commit/push directo a `main`, sin PR. Esta excepción no cambia la política de los repos de código.
 
 ## Ramas, PR y propiedad de archivos de frontend/backend
