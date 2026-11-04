@@ -85,6 +85,7 @@ Notas:
 | Imagen Docker etiquetada con la versión | Verificado en BE y FE (`ghcr.io/taller-sw-web/g1-marketplace-*`) |
 | Secretos `RENDER_DEPLOY_HOOK_URL` y `VERCEL_DEPLOY_HOOK_URL` | Configurados |
 | Deploy por hook y Smoke test | Verificado: ambos jobs en verde en BE y FE |
-| Auto-deploy de Render y Vercel | Apagado (confirmado por Jim): solo el pipeline despliega |
+| Auto-deploy de Render y Vercel | Apagado: Render con Auto-Deploy en No; Vercel con `vercel.json` (`git.deploymentEnabled.develop = false`). Solo el pipeline despliega |
+| Vercel: Branch Tracking (Settings → Environments → Production) | `develop`. **Requisito:** si apunta a otra rama, el hook crea solo previews y el dominio público no se actualiza. Verificado: el hook del pipeline produce un despliegue de Production y mueve el alias |
 
 Actualizar esta tabla si cambia la configuración.
