@@ -7,7 +7,7 @@
 | Campo | Valor |
 |---|---|
 | ID funcional | `F-014` |
-| Versión / estado | `0.1.0` / En revisión |
+| Versión / estado | `0.2.0` / En revisión; cuarto estado pendiente de homologación `G-G6-COMPAT` |
 | Fecha | 2026-10-02 |
 | Funcional | [F-014](../funcional/F-014-consultar-disponibilidad-stock.md) |
 | UI funcional | [F-014](../ui/F-014-consultar-disponibilidad-stock.md) |
@@ -60,7 +60,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 | Adaptador tipado | Validar DTO y mapear error público; sin aceptar shape externo no homologado | Contrato API enlazado |
 | Validación local | Ayuda inmediata, nunca reemplaza validación ni autorización del servidor | Reglas siguientes |
 
-Usar enum público BFF, no cálculo de stock frontend. ERROR/LOADING/WAITING no habilitan compra; ERROR ofrece reintentar disponibilidad, no falso agotado.
+Usar enum público BFF, no cálculo de stock frontend. ERROR/LOADING/WAITING no habilitan compra; ERROR ofrece reintentar disponibilidad, no falso agotado. `UNDETERMINED` es un estado propio: se presenta como “Disponibilidad por confirmar”, ofrece reintento y no habilita compra mientras UX no defina otra conducta para F-016.
 
 ### Operaciones documentadas
 
@@ -70,7 +70,7 @@ Auth y rutas `/password` se traducen mediante el límite de integración aprobad
 
 ## 7. Estados, errores y recuperación
 
-WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | ERROR; cambio de SKU limpia dato previo.
+WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | UNDETERMINED | ERROR; cambio de SKU limpia dato previo.
 
 - **Carga:** skeleton de la región que consulta, o progreso local de mutación; nunca datos o importes de ejemplo.
 - **Vacío / no aplicable:** sólo ante respuesta válida o condición explícita; errores nunca se convierten en colección vacía, precio cero o stock agotado.
@@ -91,6 +91,7 @@ WAITING_FOR_SKU → LOADING → AVAILABLE | STOCK_LOW | OUT_OF_STOCK | ERROR; ca
 | `RC-F-014-02` | sin SKU no llamada. |
 | `RC-F-014-03` | respuesta SKU anterior descartada. |
 | `RC-F-014-04` | no render cantidades/ubicación. |
+| `RC-F-014-05` | `UNDETERMINED` no se presenta como `OUT_OF_STOCK` ni como `ERROR`; no habilita compra. |
 | Estados UI | Render y transición de cada estado de la sección 7 y de la spec visual relacionada. |
 | Transporte | Fixture de éxito, vacío/no aplicable, validación, autorización, conflicto, timeout y fallo externo que realmente correspondan al contrato. |
 | Accesibilidad | Teclado/foco, nombre de controles, anuncios y contraste; pruebas automáticas más revisión manual. |
@@ -107,7 +108,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01, proyección agregada de Inventario.
+I-01, ruta de abastecimiento única por SKU (D-INV-01) y conformidad G6 del cuarto estado (`G-G6-COMPAT`).
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 
