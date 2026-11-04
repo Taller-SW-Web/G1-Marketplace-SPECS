@@ -85,6 +85,6 @@ Notas:
 | Imagen Docker etiquetada con la versión | Verificado en BE y FE (`ghcr.io/taller-sw-web/g1-marketplace-*`) |
 | Secretos `RENDER_DEPLOY_HOOK_URL` y `VERCEL_DEPLOY_HOOK_URL` | Configurados |
 | Deploy por hook y Smoke test | Verificado: ambos jobs en verde en BE y FE |
-| Desactivar auto-deploy de Render y Vercel | **Por confirmar**: mientras siga activo, cada push despliega también por el proveedor |
+| Auto-deploy de Render y Vercel | Apagado (confirmado por Jim): solo el pipeline despliega |
 
 Actualizar esta tabla si cambia la configuración.
