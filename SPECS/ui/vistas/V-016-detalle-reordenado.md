@@ -68,7 +68,7 @@ V-016 Detalle del pedido
 |---|---|---|---|
 | Encabezado | Código, fecha y estado | Primaria | Snapshot de Ventas; estado con texto/icono/color. |
 | Líneas | Datos históricos | Primaria | No reemplazar nombre/precio por catálogo vigente. |
-| Desglose | Importes históricos | Primaria | Etiquetas y moneda; no se presenta como precio actual. |
+| Desglose | Importes históricos | Primaria | Etiquetas y moneda; no se presenta como precio actual. Desglose de subtotal/descuentos/envío sólo si el contrato entrega esos importes autoritativos. |
 | Entrega | Dirección/contacto minimizados | Secundaria | Sin documento, tarjeta ni datos completos innecesarios. |
 | Timeline | Hitos y fechas | Primaria | Lista textual accesible además de representación visual. |
 | Reordenado | Agregar productos al carrito | Secundaria | Revalida productos actuales y abre `O-008`; no crea orden. |
@@ -188,3 +188,4 @@ Los resultados de reordenado se diseñan en `O-008`.
 | `V-016-OPEN-02` | Publicar estados/hitos y datos mínimos de entrega devueltos por Ventas. | Ventas + Producto | Antes del diseño final | Abierta |
 | `V-016-OPEN-03` | Definir garantía técnica de reintento de reordenado sin duplicar cantidades por SKU. | Backend | Antes del diseño final | Abierta |
 | `V-016-OPEN-04` | Confirmar elegibilidad y punto de activación de `O-009` para pedidos entregados. | Producto + UX | Antes del diseño final | Abierta |
+| `V-016-OPEN-05` | G5 publica total y snapshots por línea, pero no subtotal/descuentos/envío por separado; confirmar campos autoritativos o aprobar regla de cálculo/moneda/redondeo antes de implementar el desglose visual completo. | G5 + Producto | Antes de homologar F-030 | Abierta |

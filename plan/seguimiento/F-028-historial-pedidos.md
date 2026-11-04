@@ -85,6 +85,20 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 ## Registro de revisión
 
+### Implementación local Frontend — 04/11/2026
+
+En `feat/f028-f035-fernando-frontend`, la ruta `/mis-pedidos` presenta historial responsive, filtros, paginación y estados de carga/vacío/error. El código separa `OrdersHistoryContainer` y el presentacional `OrderList`; el menú de cuenta añade el enlace sólo cuando la sesión G1 está habilitada y autenticada. La vista consulta el BFF, que deriva titularidad desde la sesión y no recibe `customerId` del navegador. La prueba del menú cubre sesión autenticada/no autenticada. Revalidación local 04/11/2026: `typecheck` y build aprobados; componentes 37 archivos/294 pruebas, server 9 archivos/94 pruebas y E2E principal 30 aprobadas/1 omitida de 31. `tests/orders.e2e.spec.ts` recorre con fixtures la lista, filtros, detalle, seguimiento, 401 y pedido no disponible con respuesta neutral (3/3); no acredita autorización A/B real. Falta la integración G5 y la prueba autorizada de titularidad; UI/fixtures no acreditan despliegue ni cierre de TASK-F028-FE/BE/INT/QA.
+
+### Timeout del adapter G5 — 04/11/2026
+
+G5 informó que una primera petición tras inactividad puede tardar 1–2 minutos. Para historial/detalle se separó el límite de G5 del límite corto de auth G7: Backend `G5_HTTP_TIMEOUT_MS` 150 s por defecto (máximo 180 s) y BFF Frontend `G1_ORDERS_BFF_TIMEOUT_MS` 185 s por defecto (configurable entre 181–190 s). `ORDERS_SOURCE` continúa `unconfigured`; no se hizo request REAL. Antes de activar, verificar que el hosting soporte esa duración y coordinar warm-up/prueba con JWT autorizado.
+
+### Avance local de H4 — 03/11/2026
+
+El Backend ya incluye un adapter de Ventas `G5OrdersProvider` para historial y detalle. Usa el JWT del usuario autenticado, traduce la página G1 desde 0 a la página G5 desde 1 y sólo proyecta los campos de compra aprobados. El adapter real está preparado, pero permanece apagado (`ORDERS_SOURCE=unconfigured`); no se usó token ni se envió ninguna solicitud a Render durante este avance. La fuente mock sigue separada y sólo usa datos sintéticos. Las cinco suites Backend dirigidas (incluida la suite del adapter bajo contrato mock) aprobaron 46/46 casos; no es una prueba REAL.
+
+Las pruebas actuales del historial son locales/mock; la integración #142 sigue bloqueada hasta coordinar la prueba de I-03 con credenciales de cliente autorizadas y evidencia sanitizada. No cambiar su estado ni registrar cierre S03 a partir de este adapter.
+
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |

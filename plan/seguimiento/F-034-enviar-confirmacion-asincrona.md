@@ -93,6 +93,18 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 ## Registro de revisión
 
+### Alcance pendiente — 03/11/2026
+
+No se habilitó runtime ni se marcó correo como enviado. La implementación interna puede avanzar con test doubles; la entrega real requiere cierre de I-02/G-MAIL y contrato idempotente de envío/reconciliación. Fernando confirmó que aún no hay credenciales/sandbox aprobados; mantener worker/proveedor/scheduler apagados.
+
+### Evidencia local Frontend — 03/11/2026
+
+En `feat/f028-f035-fernando-frontend` se añadió `OrderEmailNotice` en la vista de confirmación: una fixture dice que no se envió correo; el estado de pedido pagado desde Backend indica que el correo no está habilitado y que la interfaz no confirma entrega. Pruebas dirigidas de componentes (incluida la regresión del checkout) y BFF/renderers: 20/20 componentes y 5/5 pruebas server; `npm run typecheck` aprobado. No hay envío, outbox ni evidencia de proveedor. La tarea FE completa y la integración continúan pendientes; sin SHA/PR y revisión independiente.
+
+### Evidencia local Backend — 04/11/2026
+
+En `feat/f028-f035-fernando-backend` se añadió `RecipientEmailCipher` (AES-256-GCM, nonce aleatorio, sobre versionado y rechazo de ciphertext alterado), persistencia cifrada opcional y transición atómica local: al verificar Ventas `PAGADO`, la misma transacción marca `SUCCEEDED` y hace upsert idempotente de `NotificationDelivery` con snapshot mínimo y clave `(type,eventKey)`. Se implementó lógica de worker con lease/CAS, límite de reintentos, clave estable por evento y reconciliación ante respuesta incierta; los resultados no verificables pasan a `RECONCILIATION_REQUIRED`, sin reenvío ciego. `ORDER_CONFIRMATION_OUTBOX_ENABLED=false` y `NOTIFICATION_WORKER_ENABLED=false`; no hay proveedor ni scheduler runtime. El renderer C-001 opera sobre el snapshot autorizado. Siete migraciones se aplicaron en PostgreSQL 16 desechable y se eliminó el contenedor. Suite Backend completa: 33 suites/307 pruebas; typecheck y `prisma validate` aprobados. No se envió correo. G-MAIL/I-02, scheduler/provider homologados, despliegue y revisión independiente siguen pendientes; no cerrar TASK-F034-BE/DB/INT.
+
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |

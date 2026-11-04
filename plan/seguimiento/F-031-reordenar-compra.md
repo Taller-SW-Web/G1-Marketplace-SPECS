@@ -87,6 +87,22 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 ## Registro de revisión
 
+### Alcance pendiente — 03/11/2026
+
+No se modificó el carrito ni se presentó un resultado positivo simulado. La funcionalidad depende de validar SKUs/precio/stock en G6 y aplicar una operación idempotente al carrito; sin esas condiciones, una pantalla que informe éxito podría duplicar o aceptar productos no disponibles. I-01/#154 permanece bloqueada. Fernando confirmó que aún no cuenta con contratos, sandbox y credenciales aprobadas de G6; continuar sólo cuando se habilite el acceso o el equipo apruebe fixtures locales para esta operación.
+
+### Evidencia local Frontend — 03/11/2026
+
+En `feat/f028-f035-fernando-frontend` se añadieron los componentes presentacionales `ReorderAction` y `ReorderResultDialog`: el CTA evita doble acción durante `busy`, el resultado distingue completo/parcial/sin líneas agregadas, separa agregados de ajustes, ofrece “Ver carrito” sólo si la respuesta confirmada trae líneas agregadas y cierra con Escape con manejo de foco. Este corte inicial no los conectaba a una mutación; la conexión se documenta en la actualización del 04/11.
+
+### Evidencia local Backend — 04/11/2026
+
+En `feat/f028-f035-fernando-backend` F-031 tiene `POST /api/v1/orders/{orderId}/reorder`, autenticado, cuerpo vacío y `200`; requiere `Idempotency-Key` UUID v4 por intención. El servicio consulta el pedido propio mediante F-030, valida SKUs con un provider mock local, agrupa cantidades y agrega elegibles con precio actual validado en una transacción Cart. Guarda recibo por titular + pedido fuente + clave. PostgreSQL 16 temporal con las siete migraciones versionadas aplicadas: suite completa de integración 5/5 suites y 41/41 pruebas; el caso F-031 confirmó que dos solicitudes concurrentes con la misma clave hacen una sola suma y que una segunda clave intencional agrega una segunda vez (cantidad acumulada 6). La base fue descartada al terminar. La selección de fixtures/mock requiere `REORDER_ENABLED=true`, `REORDER_SOURCE=mock`, `ORDERS_SOURCE=mock` y `NODE_ENV=test`; el validator impide activarla en development o production y los valores por defecto siguen apagados. Backend unitario 33/33 suites y 307/307 pruebas, `typecheck` y `prisma validate` aprobados. Persisten I-01/I-03/G-REORDER, revisión independiente y G6 REAL apagado.
+
+### Evidencia local Frontend — 04/11/2026
+
+`OrderDetailContainer` conecta el CTA al BFF `POST /api/orders/{orderId}/reorder`. La ruta verifica mismo origen, rechaza Bearer directo/cuerpo/query, reenvía sólo cookie G1 permitida y conserva `no-store`. Emite UUID por acción y retiene la clave tras un error incierto; una acción nueva posterior al éxito usa otra clave. El diálogo usa únicamente la respuesta confirmada y navega a `/carrito` cuando hubo añadidos. `REORDER_UI_ENABLED=false` por defecto. Verificación dirigida actual: componentes del flujo 3/3 y BFF 4/4; typecheck aprobado. No es E2E contra backend desplegado ni integración con G6. El BFF local sólo funcionará al habilitar su flag de vista y el backend mock local; los valores por defecto siguen desactivados.
+
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |

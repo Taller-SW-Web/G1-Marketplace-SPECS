@@ -25,6 +25,12 @@ Versión 0.1.0 · Planificación inicial · F-033 no está implementada por esto
 
 La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
 
+### Avance local H4 — 04/11/2026
+
+En las ramas locales `feat/f028-f035-fernando-frontend` y `feat/f028-f035-fernando-backend`, F-033 ya tiene componentes React server-only `TransactionalEmailTemplate`, `EmailOrderSummary` y `ShipmentEmailTemplate` para C-001/C-002, además de renderizadores HTML/texto deterministas en ambos lados. El Frontend produce markup estático sin hidratar componentes ni scripts; valida versión de plantilla, escapa contenido dinámico y restringe CTAs al origen configurado. C-001 exige `PAGADO`; la fecha opcional y los datos públicos de C-002 se omiten/escapan según payload. No se expone endpoint público ni se envía correo.
+
+Verificación local revalidada 04/11: Frontend `npm run test:server` 9/9 archivos y 94/94 pruebas; `npm run test:components` 37/37 archivos y 294/294 pruebas; prueba dirigida de los renderizadores 4/4; `npm run typecheck` y build Next.js aprobados. E2E principal local pasó 30 casos y omitió 1 de 31; no prueba envío. Backend unitario 33/33 suites y 307/307 pruebas, incluida la suite del renderer. No se ha aprobado la revisión visual/independiente ni se ejecutó prueba real con G-MAIL. #161/#81 cuentan con avance local, pero QA (#163/#82), INT (#162), DOC (#164) y evidencia desplegada siguen abiertos; conservar los gates hasta documentar sus criterios completos.
+
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
@@ -84,6 +90,18 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 
 ## Registro de revisión
+
+### Avance local de H4 — 04/11/2026
+
+Frontend implementa los componentes server-only React `TransactionalEmailTemplate`, `EmailOrderSummary` y `ShipmentEmailTemplate` para componer C-001/C-002, además de producir asunto, HTML y texto plano deterministas. El renderer escapa texto, valida importes/fechas/URLs y no hidrata componentes ni publica ruta web. C-001 sólo acepta `PAGADO`; el frame Figma principal todavía muestra `Creado`, así que la revisión visual/copy sigue pendiente. Renderizar no envía correo. Los links de pedido/seguimiento usan el origen Marketplace configurado y el enlace de ayuda puede ser HTTPS.
+
+Verificación Frontend revalidada 04/11: `npm run build` y `typecheck` aprobados; server 9 archivos/94 pruebas y componentes 37 archivos/294 pruebas; `tests/server/email-templates.test.ts` pasa 4/4, incluidos render estático, versión, escape y ausencia de scripts. E2E principal local 30/1 omitida de 31; no prueba envío.
+
+Pendiente: contrato exacto de payload aprobado, revisión de copy/URLs legales, worker G1 y proveedor G-MAIL. Sin integración, envío ni revisión, no se cierra #162 ni se afirma entrega.
+
+### Evidencia local Backend — 04/11/2026
+
+En `feat/f028-f035-fernando-backend` se añadieron renderers puros server-only para C-001 y C-002. C-001 exige pedido `PAGADO`; ambos escapan los campos dinámicos, producen texto plano y HTML y construyen CTA interno sin token/PII; C-002 omite la fecha estimada si no existe. Las pruebas unitarias de plantillas forman parte de la suite Backend completa, aprobada con 33 suites/307 pruebas. No se creó todavía `POST /internal/v1/notifications/render`: falta homologar la autenticación de servicio para no exponerlo sin protección. No se invoca correo ni G-MAIL; copy/logo/legal y contrato de payload conservan revisión pendiente.
 
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|

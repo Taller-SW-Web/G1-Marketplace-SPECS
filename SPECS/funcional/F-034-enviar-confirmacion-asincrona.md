@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-034` |
-| Estado | Aprobada para planificación; requiere proveedor de correo. |
+| Estado | Implementación local parcial en Backend: outbox transaccional tras `PAGADO`, cifrado de destinatario y flag apagado por defecto. Worker/proveedor y aceptación REAL siguen pendientes. |
 
 Encola y entrega correo de confirmación sólo después de verificar `PAGADO` en Ventas para el mismo pedido. Incluye `NotificationDelivery`, render, reintentos/deduplicación; excluye alterar pedido si falla correo. `CREADO` y `SUBMITTED` no disparan C-001.
 

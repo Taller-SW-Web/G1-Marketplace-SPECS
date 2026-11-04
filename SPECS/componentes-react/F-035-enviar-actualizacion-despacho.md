@@ -49,7 +49,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 - **Local:** Sin state interactivo; no conexión browser a event bus ni webhooks.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
 - **Remoto / caché:** Evento versionado alimenta NotificationDelivery, no cache React ni persistencia de tracking.
-- **Flujo específico:** Ventas publicó el webhook externo H-05 hacia Marketplace; el mecanismo de entrega, su autenticación y los reintentos siguen pendientes en I-05. Mocks versionados permiten probar composición sin fingir una suscripción real.
+- **Flujo específico:** Ventas publicó el webhook externo H-05 hacia Marketplace y documenta outbox/reintentos en 1.10; URL y autenticación del endpoint G1, además de la prueba conjunta I-05, siguen pendientes. Fixtures versionados permiten probar composición sin fingir una suscripción real.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -107,7 +107,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-H-05 tiene payload y emisor homologados; el transporte, autenticación y reintentos de I-05 siguen pendientes, así como F-033/F-034. React no recibe ni valida el webhook.
+H-05 tiene payload y emisor homologados; G5 documenta su outbox/reintentos. URL/autenticación del receptor G1 y prueba conjunta I-05 siguen pendientes, así como la entrega G-MAIL de F-034. React no recibe ni valida el webhook.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

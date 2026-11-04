@@ -85,6 +85,12 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 ## Registro de revisión
 
+### Avance local de H4 — 03/11/2026
+
+En las ramas locales de Fernando se añadió la ruta de consulta `GET /api/v1/orders/{orderId}/tracking`, con respuesta mock-only: `200` con hitos públicos para el fixture `PED-MOCK-004`, `202 TRACKING_NOT_READY` para un pedido propio todavía sin despacho, `404 ORDER_NOT_AVAILABLE` neutral y `503 TRACKING_UNAVAILABLE` cuando el proveedor mock no está habilitado. Frontend añade BFF same-origin, vista `/mis-pedidos/{orderId}/seguimiento` y `ShipmentTimeline`, que recibe estado, hitos y fecha estimada públicos. No presenta mapa, coordenadas ni repartidor.
+
+El fixture sólo acredita comportamiento MOCK/LOCAL. Pruebas Backend dirigidas (46/46 entre cinco suites) y Frontend (presentación y BFF preservan 202/`no-store`) pasan; el corte de presentación historial/detalle/recompra/seguimiento fue 23/23 y la suite Frontend de componentes revalidada aprobó 37 archivos/294 pruebas. No se invoca G2; siguen pendientes I-06/I-03, servicio `seguimientos:leer`, prueba autorizada, E2E dedicado y despliegue. Falta revisión de Jim; no cerrar #158 ni H5.
+
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |

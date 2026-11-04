@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-031` |
-| Estado | Aprobada para planificación; catálogo/stock condicionados por `I-01`. |
+| Estado | Implementación G1 local FE/BE con recibo idempotente por titular + pedido fuente + `Idempotency-Key` UUID v4; G6 REAL y las dependencias `I-01`/`I-03` siguen pendientes. |
 
 Permite copiar líneas elegibles de un pedido propio al carrito actual. Incluye revalidar SKU, precio y stock, sumar por SKU y reportar ajustes; excluye recrear dirección, cupón, precio histórico o pedido automático.
 

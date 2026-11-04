@@ -93,6 +93,22 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 ## Registro de revisión
 
+### Avance local de H4 — 03/11/2026
+
+Frontend añade un renderer server-only C-002 determinista con texto/HTML, escape de datos y CTA al origen configurado de Marketplace. La función sólo compone contenido cuando la invoca el servidor; no acepta webhook, no encola notificaciones ni comunica entrega del correo. El evento H-05 tiene payload publicado, pero el mecanismo de entrega, autenticación y reintentos de I-05 siguen pendientes.
+
+Las pruebas server-side del renderer C-002 pasan junto con las otras suites BFF/renderer Frontend (5/5 en total; dos verifican templates). No se han implementado ni validado el endpoint receptor/worker, autenticación de G5 ni persistencia idempotente de este avance. #172 continúa bloqueada; no registrar integración o correo enviado.
+
+### Revisión del contrato G5 — 04/11/2026
+
+La rama principal vigente de `G5-Ventas-Postventas`, contrato `api-ventas.md` v1.8.0, ahora documenta que G5 persiste H-05 en su tabla outbox y reintenta en intervalos de 5 s hasta 10 intentos; `2xx` confirma, y `400/409/422` no se reintentan. Esto actualiza el estado del emisor respecto del registro anterior. No prueba entrega desde G5 hacia G1: aún falta acordar URL y autenticación del receptor, y ejecutar prueba conjunta de I-05. Referencia fijada al corte revisado: [contrato G5 1.10](https://github.com/Taller-SW-Web/G5-Ventas-Postventas/blob/f3e523cb2f7063d919f05a68601a699db86ba874/specs/api/api-ventas.md#110-webhook-de-estado-de-env%C3%ADo-acuerdo-h-05-con-marketplace).
+
+En `feat/f028-f035-fernando-backend` se añadió `normalizeShipmentStatusWebhook` para validar fixtures H-05 v1.0.0, mantener `PED-YYYY-NNNNN` textual, aceptar sólo `DESPACHADO`/`ENTREGADO`, validar fecha calendario y copiar campos públicos. El consumer interno busca sólo un pedido G1 `SUCCEEDED` con email cifrado; si la relación no existe o es ambigua, no encola. Luego hace upsert inmutable de `NotificationDelivery` por `shipmentEventId`; una repetición idéntica devuelve la entrega existente y una reutilización del id con distinto payload entra en conflicto. C-002/worker pueden procesar esa entrega. Esta función sólo puede invocarse después de autenticar el evento; aún no existe endpoint receptor/auth ni se consume el webhook en runtime porque URL y autenticación G1↔G5 no están acordadas. Pruebas unitarias H-05/consumer/renderer quedan incluidas en la suite Backend completa, aprobada con 33 suites/307 pruebas; no se envió email. #170 avanza en parsing/persistencia local; #172 sigue bloqueada por URL/auth y prueba conjunta. No cerrar #170/171/172/173.
+
+El contrato H-05 también dice que se emite al procesar `DESPACHO_REPROGRAMADO`, con nueva `estimatedDeliveryDate`, pero su ejemplo conserva `publicStatus: DESPACHADO` y no define un tercer valor público específico para reprogramación. El parser acepta la fecha opcional y los estados públicos `DESPACHADO`/`ENTREGADO`; no inventar `REPROGRAMADO` como estado público. Antes de la homologación REAL, confirmar con G5 que la reprogramación se entrega como `DESPACHADO` con nueva fecha (u otro valor público acordado) y ampliar el contrato/parser sólo si G5 lo confirma. La búsqueda de código de G5 no devolvió evidencia indexada suficiente para resolverlo; este punto queda abierto junto con URL/auth de I-05.
+
+Verificación adicional del carril #98 al 04/11: Backend autenticación API 18/18 sobre PostgreSQL 16 desechable; Frontend auth Playwright 15/15 con G7 fixture. Son pruebas locales/mock, no autenticación con G7 ni recepción del webhook en entorno REAL.
+
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |

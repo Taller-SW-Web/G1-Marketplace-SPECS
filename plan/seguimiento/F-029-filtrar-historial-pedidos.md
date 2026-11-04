@@ -85,6 +85,22 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 ## Registro de revisión
 
+### Avance local de H4 — 03/11/2026
+
+Fernando preparó cambios sin commit en `feat/f028-f035-fernando-frontend` y `feat/f028-f035-fernando-backend`. Backend valida `state`, `from`, `to`, formato ISO, orden del rango y máximo de un año antes del provider; el fixture filtra por día de `America/Lima` antes de paginar. Frontend conserva el día `YYYY-MM-DD`, combina filtros, reinicia a página 0, permite quitar/limpiar criterios y reenvía al BFF sólo parámetros permitidos. La consulta real a G5 no está activada.
+
+Evidencia disponible: Frontend `typecheck` aprobado; `tests/components/orders-history.test.tsx` 13/13; `tests/server/orders-me-route.test.ts` 1/1. Backend `typecheck` aprobado y 46/46 casos en cinco suites dirigidas (`orders-query.dto`, provider mock, provider G5 contractual, controller y environment). La prueba del provider G5 usa respuestas mock y no acredita llamada al servicio de Render. El adapter está inactivo por defecto y sólo se activa con `ORDERS_SOURCE=g5`, G7 real y `G5_API_URL` HTTPS. No hay SHA de commit, prueba REAL, despliegue ni aprobación de revisión todavía.
+
+El acuerdo G5 para `desde`/`hasta` (formato `YYYY-MM-DD`, inclusivo por día `America/Lima`, error de rango/formato) está documentado en el plan de la rama Backend y en las PR G5 #53/#61. La integración F-029 sigue bloqueada por I-03/#146 y la prueba con JWT de cliente autorizado; estos cambios MOCK/LOCAL no cierran #146 ni el hito S05/H6.
+
+### Preparación del timeout G5 — 04/11/2026
+
+El servicio G5 avisó que un primer request tras inactividad puede tardar 1–2 minutos. El adapter usaba el `HTTP_TIMEOUT_MS` general de 3 s (máximo 30 s, y máximo 5 s al activar auth G7), mientras el BFF Frontend cancelaba a los 8 s; eso hacía fallar el flujo frío aunque el contrato estuviese disponible. Se separó `G5_HTTP_TIMEOUT_MS` (150 s por defecto, máximo 180 s) de los timeouts G7 y `G1_ORDERS_BFF_TIMEOUT_MS` (185 s por defecto, configurable entre 181–190 s) para historial/detalle/recompra; así la capa BFF no puede quedar configurada por debajo del máximo admitido por Backend. Ambos providers siguen desactivados por defecto. No se hizo request REAL; antes de integración/despliegue hay que verificar límites del hosting, realizar warm-up coordinado y probar la latencia observada.
+
+Pruebas de la preparación: Backend `environment.spec` + `g5-orders.provider.spec` pasaron 29/29; verifican límites de ambos timeouts y que la llamada G5 recibe 150000 ms independiente del `HTTP_TIMEOUT_MS` de G7. Frontend `npm run test:server` pasó 9 archivos/94 pruebas y `typecheck`; pruebas nuevas cubren timeout BFF default y límites configurables. Build optimizado Frontend aprobado. Todo sigue siendo local, no es una llamada REAL a Render.
+
+| 03/11/2026 | Implementación H4 local en curso; gates INT y cierre sin cambio | Ramas FE/BE locales indicadas arriba. Comandos y resultados parciales en este registro; SHA y revisión pendientes | Revisión de Jim pendiente |
+
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
 | Semana 6, preparación | Creación de tareas; sin ejecución | Specs y plan elaborados; integración pendiente donde se indica | Revisión humana pendiente |

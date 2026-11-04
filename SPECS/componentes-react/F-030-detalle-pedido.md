@@ -32,6 +32,7 @@ Los enlaces de vistas/overlays definen todos los frames y variantes; no crear un
 Layout de ruta → límite público/privado correspondiente
 ├── OrderDetailContainer
 ├── HistoricalOrderLines
+├── OrderDeliverySummary
 └── OrderStateTimeline
     └── Feedback accesible compartido según estado
 ```
@@ -45,6 +46,7 @@ El contenedor coordina transporte/estado; los componentes presentacionales no ll
 | `CMP-F030-001` · `OrderDetailContainer` | Carga detalle independiente de catálogo. | `orderId: string; detail: OrderDetailDTO; status: QueryStatus` | onRetry(); onBack() |
 | `CMP-F030-002` · `HistoricalOrderLines` | Precios/cantidades históricos, no SKU actualizado. | `lines: HistoricalOrderLineDTO[]` | — |
 | `CMP-F030-003` · `OrderStateTimeline` | Texto/fecha de hitos publicados. | `milestones: OrderMilestoneDTO[]` | — |
+| `CMP-F030-004` · `OrderDeliverySummary` | Presentar sólo zona, contacto enmascarado y fecha estimada de entrega. | `shipping?: { locationSummary?: string; emailMasked?: string; phoneMasked?: string; estimatedDelivery?: string }` | — |
 
 Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuevos campos de la API. Su estructura se deriva exclusivamente del contrato enlazado; aplicar las convenciones de tipos de [ARQUITECTURA-REACT](ARQUITECTURA-REACT.md#3-tipos-y-contratos). Props con `busy` no habilitan dobles mutaciones. Eventos se invocan una vez y devuelven control al contenedor.
 
@@ -64,7 +66,7 @@ Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuev
 | Adaptador tipado | Validar DTO y mapear error público; sin aceptar shape externo no homologado | Contrato API enlazado |
 | Validación local | Ayuda inmediata, nunca reemplaza validación ni autorización del servidor | Reglas siguientes |
 
-403/404 neutralizados, orderId no concede permiso; mostrar envío resumido, no documento/tarjeta/email completo.
+403/404 neutralizados, orderId no concede permiso; mostrar envío resumido, no documento/tarjeta/email completo. G5 aún no publica un desglose autoritativo de subtotal/descuentos/envío: no calcularlo ni inventar props/campos de API. La UI presenta el total y los precios históricos de línea disponibles hasta resolver la discrepancia V-016.
 
 ### Operaciones documentadas
 

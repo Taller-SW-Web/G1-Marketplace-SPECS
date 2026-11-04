@@ -25,6 +25,12 @@ Versión 0.1.0 · Planificación inicial · F-030 no está implementada por esto
 
 La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
 
+### Avance local H4 — 04/11/2026
+
+En las ramas locales `feat/f028-f035-fernando-backend` y `feat/f028-f035-fernando-frontend` se implementó una proyección G5 que conserva únicamente ubicación general (distrito/provincia/departamento), correo parcialmente enmascarado, teléfono enmascarado y fecha estimada; no retorna calle, referencia, documento ni contacto completo. El Frontend renderiza `OrderDeliverySummary` dentro del detalle. El contrato G5 consultado entrega total y snapshots por línea, no un desglose autoritativo de envío/descuentos/subtotal: por seguridad de datos y exactitud monetaria, el desglose mostrado en V-016 queda pendiente de confirmación de G5/Producto y no se deriva localmente.
+
+La proyección y UI se cubren con fixtures locales. No se ha confirmado si el JWT de prueba de Fernando sigue vigente; por tanto no hay llamada REAL a G5 ni evidencia de autorización A/B. Coordinar con Jim la sesión/token de prueba autorizado por un canal seguro antes de la homologación. Mantener `ORDERS_SOURCE=unconfigured` por defecto y la issue de integración abierta.
+
 ## Tablero
 
 | ID | Área | Responsable | Revisor | Prioridad | Depende de | Semana objetivo | Estado |
@@ -84,6 +90,14 @@ Referente de BD: Fernando Saire para este bloque, con revisión de Jim Segovia; 
 
 
 ## Registro de revisión
+
+### Avance local de H4 — 03/11/2026
+
+En las ramas locales de Fernando se añadió un endpoint Backend mock-only para `GET /api/v1/orders/{orderId}`, proyección acotada del snapshot histórico y respuesta neutral `404 ORDER_NOT_AVAILABLE` para identificadores que no pertenecen al cliente fixture configurado. Frontend añade `/mis-pedidos/{orderId}`, enlace desde historial, BFF same-origin con caché desactivada y reenvío exclusivo de la cookie de sesión G1 con formato permitido. La vista presenta resumen, líneas/snapshot, hitos y recuperación de error; no consulta catálogo para reconstruir precios ni muestra dirección, documento, tarjeta o email.
+
+Evidencia disponible: `typecheck` y build de Frontend aprobados; el detalle compone `HistoricalOrderLines` y `OrderStateTimeline`. El corte dirigido de componentes historial/detalle/recompra/seguimiento pasó 23/23; suite global Frontend componentes 37 archivos/293 pruebas, server 9/94 y E2E principal 30/1 omitida. `tests/orders.e2e.spec.ts` cubre con fixtures detalle/seguimiento, 401 y pedido no disponible con respuesta neutral en navegador (3/3). En Backend, unitarias 33/307 y cinco suites dirigidas 46/46 incluyen proyección de snapshot, pedido ajeno neutral, ID inválido y status 202. La transformación G5 se probó con contrato mock; no se llamó a G5. Falta la prueba REAL de autorización JWT G7/G5, SHA, revisión independiente y despliegue. Datos sintéticos; integración con Ventas apagada y #150 continúa bloqueada por I-03/#142.
+
+| 03/11/2026 | Implementación local H4 en curso; INT real bloqueada sin cambio | Ramas FE/BE locales; snapshot mock y evidencia parcial descrita arriba; SHA y revisión pendientes | Revisión de Jim pendiente |
 
 | Fecha/semana | Cambios de estado | Evidencia / bloqueo / decisión | Revisó |
 |---|---|---|---|
