@@ -1,13 +1,15 @@
 # Tareas y seguimiento — F-009 Ordenar resultados
 
-Versión 0.1.0 · Planificación inicial · F-009 no está implementada por estos documentos.
+**Estado actualizado al 05/11:** implementación principal integrada; [matriz por issue, evidencia y requisito exacto de cierre](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md). Esta reconciliación prevalece sobre pendientes de registros anteriores. No queda implementar otra vez sort ni el desempate del fixture. Una prueba MOCK o la mera existencia del SQL no acredita el desempate del despliegue.
+
+Versión 0.3.0 · Reconciliación 2026-11-05. Código principal integrado; aceptación y cierre individual según la matriz vigente.
 
 ## Fuente y control
 
 - [Plan F-009](../funcionalidades/F-009-ordenar-catalogo.md); [iteración S02/H4](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-009-ordenar-catalogo.md), [UI](../../SPECS/ui/F-009-ordenar-catalogo.md), [API](../../SPECS/contrato-api/F-009-ordenar-catalogo.md), [React](../../SPECS/componentes-react/F-009-ordenar-catalogo.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
+- Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución/evidencias actualizadas en la reconciliación del 05/11. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Corte planificado de H4
@@ -19,9 +21,9 @@ Versión 0.1.0 · Planificación inicial · F-009 no está implementada por esto
 | Nivel de evidencia | Registro del corte de esta F |
 |---|---|
 | Diseñado | Specs enlazadas arriba; añadir revisión del flujo/contrato/frame concreto de H4. Su existencia no acredita aprobación de todas las discrepancias |
-| Implementado con datos de prueba | Enlazar commit FE/BE, fixture explícito, comando y resultado positivo/negativo. Recuperar evidencia del código existente antes de certificar cobertura completa |
-| Integrado con otro módulo | Pendiente de evidencia por operación: proveedor/versión, entorno, auth, request/response REAL, negativos y traza; respetar gates de esta F |
-| Probado en el despliegue | Pendiente: URLs/SHAs/run CI-CD y caso desde web/API desplegada con revisión independiente. No inferir de prueba local ni de provider directo |
+| Implementado con datos de prueba | Entregas FE #124 y BE #265 fusionadas tras revisión de Jim; commits individuales y pruebas en [matriz del 05/11](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md). No es falta de implementación inicial |
+| Integrado con otro módulo | Ambos órdenes respondieron en ensayos reales previos. La muestra no tenía nombres iguales: el empate REAL sigue INCONCLUSIVE. El código G6 revisado contiene desempate por ID. Con datos G6 de nombres iguales y resultados esperados, comprobar orden global, ID ascendente en empate y continuidad entre páginas en el corte publicado. Registrar versión/garantía del proveedor y revisión de Leónidas/Sebastián. |
+| Probado en el despliegue | Sigue pendiente de aceptación: web G1 devuelve CATALOG_TIMEOUT en el sondeo del 05/11 a las 13:45 Lima; BFF directo no responde en 20 s. OPS debe acreditar runtime/SHA/configuración y Giuliano retestar |
 
 La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
 
@@ -44,44 +46,48 @@ Referente de BD: Giuliano Macchiavello para este bloque, con revisión de Sebast
 
 - **Trabajo:** Implementar CatalogSortSelect y todos los estados de React/UI.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Falta confirmar con G6 el desempate global estable por identificador; el campo sort y MOCK no acreditan esa garantía externa.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Registrar la aceptación de los criterios FE de esta tarea con Sebastián (estados, props/eventos, desktop/mobile y navegación/URL aplicables) y de su dependencia OPS. El merge revisado por Jim ya está acreditado. Los pendientes de integración de la función no se convierten en falta de implementación del componente. Giuliano aporta la trazabilidad y atiende observaciones; Sebastián valida el DoD asignado, con revisión Backend de Leónidas y dependencia OPS aplicable.
 
 ### TASK-F009-BE-001
 
 - **Trabajo:** Validar enum sort y delegar orden estable al dueño sin ordenar una página incompleta.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Falta confirmar con G6 el desempate global estable por identificador; el campo sort y MOCK no acreditan esa garantía externa.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Registrar la aceptación del DoD Backend y dependencia OPS con el revisor asignado: DTO, validación, errores y proyección/ownership probados. Jim ya aprobó el merge; Leónidas revisó el alcance MOCK. Los casos REAL pendientes pertenecen al cierre de INT; no exigir reescribir el adaptador ya entregado. Giuliano aporta la trazabilidad y atiende observaciones; Sebastián valida el DoD asignado, con revisión Backend de Leónidas y dependencia OPS aplicable.
 
 ### TASK-F009-INT-001
 
 - **Trabajo:** Homologar y probar integración real y condiciones: I-01; no sólo fixture.
 - **Terminado cuando:** Contrato/configuración y gates enlazados, pruebas positivas/negativas y timeout autorizadas pasan; evidencia distingue sandbox de mock.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Liberar I-01 con contrato/configuración autorizada, grant técnico y positivos/negativos/timeout desde web→BFF→G6. Falta confirmar con G6 el desempate global estable por identificador; el campo sort y MOCK no acreditan esa garantía externa.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Con datos G6 de nombres iguales y resultados esperados, comprobar orden global, ID ascendente en empate y continuidad entre páginas en el corte publicado. Registrar versión/garantía del proveedor y revisión de Leónidas/Sebastián. Confirmar configuración/acceso del entorno: public-read-only explícito tras integrar #273, o JWT con grant/emisión verificados. JWT no es un prerrequisito técnico del modo público acordado. Conservar las dependencias formales originales de esta INT. Giuliano: comprobación/registro; Gabriel/G6: dataset y comportamiento del corte; Leónidas: revisión Backend/contrato; Sebastián: revisión principal; OPS: publicación.
 
 ### TASK-F009-QA-001
 
 - **Trabajo:** Probar todos los enums permitidos enviados; sort inválido no llega externo; page se reinicia; no ordena sólo tarjetas de página actual; incluir cada estado visual y transición documentada.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Falta confirmar con G6 el desempate global estable por identificador; el campo sort y MOCK no acreditan esa garantía externa.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Completar y revisar la matriz por criterio de esta QA con Sebastián/QA, incluyendo el recorrido REAL y los casos pendientes de la función en el entorno acordado. Con datos G6 de nombres iguales y resultados esperados, comprobar orden global, ID ascendente en empate y continuidad entre páginas en el corte publicado. Registrar versión/garantía del proveedor y revisión de Leónidas/Sebastián. Las pruebas locales/fixtures ya ejecutadas permanecen como evidencia y no se repiten por rutina. Giuliano: comprobación/registro; Gabriel/G6: dataset y comportamiento del corte; Leónidas: revisión Backend/contrato; Sebastián: revisión principal; OPS: publicación.
 
 ### TASK-F009-QA-002
 
 - **Trabajo:** Enum desconocido/inyección no llega proveedor.
 - **Terminado cuando:** Negativos de seguridad pasan en entorno propio/autorizado, scans SAST/SCA/secrets y DAST aplicable adjuntos sin secretos. Sin hallazgo crítico/alto explotable abierto.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Completar DAST aplicable en staging autorizado y revisión independiente de riesgos; los scans locales/CI no certifican ese paso. Falta confirmar con G6 el desempate global estable por identificador; el campo sort y MOCK no acreditan esa garantía externa.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Adjuntar/revisar negativos del corte y SAST/SCA/secret scan ya existentes; completar DAST aplicable y revisión de riesgos con Andrés/seguridad en entorno propio/autorizado, corregir/reprobar hallazgos y acreditar la dependencia OPS de la tarea. No confundir controles locales/CI con aceptación de staging. Giuliano ejecuta/adjunta y retesta; Andrés/seguridad y el revisor acuerdan entorno, alcance, riesgos y aceptación.
 
 ### TASK-F009-DOC-001
 
 - **Trabajo:** Actualizar trazabilidad specs↔implementación↔pruebas, enlaces Figma y decisiones resueltas; documentar operación/errores relevantes.
 - **Terminado cuando:** Fuentes vigentes coherentes, evidencias reales y revisión independiente; no marcar funcionalidad terminada con integración pendiente.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Backend #237 y SPECS #13 aprobados por Leo e integrados el 01/11; Frontend #110 aprobado por Sebastian, con solicitud anterior de cambios de Leo aún registrada. Los cambios nuevos del 03/11 requieren nueva revisión independiente. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; home/búsqueda públicos G1 devolvieron 503/UNCONFIGURED el 03/11 y filtros 404; falta identificar/probar el SHA desplegado. Validación independiente de la documentación y cierre de INT/QA-001/QA-002 de esta misma función. Falta confirmar con G6 el desempate global estable por identificador; el campo sort y MOCK no acreditan esa garantía externa.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F009-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Revisión independiente y merge de esta actualización en SPECS #16; coherencia de fuentes/specs/evidencias y dependencias INT/QA funcional/QA seguridad originales satisfechas. El texto y el commit documental ya están entregados; no falta redactar la tarea desde cero. Giuliano actualiza; Sebastián/revisor independiente valida documentación; los owners de INT y QA entregan su cierre.
 
+
+## Historial anterior al corte vigente del 05/11
+
+Los pendientes/estados de las notas siguientes corresponden a su fecha; no sustituyen la matriz actual enlazada arriba.
 
 ## Avance H4 de Giuliano — 26/10/2026
 
