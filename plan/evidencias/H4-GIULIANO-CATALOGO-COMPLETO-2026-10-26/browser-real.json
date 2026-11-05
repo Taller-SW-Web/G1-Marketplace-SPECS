@@ -1,0 +1,36 @@
+{
+  "time": "2026-10-27T03:18:14.364Z",
+  "cases": [
+    {
+      "name": "Direct full catalog shows 15 real cards",
+      "status": "PASS",
+      "ms": 12830
+    },
+    {
+      "name": "Search still shows five real cards",
+      "status": "PASS"
+    },
+    {
+      "name": "Todo el catalogo navigation shows 15 cards",
+      "status": "PASS",
+      "ms": 11568
+    }
+  ],
+  "responses": [
+    {
+      "path": "/api/catalog/products",
+      "status": 200,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/products?q=Nike",
+      "status": 200,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/products",
+      "status": 200,
+      "source": "REAL"
+    }
+  ]
+}

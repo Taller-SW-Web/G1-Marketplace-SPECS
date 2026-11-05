@@ -1,0 +1,62 @@
+{
+  "time": "2026-10-27T03:40:40.023Z",
+  "cases": [
+    {
+      "name": "Category and price controls are independent while brands are unavailable",
+      "status": "PASS"
+    },
+    {
+      "name": "Category submitted to G6 through Next/BFF",
+      "status": "PASS",
+      "count": 1,
+      "categoryId": "fcb3cac1-b14a-b935-fc1a-c147b878a5c6"
+    },
+    {
+      "name": "Price filter blocked by G6 SERVICIO_NO_DISPONIBLE",
+      "status": "BLOCKED_G6",
+      "httpStatus": 503
+    },
+    {
+      "name": "Clear filters keeps search and restores original G6 results",
+      "status": "PASS",
+      "count": 5
+    }
+  ],
+  "responses": [
+    {
+      "path": "/api/catalog/filters",
+      "status": 503,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/home",
+      "status": 200,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/home",
+      "status": 200,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/products?q=Nike",
+      "status": 200,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/products?q=Nike&categoryIds=fcb3cac1-b14a-b935-fc1a-c147b878a5c6",
+      "status": 200,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/products?q=Nike&categoryIds=fcb3cac1-b14a-b935-fc1a-c147b878a5c6&minPrice=0",
+      "status": 503,
+      "source": "REAL"
+    },
+    {
+      "path": "/api/catalog/products?q=Nike",
+      "status": 200,
+      "source": "REAL"
+    }
+  ]
+}
