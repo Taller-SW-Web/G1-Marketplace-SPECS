@@ -1,5 +1,5 @@
-# Spec UI — F-039 Mover favorito a carrito
+# Spec UI — F-039 Agregar al carrito
 
-Botón “Mover al carrito”. Éxito retira tarjeta y anuncia; variante requerida navega a `/productos/{slug}` con explicación; agotado conserva favorito y muestra aviso.
+Decisión solicitada el 28/10/2026; revisión independiente pendiente. Botón “Agregar al carrito”. Éxito conserva la tarjeta y anuncia el incremento; variante requerida navega a `/productos/{slug}` con explicación; agotado conserva favorito y muestra aviso.
 
-- [ ] **UI-F039-01:** No indica traslado hasta confirmar carrito.
+- [ ] **UI-F039-01:** No indica adición hasta confirmar carrito; nunca retira la tarjeta por esta acción.

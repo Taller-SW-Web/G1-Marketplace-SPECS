@@ -26,27 +26,27 @@
 
 ### `V-005`
 
-- `V-005 / Desktop / Público`
-- `V-005 / Mobile / Público`
-- `V-005 / Desktop / Autenticado`
-- `V-005 / Mobile / Cargando`
-- `V-005 / Desktop / Sin contenido`
-- `V-005 / Mobile / Catálogo no disponible`
-- `V-005 / Desktop / ProductCard favorita`
-- `V-005 / Mobile / Producto no disponible`
+- [`V-005 / Desktop / Público`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-111)
+- [`V-005 / Mobile / Público`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-293)
+- [`V-005 / Desktop / Autenticado`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-477)
+- [`V-005 / Mobile / Cargando`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-659)
+- [`V-005 / Desktop / Sin contenido`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-717)
+- [`V-005 / Mobile / Catálogo no disponible`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-762)
+- [`V-005 / Desktop / ProductCard favorita`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-811)
+- [`V-005 / Mobile / Producto no disponible`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=274-866)
 
 ### `V-006`
 
-- `V-006 / Desktop / Catálogo`
-- `V-006 / Mobile / Catálogo`
-- `V-006 / Desktop / Búsqueda con filtros`
-- `V-006 / Mobile / Resultados`
-- `V-006 / Desktop / Cargando`
-- `V-006 / Mobile / Sin resultados`
-- `V-006 / Desktop / Query o rango inválido`
-- `V-006 / Mobile / Catálogo no disponible`
-- `V-006 / Desktop / Página intermedia`
-- `V-006 / Mobile / ProductCard favorita`
+- [`V-006 / Desktop / Catálogo`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-881)
+- [`V-006 / Mobile / Catálogo`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-1026)
+- [`V-006 / Desktop / Búsqueda con filtros`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1043)
+- [`V-006 / Mobile / Resultados`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1734)
+- [`V-006 / Desktop / Cargando`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1188)
+- [`V-006 / Mobile / Sin resultados`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1958)
+- [`V-006 / Desktop / Query o rango inválido`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1454)
+- [`V-006 / Mobile / Catálogo no disponible`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-2182)
+- [`V-006 / Desktop / Página intermedia`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=351-1678)
+- [`V-006 / Mobile / ProductCard favorita`](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-2406)
 
 ### `V-007`
 

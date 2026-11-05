@@ -42,16 +42,16 @@ El contenedor coordina transporte/estado; los componentes presentacionales no ll
 | ID / componente | Responsabilidad | Props tipadas (propuesta) | Eventos |
 |---|---|---|---|
 | `CMP-F039-001` · `MoveWishlistToCartAction` | Producto simple, ninguna selección arbitraria. | `productId: string; busy: boolean` | onMove(productId) |
-| `CMP-F039-002` · `WishlistMoveOutcome` | Favorito permanece excepto éxito completo. | `kind: 'MOVED' \| 'VARIANT_REQUIRED' \| 'OUT_OF_STOCK' \| 'ERROR'; redirectUrl?: string` | onOpenProduct(); onViewCart(); onRetry() |
+| `CMP-F039-002` · `WishlistMoveOutcome` | Favorito permanece también en éxito completo. | `kind: 'ADDED' \| 'VARIANT_REQUIRED' \| 'OUT_OF_STOCK' \| 'ERROR'; redirectUrl?: string` | onOpenProduct(); onViewCart(); onRetry() |
 
 Los nombres de DTO y drafts son contratos TypeScript de implementación, no nuevos campos de la API. Su estructura se deriva exclusivamente del contrato enlazado; aplicar las convenciones de tipos de [ARQUITECTURA-REACT](ARQUITECTURA-REACT.md#3-tipos-y-contratos). Props con `busy` no habilitan dobles mutaciones. Eventos se invocan una vez y devuelven control al contenedor.
 
 ## 5. Estado y flujo de datos
 
-- **Local:** Estado por tarjeta; no eliminación optimista antes resultado.
+- **Local:** Estado por tarjeta; nunca eliminar la tarjeta por agregar al carrito.
 - **Compartido:** sólo sesión no sensible, identidad del contexto y contexto transitorio del flujo; no duplicar datos remotos en stores independientes.
-- **Remoto / caché:** Éxito invalida cart/wishlist/quote;422 sólo conserva favorito y navega a URL interna validada.
-- **Flujo específico:** Producto variable abre ficha, selecciona F-013 y añade F-016; la eliminación del favorito tras ese flujo no está contratada, no hacerla automática. Mover atómico sólo POST F-039 exitoso.
+- **Remoto / caché:** Éxito invalida cart/quote y conserva wishlist;422 sólo conserva favorito y navega a URL interna validada.
+- **Flujo específico:** Decisión solicitada el 28/10/2026: agregar al carrito conserva favorito y createdAt en éxito y fallo. Producto variable abre ficha, selecciona F-013 y añade F-016; tampoco elimina el favorito. Revisión independiente pendiente.
 - Cancelar o ignorar respuestas de identidad/selección anterior. No guardar cuerpos sensibles en devtools, logs o analítica. Los cachés privados se eliminan al cerrar o cambiar de sesión.
 
 ## 6. Hooks, formularios y validaciones
@@ -66,13 +66,13 @@ redirectUrl del422 sólo ruta interna /productos/slug válida, no destino extern
 
 ### Operaciones documentadas
 
-- `POST /api/v1/wishlist/items/{productId}/move-to-cart`
+- `POST /api/v1/wishlist/items/{productId}/add-to-cart`
 
 Auth y rutas `/password` se traducen mediante el límite de integración aprobado; no se presupone que ya exista proxy BFF ni CORS habilitado. Rutas `/internal` jamás se consumen desde el navegador. Header, request y response exactos pertenecen al contrato API, no a las props.
 
 ## 7. Estados, errores y recuperación
 
-READY → MOVING → MOVED | VARIANT_REQUIRED | OUT_OF_STOCK | NOT_AVAILABLE | ERROR.
+READY → ADDING → ADDED | VARIANT_REQUIRED | OUT_OF_STOCK | NOT_AVAILABLE | ERROR.
 
 - **Carga:** skeleton de la región que consulta, o progreso local de mutación; nunca datos o importes de ejemplo.
 - **Vacío / no aplicable:** sólo ante respuesta válida o condición explícita; errores nunca se convierten en colección vacía, precio cero o stock agotado.
@@ -91,7 +91,7 @@ READY → MOVING → MOVED | VARIANT_REQUIRED | OUT_OF_STOCK | NOT_AVAILABLE | E
 |---|---|
 | `RC-F-039-01` | 422 conserva favorito. |
 | `RC-F-039-02` | agotado conserva. |
-| `RC-F-039-03` | POST200 actualiza ambas colecciones. |
+| `RC-F-039-03` | POST200 actualiza carrito y conserva la colección de favoritos. |
 | `RC-F-039-04` | redirectUrl externo rechazado. |
 | Estados UI | Render y transición de cada estado de la sección 7 y de la spec visual relacionada. |
 | Transporte | Fixture de éxito, vacío/no aplicable, validación, autorización, conflicto, timeout y fallo externo que realmente correspondan al contrato. |
@@ -109,7 +109,7 @@ Pruebas de componentes con mocks del contrato Marketplace; pruebas reales del ad
 
 ## 10. Condiciones pendientes y límites de implementación
 
-I-01; flujo completar traslado variante requiere aclaración adicional si se desea borrar tras adición.
+I-01; sin eliminación automática del favorito; aceptación independiente pendiente.
 
 Estos pendientes no se resuelven inventando rutas ni comportamiento. El [registro de decisiones](../../plan/DECISIONES-Y-BLOQUEOS.md) separa las soluciones locales propuestas de las confirmaciones externas. Se puede diseñar, construir componentes puros y probar mocks sin activar una integración bloqueada.
 

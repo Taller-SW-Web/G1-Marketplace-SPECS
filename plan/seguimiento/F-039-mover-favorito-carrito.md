@@ -1,4 +1,8 @@
-# Tareas y seguimiento — F-039 Mover favorito al carrito
+# Tareas y seguimiento — F-039 Agregar conservando favorito
+
+## Cambio de comportamiento — 28/10/2026
+
+El solicitante decidió conservar el favorito también tras agregar al carrito. Contrato vigente de esta propuesta: `POST /api/v1/wishlist/items/{productId}/add-to-cart`; sin eliminación automática ni cambio de createdAt. No cambia IDs, responsables, dependencias ni estados por esta edición. Fernando Saire debe revisar el cambio; integración REAL y despliegue siguen requiriendo evidencia propia.
 
 Versión 0.1.0 · Planificación inicial · F-039 no está implementada por estos documentos.
 
@@ -12,7 +16,7 @@ Versión 0.1.0 · Planificación inicial · F-039 no está implementada por esto
 
 ## Corte planificado de H4
 
-**Objetivo de cierre H4.** Implementar favorito→carrito con selección SKU, precio/cantidad G6, identidad G7 y handoff con Andres; destino confirmado antes de quitar origen y pruebas de replay/fallo sin pérdida.
+**Objetivo de cierre H4.** Implementar favorito→carrito con selección SKU, precio/cantidad G6, identidad G7 y handoff con Andres; destino confirmado conservando favorito y createdAt y pruebas de replay/fallo sin pérdida.
 
 **Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. Disponibilidad sin restricción horaria por decisión del PO. Las entregas «local» o «con dobles» son etapas del mismo TASK, no cierres de INT. DOC prepara desde specs y QA ejecuta casos propios antes de INT; el cierre completo conserva dependencias/DoD. [Alcance H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md). Los estados no cambian al replanificar.
 
@@ -50,7 +54,7 @@ Referente de BD: Diego Espinoza para este bloque, con revisión de Fernando Sair
 
 ### TASK-F039-BE-001
 
-- **Trabajo:** Trasladar producto simple a carrito y borrar favorito sólo tras transacción exitosa; variable: 422 con URL interna y fallo conserva.
+- **Trabajo:** Agregar una unidad de producto simple al carrito conservando favorito y createdAt en éxito y fallo; variable: 422 con URL interna validada. Reutilizar transacción de carrito.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
 - **Evidencia:** Pendiente. Añadir revisión de código, comando/entorno/casos/resultados, hallazgos/retest y aprobación; sin secretos/PII.
 - **Bloqueo / liberación:** Respetar dependencias del tablero y Ready; no existe evidencia de ejecución todavía.
