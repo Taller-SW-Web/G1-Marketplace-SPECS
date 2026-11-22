@@ -1,10 +1,10 @@
 # Matriz de responsabilidad punta a punta — Marketplace
 
-Versión 0.7.0 · Replanificación H4 19/10/2026 · Reparto decidido por Jim Segovia, PO, el 13/10/2026. **Responsables, revisores y estimaciones base fijados para planificar; no requieren aceptación individual previa.** Esta matriz asigna trabajo futuro; no acredita código, integración ni aprobación académica de un hito. Las specs funcionales, UI, API y React conservan sus reglas; el responsable de implementación no sustituye al responsable del **diseño de una vista** que aparezca en V/O/C o en el inventario visual.
+Versión 0.7.0 · Replanificación H4 19/10/2026 · Reparto base decidido el 13/10/2026 y actualizado para H5 por el PO el 14/11/2026. **Responsables, revisores y estimaciones base fijados para planificar; no requieren aceptación individual previa.** Esta matriz asigna trabajo futuro; no acredita código, integración ni aprobación académica de un hito. Las specs funcionales, UI, API y React conservan sus reglas; el responsable de implementación no sustituye al responsable del **diseño de una vista** que aparezca en V/O/C o en el inventario visual.
 
 ## Criterio de reparto
 
-El sílabo tiene ocho bloques y el equipo siete integrantes. El PO agrupa **consulta/seguimiento de pedidos** y **notificaciones del pedido** bajo Fernando: comparten el estado del pedido y la señal de Despacho, y reciben implementación/pruebas G1 en H4, con cierre integral S03–S04 según contrato. Es la decisión operativa del equipo; Jim consultará al profesor la interpretación académica sin detener el inicio del trabajo. Fernando recibe colaboración de Jim para aceptación de contenido de correos y de Leonidas para el contrato/evento; conserva un único ownership técnico de ambos bloques. Si una dependencia externa sigue sin contrato/entorno, Jim registra la frontera y su plan de desbloqueo, sin presentar una función bloqueada como cerrada.
+Los ocho bloques del sílabo se distribuyen entre siete integrantes. En H5, los bloques de checkout y correos se dividen por función. Cada F conserva un dueño de punta a punta y un revisor principal.
 
 Cada responsable implementa al menos un corte de **interfaz y backend propio de Marketplace**. Para Seguridad, Productos, Ventas y Despacho, backend propio significa ruta BFF, adaptador, orquestación o persistencia **de Marketplace** según la spec. El módulo proveedor conserva sus reglas y datos. El revisor principal es distinto del autor; Leonidas revisa además cambios de contrato/backend y Andres revisa seguridad cuando apliquen. Los roles generales del [equipo](../README.md#equipo) continúan.
 
@@ -15,15 +15,33 @@ Cada responsable implementa al menos un corte de **interfaz y backend propio de 
 | 3. Detalle del producto | F-011–F-015 | V-007; O-002; acciones de carrito/favorito pertenecen a otros bloques | Sebastian Malca / Giuliano Macchiavello | Productos I-01, G-SKU, G-QUANTITY | H4/S02 F-011–F-015 |
 | 4. Carrito de compras | F-016–F-021 | V-008; O-005–O-007; alta desde V-007 y fusión en V-001 | Andres Morales / Leonidas Garcia | Productos I-01, Seguridad G-AUTH, G-ADD, G-UNDO, G-DB | H4/S02 F-016–F-021 |
 | 5. Favoritos / lista de deseos | F-036–F-039 | V-009; controles en V-005–V-007; O-003/O-006 compartidos | Diego Espinoza / Fernando Saire | Seguridad G-AUTH, Productos I-01; carrito para F-039 | H4/S02 F-036–F-039 |
-| 6. Checkout y generación del pedido | F-022–F-027 | V-010–V-014; O-004; O-010 compartido | Leonidas Garcia / Diego Espinoza | Ventas I-02, Despacho I-06, Productos I-01, G-MONEY/G-CHECKOUT/G-PAID | S3 antes de H5; cierre sólo con PAGADO confirmado |
-| 7. Notificaciones por correo | F-033–F-035 | C-001–C-002; confirmación visible en V-014 | Fernando Saire / Jim Segovia | Ventas I-02 (confirmación), I-05 (despacho), G-MAIL, G-ASYNC-H5 | S3 F-033/034; H5/S4 F-035 |
+| 6. Checkout y generación del pedido | F-022 | V-010 | Jim Segovia / Andres Morales | Seguridad G-ADDRESS | S03, con prueba de titularidad en G7 |
+| 6. Checkout y generación del pedido | F-023, F-025–F-027 | V-011–V-014; O-004 | Leonidas Garcia / Diego Espinoza | Ventas I-02, Despacho I-06, Productos I-01, G-MONEY/G-CHECKOUT/G-PAID | S03 según gates; F-027 requiere PAGADO confirmado |
+| 6. Checkout y generación del pedido | F-024 | V-011 | Sebastian Malca / Giuliano Macchiavello | Productos y Ventas: beneficios y cupón | S03 según gates |
+| 7. Notificaciones por correo | F-033 | C-001, C-002 | Giuliano Macchiavello / Sebastian Malca | G-MAIL | S03 según gates |
+| 7. Notificaciones por correo | F-034 | V-014, C-001 | Leonidas Garcia / Diego Espinoza | Ventas I-02, G-PAID, G-MAIL | S03 según gates |
+| 7. Notificaciones por correo | F-035 | C-002 | Fernando Saire / Jim Segovia | I-05, G-MAIL, G-ASYNC-H5 | H5/S04 según gates |
 | 8. Consulta y seguimiento de pedidos | F-028–F-032 | V-015–V-017; O-008; F-040 se abre tras entrega | Fernando Saire / Jim Segovia | Ventas I-03, Despacho I-06, G-REORDER | S3 F-028/030; H5/S4 F-032; H6/S5 F-029/031 |
 
 **Adicional fuera de los ocho bloques literales:** F-040, evaluación postentrega, pertenece al canal Marketplace pero no es un noveno bloque del sílabo citado. Responsable **Diego**, revisor **Fernando**; O-009, con acceso desde V-016/V-017; objetivo H6/S5 y gates I-04/G-PROMPT con Ventas. Así quedan F-001–F-040 asignadas exactamente una vez.
 
-## Reparto verificable de H4
+## Reparto vigente de H5
 
-Se conservan dueños/revisores funcionales y visuales. [S02](../plan/iteraciones/S02-semanas-09-11.md) fija **25 cierres principales H4: 20 del circuito Productos y 5 de cuenta**, condicionados a contratos/entornos/pruebas. El PO dispone disponibilidad sin restricción horaria; no hay ampliaciones sujetas a cupos. Las otras 15 F reciben implementación/pruebas propias G1 en H4, manteniendo cierre integral posterior por sus dependencias.
+| Responsable | Funciones | Total | Trabajo transversal de H5 |
+|---|---|:-:|---|
+| Jim | F-001–F-005, F-022 | 6 | Coordinación G7/G5/G2, correos de verificación y aceptación de gates |
+| Giuliano | F-006–F-010, F-033 | 6 | Refresh UX, plantillas C-001/C-002 y DS-001 |
+| Sebastian | F-011–F-015, F-024 | 6 | Pruebas de contrato y paquete de evidencia H5 |
+| Andres | F-016–F-021 | 6 | CI/CD y seguridad, instancia APIM y secretos, observabilidad y regresión |
+| Leonidas | F-023, F-025–F-027, F-034 | 5 | Arquitectura de gateway, asincronía A y OpenAPI BFF. Lidera [#216](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/216) y [#220](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/220) |
+| Fernando | F-028–F-032, F-035 | 6 | Performance, runtime cloud, rollback y receptor del webhook |
+| Diego | F-036–F-040 | 5 | Pruebas, seguimiento de issues y gates |
+
+El reparto cubre 40 funciones. Las cuatro reasignaciones corresponden a F-022 (BE #114–117, FE #59–60), F-024 (BE #122–125, FE #63–64), F-033 (BE #161–164, FE #81–82) y F-034 (BE #165–169, FE #83–84). CI/CD y seguridad del [#221](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/221) permanecen con Andres. Fernando lidera performance en las tareas H5 específicas.
+
+## Reparto histórico de H4
+
+Esta sección registra el reparto de H4 previo a las reasignaciones de H5. [S02](../plan/iteraciones/S02-semanas-09-11.md) fija **25 cierres principales H4: 20 del circuito Productos y 5 de cuenta**, condicionados a contratos/entornos/pruebas. El PO dispone disponibilidad sin restricción horaria; no hay ampliaciones sujetas a cupos. Las otras 15 F reciben implementación/pruebas propias G1 en H4, manteniendo cierre integral posterior por sus dependencias.
 
 | Persona | Funciones y entrega propia H4 | Transversal / revisor |
 |---|---|---|
@@ -43,7 +61,7 @@ F-023–F-026 (Leonidas) y F-031 (Fernando) forman una extensión H4 por contrat
 
 - **F-020** tiene owner Andres (carrito); Jim provee el estado de login y revisa el handoff de identidad. **F-021** queda con Andres y **F-039** con Diego; usan contratos compartidos de carrito/favoritos con pruebas de duplicado/timeout.
 - **F-016** se invoca desde V-007, pero Andres conserva la mutación del carrito; Sebastian integra el control en la ficha. **F-036** aparece en V-005/V-006/V-007; Diego conserva el BFF/persistencia de favorito y los dueños de las vistas integran el control. Diseñador visual y dueño de implementación son campos distintos.
-- **F-025–F-027** dependen de Ventas y de los importes/stock autorizados por Productos/Despacho. Leonidas integra el checkout; Fernando consume el pedido autorizado para F-028–F-035. No se replica la BD de otros módulos.
+- **F-025–F-027** dependen de Ventas y de los importes/stock autorizados por Productos/Despacho. Leonidas integra el checkout; Fernando consume el pedido autorizado para F-028–F-032 y F-035. Leonidas usa PAGADO verificado para F-034. No se replica la BD de otros módulos.
 - **F-032 y F-035** comparten señal de Despacho, con Fernando como responsable de integración y Leonidas como revisor técnico del contrato/evento. La decisión sobre proveedor, ruta, esquema y token queda abierta hasta publicación y prueba. No se fija aquí un endpoint nuevo.
 - **O-010 y DS-001** son componentes de diseño transversales, no funcionalidades asignadas. Giuliano custodia el sistema visual; cada dueño aplica sus estados. La propiedad histórica de los 29 mockups permanece en el [inventario visual](ui/INVENTARIO-VISUAL-Y-ESTIMACION.md) y no concede ownership del código.
 - Los 40 IDs permanecen estables. La cobertura de cada tarea y su estado se controla en [seguimiento](../plan/seguimiento/README.md); un corte `MOCK` local no libera una tarea `INT` bloqueada.
