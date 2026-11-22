@@ -9,7 +9,7 @@ Permite a un cliente autenticado seleccionar una dirección existente o registra
 
 - **RN-F022-01:** Checkout requiere sesión; no hay dirección de invitado en el alcance inicial.
 - **RN-F022-02:** Sólo se listan/crean direcciones del titular derivado del JWT; nunca se acepta un `userId` manipulable.
-- **RN-F022-03:** Una dirección válida requiere calle/avenida, departamento, provincia, distrito, referencia opcional y teléfono de contacto según contrato de Seguridad.
+- **RN-F022-03:** Una dirección válida requiere calle/avenida, departamento, provincia, distrito, referencia opcional y teléfono en el formulario de Marketplace. El contrato de dirección de Seguridad no contempla teléfono. El BFF no lo persiste ni lo reenvía como atributo de dirección.
 - **RN-F022-04:** Seleccionar no persiste una tabla local ni modifica una dirección existente.
 
 - [ ] **CA-F022-01:** El cliente puede usar una dirección propia guardada o registrar una nueva y seleccionarla.

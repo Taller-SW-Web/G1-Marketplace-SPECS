@@ -10,7 +10,7 @@ Ruta `/checkout/direccion`, sólo con sesión. Muestra tarjetas de direcciones g
 | Nueva dirección | Formulario con validación por campo; referencia opcional. |
 | Error | Datos ingresados preservados y Reintentar. |
 
-Direcciones no muestran datos más allá de lo necesario; teléfono se enmascara en tarjetas. `fieldset`/radio accesibles, errores asociados por `aria-describedby`, y botón Continuar deshabilitado hasta selección válida.
+Direcciones no muestran datos más allá de lo necesario; las tarjetas se construyen con los campos de dirección del BFF y no requieren un teléfono. `fieldset`/radio accesibles, errores asociados por `aria-describedby`, y botón Continuar deshabilitado hasta selección válida.
 
-- [ ] **UI-F022-01:** El lector anuncia qué dirección está seleccionada sin revelar innecesariamente el teléfono.
+- [ ] **UI-F022-01:** El lector anuncia qué dirección está seleccionada sin anunciar campos que la tarjeta no muestra.
 - [ ] **UI-F022-02:** Los errores no borran datos válidos escritos.
