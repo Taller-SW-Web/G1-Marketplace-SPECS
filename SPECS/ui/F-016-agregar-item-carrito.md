@@ -3,10 +3,12 @@
 | Campo | Valor |
 |---|---|
 | ID | `F-016` |
-| Sistema de diseño vigente | `DS-001` v`0.2.0`; aplicación visual pendiente de revisión |
-| Ruta | `/productos/{slug}` |
+| Sistema de diseño vigente | `DS-001` v`0.3.0`; dirección visual H5 aprobada, implementación pendiente de evidencia |
+| Ruta | `/productos/{slug}`; agregado rápido en `V-005` y `V-006` |
 
 El botón primario “Agregar al carrito” aparece después de F-013/F-014. Está deshabilitado con explicación si falta seleccionar variante o el SKU está agotado; no se deshabilita por fallo de consulta, sino que muestra “Reintentar disponibilidad”.
+
+El agregado rápido de `ProductCard` sólo se habilita cuando el producto expone un único SKU vendible resuelto y la disponibilidad permite la acción. En producto variable, sin SKU o con precio/stock “por confirmar”, la tarjeta muestra “Ver opciones” y navega a la ficha; no se infiere talla, color, SKU ni precio.
 
 | Estado | Interfaz |
 |---|---|

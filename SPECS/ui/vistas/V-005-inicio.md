@@ -9,14 +9,16 @@
 | ID | `V-005` |
 | Nombre | Inicio |
 | Ruta | `/` |
-| Versión | `0.1.0` |
-| Estado | En revisión |
+| Versión | `0.2.0` |
+| Estado | Aprobada para implementar (dirección visual H5; trazabilidad por frame en curso) |
 | Responsable | Fernando José Saire Tello |
 | Revisor | Giuliano Macchiavello |
-| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | [Sección V-005](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=265-8) |
+| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) v`0.3.0` |
+| Aprobación visual | [Jim Segovia, 24/11/2026](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860) |
+| Enlace de Figma H5 | [Mockups H5 — inicio](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) |
+| Enlace de Figma heredado | [Sección V-005](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=265-8) (frames H3, referencia) |
 | Página de Figma | [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) |
-| Enlaces verificados | 2026-10-14; consulta de nodos del archivo Mockups. Revisión humana pendiente |
+| Enlaces verificados | 2026-10-14 para frames H3; 2026-11-24 para la sección H5 aprobada. Enlaces por frame H5 pendientes |
 
 ## 2. Propósito, actor y acceso
 
@@ -52,41 +54,51 @@ Contratos consultados: [`API F-006`](../../contrato-api/F-006-inicio-categorias-
 
 ```text
 V-005 Inicio
+├── Barra de promociones (opcional, contenido aprobado)
 ├── Cabecera global
 │   ├── Logo
-│   ├── Buscador
-│   ├── Navegación de categorías
-│   └── Cuenta, favoritos y carrito con contadores
+│   ├── Menú de categorías
+│   ├── Buscador con sugerencias
+│   ├── Cuenta, favoritos y carrito con contadores
+│   └── Menú móvil
 ├── Contenido principal
 │   ├── Hero editorial/comercial
-│   ├── Accesos a categorías activas
-│   └── Productos destacados
+│   ├── Categorías activas con imagen
+│   └── Carruseles de productos
+│       ├── Destacados
 │       └── ProductCard × N
 └── Pie global
 ```
 
 | Región | Componente o contenido | Prioridad | Comportamiento |
 |---|---|---|---|
-| Cabecera | Logo, búsqueda y accesos globales | Primaria | Permanece coherente con `V-006` y `V-007`; puede compactarse al desplazarse sin ocultar acciones esenciales. |
-| Hero | Mensaje, imagen y CTA editorial | Primaria | Un CTA inequívoco; no depende de carrusel automático. |
-| Categorías | Imagen/icono, nombre y enlace | Primaria | Sólo categorías activas; número y orden definidos por catálogo/editorial. |
-| Destacados | `ProductCard` con imagen opcional | Primaria | Sólo productos activos con slug y datos comerciales requeridos; ausencia de imagen muestra placeholder local «Sin imagen» (ajuste solicitado 16/10/2026, en revisión). G-FEATURED sigue pendiente. |
-| Pie | Ayuda, políticas y navegación secundaria | Secundaria | No duplica la acción primaria del hero. |
+| Barra de promociones | Mensaje editorial aprobado y cierre | Secundaria | Opcional; se oculta completa sin contenido. No comunica errores ni estados. |
+| Cabecera | Logo, categorías, búsqueda y accesos globales | Primaria | Shell de `DS-001` §8.1, coherente con `V-006` y `V-007`; puede compactarse al desplazarse sin ocultar acciones esenciales ni foco. |
+| Menú de categorías | Categorías activas | Primaria | Desktop con divulgación; mobile en drawer accesible. Sólo categorías activas de F-006. |
+| Búsqueda | Campo y sugerencias de F-007 | Primaria | Sugerencias opcionales desde la misma consulta; si fallan, la búsqueda sigue disponible. |
+| Hero | Mensaje, imagen y CTA editorial | Primaria | Un CTA inequívoco; contenido aprobado; sin autoplay ni promociones inventadas. |
+| Categorías | Imagen y nombre | Primaria | Sólo categorías activas; la grilla mantiene el ancho mínimo del frame y no exige desplazamiento horizontal para completar una tarjeta. |
+| Destacados | Carrusel manual de `ProductCard` | Primaria | Sólo productos activos con slug; la tarjeta aplica `DS-001` §8.3. Ausencia de imagen muestra placeholder local «Sin imagen». |
+| Pie | Ayuda, políticas y navegación secundaria | Secundaria | Enlaces sólo con destino aprobado; no duplica la acción primaria del hero. |
 
-Una sección sin datos se omite completamente, incluyendo su título y espacio reservado. La ausencia de categorías o destacados no bloquea la cabecera, búsqueda ni navegación restante.
+Los carruseles son manuales: controles visibles de 44 px, teclado, `scroll-snap` y tarjeta parcial como pista. No hay autoplay. Una sección sin datos se omite completamente, incluyendo su título y espacio reservado. La ausencia de categorías o destacados no bloquea la cabecera, búsqueda ni navegación restante; un error de una sección no invalida las demás.
 
 ## 6. Contenido y acciones
 
 | Elemento | Texto o dato | Acción | Condición de visibilidad |
 |---|---|---|---|
+| Barra de promociones | Mensaje editorial aprobado | Cerrar | Sólo con contenido aprobado. |
 | Logo | Variante oficial aprobada | Volver a `V-005` | Siempre. |
 | Buscador | Etiqueta accesible “Buscar productos” | Abrir resultados en `V-006` | Siempre. |
+| Sugerencias | Hasta seis coincidencias de F-007 | Abrir `V-006` o `V-007` según el resultado | Cuando el servicio responde y la consulta tiene al menos 2 caracteres. |
+| Menú de categorías | Categorías activas | Abrir `V-006` filtrada o drawer mobile | Siempre; opciones según catálogo. |
 | Acceso de cuenta | “Iniciar sesión” o menú del cliente | Abrir acceso/cuenta | Según sesión. |
 | Favoritos | Icono + etiqueta + contador cuando exista | Abrir `V-009` o `O-003` | Siempre; estado según sesión. |
 | Carrito | Icono + etiqueta + cantidad | Abrir `V-008` | Siempre. |
 | Hero | Título, apoyo, recurso visual y CTA | Abrir destino editorial permitido | Cuando exista contenido aprobado; no inventar promoción. |
 | Categoría | Nombre e imagen/icono | Abrir `V-006` filtrada | Categoría activa. |
 | Producto | Imagen, marca, nombre, precio y oferta si aplica | Abrir `V-007` | Tarjeta comercial completa. |
+| Acción rápida | “Agregar” o “Ver opciones” | Ejecutar F-016 o abrir `V-007` | “Agregar” sólo con un SKU vendible resuelto; en producto variable se usa “Ver opciones”. |
 | Favorito de producto | “Guardar en favoritos” / “Quitar de favoritos” | Ejecutar F-036 o activar `O-003` | En cada tarjeta válida. |
 
 ## 7. Estados de la vista
@@ -100,6 +112,9 @@ Una sección sin datos se omite completamente, incluyendo su título y espacio r
 | Destacados vacíos | `featuredProducts: []` | Sección omitida; categorías permanecen | Explorar categorías/buscar | No; anotar en frame principal |
 | Inicio sin contenido | Ambos arreglos vacíos | Orientación breve y CTA a `V-006`; navegación global operativa | Explorar catálogo | Sí |
 | Catálogo no disponible | Respuesta `503` | Mensaje por región o estado general sin romper cabecera | Reintentar/usar navegación disponible | Sí |
+| Precio o stock por confirmar | F-012/F-014 no responden para una tarjeta | La tarjeta conserva imagen y nombre; precio/stock indican “Por confirmar” y el agregado rápido no se habilita | Reintentar el dato o abrir ficha | Sí, variante de tarjeta |
+| Sugerencias no disponibles | F-007 falla al sugerir | No se muestra lista; el envío de búsqueda sigue operativo | Buscar normalmente | No; anotar en frame principal |
+| Menú móvil abierto | Pulsar categorías en mobile | Drawer con foco atrapado y fondo inerte | Navegar o cerrar | Sí |
 | Favorito guardando | Cliente pulsa corazón | Control ocupado sin duplicar solicitud | Esperar | Sí, como variante de tarjeta |
 | Favorito guardado | `201/200` | Estado activo con texto/icono y anuncio accesible | Continuar | Sí, como variante de tarjeta |
 | Favorito sin sesión | Visitante pulsa corazón | Se activa `O-003`; no se crea favorito anónimo | Iniciar sesión o cancelar | Se diseña en `O-003` |
@@ -125,18 +140,19 @@ El hero no contiene formularios en el alcance actual. Sus CTA sólo apuntan a ru
 ### Desktop
 
 - **Referencia:** 1440 px.
-- Cabecera con logo, buscador visible y acciones globales; categorías pueden usar navegación horizontal con alternativa accesible.
-- Hero amplio con texto e imagen equilibrados según `DS-001`.
-- Categorías y productos usan grillas responsivas; las tarjetas mantienen relación de imagen y alineación de precios/acciones.
-- No iniciar carruseles automáticamente; cualquier carril horizontal ofrece controles visibles, teclado y alternativa de exploración.
+- Barra de promociones opcional sobre la cabecera; si existe, no genera salto de layout al cargar.
+- Cabecera con logo, menú de categorías, buscador visible y acciones globales; las categorías conservan alternativa accesible por teclado.
+- Hero amplio con texto e imagen equilibrados según `DS-001`; el CTA principal no compite con enlaces secundarios.
+- Categorías con imagen y productos usan grillas responsivas; las tarjetas mantienen relación de imagen y alineación de precios/acciones.
+- No iniciar carruseles automáticamente; los carriles ofrecen controles visibles, teclado, `scroll-snap` y una tarjeta parcial como pista.
 
 ### Mobile
 
 - **Referencia:** 390 px.
-- Cabecera compacta con acceso claro a búsqueda, cuenta, favoritos y carrito; los contadores no reemplazan sus etiquetas accesibles.
+- Cabecera compacta con acceso claro a búsqueda, cuenta, favoritos y carrito; el menú de categorías se abre en drawer accesible y los contadores no reemplazan sus etiquetas.
 - Hero prioriza título, CTA e imagen sin forzar texto sobre zonas ilegibles.
-- Categorías pueden usar grilla de dos columnas o carril manual; destacados no dependen de carrusel automático.
-- Las tarjetas conservan nombre, precio y favorito sin objetivos táctiles superpuestos.
+- Categorías mantienen una grilla legible; destacados usan carril manual y no dependen de autoplay.
+- Las tarjetas conservan nombre, precio, favorito y acción rápida sin objetivos táctiles superpuestos ni anidados.
 
 ### Anchuras intermedias
 
@@ -169,6 +185,8 @@ El hero no contiene formularios en el alcance actual. Sus CTA sólo apuntan a ru
 
 Los estados de una sola sección vacía se documentan como anotaciones del frame principal, porque la sección se omite y no crea un layout nuevo.
 
+La dirección visual H5 aprobada el 24/11/2026 se encuentra en la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560). Los frames de la tabla anterior son del corte H3 y se conservan como referencia; no acreditan por sí solos la composición H5. Los enlaces por frame H5 de esta vista se completan en el seguimiento de [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142) sin alterar el diseño aprobado.
+
 ### Referencias adicionales localizadas
 
 Estos frames existen en el archivo consultado; se registran como referencias visuales, sin ampliar por ello los requisitos de implementación de H3 ni aprobar su diseño.
@@ -193,7 +211,11 @@ Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de 
 - [ ] `UI-V005-005`: Guardar favorito sin sesión activa `O-003`, no crea estado anónimo y conserva el retorno.
 - [ ] `UI-V005-006`: Precios y ofertas mantienen jerarquía semántica y no dependen sólo de color o tachado.
 - [ ] `UI-V005-007`: Los estados de carga/error se resuelven por sección cuando todavía existe contenido útil.
-- [ ] La vista aplica `DS-001` y reutiliza los mismos patrones globales de `V-006` y `V-007`.
+- [ ] `UI-V005-008`: El menú de categorías y el drawer móvil son operables por teclado, restauran el foco y no dependen de hover.
+- [ ] `UI-V005-009`: Los carruseles son manuales, tienen controles visibles y no mueven contenido automáticamente.
+- [ ] `UI-V005-010`: El agregado rápido sólo aparece con un SKU vendible resuelto; en producto variable o con precio/stock “por confirmar” se muestra “Ver opciones” o se deshabilita con explicación.
+- [ ] `UI-V005-011`: Cargando, vacío, error y “por confirmar” son distinguibles, accesibles y no dejan la vista en blanco.
+- [ ] La vista aplica `DS-001` v`0.3.0` y reutiliza los mismos patrones globales de `V-006` y `V-007`.
 
 ## 14. Decisiones y pendientes
 
@@ -202,4 +224,5 @@ Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de 
 | `V-005-OPEN-01` | Definir contenido, CTA, fuente y caducidad del hero; no inventar promociones en Figma. | Producto + UX | Antes del diseño final | Abierta |
 | `V-005-OPEN-02` | Confirmar orden, cantidad máxima e imagen/icono de categorías. | Catálogo + Producto | Antes del diseño final | Abierta |
 | `V-005-OPEN-03` | Confirmar cantidad y regla editorial de productos destacados. | Catálogo + Producto | Antes del diseño final | Abierta |
-| `V-005-OPEN-04` | Aprobar patrón de cabecera y navegación mobile compartido por las vistas comerciales. | UX/UI | Antes del diseño final | Abierta |
+| `V-005-OPEN-04` | Aprobar patrón de cabecera y navegación mobile compartido por las vistas comerciales. | UX/UI | Antes del diseño final | **Resuelta** por la dirección visual H5 aprobada el 24/11/2026 |
+| `V-005-OPEN-05` | Registrar los enlaces directos por frame H5 de inicio y de cada estado; la sección aprobada ya es la referencia. | UX/UI | Antes de la aceptación visual | Abierta |

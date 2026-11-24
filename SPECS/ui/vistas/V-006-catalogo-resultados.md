@@ -9,14 +9,16 @@
 | ID | `V-006` |
 | Nombre | Catálogo y resultados |
 | Ruta | `/catalogo` |
-| Versión | `0.2.0` |
-| Estado | En revisión |
+| Versión | `0.3.0` |
+| Estado | Aprobada para implementar (dirección visual H5; trazabilidad por frame en curso) |
 | Responsable | Fernando José Saire Tello |
 | Revisor | Giuliano Macchiavello |
-| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | [Sección V-006](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-870) |
+| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) v`0.3.0` |
+| Aprobación visual | [Jim Segovia, 24/11/2026](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860) |
+| Enlace de Figma H5 | [Mockups H5 — catálogo](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) |
+| Enlace de Figma heredado | [Sección V-006](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-870) (frames H3, referencia) |
 | Página de Figma | [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) |
-| Enlaces verificados | 2026-10-14; consulta de nodos del archivo Mockups. Revisión humana pendiente |
+| Enlaces verificados | 2026-10-14 para frames H3; 2026-11-24 para la sección H5 aprobada. Enlaces por frame H5 pendientes |
 
 ## 2. Propósito, actor y acceso
 
@@ -58,8 +60,10 @@ La URL es la representación compartible del estado aplicado, no de valores aún
 
 ```text
 V-006 Catálogo y resultados
-├── Cabecera global
-│   └── Buscador con query actual
+├── Barra de promociones (opcional, contenido aprobado)
+├── Cabecera global (shell DS-001 §8.1)
+│   ├── Menú de categorías
+│   └── Buscador con query actual y sugerencias
 ├── Migas o contexto de exploración
 ├── Encabezado de resultados
 │   ├── Título/query
@@ -71,7 +75,7 @@ V-006 Catálogo y resultados
 │   ├── Panel de filtros desktop
 │   └── Región de resultados
 │       ├── Grilla ProductCard
-│       └── Estado vacío/error
+│       └── Estado vacío/error/por confirmar
 ├── Paginación
 └── Pie global
 ```
@@ -84,7 +88,7 @@ V-006 Catálogo y resultados
 | Filtros mobile | Botón y resumen | Primaria | Abre `O-001`; criterios sin aplicar no alteran resultados. |
 | Chips | Criterios aplicados | Secundaria | Cada chip removible actualiza URL y página cero. |
 | Orden | Selector permitido | Primaria | Sólo Nombre A–Z/Z–A; sin sort explícito se conserva el orden del proveedor. Otros criterios bajo G-SORT. |
-| Resultados | Grilla de `ProductCard` | Primaria | Máximo inicial de 24 por página. |
+| Resultados | Grilla de `ProductCard` | Primaria | Máximo inicial de 24 por página. La tarjeta aplica `DS-001` §8.3: descuento vigente, favorito separado y agregado rápido sólo con SKU vendible resuelto. |
 | Paginación | Anterior, estado y siguiente | Primaria | Sólo páginas existentes operables. |
 
 ## 6. Contenido y acciones
@@ -101,6 +105,8 @@ V-006 Catálogo y resultados
 | Limpiar | “Limpiar filtros” | Retirar filtros, conservar query/orden | Existe filtro aplicado o borrador. |
 | Orden | Orden del catálogo, Nombre A–Z y Nombre Z–A | Cambiar orden | Únicos criterios publicados/habilitados del corte H4. |
 | Tarjeta | Imagen, marca, nombre, precio/oferta, favorito | Abrir producto o guardar favorito | Producto activo. |
+| Acción rápida de tarjeta | “Agregar” o “Ver opciones” | F-016 o abrir `V-007` | “Agregar” sólo con un SKU vendible resuelto; producto variable usa “Ver opciones”. |
+| Precio por confirmar | “Precio por confirmar” | Reintentar el dato | F-012 no responde; no se muestra `S/ 0` ni se habilita agregado rápido. |
 | Vacío | “No encontramos productos con estos criterios” | Limpiar filtros o editar búsqueda | Cero resultados. |
 | Paginación | “Anterior”, “Página X de Y”, “Siguiente” | Navegar | Más de una página. |
 
@@ -117,6 +123,8 @@ V-006 Catálogo y resultados
 | Query inválida | Menos de 2 o más de 120 caracteres confirmados | Ayuda/error; no se consulta catálogo | Corregir o limpiar | Sí |
 | Rango inválido | Min negativo o mayor que max | Errores junto a precio; no se consulta | Corregir | Se diseña en `O-001` y panel desktop |
 | Catálogo no disponible | `503` | Error en resultados, criterios conservados | Reintentar | Sí |
+| Precio o stock por confirmar | F-012/F-014 no responden para una o más tarjetas | La grilla conserva las tarjetas; el dato indica “Por confirmar” y el agregado rápido no se habilita | Reintentar el dato o abrir ficha | Sí, variante de tarjeta |
+| Sugerencias no disponibles | F-007 falla al sugerir | La búsqueda sigue operativa sin lista de sugerencias | Buscar normalmente | No; anotar en frame principal |
 | Página fuera de rango | URL o datos cambiaron | Resultado controlado y retorno a página válida | Volver explícitamente a primera página conservando criterios; sin redirección ni retry automático | Sí |
 | Favorito guardando/guardado | Acción autenticada | Variante de tarjeta y anuncio | Continuar | Sí, variante de tarjeta |
 | Favorito sin sesión | Acción protegida | `O-003` con retorno a esta URL y producto | Login/cancelar | Se diseña en `O-003` |
@@ -145,9 +153,9 @@ V-006 Catálogo y resultados
 ### Desktop
 
 - **Referencia:** 1440 px.
-- Panel de filtros lateral y resultados en región principal.
+- Panel de filtros lateral y resultados en región principal; el panel no comprime la grilla por debajo del ancho mínimo de tarjeta.
 - Encabezado alinea título/cantidad con orden; chips ocupan una fila flexible.
-- Grilla adapta columnas manteniendo ancho mínimo y alineación de tarjetas.
+- Grilla adapta columnas manteniendo ancho mínimo y alineación de tarjetas; descuento, favorito y acción rápida conservan objetivos separados.
 - Paginación aparece después de resultados y no obliga a recorrer el panel lateral.
 
 ### Mobile
@@ -155,8 +163,9 @@ V-006 Catálogo y resultados
 - **Referencia:** 390 px.
 - Filtros se abren en `O-001`; selector de orden permanece independiente.
 - Botones Filtros/Ordenar no se confunden y muestran estado actual.
-- Grilla de una o dos columnas según el ancho mínimo aprobado de `ProductCard`; información esencial nunca se oculta.
+- Grilla de una o dos columnas según el ancho mínimo aprobado de `ProductCard`; nombre, precio, favorito y acción rápida nunca se ocultan ni se superponen.
 - Al aplicar criterios, vuelve el foco al encabezado de resultados y se anuncia la cantidad.
+- El agregado rápido mantiene un objetivo táctil propio y no abre la ficha por accidente.
 
 ### Anchuras intermedias
 
@@ -208,6 +217,8 @@ Estos frames existen en el archivo consultado; se registran como referencias vis
 
 Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de un frame no acredita aprobación, integración de datos ni fidelidad de la web. La [comparación del corte H3](../../../plan/evidencias/H3-GIULIANO/H3-COMPARACION-FIGMA-2026-10-14.md) registra las diferencias encontradas. Las capacidades mostradas en el mockup se habilitan sólo cuando lo permitan el alcance y los contratos vigentes.
 
+La dirección visual H5 aprobada el 24/11/2026 se encuentra en la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560). Los frames de la tabla anterior son del corte H3 y se conservan como referencia. Los enlaces por frame H5 de catálogo y estados se completan en [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142) sin alterar el diseño aprobado.
+
 ## 13. Criterios de aceptación visual
 
 - [ ] `UI-V006-001`: Query, filtros, orden y página aplicados pueden comprenderse y reproducirse desde la URL.
@@ -218,7 +229,10 @@ Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de 
 - [ ] `UI-V006-006`: Sólo se ofrecen Nombre A–Z/Z–A; relevancia, novedades y precio permanecen fuera hasta homologación de G-SORT.
 - [ ] `UI-V006-007`: No existe control operable hacia una página inexistente.
 - [ ] `UI-V006-008`: Favoritos, precios y resultados se comunican sin depender sólo del color.
-- [ ] La vista aplica `DS-001` y comparte cabecera y `ProductCard` con `V-005`/`V-007`.
+- [ ] `UI-V006-009`: El descuento se muestra sólo con oferta vigente y el agregado rápido sólo con SKU vendible resuelto; en producto variable se usa “Ver opciones”.
+- [ ] `UI-V006-010`: “Por confirmar” y error de catálogo son estados distintos; ninguno se presenta como vacío ni convierte todas las tarjetas en no disponibles.
+- [ ] `UI-V006-011`: La grilla conserva el ancho mínimo de tarjeta y los controles de favorito/acción no se anidan en el enlace.
+- [ ] La vista aplica `DS-001` v`0.3.0` y comparte shell y `ProductCard` con `V-005`/`V-007`.
 
 ## 14. Decisiones y pendientes
 
@@ -227,7 +241,8 @@ Enlaces verificados el 14/10/2026 mediante metadatos de Figma. La existencia de 
 | `V-006-OPEN-01` | Confirmar maestros, orden y conteos disponibles para categorías y marcas. | Catálogo | Antes del diseño final | Abierta |
 | `V-006-OPEN-02` | Confirmar si Relevancia existe sin query y el criterio exacto de Novedades. | Catálogo + Producto | Antes del diseño final | Abierta |
 | `V-006-OPEN-03` | Página numéricamente válida fuera del total: 200 con data vacía y metadatos válidos; acción explícita a primera página conservando criterios, sin redirección ni retry automático. | Backend + Catálogo | 2026-10-28 | Resuelta como decisión de implementación; aceptación final de la F pendiente |
-| `V-006-OPEN-04` | Aprobar ancho mínimo y número máximo de columnas de `ProductCard` por breakpoint. | UX/UI | Antes del diseño final | Abierta |
+| `V-006-OPEN-04` | Aprobar ancho mínimo y número máximo de columnas de `ProductCard` por breakpoint. | UX/UI | Antes del diseño final | **Resuelta** por la dirección visual H5; la implementación conserva el ancho mínimo del frame |
+| `V-006-OPEN-05` | Registrar los enlaces directos por frame H5 de catálogo y de cada estado. | UX/UI | Antes de la aceptación visual | Abierta |
 
 
 ### Decisiones del corte H4 — 28/10/2026

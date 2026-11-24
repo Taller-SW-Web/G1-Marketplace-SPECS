@@ -18,3 +18,9 @@ Este directorio especifica elementos visuales que aparecen sobre una vista o mod
 | `O-010` | Alertas y feedback global | Toast/banner/alerta | Transversal | [`O-010-alertas-feedback-global.md`](./O-010-alertas-feedback-global.md) | En revisión |
 
 Cada overlay usa [`PLANTILLA.md`](./PLANTILLA.md), aplica [`DS-001`](../DS-001-sistema-diseno-marketplace.md) y debe indicar desde qué vistas puede activarse.
+
+## Alineación H5
+
+La dirección visual aprobada el 24/11/2026 ([#141](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860)) fija en `DS-001` §8.6 la anatomía común: scrim Ink, modal con `radius/lg`, drawer mobile con áreas seguras, cierre de 44 px, foco atrapado y restaurado, fondo inerte y feedback deduplicado.
+
+Los overlays conservan el estado documental **En revisión** hasta que [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153) adjunte capturas de cada uno. La implementación no debe inventar variantes ni colores fuera de `DS-001` v`0.3.0`; una necesidad nueva se registra en la spec del overlay y se revisa antes de incorporarla.
