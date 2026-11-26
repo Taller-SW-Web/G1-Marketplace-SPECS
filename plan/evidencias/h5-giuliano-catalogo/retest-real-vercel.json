@@ -1,0 +1,36 @@
+{
+  "origen": "https://g1-marketplace-frontend.vercel.app",
+  "casos": [
+    {
+      "caso": "desktop-p1",
+      "horaUtc": "2026-11-26T23:16:36.150Z",
+      "estado": 200,
+      "fuente": "REAL",
+      "requestId": "413ffe78-5d77-465c-8416-59c8954cd3fd",
+      "productos": [
+        "g6-qa-marketplace-ord-002"
+      ]
+    },
+    {
+      "caso": "desktop-p2",
+      "horaUtc": "2026-11-26T23:16:42.138Z",
+      "estado": 200,
+      "fuente": "REAL",
+      "requestId": "6f9c39fa-6db1-445a-b119-e57f771c920a",
+      "productos": [
+        "g6-qa-marketplace-ord-001"
+      ]
+    },
+    {
+      "caso": "mobile-desc",
+      "horaUtc": "2026-11-26T23:16:43.961Z",
+      "estado": 200,
+      "fuente": "REAL",
+      "requestId": "7f463d0a-6793-410d-87f3-c6d7ec35e41f",
+      "productos": [
+        "g6-qa-marketplace-ord-002",
+        "g6-qa-marketplace-ord-001"
+      ]
+    }
+  ]
+}

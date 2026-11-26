@@ -2,23 +2,39 @@
 
 Retest del 26/11/2026. Frontend `073b3b0` y Backend `5810045`. La [matriz HTTP](matriz-http-mock.json) registra **24 PASS, 0 FAIL, 0 BLOCKED y 1 INCONCLUSIVE** en Next → BFF **MOCK local**. El único caso inconcluso es F009-observed-ties porque el fixture carece de homónimos. La suite de Backend sí cubre el criterio de desempate con datos específicos. [Frontend probado](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/commit/073b3b0a10fac0ba9df324aa02f14ac40523f08d) · [Backend probado](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/commit/581004571d1dd62e22842526c33dd584037cc61e)
 
-| Función | Integración | QA funcional | QA de seguridad | Validación pendiente en el corte publicado |
+| Función | Integración local | QA funcional | QA de seguridad | Criterio del corte publicado |
 | --- | --- | --- | --- | --- |
-| **F-006 Inicio** | [BE #45][be45] · Home y destacados observados con datos simulados. | [FE #28][fe28] · Categorías, destacados, carga, vacío y error recuperable. | [BE #46][be46] · Consulta en Home rechazada y proyección pública validada. | Confirmar Home, categorías y destacados editoriales desde el despliegue con G6. El ranking G5 está fuera de H5 por decisión del PO. |
-| **F-007 Búsqueda** | [BE #49][be49] · Caso positivo, vacío y longitudes inválidas en MOCK. | [FE #30][fe30] · Búsqueda y texto, vacío, timeout y reintento con los criterios conservados. | [BE #50][be50] · Límites, rechazo de parámetros fuera del contrato y proyección pública. | Repetir resultado positivo y vacío. Registrar el error o timeout autorizado con código y traza. |
-| **F-008 Filtros** | [BE #53][be53] · Maestros, categoría, combinación, rango PEN y negativos HTTP. | [FE #32][fe32] · Filtros activos, recuperación y conservación de criterios. | [BE #54][be54] · Validación de filtros inválidos y reglas de exposición. | Repetir precio y combinaciones. El BFF local autenticado ya observó tres rangos reales. |
-| **F-009 Orden** | [BE #57][be57] · Nombre ascendente y descendente por HTTP. Homónimos inconclusos en el fixture. | [FE #34][fe34] · Orden global entre páginas y conservación de filtros. | [BE #58][be58] · Orden inválido rechazado. Suites de Backend prueban desempate. | Repetir ASC y DESC con los homónimos de G6. Comprobar `product_id ASC` y comparar ambas páginas. |
-| **F-010 Paginación** | [BE #61][be61] · Primera, siguiente, última y fuera de rango en MOCK. | [FE #36][fe36] · Recuperación al cambiar página y conservación de filtros. | [BE #62][be62] · Límites inválidos de página y tamaño rechazados. La matriz verifica IDs y total. | Repetir página 1 y 2 de tamaño 1 con dos IDs sin duplicados y sus totales. Comprobar salida de rango y reinicio al cambiar orden. |
+| **F-006 Inicio** | [BE #45][be45] · Home y destacados observados con datos simulados. | [FE #28][fe28] · Categorías, destacados, carga, vacío y error recuperable. | [BE #46][be46] · Consulta en Home rechazada y proyección pública validada. | El BFF REAL devolvió categorías y el arreglo de destacados. Queda acreditar el criterio visual en web. Ranking G5 fuera de H5 por decisión del PO. |
+| **F-007 Búsqueda** | [BE #49][be49] · Caso positivo, vacío y longitudes inválidas en MOCK. | [FE #30][fe30] · Búsqueda y texto, vacío, timeout y reintento con los criterios conservados. | [BE #50][be50] · Límites, rechazo de parámetros fuera del contrato y proyección pública. | Resultado positivo y vacío en Render. El positivo también pasó en Vercel. Queda registrar el timeout autorizado del entorno. |
+| **F-008 Filtros** | [BE #53][be53] · Maestros, categoría, combinación, rango PEN y negativos HTTP. | [FE #32][fe32] · Filtros activos, recuperación y conservación de criterios. | [BE #54][be54] · Validación de filtros inválidos y reglas de exposición. | Maestros y tres rangos de precio en Render. Queda acreditar el recorrido de combinaciones de filtros en web publicada. |
+| **F-009 Orden** | [BE #57][be57] · Nombre ascendente y descendente por HTTP. Homónimos inconclusos en el fixture. | [FE #34][fe34] · Orden global entre páginas y conservación de filtros. | [BE #58][be58] · Orden inválido rechazado. Suites de Backend prueban desempate. | Homónimos en ASC y DESC por Render. DESC en la vista móvil de Vercel. |
+| **F-010 Paginación** | [BE #61][be61] · Primera, siguiente, última y fuera de rango en MOCK. | [FE #36][fe36] · Recuperación al cambiar página y conservación de filtros. | [BE #62][be62] · Límites inválidos de página y tamaño rechazados. La matriz verifica IDs y total. | Sin duplicados entre página 1 y 2 y fuera de rango correcto en Render. Ambas páginas renderizaron el producto esperado en Vercel. |
 
 **Pruebas locales adicionales:** 15 del runner, 91 de Backend y 76 de Frontend, todas aprobadas. Las pruebas unitarias y el recorrido HTTP son evidencias de capas distintas.
 
-## Retest en el despliegue
+## Retest en Render
 
-El [diagnóstico de Render en BE #53][diag] registró HTTP 503 con `G7_TOKEN_REJECTED` antes de consultar G6. El [retest del BFF local contra G7/G6][real-local] aporta 9 lecturas reales HTTP 200, incluidos tres rangos de precio, los homónimos en ambos órdenes y dos páginas de tamaño 1.
+El 26/11 a las 18:13–18:14 Lima, **11 de 11 lecturas públicas** del BFF de Render devolvieron HTTP 200 con fuente `REAL`. El [registro del retest](retest-real-render.json) conserva hora UTC, resultado y `x-request-id` por caso.
 
-1. Confirmar con Operaciones y G7 el motivo del rechazo y el entorno autorizado del retest.
-2. Repetir los casos de arriba desde el BFF publicado con el mismo dataset aprobado. Adjuntar entorno, SHA, resultado y correlation ID.
-3. Registrar el alcance de QA funcional y seguridad por issue. Conservar abiertos los criterios cuya evidencia dependa del proveedor o del despliegue.
+| Caso | Resultado REAL |
+| --- | --- |
+| Inicio y maestros | Inicio respondió con categorías y el arreglo de destacados. Maestros devolvió categorías y marcas. |
+| Búsqueda | Los dos homónimos sintéticos aparecieron en la consulta. La búsqueda de control devolvió cero resultados. |
+| Precio | PEN 0–100 y 0–60 incluyeron los dos productos. El rango 0–45 devolvió solo `g6-qa-marketplace-ord-001`. |
+| Orden | ASC y DESC conservaron el desempate ascendente por `productId` entre los homónimos. |
+| Paginación | Tamaño 1. Páginas 1 y 2 con un ID distinto cada una, total 2. Página 3 vacía, total 2. |
+
+El [503 histórico en BE #53][diag] queda como antecedente. El [retest previo del BFF local contra G7/G6][real-local] aporta nueve lecturas reales anteriores. Las lecturas públicas nuevas acreditan el BFF durante esa ventana. La confirmación del SHA activo, los casos negativos o timeout del entorno acordado y la aceptación de QA por issue conservan su seguimiento.
+
+## Retest de catálogo en Vercel
+
+Entre las 18:16:36 y las 18:16:44 Lima se recorrió el Catálogo público en Chrome y se verificó el contenido de las tarjetas. Las tres respuestas del proxy Next fueron HTTP 200 con fuente `REAL`. [Trazas de navegador](retest-real-vercel.json)
+
+| Recorrido | Evidencia |
+| --- | --- |
+| Escritorio, ASC, página 1, tamaño 1. Solo aparece `ord-002`. | [Captura](vercel-desktop-p1.png) |
+| Escritorio, ASC, página 2, tamaño 1. Solo aparece `ord-001`. | [Captura](vercel-desktop-p2.png) |
+| Móvil, DESC, tamaño 2. Aparecen `ord-002` y `ord-001` en ese orden. | [Captura](vercel-mobile-desc.png) |
 
 ## Reproducción local
 

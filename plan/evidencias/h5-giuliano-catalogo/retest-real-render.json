@@ -1,0 +1,141 @@
+{
+  "origen": "https://g1-marketplace-backend.onrender.com",
+  "alcance": "GET público del BFF en Render",
+  "casos": [
+    {
+      "caso": "F006-home",
+      "horaUtc": "2026-11-26T23:13:56.272867+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "3517a65b-cbd1-4bde-901f-f249aeb709a4",
+      "resultado": "PASS",
+      "duracionMs": 1688
+    },
+    {
+      "caso": "F008-maestros",
+      "horaUtc": "2026-11-26T23:13:57.960828+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "e4c3a856-00ce-4901-90b2-93034133c58e",
+      "resultado": "PASS",
+      "duracionMs": 888
+    },
+    {
+      "caso": "F007-busqueda-vacia",
+      "horaUtc": "2026-11-26T23:13:58.848603+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "85d58288-4d11-46df-8cbb-5b8faf24a9fb",
+      "resultado": "PASS",
+      "slugs": [],
+      "total": 0,
+      "duracionMs": 1530
+    },
+    {
+      "caso": "F009-homonimos-NAME_ASC",
+      "horaUtc": "2026-11-26T23:14:00.378733+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "bde454a0-a567-49e0-8601-150da18f3346",
+      "resultado": "PASS",
+      "slugs": [
+        "g6-qa-marketplace-ord-002",
+        "g6-qa-marketplace-ord-001"
+      ],
+      "total": 2,
+      "duracionMs": 812
+    },
+    {
+      "caso": "F009-homonimos-NAME_DESC",
+      "horaUtc": "2026-11-26T23:14:01.191062+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "82f7b4a9-9b5a-4d72-997e-ee08364e02ff",
+      "resultado": "PASS",
+      "slugs": [
+        "g6-qa-marketplace-ord-002",
+        "g6-qa-marketplace-ord-001"
+      ],
+      "total": 2,
+      "duracionMs": 835
+    },
+    {
+      "caso": "F008-precio-0-100",
+      "horaUtc": "2026-11-26T23:14:02.026239+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "592265d0-da0a-4004-8e27-e198ecf66a98",
+      "resultado": "PASS",
+      "slugs": [
+        "g6-qa-marketplace-ord-002",
+        "g6-qa-marketplace-ord-001"
+      ],
+      "total": 2,
+      "duracionMs": 2459
+    },
+    {
+      "caso": "F008-precio-0-60",
+      "horaUtc": "2026-11-26T23:14:04.485087+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "e5c26b66-a2f8-41d8-b9d6-869ad7118a77",
+      "resultado": "PASS",
+      "slugs": [
+        "g6-qa-marketplace-ord-002",
+        "g6-qa-marketplace-ord-001"
+      ],
+      "total": 2,
+      "duracionMs": 1442
+    },
+    {
+      "caso": "F008-precio-0-45",
+      "horaUtc": "2026-11-26T23:14:05.926701+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "15ec70a4-46f0-4e69-a590-b22fa30ec7e5",
+      "resultado": "PASS",
+      "slugs": [
+        "g6-qa-marketplace-ord-001"
+      ],
+      "total": 1,
+      "duracionMs": 1421
+    },
+    {
+      "caso": "F010-pagina-1",
+      "horaUtc": "2026-11-26T23:14:07.347818+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "4c6956cd-9847-4ff7-881a-6de43260893b",
+      "resultado": "PASS",
+      "slugs": [
+        "g6-qa-marketplace-ord-002"
+      ],
+      "total": 2,
+      "duracionMs": 832
+    },
+    {
+      "caso": "F010-pagina-2",
+      "horaUtc": "2026-11-26T23:14:08.179804+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "b7716e4a-423f-4bee-a0d3-b09bd38e9a7c",
+      "resultado": "PASS",
+      "slugs": [
+        "g6-qa-marketplace-ord-001"
+      ],
+      "total": 2,
+      "duracionMs": 1208
+    },
+    {
+      "caso": "F010-pagina-3",
+      "horaUtc": "2026-11-26T23:14:09.387775+00:00",
+      "status": 200,
+      "fuente": "REAL",
+      "requestId": "f361097b-7809-4f2a-ab7c-254d9d360ef3",
+      "resultado": "PASS",
+      "slugs": [],
+      "total": 2,
+      "duracionMs": 690
+    }
+  ]
+}
