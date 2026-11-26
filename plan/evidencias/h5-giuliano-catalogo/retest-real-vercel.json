@@ -31,6 +31,25 @@
         "g6-qa-marketplace-ord-002",
         "g6-qa-marketplace-ord-001"
       ]
+    },
+    {
+      "caso": "desktop-inicio",
+      "horaUtc": "2026-11-26T23:18:31.221Z",
+      "estado": 200,
+      "fuente": "REAL",
+      "requestId": "1352b9b8-030f-4639-b77b-5d7b21fef28e",
+      "categorias": 10,
+      "destacados": 0
+    },
+    {
+      "caso": "mobile-filtros",
+      "horaUtc": "2026-11-26T23:18:34.369Z",
+      "estado": 200,
+      "fuente": "REAL",
+      "requestId": "2e80aee4-2ff5-44cd-bf8a-ffc8c7f78fb7",
+      "productos": [
+        "g6-qa-marketplace-ord-001"
+      ]
     }
   ]
 }

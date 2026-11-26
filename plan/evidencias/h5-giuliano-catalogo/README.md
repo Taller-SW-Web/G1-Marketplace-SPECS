@@ -4,9 +4,9 @@ Retest del 26/11/2026. Frontend `073b3b0` y Backend `5810045`. La [matriz HTTP](
 
 | Función | Integración local | QA funcional | QA de seguridad | Criterio del corte publicado |
 | --- | --- | --- | --- | --- |
-| **F-006 Inicio** | [BE #45][be45] · Home y destacados observados con datos simulados. | [FE #28][fe28] · Categorías, destacados, carga, vacío y error recuperable. | [BE #46][be46] · Consulta en Home rechazada y proyección pública validada. | El BFF REAL devolvió categorías y el arreglo de destacados. Queda acreditar el criterio visual en web. Ranking G5 fuera de H5 por decisión del PO. |
+| **F-006 Inicio** | [BE #45][be45] · Home y destacados observados con datos simulados. | [FE #28][fe28] · Categorías, destacados, carga, vacío y error recuperable. | [BE #46][be46] · Consulta en Home rechazada y proyección pública validada. | Inicio REAL en Vercel mostró las diez categorías. El arreglo de destacados llegó vacío en la prueba. Ranking G5 fuera de H5 por decisión del PO. |
 | **F-007 Búsqueda** | [BE #49][be49] · Caso positivo, vacío y longitudes inválidas en MOCK. | [FE #30][fe30] · Búsqueda y texto, vacío, timeout y reintento con los criterios conservados. | [BE #50][be50] · Límites, rechazo de parámetros fuera del contrato y proyección pública. | Resultado positivo y vacío en Render. El positivo también pasó en Vercel. Queda registrar el timeout autorizado del entorno. |
-| **F-008 Filtros** | [BE #53][be53] · Maestros, categoría, combinación, rango PEN y negativos HTTP. | [FE #32][fe32] · Filtros activos, recuperación y conservación de criterios. | [BE #54][be54] · Validación de filtros inválidos y reglas de exposición. | Maestros y tres rangos de precio en Render. Queda acreditar el recorrido de combinaciones de filtros en web publicada. |
+| **F-008 Filtros** | [BE #53][be53] · Maestros, categoría, combinación, rango PEN y negativos HTTP. | [FE #32][fe32] · Filtros activos, recuperación y conservación de criterios. | [BE #54][be54] · Validación de filtros inválidos y reglas de exposición. | Maestros y tres rangos de precio en Render. Categoría, marca y rango 0–45 PEN juntos en Vercel móvil. |
 | **F-009 Orden** | [BE #57][be57] · Nombre ascendente y descendente por HTTP. Homónimos inconclusos en el fixture. | [FE #34][fe34] · Orden global entre páginas y conservación de filtros. | [BE #58][be58] · Orden inválido rechazado. Suites de Backend prueban desempate. | Homónimos en ASC y DESC por Render. DESC en la vista móvil de Vercel. |
 | **F-010 Paginación** | [BE #61][be61] · Primera, siguiente, última y fuera de rango en MOCK. | [FE #36][fe36] · Recuperación al cambiar página y conservación de filtros. | [BE #62][be62] · Límites inválidos de página y tamaño rechazados. La matriz verifica IDs y total. | Sin duplicados entre página 1 y 2 y fuera de rango correcto en Render. Ambas páginas renderizaron el producto esperado en Vercel. |
 
@@ -28,13 +28,15 @@ El [503 histórico en BE #53][diag] queda como antecedente. El [retest previo de
 
 ## Retest de catálogo en Vercel
 
-Entre las 18:16:36 y las 18:16:44 Lima se recorrió el Catálogo público en Chrome y se verificó el contenido de las tarjetas. Las tres respuestas del proxy Next fueron HTTP 200 con fuente `REAL`. [Trazas de navegador](retest-real-vercel.json)
+Entre las 18:16:36 y las 18:18:34 Lima se recorrieron Inicio y Catálogo públicos en Chrome. Las cinco respuestas del proxy Next fueron HTTP 200 con fuente `REAL`. El orden, la paginación y la combinación de filtros se probaron abriendo las URL con los criterios correspondientes y comprobando las tarjetas visibles. [Trazas de navegador](retest-real-vercel.json)
 
 | Recorrido | Evidencia |
 | --- | --- |
 | Escritorio, ASC, página 1, tamaño 1. Solo aparece `ord-002`. | [Captura](vercel-desktop-p1.png) |
 | Escritorio, ASC, página 2, tamaño 1. Solo aparece `ord-001`. | [Captura](vercel-desktop-p2.png) |
 | Móvil, DESC, tamaño 2. Aparecen `ord-002` y `ord-001` en ese orden. | [Captura](vercel-mobile-desc.png) |
+| Inicio en escritorio. El proxy devolvió 10 categorías y cero destacados. Se vieron los enlaces de categorías. | [Captura](vercel-desktop-inicio.png) |
+| Móvil con categoría, marca y rango PEN 0–45 a la vez. Solo aparece `ord-001`. | [Captura](vercel-mobile-filtros.png) |
 
 ## Reproducción local
 
