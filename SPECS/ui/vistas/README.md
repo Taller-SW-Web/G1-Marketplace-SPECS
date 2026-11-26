@@ -28,7 +28,8 @@ El diseño puede avanzar por etapas sin cambiar ese alcance. La afirmación ante
 - `Pendiente`: archivo todavía no creado.
 - `Borrador`: estructura y decisiones iniciales documentadas.
 - `En revisión`: contenido completo pendiente de validación del equipo.
-- `Aprobada`: lista para asignación y diseño de alta fidelidad.
+- `Aprobada para implementar`: dirección visual aprobada por el revisor del sistema de diseño y spec lista para construir; la aceptación de implementación y los enlaces por frame se registran en los issues.
+- `Aprobada`: lista para asignación y diseño de alta fidelidad. En el corte H5 este estado no se usa para declarar implementación terminada.
 
 ## Inventario vigente
 
@@ -38,10 +39,10 @@ El diseño puede avanzar por etapas sin cambiar ese alcance. La afirmación ante
 | `V-002` | Registro | `/registro` | F-001 | [`V-002-registro.md`](./V-002-registro.md) | En revisión |
 | `V-003` | Recuperación de contraseña | `/recuperar-contrasena` | F-004 | [`V-003-recuperacion-contrasena.md`](./V-003-recuperacion-contrasena.md) | En revisión |
 | `V-004` | Restablecimiento de contraseña | `/restablecer-contrasena` | F-005 | [`V-004-restablecimiento-contrasena.md`](./V-004-restablecimiento-contrasena.md) | En revisión |
-| `V-005` | Inicio | `/` | F-006, F-036 | [`V-005-inicio.md`](./V-005-inicio.md) | En revisión |
-| `V-006` | Catálogo y resultados | `/catalogo` | F-007–F-010, F-036 | [`V-006-catalogo-resultados.md`](./V-006-catalogo-resultados.md) | En revisión |
-| `V-007` | Ficha del producto | `/productos/{slug}` | F-011–F-016, F-036 | [`V-007-ficha-producto.md`](./V-007-ficha-producto.md) | En revisión |
-| `V-008` | Carrito | `/carrito` | F-017–F-021 | [`V-008-carrito.md`](./V-008-carrito.md) | En revisión |
+| `V-005` | Inicio | `/` | F-006, F-036 | [`V-005-inicio.md`](./V-005-inicio.md) | Aprobada para implementar (H5) |
+| `V-006` | Catálogo y resultados | `/catalogo` | F-007–F-010, F-036 | [`V-006-catalogo-resultados.md`](./V-006-catalogo-resultados.md) | Aprobada para implementar (H5) |
+| `V-007` | Ficha del producto | `/productos/{slug}` | F-011–F-016, F-036 | [`V-007-ficha-producto.md`](./V-007-ficha-producto.md) | Aprobada para implementar (H5) |
+| `V-008` | Carrito | `/carrito` | F-017–F-021 | [`V-008-carrito.md`](./V-008-carrito.md) | Aprobada para implementar (H5) |
 | `V-009` | Favoritos | `/favoritos` | F-037–F-039 | [`V-009-favoritos.md`](./V-009-favoritos.md) | En revisión |
 | `V-010` | Dirección de envío | `/checkout/direccion` | F-022 | [`V-010-direccion-envio.md`](./V-010-direccion-envio.md) | En revisión |
 | `V-011` | Resumen, envío y beneficio | `/checkout/resumen` | F-023, F-024 | [`V-011-resumen-envio-beneficio.md`](./V-011-resumen-envio-beneficio.md) | En revisión |
@@ -51,6 +52,19 @@ El diseño puede avanzar por etapas sin cambiar ese alcance. La afirmación ante
 | `V-015` | Historial de pedidos | `/mis-pedidos` | F-028, F-029 | [`V-015-historial-pedidos.md`](./V-015-historial-pedidos.md) | En revisión |
 | `V-016` | Detalle y reordenado | `/mis-pedidos/{orderId}` | F-030, F-031 | [`V-016-detalle-reordenado.md`](./V-016-detalle-reordenado.md) | En revisión |
 | `V-017` | Seguimiento | `/mis-pedidos/{orderId}/seguimiento` | F-032 | [`V-017-seguimiento.md`](./V-017-seguimiento.md) | En revisión |
+
+## Dirección visual H5
+
+La revisión de Jim Segovia aprobó la dirección visual de [#141](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860) el 24/11/2026. La referencia es la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560); el [benchmark](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-565) documenta el análisis previo.
+
+| Alcance | Estado | Uso |
+|---|---|---|
+| Shell global, `V-005`, `V-006`, `V-007`, `V-008` | Aprobado para implementar con `DS-001` v`0.3.0` | Habilita [#143](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/143), [#144](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/144), [#145](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/145) y los estados de [#154](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/154). |
+| `V-001` a `V-004`, `V-010` | Implementadas con la misma dirección | Evidencia en [#150](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/150) y [#148](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/148); su aceptación sigue el hilo de cada issue. |
+| Overlays `O-001` a `O-010` | En revisión, alineados a `DS-001` §8.6 | [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153) implementa y adjunta capturas por overlay. |
+| Ficha y carrito con enlace por frame | Pendiente de registro | Completar en [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142) sin alterar el diseño. |
+
+Aprobar la dirección no equivale a aceptar la implementación ni a publicar la biblioteca. Cada vista conserva sus criterios de aceptación, sus estados y su evidencia desktop/mobile del mismo SHA.
 
 ## Fuente transversal
 

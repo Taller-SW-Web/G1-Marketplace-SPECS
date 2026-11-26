@@ -4,7 +4,7 @@
 |---|---|
 | ID | `F-014` |
 | Estado | Aprobada para planificación; integración condicionada por `I-01`. |
-| Sistema de diseño vigente | `DS-001` v`0.2.0`; aplicación visual pendiente de revisión |
+| Sistema de diseño vigente | `DS-001` v`0.3.0`; dirección visual H5 aprobada, implementación pendiente de evidencia |
 
 La región se sitúa bajo F-012 y F-013 en `/productos/{slug}`.
 

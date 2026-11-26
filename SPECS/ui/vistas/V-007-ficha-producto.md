@@ -9,12 +9,14 @@
 | ID | `V-007` |
 | Nombre | Ficha del producto |
 | Ruta | `/productos/{slug}` |
-| Versión | `0.1.0` |
-| Estado | En revisión |
+| Versión | `0.3.0` |
+| Estado | Aprobada para implementar (dirección visual H5; enlaces por frame en seguimiento #142) |
 | Responsable | Fernando José Saire Tello |
 | Revisor | Giuliano Macchiavello |
-| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) v`0.3.1` |
+| Aprobación visual | [Jim Segovia, 24/11/2026](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860) |
+| Enlace de Figma H5 | [Mockups H5 — ficha](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) |
+| Enlace de Figma por frame | Seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), responsable Giuliano Macchiavello |
 
 ## 2. Propósito, actor y acceso
 
@@ -55,7 +57,7 @@ Cambiar variante permanece en la misma ruta; la selección no debe presentarse c
 
 ```text
 V-007 Ficha del producto
-├── Cabecera global
+├── Cabecera global (shell DS-001 §8.1)
 ├── Migas de navegación
 ├── Región principal
 │   ├── Galería
@@ -83,7 +85,7 @@ V-007 Ficha del producto
 | Precio | Actual, referencia, descuento y vigencia | Primaria | Se actualiza por SKU sin recargar descripción. |
 | Variantes | Grupos de atributos | Primaria | Combinaciones existentes; cambiar invalida SKU/precio/stock previos. |
 | Disponibilidad | Disponible/stock bajo/agotado/error | Primaria | Nunca muestra cantidad, ubicación o reserva. |
-| Compra | “Agregar al carrito” | Primaria | Sólo SKU válido con disponibilidad distinta de agotado. |
+| Compra | “Agregar al carrito” | Primaria | Sólo se habilita con **SKU vendible resuelto, precio confirmado y disponibilidad apta** (disponible o stock bajo). Precio o stock por confirmar mantienen el CTA deshabilitado y ofrecen reintento de la región. En desktop el panel de compra permanece fijo dentro de su columna en los anchos aprobados (no es opcional). En mobile el CTA puede ser persistente sólo si refleja la selección/stock actual y no oculta controles, avisos ni áreas seguras; el CTA puede estar deshabilitado aunque el panel siga visible. |
 | Favorito | Control por producto | Secundaria | Independiente de talla/color; requiere sesión. |
 | Descripción/especificaciones | Texto y pares técnicos | Secundaria | Sección ausente se omite; no se muestra vacía. |
 | Relacionados | 1–8 `ProductCard` | Secundaria | Vacío o fallo se degrada omitiendo toda la sección. |
@@ -100,14 +102,14 @@ V-007 Ficha del producto
 | Selección requerida | “Selecciona una opción para ver precio y disponibilidad” | Orientar a atributos | Producto variable incompleto. |
 | Atributos | Valores con etiqueta textual | Elegir combinación | Producto con variantes. |
 | Disponibilidad | “Disponible”, “Quedan pocas unidades” o “Agotado” | Reintentar sólo ante error | SKU resuelto. |
-| CTA carrito | “Agregar al carrito” | Agregar/incrementar SKU | SKU válido y comprable. |
+| CTA carrito | “Agregar al carrito” | Agregar/incrementar SKU | SKU vendible resuelto, precio confirmado y disponibilidad apta. |
 | Favorito | “Guardar/Quitar de favoritos” | Cambiar estado o autenticar | Producto válido. |
 | Descripción | Texto sanitizado | Expandir si se justifica | Contenido válido. |
 | Relacionados | Tarjetas completas | Abrir nueva ficha | Lista no vacía. |
 
 ## 7. Estados de la vista
 
-Las regiones de precio, variantes, stock y relacionados cargan de forma independiente; un fallo no crítico no debe reemplazar una ficha descriptiva válida por un error total.
+Las regiones de precio, variantes, stock y relacionados cargan de forma independiente; un fallo no crítico no debe reemplazar una ficha descriptiva válida por un error total. Los estados aplican `DS-001` §8.8: “por confirmar” no es error, vacío ni agotado.
 
 | Estado | Disparador | Cambios visibles | Acción o recuperación | Frame requerido |
 |---|---|---|---|---|
@@ -118,10 +120,10 @@ Las regiones de precio, variantes, stock y relacionados cargan de forma independ
 | Combinación inválida | Elección incompatible | Valor no disponible; SKU previo descartado | Elegir combinación válida | Sí |
 | Actualizando variante | Cambio de selección | Skeleton sólo de precio/stock; descripción permanece | Esperar | Sí |
 | Oferta vigente | Precio promocional válido | Actual, referencia, descuento y vigencia | — | Sí, variante comercial |
-| Precio no disponible | Error/ausencia de Pricing | Región de precio neutral; ficha visible; compra no afirma importe | Reintentar precio | Sí |
-| Disponible/stock bajo | Inventario responde | Texto + icono; CTA habilitable | Agregar | Anotado en principal |
+| Precio por confirmar | Error o ausencia de Pricing | Región de precio neutral con “Precio por confirmar”; ficha visible; CTA deshabilitado y sin afirmar importe | Reintentar precio | Sí |
+| Disponible/stock bajo | Inventario responde | Texto + icono; CTA habilitable sólo con precio confirmado | Agregar | Anotado en principal |
 | Agotado | `OUT_OF_STOCK` | Estado explícito y CTA deshabilitado | Cambiar variante/explorar | Sí |
-| Stock desconocido | Error de Inventario | “No pudimos consultar disponibilidad”; no se muestra “Agotado” | Reintentar stock | Sí |
+| Disponibilidad por confirmar | Error de Inventario | “No pudimos confirmar disponibilidad”; no se muestra “Agotado”; CTA deshabilitado | Reintentar stock | Sí |
 | Agregando | Pulsación válida | CTA ocupado y no repetible | Esperar | Sí, variante |
 | Agregado/ajustado | `200/201` o límite | `O-005`; cantidad/ajuste comprensible | Ver carrito/seguir | Se diseña en `O-005` |
 | Error de adición | No mutación o conflicto | Mensaje junto al CTA y acción segura | Reintentar/actualizar | Sí |
@@ -147,14 +149,14 @@ Las regiones de precio, variantes, stock y relacionados cargan de forma independ
 | Grupo de atributo | Botones de opción | Para producto variable | Un valor activo por atributo; combinación existente | “Selecciona {atributo}” | Default/seleccionado/no disponible/error |
 | Cantidad de adición | Fija en 1 en este alcance | Sí | F-016 envía `quantity=1`; posteriores adiciones incrementan la línea | No se presenta selector si no está especificado | No aplica |
 
-Los colores se acompañan de nombre textual; agotado no convierte una variante existente en inexistente. El CTA no se habilita mientras falte SKU o el stock sea agotado/desconocido.
+Los colores se acompañan de nombre textual; agotado no convierte una variante existente en inexistente. El CTA permanece deshabilitado mientras falte SKU vendible, el precio no esté confirmado o el stock sea agotado/desconocido.
 
 ## 10. Responsive
 
 ### Desktop
 
 - **Referencia:** 1440 px.
-- Región principal en dos columnas: galería y resumen comercial; ninguna queda fija si oculta contenido.
+- Región principal en dos columnas: galería y resumen comercial. En los anchos de escritorio aprobados el panel de compra permanece fijo (`sticky`) dentro de su columna; no se convierte en opcional. El panel puede seguir visible con el CTA deshabilitado si falta precio o stock confirmado.
 - Miniaturas junto o debajo de la imagen según cantidad; descripción y especificaciones ocupan ancho legible inferior.
 - Relacionados usan grilla o carril manual sin autoplay.
 
@@ -162,7 +164,7 @@ Los colores se acompañan de nombre textual; agotado no convierte una variante e
 
 - **Referencia:** 390 px.
 - Orden: migas compactas, galería, identidad, precio, variantes, stock y CTA; descripción y relacionados después.
-- CTA puede ser persistente sólo si refleja selección/stock actual, no oculta controles y respeta áreas seguras.
+- CTA puede ser persistente sólo si refleja selección/stock actual, no oculta controles, mensajes ni áreas seguras, y conserva el estado deshabilitado cuando el precio o el stock están por confirmar.
 - Miniaturas y relacionados usan desplazamiento manual con alternativa de teclado.
 - Texto técnico puede agruparse en acordeones accesibles si el contenido es largo; los encabezados continúan visibles.
 
@@ -202,6 +204,10 @@ Los colores se acompañan de nombre textual; agotado no convierte una variante e
 
 Los overlays `O-002`, `O-003` y `O-005` tienen sus propios frames y no se duplican aquí.
 
+La dirección visual H5 aprobada el 24/11/2026 está en la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560). Los frames enumerados arriba provienen del corte anterior; la composición H5 incluye el panel de compra fijo/adaptado y los estados del sistema de diseño.
+
+Los enlaces directos por frame de esta vista quedan en seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), con responsable **Giuliano Macchiavello** y revisión de **Jim Segovia**, hasta que Figma publique los node IDs de ficha, carrito y estados aprobados. Este seguimiento no bloquea la composición documentada aquí. La aceptación de overlays por captura se mantiene en [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153).
+
 ## 13. Criterios de aceptación visual
 
 - [ ] `UI-V007-001`: La ficha integra F-011–F-016 y F-036 sin mostrar precio, SKU, stock o promociones ficticios.
@@ -213,7 +219,10 @@ Los overlays `O-002`, `O-003` y `O-005` tienen sus propios frames y no se duplic
 - [ ] `UI-V007-007`: Un fallo de precio, stock, imagen o relacionados no oculta una ficha descriptiva válida.
 - [ ] `UI-V007-008`: Sin relacionados válidos se omite título y contenedor completos.
 - [ ] `UI-V007-009`: Desktop y mobile enumeran los frames críticos y mantienen navegación completa por teclado.
-- [ ] La vista aplica `DS-001` y reutiliza `ProductCard`, precio, galería, botones y feedback definidos allí.
+- [ ] `UI-V007-010`: Con precio o stock indeterminado el CTA permanece deshabilitado, el panel sigue visible y cada región ofrece reintento independiente.
+- [ ] `UI-V007-012`: El panel de compra fijo (desktop) y el CTA persistente (mobile) sólo se usan si reflejan selección/stock vigentes y no ocultan controles, avisos ni áreas seguras.
+- [ ] `UI-V007-011`: “Precio por confirmar” y “Disponibilidad por confirmar” mantienen la ficha legible, no afirman importe/agotado y ofrecen reintento independiente.
+- [ ] La vista aplica `DS-001` v`0.3.1` y reutiliza shell, `ProductCard`, precio, galería, botones, overlays y feedback definidos allí.
 
 ## 14. Decisiones y pendientes
 
@@ -221,5 +230,6 @@ Los overlays `O-002`, `O-003` y `O-005` tienen sus propios frames y no se duplic
 |---|---|---|---|---|
 | `V-007-OPEN-01` | Homologar rutas, autorización de canal y OpenAPI de Catálogo, Pricing e Inventario (`I-01`). | Backend + módulos dueños | Antes de implementación; informar diseño | Abierta |
 | `V-007-OPEN-02` | Confirmar si la selección de SKU debe persistirse en URL para compartir una variante. | Producto + Arquitectura | Antes del diseño final | Abierta |
-| `V-007-OPEN-03` | Aprobar tamaño/proporción de galería y comportamiento del CTA persistente mobile. | UX/UI | Antes del diseño final | Abierta |
+| `V-007-OPEN-03` | Aprobar tamaño/proporción de galería y comportamiento del CTA persistente mobile. | UX/UI | Antes del diseño final | **Resuelta** por la dirección visual H5, con la condición de `UI-V007-012` |
 | `V-007-OPEN-04` | Confirmar si Cross-sell/Upsell necesita etiqueta visible para el cliente o sólo orden editorial. | Producto + UX | Antes del diseño final | Abierta |
+| `V-007-OPEN-05` | Registrar los enlaces directos por frame H5 de la ficha y de cada estado. | UX/UI | Antes de la aceptación visual | Abierta |

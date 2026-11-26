@@ -9,12 +9,14 @@
 | ID | `V-008` |
 | Nombre | Carrito |
 | Ruta | `/carrito` |
-| Versión | `0.1.0` |
-| Estado | En revisión |
+| Versión | `0.3.0` |
+| Estado | Aprobada para implementar (dirección visual H5; enlaces por frame en seguimiento #142) |
 | Responsable | Sebastián Malca |
 | Revisor | Diego Espinoza |
-| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) |
-| Enlace de Figma | Pendiente |
+| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) v`0.3.1` |
+| Aprobación visual | [Jim Segovia, 24/11/2026](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860) |
+| Enlace de Figma H5 | [Mockups H5 — carrito](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) |
+| Enlace de Figma por frame | Seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), responsable Giuliano Macchiavello |
 
 ## 2. Propósito, actor y acceso
 
@@ -52,7 +54,7 @@ Se consultaron los contratos API `F-017` a `F-021` de `SPECS/contrato-api/`.
 
 ```text
 V-008 Carrito
-├── Cabecera global
+├── Cabecera global (shell DS-001 §8.1)
 ├── Encabezado “Tu carrito” + cantidad de líneas/unidades
 ├── Avisos de fusión o cambios
 ├── Contenido
@@ -77,7 +79,7 @@ V-008 Carrito
 | Cantidad | Disminuir, campo y aumentar | Primaria | Reemplazo absoluto 1–99; disminuir se deshabilita en 1. |
 | Atención | Precio cambiado, sin precio, agotado o datos pendientes | Primaria | Se anuncia antes del resumen y bloquea checkout hasta corregir. |
 | Acciones de línea | Quitar / mover a favoritos | Secundaria | No comparten el mismo resultado; ambas conservan foco correctamente. |
-| Resumen | Subtotal y CTA | Primaria | No muestra cupón, envío, impuestos ni total final. |
+| Resumen | Subtotal y CTA | Primaria | No muestra cupón, envío, impuestos ni total final. En desktop puede ser fijo dentro de su columna; en mobile aparece después de las líneas y no oculta controles ni avisos. |
 
 ## 6. Contenido y acciones
 
@@ -98,6 +100,8 @@ V-008 Carrito
 
 ## 7. Estados de la vista
 
+Los estados aplican `DS-001` §8.8: cargando, vacío, error y “por confirmar” se distinguen y ninguno deja la vista en blanco.
+
 | Estado | Disparador | Cambios visibles | Acción o recuperación | Frame requerido |
 |---|---|---|---|---|
 | Cargando | Lectura/enriquecimiento inicial | Skeleton de líneas y resumen; sin importes falsos | Esperar | Sí |
@@ -105,6 +109,7 @@ V-008 Carrito
 | Válido autenticado | Líneas comprables y sesión | Lista/subtotal; checkout activo | Abrir `V-010` | Sí |
 | Vacío | `items: []` | Mensaje e invitación; sin resumen ni CTA activo | Explorar catálogo | Sí |
 | Atención | Una o más líneas sin precio, agotadas o pendientes | Línea identificada; subtotal puede ser nulo; CTA bloqueado con explicación | Corregir/quitar/reintentar | Sí |
+| Precio por confirmar | F-012 no responde al enriquecer una línea | Línea visible; precio indicado como “Por confirmar”; subtotal puede ser nulo; CTA bloqueado | Reintentar el dato o abrir la ficha | Sí |
 | Actualizando cantidad | `PATCH` en curso | Sólo línea ocupada; valor solicitado distinguible del confirmado | Esperar | Sí, variante de línea |
 | Cantidad ajustada | Límite de stock | Valor confirmado y aviso del máximo sin saldo interno | Aceptar/editar/quitar | Sí |
 | Error de cantidad | Validación, conflicto o proveedor | Se restaura valor confirmado; mensaje y reintento | Reintentar/actualizar | Sí |
@@ -185,6 +190,8 @@ Cantidad cero nunca elimina: en 1, disminuir queda deshabilitado y la acción �
 
 Los overlays `O-003`, `O-006` y `O-007` se diseñan en sus propias specs.
 
+La dirección visual H5 aprobada el 24/11/2026 está en la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560). Los frames enumerados arriba provienen del corte anterior y se conservan como referencia. Los enlaces directos por frame del carrito y sus estados quedan en seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), con responsable **Giuliano Macchiavello**, hasta que Figma publique los node IDs; la aceptación de overlays por captura se mantiene en [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153).
+
 ## 13. Criterios de aceptación visual
 
 - [ ] `UI-V008-001`: Carrito vacío no muestra subtotal ni acción de checkout activa.
@@ -195,13 +202,16 @@ Los overlays `O-003`, `O-006` y `O-007` se diseñan en sus propias specs.
 - [ ] `UI-V008-006`: Mover a favoritos no retira la línea hasta confirmar ambas mutaciones y autentica antes de cambiar el carrito.
 - [ ] `UI-V008-007`: Tras login existe un único carrito visible; si se continúa sin combinar, el aviso distingue el carrito autenticado del invitado pendiente y ofrece reintento mientras éste siga disponible.
 - [ ] `UI-V008-008`: Desktop y mobile mantienen controles accesibles y el resumen no oculta líneas ni avisos.
-- [ ] La vista aplica `DS-001`, `CartLine`, `QuantityStepper` y `OrderSummary`.
+- [ ] `UI-V008-009`: El resumen desktop sólo es fijo si no tapa pie, avisos ni acciones; en mobile aparece después de las líneas.
+- [ ] `UI-V008-010`: Una línea con precio “por confirmar” se distingue de agotado y de error, y bloquea el checkout con explicación y reintento.
+- [ ] La vista aplica `DS-001` v`0.3.1` y reutiliza el shell, `CartLine`, `QuantityStepper` y `OrderSummary`.
 
 ## 14. Decisiones y pendientes
 
 | ID | Pregunta o decisión | Responsable | Fecha límite | Estado |
 |---|---|---|---|---|
 | `V-008-OPEN-01` | Definir la operación técnica que materializa “Deshacer” después del `DELETE` y su comportamiento ante cambios de stock/precio. | Backend + UX | Antes del diseño final | Abierta |
-| `V-008-OPEN-02` | Confirmar si el resumen desktop será sticky y sus límites de desplazamiento. | UX/UI | Antes del diseño final | Abierta |
+| `V-008-OPEN-02` | Confirmar si el resumen desktop será sticky y sus límites de desplazamiento. | UX/UI | Antes del diseño final | **Resuelta** por la dirección visual H5: permitido en desktop con los límites de `UI-V008-009`; no fijo en mobile |
 | `V-008-OPEN-03` | Definir el copy y la recuperación para cada valor de `attention` devuelto por el carrito. | Backend + UX | Antes del diseño final | Abierta |
 | `V-008-OPEN-04` | Homologar consultas externas de precio/disponibilidad usadas para enriquecer líneas (`I-01`). | Backend + módulos dueños | Antes de implementación; informar diseño | Abierta |
+| `V-008-OPEN-05` | Registrar los enlaces directos por frame H5 del carrito y de cada estado. | UX/UI (Giuliano Macchiavello) | Antes de la aceptación visual; seguimiento en [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142) | Abierta |

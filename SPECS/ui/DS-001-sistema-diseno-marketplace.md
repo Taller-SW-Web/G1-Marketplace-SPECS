@@ -8,10 +8,13 @@
 |---|---|
 | ID | `DS-001` |
 | Nombre | Sistema de diseño de Inka Athletics |
-| Versión | `0.2.0` |
-| Estado | Borrador avanzado para el hito de mockups; pendiente de aprobación final |
+| Versión | `0.3.1` |
+| Estado | Dirección visual H5 aprobada por el revisor principal el 24/11/2026; implementación de shell y vistas comerciales habilitada. Biblioteca y aceptación final de componentes pendientes |
 | Custodio | Giuliano Macchiavello |
 | Revisor principal | Jim Segovia |
+| Aprobación de la dirección visual | [Jim Segovia en #141, 24/11/2026](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860) |
+| Benchmark H5 | [Benchmark](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-565) |
+| Mockups H5 aprobados | [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) — shell, inicio, catálogo, ficha, carrito y checkout |
 | Marca | Inka Athletics |
 | Herramienta oficial | Figma |
 | Biblioteca del sistema de diseño en Figma | [Sistema de Diseño](https://www.figma.com/design/rKPdRQHLLUkYk5VdiEErqZ/Sistema-De-Dise%C3%B1o?node-id=57-15&t=eO6m1Plz1xQ5sFgn-1) |
@@ -22,12 +25,19 @@
 | Mockups de vistas en Figma | [Carpeta Marketplace](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) y [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5) del archivo Mockups; faltan enlaces finales de otras vistas/estados |
 | Framework frontend decidido (PO, 2026-10-10) | React + TypeScript + Next.js App Router; FE `main@ec1acfb` instala Next.js `16.4.1`, React `19.3.1` y TypeScript `5.9.3` con lockfile |
 | UI kit descrito por la guía preliminar | Mantine `9.6.2` + Tabler Icons; propuesta, no aprobación. Checkout F-022–F-027 usa la base kit-neutral existente; `DS-OPEN-03` permanece abierto para las demás familias. |
-| Última revisión documental | 2026-10-18; guía visual original 2026-10-01 |
+| Última revisión documental | 2026-11-24; dirección visual H5 aprobada. Guía visual original 2026-10-01 |
 | Alcance | Canal Marketplace web responsive y componentes compartidos |
+| Issues que habilita | [#143](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/143), [#144](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/144), [#145](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/145), [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153) y [#154](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/154) |
 
 ### 1.1 Vigencia y decisión técnica preliminar
 
-Este documento es la fuente visual vigente para los mockups. La versión `0.2.0` incorpora la identidad Inka Athletics y reemplaza los tokens provisionales de `DS-001` v0.1.0.
+Este documento es la fuente visual vigente para los mockups. La versión `0.2.0` incorporó la identidad Inka Athletics y reemplazó los tokens provisionales de `DS-001` v0.1.0.
+
+La versión `0.3.0` registra la **dirección visual H5 aprobada en la revisión de Jim Segovia el 24/11/2026** en [#141](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860): shell global, inicio, catálogo, ficha, carrito y checkout. Los frames aprobados están en la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560), con el [benchmark](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-565) como antecedente de análisis.
+
+Esta versión **no introduce tokens nuevos ni cambia los contratos de componentes**: la dirección aprobada reutiliza Foundations 5.1–5.7 y concreta composición, patrones y estados. Los cambios de token, tipografía, radios o color requieren una propuesta propia con impacto y revisión. La aprobación visual habilita la implementación; no cierra por sí sola la aceptación de una vista ni publica la biblioteca Figma.
+
+La dirección ya se aplicó en V-001 a V-004 ([#150](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/150)) y V-010 ([#148](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/148)). Las implementaciones deben adjuntar capturas desktop/móvil del mismo SHA y conservar los estados descritos en la sección 8.8.
 
 El PO decidió React + TypeScript + Next.js App Router para la implementación frontend el 2026-10-10. FE `main@ec1acfb`, revisado el 18/10, usa Next.js `16.4.1`, React `19.3.1`, CSS, tokens y componentes propios; no tiene Mantine ni Tabler en sus dependencias. La guía recibida propone Mantine `9.6.2` y Tabler Icons; otros documentos históricos mencionan Tailwind CSS, shadcn/ui, Radix UI y Lucide React. Esta propuesta no equivale a una decisión global aprobada. Checkout F-022–F-027 se mantiene neutral respecto del kit y usa los tokens del diseño. Para no mezclar dos sistemas:
 
@@ -326,33 +336,136 @@ Badge admite `neutral`, `info`, `success`, `warning`, `error`, `promotion`, `ava
 
 ### 7.7 Componentes de aplicación requeridos
 
-- `ActionIcon`, `ProductCard`, `ProductGallery`, `CartLine`, `OrderSummary`.
-- `Breadcrumb`, `Alert`, `Skeleton`, `Modal`, panel mobile, `EmptyState`, `Toast`.
-- Navegación global/mobile y línea de tiempo de pedido/despacho.
+- **Shell:** `PromoBar`, `Header`, `CategoryMenu`, `SearchBox` con sugerencias, `Footer`.
+- **Comercio:** `ProductCard` con agregado rápido restringido, `ProductGallery`, `CartLine`, `QuantityStepper`, `OrderSummary`.
+- **Estado y feedback:** `Skeleton`, `EmptyState`, `StatePanel` para “por confirmar”, `Alert`, `Toast`, `Modal` y panel mobile.
+- **Navegación:** `Breadcrumb`, paginación, carrusel manual y línea de tiempo de pedido/despacho.
 
-Los componentes compuestos se completarán desde las specs por vista; no se aprueban sólo por aparecer en esta lista.
+La dirección visual H5 aprueba la composición de estos patrones, no la publicación de una biblioteca de componentes. Cada componente compuesto se completa desde las specs por vista, conserva su contrato y requiere revisión de implementación y accesibilidad antes de declararse aceptado.
 
 ## 8. Patrones comunes
 
-### 8.1 Tarjeta de producto
+> La dirección visual H5 (`0.3.0`) concreta estos patrones en los frames aprobados. Las reglas de esta sección son obligatorias; la composición exacta sigue el frame y cualquier diferencia se anota en la spec de la vista y se revisa con el custodio.
 
-Debe mostrar imagen con espacio reservado, marca/nombre, precio/promoción cuando aplique, disponibilidad, favorito y navegación a ficha. Pendiente: proporción definitiva, máximo de líneas, truncamiento, acción por contexto, responsive y estados.
+### 8.1 Shell global
 
-### 8.2 Navegación
+El shell agrupa barra de promociones, cabecera, navegación de categorías, contenido y pie. Se comparte entre `V-005`, `V-006`, `V-007`, `V-008` y `V-009`; checkout conserva su cabecera reducida.
 
-Identifica marca y mantiene acceso a búsqueda, catálogo, cuenta, favoritos y carrito. En móvil ninguna acción esencial depende de hover. Pendiente: orden definitivo, sticky, breakpoint, menú mobile y estados.
+| Región | Contenido | Regla |
+|---|---|---|
+| Barra de promociones | Mensaje editorial aprobado y cierre | Opcional. Sólo con contenido aprobado; no comunica errores, estados ni información transaccional. Ocupa su altura sin saltos de layout y se oculta completa si no hay contenido. |
+| Cabecera | Logo, categorías, búsqueda, cuenta, favoritos y carrito | Mantiene las acciones esenciales visibles. Puede compactarse o fijarse al desplazar sólo si no tapa el salto al contenido, el foco ni mensajes. |
+| Categorías | Acceso al menú de categorías activas | Desktop: divulgación o mega menú. Mobile: drawer con foco atrapado. Sólo categorías activas de F-006; no se inventan destinos. |
+| Búsqueda | Campo con etiqueta “Buscar productos” | Conserva mínimo/máximo de F-007. Sugerencias opcionales, nunca requisito para buscar. |
+| Cuenta, favoritos y carrito | Acceso y contador cuando exista | El contador acompaña a una etiqueta accesible; no sustituye el nombre del control. Sin sesión, favoritos y áreas privadas activan `O-003`. |
+| Pie | Ayuda, políticas y navegación secundaria | Ver 8.9. No compite con la acción principal de la vista. |
 
-### 8.3 Filtros
+Reglas del menú de categorías:
 
-Panel lateral en desktop y panel accesible en móvil. Muestra filtros activos, cantidad cuando exista, Aplicar, Limpiar y retiro individual sin perder contexto. Opciones vigentes: categoría, marca y rango de precio.
+- Abre con Enter/Espacio o clic; en desktop admite flechas para recorrer opciones.
+- Escape cierra y devuelve el foco al disparador; seleccionar una categoría navega a `V-006` filtrada.
+- En mobile usa drawer: foco atrapado, fondo inerte, cierre explícito y restauración de foco.
+- El estado abierto no depende de hover y no deja controles inalcanzables por teclado.
+- Si las categorías no cargan, el resto de la cabecera sigue operativo y el error se limita a esa región.
 
-### 8.4 Modales y overlays
+Reglas de búsqueda con sugerencias:
 
-Se reservan para tareas que requieren atención. Tienen nombre accesible, foco atrapado, Escape cuando sea seguro y restauración de foco. En móvil pueden convertirse en panel de pantalla completa.
+- Se alimentan de la misma consulta F-007; no se introduce un endpoint ni un contrato nuevos.
+- Se activan desde 2 caracteres, con retardo breve, cancelación de la consulta anterior y un máximo de seis resultados.
+- Teclado: flechas recorren, Enter abre la sugerencia activa, Escape cierra sin borrar el texto.
+- “Sin sugerencias” es un estado neutral, no un error; si el servicio falla, el envío de la búsqueda sigue disponible.
+- No muestran datos privados, precios no confirmados ni términos inventados.
 
-### 8.5 Carga y skeletons
+### 8.2 Inicio
 
-El skeleton aproxima la estructura final. Se requieren patrones para tarjeta, listado, ficha, carrito, resumen y pedido. Spinner se limita a acciones o regiones pequeñas.
+Orden aprobado: barra de promociones, cabecera, hero, categorías con imagen, carruseles de productos y pie. Las secciones sin datos se omiten por completo, incluido su título y espacio reservado.
+
+- **Hero:** un único CTA inequívoco y contenido editorial aprobado. Si hay texto sobre imagen, se usa una capa de contraste; la legibilidad no depende del color de la fotografía. Sin autoplay.
+- **Categorías:** tarjeta con imagen y nombre, sólo categorías activas. La grilla es fluida y mantiene el ancho mínimo del frame; en mobile no obliga a desplazamiento horizontal para completar una categoría.
+- **Carruseles:** manuales, sin autoplay. Controles visibles de al menos 44 px, desplazamiento por teclado, `scroll-snap` y una tarjeta parcial como pista de continuidad. No se usan puntos como único control.
+- **Carga y error:** skeleton y error por sección; un fallo de destacados no reemplaza el hero ni las categorías válidas.
+- **ProductCard:** aplica 8.3, incluido el agregado rápido restringido.
+
+### 8.3 Tarjeta de producto
+
+La tarjeta muestra, en este orden: medio con espacio reservado, descuento o promoción vigente, favorito, marca, nombre, precio, disponibilidad y acción. La relación de imagen y el número de líneas del nombre se fijan en el frame aprobado y se mantienen iguales entre tarjetas de la misma grilla.
+
+| Elemento | Regla |
+|---|---|
+| Imagen | Con `alt` útil cuando existe; si falta, placeholder local “Sin imagen”. No se inventa una imagen ni se rompe la alineación. |
+| Descuento | Sólo si F-012 confirma una oferta vigente. Se muestra el porcentaje con texto y el precio actual antes del anterior; nunca depende sólo de color o tachado. |
+| Favorito | Acción separada del enlace principal, objetivo de 44 px y nombre “Guardar/Quitar de favoritos”. Requiere sesión y conserva el retorno mediante `O-003`. |
+| Nombre y marca | El nombre enlaza a `V-007`; la marca no sustituye al nombre ni se usa como texto decorativo. |
+| Precio y disponibilidad | Reflejan la respuesta vigente. Ante fallo se usa “Precio por confirmar” o “Disponibilidad por confirmar”, nunca `S/ 0` ni “Agotado”. |
+| Acción | “Agregar” sólo con un SKU vendible resuelto; en producto variable o sin SKU se muestra “Ver opciones” y navega a `V-007`. |
+
+Agregado rápido:
+
+- Sólo aplica cuando el producto expone un único SKU comprable y la disponibilidad permite la acción; no se infiere talla, color ni SKU.
+- No se anida dentro del enlace de la tarjeta; es un control independiente con foco visible.
+- Durante el envío queda ocupado y no acepta doble pulsación; el éxito usa `O-005` y el error se explica junto a la tarjeta con reintento.
+- Con precio o stock “por confirmar” el agregado rápido no se habilita.
+
+Estados mínimos: default, hover, foco visible, favorito guardando/guardado, sin imagen, precio por confirmar, agotado, producto no disponible y skeleton de carga.
+
+### 8.4 Catálogo y filtros
+
+- Encabezado con título o consulta, cantidad de resultados, acceso a filtros y orden; chips de criterios aplicados.
+- Desktop: panel lateral de filtros. Mobile: `O-001`. El panel no comprime la grilla por debajo del ancho mínimo de tarjeta del frame.
+- Opciones vigentes: categoría, marca y rango de precio. No se agregan facetas sin contrato.
+- Aplicar o limpiar actualiza la URL y reinicia la página; cancelar en mobile conserva los criterios aplicados.
+- Vacío, error y “por confirmar” son estados distintos (8.8). Un fallo de precio/stock no convierte la grilla en vacía.
+- Al paginar o aplicar criterios, el foco llega al encabezado de resultados y la cantidad se anuncia sin mover el foco.
+
+### 8.5 Carrito y resumen
+
+- Lista semántica de líneas y resumen; en mobile el resumen aparece después de las líneas y no se fija un CTA que oculte controles o avisos.
+- El resumen desktop puede permanecer visible dentro de su columna sólo si no tapa pie, avisos ni acciones.
+- Subtotal informativo, sin envío, descuentos ni total final. Una línea en atención se explica antes del CTA y lo bloquea hasta corregirse.
+- Cantidad, quitar y mover a favoritos conservan foco y estados locales; los cambios confirmados no se anuncian como totales de checkout.
+
+### 8.6 Overlays
+
+Se reservan para tareas que requieren atención o feedback superpuesto. Aplican a `O-001` a `O-010`.
+
+- Scrim Ink semitransparente que separa el contenido sin sustituir el contraste del texto.
+- Modal con `radius/lg`; drawer mobile a pantalla parcial o completa con áreas seguras. No se mezclan dos overlays de la misma tarea.
+- Encabezado con título y cierre de 44 px; `aria-modal`, nombre accesible y foco inicial en el título o primer control.
+- Foco atrapado, Escape cuando sea seguro y restauración al disparador. El fondo queda inerte y sin desplazamiento.
+- Acciones destructivas se confirman explícitamente y nunca son la acción predeterminada.
+- Toasts y banners siguen `O-010`: deduplicados, sin mover foco, con acción concreta. Sólo éxito o información sin acción pueden cerrarse solos, después de tiempo suficiente y pausando el cierre con hover o foco.
+- Los overlays usan los tokens vigentes; no introducen una paleta propia.
+
+### 8.7 Carga y skeletons
+
+El skeleton aproxima la estructura final y reserva su espacio para evitar saltos. Se usa por región (tarjeta, listado, ficha, carrito, resumen y pedido); no reemplaza toda la página cuando ya existe contenido útil. Un grupo de skeletons tiene un único anuncio accesible y respeta `prefers-reduced-motion`. El spinner se limita a acciones o regiones pequeñas.
+
+### 8.8 Estados consistentes
+
+Todas las vistas definen en su sección de estados los casos aplicables: **cargando, vacío, error y por confirmar**. “Por confirmar” no es un error, un vacío ni un agotado.
+
+| Estado | Cuándo | Tratamiento visual y de contenido | Acción | Nunca |
+|---|---|---|---|---|
+| Cargando | Lectura inicial o actualización de una región | Skeleton con la forma final; cabecera y contenido válido permanecen operativos | Esperar o navegar | Mostrar datos ficticios, precios en cero o un vacío prematuro |
+| Vacío | Respuesta válida sin elementos | Superficie neutra, explicación breve y salida útil | Explorar, limpiar o corregir | Estilo de error, culpar al usuario o dejar la vista en blanco |
+| Error | Fallo de red, proveedor o validación no recuperable en el sitio | Superficie de error, qué ocurrió y qué puede hacer; conserva criterios y contexto | Reintentar o volver | Presentarlo como vacío, “agotado” o pérdida de datos |
+| Por confirmar | Precio, stock u otro proveedor no respondió pero la vista sigue siendo útil | Superficie de advertencia con texto “Por confirmar”; el dato no se afirma y la compra se bloquea con explicación | Reintentar el dato | `S/ 0`, “Agotado”, éxito simulado o error técnico crudo |
+| No disponible | Recurso inexistente, inactivo o `404` | Estado neutral, sin contenido parcial | Volver al catálogo o actualizar | Reutilizar el estilo de error técnico o mostrar una ficha incompleta |
+
+Reglas transversales:
+
+- Un fallo regional no reemplaza una página con contenido válido; el error se limita a la región afectada.
+- Cargando y resultados usan `role="status"`/`aria-live="polite"`; los errores que bloquean usan `alert` sin mover el foco de forma inesperada.
+- Ningún estado depende sólo de color: siempre hay texto y, cuando aporte, icono.
+- El copy explica primero qué ocurrió y después la recuperación. No se muestran códigos HTTP, IDs de traza ni nombres de proveedores.
+- La evidencia de implementación incluye una captura por estado aplicable, en desktop y mobile, del mismo SHA. Una vista no se acepta si puede quedar en blanco ante un proveedor que no responde.
+
+### 8.9 Pie global
+
+- Agrupa marca, ayuda, políticas y navegación secundaria; no repite la acción principal de la vista.
+- Sólo publica enlaces con destino aprobado. Si un destino no existe, se omite o se muestra como texto no interactivo; no se crean enlaces ficticios.
+- Desktop en columnas legibles; mobile puede usar acordeones accesibles. Mantiene contraste, foco visible y orden de lectura.
+- El copyright y los enlaces legales no se anuncian como navegación principal.
 
 ## 9. Accesibilidad
 
@@ -369,6 +482,8 @@ El skeleton aproxima la estructura final. Se requieren patrones para tarjeta, li
 ## 10. Organización y versionado de Figma
 
 El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. El archivo de pantallas identificado es [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups); la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) contiene las secciones de Inicio, Catálogo y Ficha. Las specs [V-005](vistas/V-005-inicio.md) y [V-006](vistas/V-006-catalogo-resultados.md) ya enlazan sus respectivas secciones y sus 34 frames desktop/mobile localizados. El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) contiene la [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5), verificada el 18/10; los enlaces representativos de V-010–V-014 figuran en cada spec. La existencia del frame no equivale a aprobación de contenido.
+
+La sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) es la referencia aprobada el 24/11/2026 para shell, inicio, catálogo, ficha, carrito y checkout. El [benchmark](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-565) documenta el análisis previo y no sustituye los frames de entrega. Los enlaces por frame de V-007 y V-008 y de los estados restantes quedan en seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), con responsable **Giuliano Macchiavello** y revisión de **Jim Segovia**; la aceptación de overlays por captura se mantiene en [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153). Mientras falten esos node IDs, la vista se considera aprobada en dirección visual y composición, pero no en trazabilidad frame a frame; este seguimiento no bloquea la implementación.
 
 Páginas mínimas sugeridas para la biblioteca del sistema de diseño:
 
@@ -391,7 +506,7 @@ Componentes:
 Categoría / Componente / Variante
 ```
 
-Cada frame indica `DS-001 v0.2.0` y enlaza su spec.
+Cada frame indica `DS-001 v0.3.0` y enlaza su spec.
 
 El orden desktop→mobile de checkout (`V-010` a `V-014`) fue una intención de producción ya superada: se hallaron variantes en ambas plataformas. El [índice de vistas](vistas/README.md) registra conteos y discrepancias. Conservar ambos formatos, completar estados faltantes y conciliar el contenido de V-014 con el contrato antes de pasar a `Aprobada`.
 
@@ -414,7 +529,8 @@ Para proponer un cambio:
 Versionado:
 
 - `0.2.x`: consolidación preliminar antes del hito.
-- `0.3.0`: biblioteca inicial y patrones usados por primeras vistas.
+- `0.3.0`: dirección visual H5 aprobada; patrones de shell, tarjeta, carrito, overlays y estados consistentes documentados.
+- `0.3.x`: ajustes de patrón o enlaces de frames sin cambio de tokens ni de contratos.
 - `1.0.0`: identidad, stack UI, tokens, componentes y gobernanza aprobados.
 
 ## 12. Uso desde las specs UI
@@ -439,9 +555,11 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 | `DS-OPEN-03` | Definir UI kit global para familias distintas del slice Checkout. Para Checkout F-022–F-027 se decidió usar los componentes propios/tokens existentes, sin Mantine. | Implementación transversal |
 | `DS-OPEN-04` | Completar diez tonalidades de Volt, Signal, Ink y Cloud. | Tema Mantine |
 | `DS-OPEN-05` | Verificar la correspondencia entre tokens de Figma/DS-001 y `src/theme/tokens.css` del frontend; no presuponer un `theme.ts` ni una biblioteca aún no instalada. | Código-diseño |
-| `DS-OPEN-06` | Completar ProductCard, navegación, modales, filtros y skeletons desde specs por vista. | Mockups |
-| `DS-OPEN-07` | Archivo Mockups y V-005/V-006 enlazadas por frame; Checkout V-010–V-014 cuenta con enlaces representativos. Falta completar/verificar los demás estados, vistas y prototipo; aprobación humana pendiente. | Trazabilidad Figma |
-| `DS-OPEN-08` | Definir changelog y proceso de publicación. | Mantenimiento |
+| `DS-OPEN-06` | **Resuelta para H5:** patrones de shell, ProductCard, filtros, carrito, overlays y estados documentados en la sección 8. La publicación de la biblioteca de componentes sigue pendiente de implementación y revisión. | Mockups |
+| `DS-OPEN-07` | **Parcial:** dirección visual H5 aprobada y enlazada; V-005/V-006 conservan frames H3 y la sección H5. Faltan enlaces por frame de V-007/V-008, estados y prototipo, y la conciliación de frames heredados de checkout. | Trazabilidad Figma |
+| `DS-OPEN-08` | **Resuelta:** changelog incorporado en la sección 15; la publicación de la biblioteca mantiene el proceso de la sección 11. | Mantenimiento |
+| `DS-OPEN-09` | Completar los enlaces individuales de frames H5 de V-007, V-008 y de cada estado/overlay aprobado; no cambiar el diseño durante ese registro. | Trazabilidad Figma |
+| `DS-OPEN-10` | Confirmar en implementación la correspondencia de los patrones 8.1–8.9 con los frames aprobados y registrar diferencias antes de la aceptación visual. | Código-diseño |
 
 ## 14. Fuentes
 
@@ -451,3 +569,11 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 - Specs funcionales, UI y contratos `F-001` a `F-040`.
 - Wireframes históricos como referencia, no como fuente vigente.
 - Nike y Adidas únicamente como inspiración de experiencia, sin reutilización de identidad ni activos.
+
+## 15. Changelog
+
+| Versión | Fecha | Cambio | Compatibilidad |
+|---|---|---|---|
+| `0.3.1` | 2026-11-25 | Correcciones de revisión H5: el panel de compra de escritorio se documenta como fijo (no opcional), la compra exige SKU vendible, precio confirmado y disponibilidad apta, y los enlaces por frame quedan en seguimiento con responsable en `Taller-SW-Web/G1-Marketplace-Frontend#142`. | Sin cambios de tokens ni contratos. Ajusta redacción y criterios de V-007/V-008; la aceptación de overlays por captura sigue en #153. |
+| `0.3.0` | 2026-11-24 | Dirección visual H5 aprobada en #141 por el revisor principal. Se documentan shell global, inicio, ProductCard con agregado rápido restringido, catálogo, carrito, overlays, skeletons y estados consistentes (cargando, vacío, error, por confirmar, no disponible). V-005 a V-008 quedan habilitadas para implementar. | Sin cambios de tokens, props ni contratos. Los frames aprobados reutilizan Foundations 5.1–5.7. La aceptación de cada vista y de la biblioteca sigue siendo independiente. |
+| `0.2.0` | 2026-10-18 | Identidad Inka Athletics, tokens, tipografía, UI kit preliminar, accesibilidad y gobernanza. | Reemplaza los tokens provisionales de `0.1.0`. |
