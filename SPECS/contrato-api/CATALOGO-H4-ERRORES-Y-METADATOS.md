@@ -13,3 +13,8 @@ Se conserva HTTP 503 y se distingue la causa pública mediante `code`, sin inven
 `GET /api/v1/catalog/home` y `filters` no admiten parámetros. Productos acepta sólo los criterios publicados, con una categoría y una marca combinadas con AND. Todas las páginas nuevas incluyen `sort: NAME_ASC | NAME_DESC | null`; null conserva el orden por defecto externo. No certifica desempate global de G6.
 
 `PRODUCTOS_AUTH_MODE=demo-no-auth` es exclusivamente de demo/desarrollo; se rechaza con NODE_ENV=production aunque el flag de integración esté activo. Producción usa service-token y requiere el acuerdo/grant técnico server-only. El modo público de demo no homologa identidad ni despliegue.
+
+
+## Correlación G1→G6 — corrección 03/11/2026, en revisión
+
+G1 conserva el X-Request-Id opaco seguro del consumidor. G6 exige UUID en X-Correlation-Id (ensayo público: ID opaco 400/VALIDACION, UUID 200). El adaptador conserva UUID válidos; para un ID opaco genera un UUID y registra ambos identificadores saneados en catalog_provider_correlation. No cambia el identificador público de G1 ni envía tokens del visitante. Esta corrección requiere revisión del nuevo corte y no libera I-01.

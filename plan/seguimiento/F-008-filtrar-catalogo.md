@@ -1,13 +1,15 @@
 # Tareas y seguimiento — F-008 Filtrar catálogo
 
-Versión 0.1.0 · Planificación inicial · F-008 no está implementada por estos documentos.
+**Estado actualizado al 05/11:** implementación principal integrada; [matriz por issue, evidencia y requisito exacto de cierre](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md). Esta reconciliación prevalece sobre pendientes de registros anteriores. La ruta de filtros ya existe: no conservar 404 como diagnóstico vigente. El sondeo web actual devuelve CATALOG_TIMEOUT. No pedir reimplementar marcas o precio desde cero por sus 503.
+
+Versión 0.3.0 · Reconciliación 2026-11-05. Código principal integrado; aceptación y cierre individual según la matriz vigente.
 
 ## Fuente y control
 
 - [Plan F-008](../funcionalidades/F-008-filtrar-catalogo.md); [iteración S02/H4](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-008-filtrar-catalogo.md), [UI](../../SPECS/ui/F-008-filtrar-catalogo.md), [API](../../SPECS/contrato-api/F-008-filtrar-catalogo.md), [React](../../SPECS/componentes-react/F-008-filtrar-catalogo.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
+- Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución/evidencias actualizadas en la reconciliación del 05/11. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. QA local puede avanzar con fixtures; QA real requiere INT. Evidencia inicial pendiente, no pruebas ejecutadas.
 
 ## Corte planificado de H4
@@ -19,9 +21,9 @@ Versión 0.1.0 · Planificación inicial · F-008 no está implementada por esto
 | Nivel de evidencia | Registro del corte de esta F |
 |---|---|
 | Diseñado | Specs enlazadas arriba; añadir revisión del flujo/contrato/frame concreto de H4. Su existencia no acredita aprobación de todas las discrepancias |
-| Implementado con datos de prueba | Enlazar commit FE/BE, fixture explícito, comando y resultado positivo/negativo. Recuperar evidencia del código existente antes de certificar cobertura completa |
-| Integrado con otro módulo | Pendiente de evidencia por operación: proveedor/versión, entorno, auth, request/response REAL, negativos y traza; respetar gates de esta F |
-| Probado en el despliegue | Pendiente: URLs/SHAs/run CI-CD y caso desde web/API desplegada con revisión independiente. No inferir de prueba local ni de provider directo |
+| Implementado con datos de prueba | Entregas FE #124 y BE #265 fusionadas tras revisión de Jim; commits individuales y pruebas en [matriz del 05/11](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md). No es falta de implementación inicial |
+| Integrado con otro módulo | Sondeo del 05/11: categorías 200; marcas 503 y precioMin=0 503 SERVICIO_NO_DISPONIBLE. El filtro global ya existe en el código G6 revisado; falta operación/datos y retest. G6 debe resolver/probar marcas y el camino ordinario de precio con Catalog/Pricing. Giuliano retesta maestros, combinaciones, límites/vacío/errores, limpieza y reset en UI publicada; corrige mapping si aparece una discrepancia propia. |
+| Probado en el despliegue | Sigue pendiente de aceptación: web G1 devuelve CATALOG_TIMEOUT en el sondeo del 05/11 a las 13:45 Lima; BFF directo no responde en 20 s. OPS debe acreditar runtime/SHA/configuración y Giuliano retestar |
 
 La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
 
@@ -44,44 +46,48 @@ Referente de BD: Giuliano Macchiavello para este bloque, con revisión de Sebast
 
 - **Trabajo:** Implementar CatalogFilters, ActiveFilterChips y todos los estados de React/UI.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. G6 sigue 503 en marcas (Caddy) y precio (SERVICIO_NO_DISPONIBLE); falta soporte autorizado por operación además de homologar el contrato singular.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Registrar la aceptación de los criterios FE de esta tarea con Sebastián (estados, props/eventos, desktop/mobile y navegación/URL aplicables) y de su dependencia OPS. El merge revisado por Jim ya está acreditado. Los pendientes de integración de la función no se convierten en falta de implementación del componente. Giuliano aporta la trazabilidad y atiende observaciones; Sebastián valida el DoD asignado, con revisión Backend de Leónidas y dependencia OPS aplicable.
 
 ### TASK-F008-BE-001
 
 - **Trabajo:** Mapear IDs categoría/marca/rango PEN a proveedor, validar AND/min<=max y maestros autorizados.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. G6 sigue 503 en marcas (Caddy) y precio (SERVICIO_NO_DISPONIBLE); falta soporte autorizado por operación además de homologar el contrato singular.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Registrar la aceptación del DoD Backend y dependencia OPS con el revisor asignado: DTO, validación, errores y proyección/ownership probados. Jim ya aprobó el merge; Leónidas revisó el alcance MOCK. Los casos REAL pendientes pertenecen al cierre de INT; no exigir reescribir el adaptador ya entregado. Giuliano aporta la trazabilidad y atiende observaciones; Sebastián valida el DoD asignado, con revisión Backend de Leónidas y dependencia OPS aplicable.
 
 ### TASK-F008-INT-001
 
 - **Trabajo:** Homologar y probar integración real y condiciones: I-01; no sólo fixture.
 - **Terminado cuando:** Contrato/configuración y gates enlazados, pruebas positivas/negativas y timeout autorizadas pasan; evidencia distingue sandbox de mock.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Liberar I-01 con contrato/configuración autorizada, grant técnico y positivos/negativos/timeout desde web→BFF→G6. G6 sigue 503 en marcas (Caddy) y precio (SERVICIO_NO_DISPONIBLE); falta soporte autorizado por operación además de homologar el contrato singular.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** G6 debe resolver/probar marcas y el camino ordinario de precio con Catalog/Pricing. Giuliano retesta maestros, combinaciones, límites/vacío/errores, limpieza y reset en UI publicada; corrige mapping si aparece una discrepancia propia. Confirmar configuración/acceso del entorno: public-read-only explícito tras integrar #273, o JWT con grant/emisión verificados. JWT no es un prerrequisito técnico del modo público acordado. Conservar las dependencias formales originales de esta INT. Giuliano: consumidor/QA; Vicuz/Taxonomy: marcas; Gabriel/Catalog y Leonardo/Pricing: precio/datos; Marco: Gateway; Andrés/Fernando: publicación; Sebastián: revisión.
 
 ### TASK-F008-QA-001
 
 - **Trabajo:** Probar rango invertido no consulta; aplicar conserva búsqueda y orden; cancelar mobile no cambia filtros; Escape y restauración de foco; incluir cada estado visual y transición documentada.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. G6 sigue 503 en marcas (Caddy) y precio (SERVICIO_NO_DISPONIBLE); falta soporte autorizado por operación además de homologar el contrato singular.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Completar y revisar la matriz por criterio de esta QA con Sebastián/QA, incluyendo el recorrido REAL y los casos pendientes de la función en el entorno acordado. G6 debe resolver/probar marcas y el camino ordinario de precio con Catalog/Pricing. Giuliano retesta maestros, combinaciones, límites/vacío/errores, limpieza y reset en UI publicada; corrige mapping si aparece una discrepancia propia. Las pruebas locales/fixtures ya ejecutadas permanecen como evidencia y no se repiten por rutina. Giuliano: consumidor/QA; Vicuz/Taxonomy: marcas; Gabriel/Catalog y Leonardo/Pricing: precio/datos; Marco: Gateway; Andrés/Fernando: publicación; Sebastián: revisión.
 
 ### TASK-F008-QA-002
 
 - **Trabajo:** IDs inválidos/rango negativo y manipulación URL, no filtros administrativos.
 - **Terminado cuando:** Negativos de seguridad pasan en entorno propio/autorizado, scans SAST/SCA/secrets y DAST aplicable adjuntos sin secretos. Sin hallazgo crítico/alto explotable abierto.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Completar DAST aplicable en staging autorizado y revisión independiente de riesgos; los scans locales/CI no certifican ese paso. G6 sigue 503 en marcas (Caddy) y precio (SERVICIO_NO_DISPONIBLE); falta soporte autorizado por operación además de homologar el contrato singular.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Adjuntar/revisar negativos del corte y SAST/SCA/secret scan ya existentes; completar DAST aplicable y revisión de riesgos con Andrés/seguridad en entorno propio/autorizado, corregir/reprobar hallazgos y acreditar la dependencia OPS de la tarea. No confundir controles locales/CI con aceptación de staging. Giuliano ejecuta/adjunta y retesta; Andrés/seguridad y el revisor acuerdan entorno, alcance, riesgos y aceptación.
 
 ### TASK-F008-DOC-001
 
 - **Trabajo:** Actualizar trazabilidad specs↔implementación↔pruebas, enlaces Figma y decisiones resueltas; documentar operación/errores relevantes.
 - **Terminado cuando:** Fuentes vigentes coherentes, evidencias reales y revisión independiente; no marcar funcionalidad terminada con integración pendiente.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Validación independiente de la documentación y cierre de INT/QA-001/QA-002 de esta misma función. G6 sigue 503 en marcas (Caddy) y precio (SERVICIO_NO_DISPONIBLE); falta soporte autorizado por operación además de homologar el contrato singular.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F008-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Revisión independiente y merge de esta actualización en SPECS #16; coherencia de fuentes/specs/evidencias y dependencias INT/QA funcional/QA seguridad originales satisfechas. El texto y el commit documental ya están entregados; no falta redactar la tarea desde cero. Giuliano actualiza; Sebastián/revisor independiente valida documentación; los owners de INT y QA entregan su cierre.
 
+
+## Historial anterior al corte vigente del 05/11
+
+Los pendientes/estados de las notas siguientes corresponden a su fecha; no sustituyen la matriz actual enlazada arriba.
 
 ## Avance H4 de Giuliano — 26/10/2026
 
@@ -106,3 +112,8 @@ Actualizar filas existentes; no crear un segundo conjunto de tareas por variante
 ## Revisión conjunta local con Jim — registro 28/10/2026
 
 Jim comunicó conformidad con el recorrido local de F-006–F-010 en escritorio y móvil, según el mensaje aportado por Giuliano. [Constancia y límites](../evidencias/H4-GIULIANO-REVISION-CONJUNTA-JIM-2026-10-28.md). La revisión técnica de PR corresponde a Sebas en Frontend y Leo en Backend/contrato, según el circuito indicado. La nota registra evidencia funcional local; despliegue, JWT, marcas y precio conservan sus requisitos. El revisor de la matriz de tareas se conserva mientras no exista una actualización formal de esa asignación.
+
+
+## Reconciliación por issue — 03/11/2026
+
+[Evidencia actualizada y bloqueos](../evidencias/H4-GIULIANO-F008-2026-11-03.md). Los registros del 26–28/10 son históricos. Nuevos cambios propios preparados y probados; las seis issues permanecen abiertas conforme a su DoD.

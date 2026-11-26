@@ -1,13 +1,15 @@
 # Tareas y seguimiento — F-007 Buscar productos por texto
 
-Versión 0.2.0 · Revisión 2026-10-18. Hay código integrado; falta búsqueda positiva por la ruta pública completa y el gate F-007 pasa a H4.
+**Estado actualizado al 05/11:** implementación principal integrada; [matriz por issue, evidencia y requisito exacto de cierre](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md). Esta reconciliación prevalece sobre pendientes de registros anteriores. No falta programar de nuevo la búsqueda, conseguir la URL de G6 ni demostrar por primera vez cualquier listado REAL.
+
+Versión 0.3.0 · Reconciliación 2026-11-05. Código principal integrado; aceptación y cierre individual según la matriz vigente.
 
 ## Fuente y control
 
 - [Plan F-007](../funcionalidades/F-007-buscar-productos-texto.md); [iteración S02/H4](../iteraciones/S02-semanas-09-11.md).
 - [Funcional](../../SPECS/funcional/F-007-buscar-productos-texto.md), [UI](../../SPECS/ui/F-007-buscar-productos-texto.md), [API](../../SPECS/contrato-api/F-007-buscar-productos-texto.md), [React](../../SPECS/componentes-react/F-007-buscar-productos-texto.md).
 - [Reglas del seguimiento](README.md), [pruebas/DevSecOps](../DEVSECOPS-Y-PRUEBAS.md), [gates](../DECISIONES-Y-BLOQUEOS.md).
-- Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución y evidencia pendientes. La semana objetivo es académica, no fecha de calendario.
+- Responsable asignado por el PO: **Giuliano Macchiavello**; revisor principal: **Sebastian Malca** según la [matriz](../../SPECS/RESPONSABILIDADES-PUNTA-A-PUNTA.md). Estimación base fijada en la matriz; ejecución/evidencias actualizadas en la reconciliación del 05/11. La semana objetivo es académica, no fecha de calendario.
 - Mock y real se reportan por separado. FE [#3](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/3)/[#12](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/pull/12) y BE [#11](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/11)/[#19](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/19) están integradas. La búsqueda G6 devolvía 503 en la prueba local del 17/10; el 18/10 respondió 200 directo con lista vacía. La web G1 permite búsqueda de demostración y respondió 200/MOCK al repetir la consulta, sin acreditar G1→G6 REAL. Ver [corte H3](../CORTE-H3-Y-TRASPASO-H4.md). Revisar DoD FE/BE, casos positivos y negativos, INT y QA en H4.
 
 ## Corte planificado de H4
@@ -19,9 +21,9 @@ Versión 0.2.0 · Revisión 2026-10-18. Hay código integrado; falta búsqueda p
 | Nivel de evidencia | Registro del corte de esta F |
 |---|---|
 | Diseñado | Specs enlazadas arriba; añadir revisión del flujo/contrato/frame concreto de H4. Su existencia no acredita aprobación de todas las discrepancias |
-| Implementado con datos de prueba | Enlazar commit FE/BE, fixture explícito, comando y resultado positivo/negativo. Recuperar evidencia del código existente antes de certificar cobertura completa |
-| Integrado con otro módulo | Pendiente de evidencia por operación: proveedor/versión, entorno, auth, request/response REAL, negativos y traza; respetar gates de esta F |
-| Probado en el despliegue | Pendiente: URLs/SHAs/run CI-CD y caso desde web/API desplegada con revisión independiente. No inferir de prueba local ni de provider directo |
+| Implementado con datos de prueba | Entregas FE #124 y BE #265 fusionadas tras revisión de Jim; commits individuales y pruebas en [matriz del 05/11](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md). No es falta de implementación inicial |
+| Integrado con otro módulo | Reensayo local del 04/11 por Next→BFF→G6: cuatro casos de búsqueda PASS. #132 añade ensayo desde GitHub-hosted con TLS y listado REAL; no es producción G1. Acreditar búsqueda positiva/vacía, límites, error y timeout desde el corte publicado de G1, con SHA/configuración, correlación y revisión. Mantener las dependencias formales de INT; ejecutar casos independientes sin esperar ranking G5. |
+| Probado en el despliegue | Sigue pendiente de aceptación: web G1 devuelve CATALOG_TIMEOUT en el sondeo del 05/11 a las 13:45 Lima; BFF directo no responde en 20 s. OPS debe acreditar runtime/SHA/configuración y Giuliano retestar |
 
 La actualización del 19/10/2026 cambia planificación, no estados de ejecución ni aprobación de gates. Registrar aquí evidencia concreta a medida que exista, sin calificar todo el bloque por una sola prueba.
 
@@ -44,44 +46,48 @@ La auditoría BD/OPS S1 se propone para Andres; ver [transversales](TRANSVERSALE
 
 - **Trabajo:** Implementar SearchBox, SearchResultsHeading y todos los estados de React/UI.
 - **Terminado cuando:** Props/eventos tipados, estado específico, sin requests internos navegador; desktop/mobile aplicables y casos de spec React cubiertos.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Falta acreditar identidad técnica/grants G1–G6/G7 y el recorrido desde el corte desplegado; demo pública sin JWT no los sustituye.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Registrar la aceptación de los criterios FE de esta tarea con Sebastián (estados, props/eventos, desktop/mobile y navegación/URL aplicables) y de su dependencia OPS. El merge revisado por Jim ya está acreditado. Los pendientes de integración de la función no se convierten en falta de implementación del componente. Giuliano aporta la trazabilidad y atiende observaciones; Sebastián valida el DoD asignado, con revisión Backend de Leónidas y dependencia OPS aplicable.
 
 ### TASK-F007-BE-001
 
 - **Trabajo:** Validar q de 2–120 caracteres y adaptar búsqueda paginada pública, proteger query de logs identificables.
 - **Terminado cuando:** DTO, validación, errores y ownership probados con fixtures; transacciones/versiones donde aplica. Adaptador real no activado si gate externo sigue abierto.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Falta acreditar identidad técnica/grants G1–G6/G7 y el recorrido desde el corte desplegado; demo pública sin JWT no los sustituye.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Registrar la aceptación del DoD Backend y dependencia OPS con el revisor asignado: DTO, validación, errores y proyección/ownership probados. Jim ya aprobó el merge; Leónidas revisó el alcance MOCK. Los casos REAL pendientes pertenecen al cierre de INT; no exigir reescribir el adaptador ya entregado. Giuliano aporta la trazabilidad y atiende observaciones; Sebastián valida el DoD asignado, con revisión Backend de Leónidas y dependencia OPS aplicable.
 
 ### TASK-F007-INT-001
 
 - **Trabajo:** Homologar y probar integración real y condiciones: I-01; no sólo fixture.
 - **Terminado cuando:** Contrato/configuración y gates enlazados, pruebas positivas/negativas y timeout autorizadas pasan; evidencia distingue sandbox de mock.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Liberar I-01 con contrato/configuración autorizada, grant técnico y positivos/negativos/timeout desde web→BFF→G6. Falta acreditar identidad técnica/grants G1–G6/G7 y el recorrido desde el corte desplegado; demo pública sin JWT no los sustituye.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Acreditar búsqueda positiva/vacía, límites, error y timeout desde el corte publicado de G1, con SHA/configuración, correlación y revisión. Mantener las dependencias formales de INT; ejecutar casos independientes sin esperar ranking G5. Confirmar configuración/acceso del entorno: public-read-only explícito tras integrar #273, o JWT con grant/emisión verificados. JWT no es un prerrequisito técnico del modo público acordado. Conservar las dependencias formales originales de esta INT. Giuliano: casos/evidencia/correcciones; Andrés/Fernando: corte/runtime; Sebastián: revisión principal; G6/Leónidas: contrato/datos/acceso aplicable.
 
 ### TASK-F007-QA-001
 
 - **Trabajo:** Probar 1 y 121 caracteres no consultan; query vacía vuelve catálogo; respuesta lenta anterior no reemplaza nueva; cero resultados conserva q y limpiar; incluir cada estado visual y transición documentada.
 - **Terminado cuando:** Casos unitarios/componentes/API y E2E aplicables pasan con evidencias; pruebas mock y reales etiquetadas. Hallazgos corregidos/reprobados.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Falta acreditar identidad técnica/grants G1–G6/G7 y el recorrido desde el corte desplegado; demo pública sin JWT no los sustituye.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Completar y revisar la matriz por criterio de esta QA con Sebastián/QA, incluyendo el recorrido REAL y los casos pendientes de la función en el entorno acordado. Acreditar búsqueda positiva/vacía, límites, error y timeout desde el corte publicado de G1, con SHA/configuración, correlación y revisión. Mantener las dependencias formales de INT; ejecutar casos independientes sin esperar ranking G5. Las pruebas locales/fixtures ya ejecutadas permanecen como evidencia y no se repiten por rutina. Giuliano: casos/evidencia/correcciones; Andrés/Fernando: corte/runtime; Sebastián: revisión principal; G6/Leónidas: contrato/datos/acceso aplicable.
 
 ### TASK-F007-QA-002
 
 - **Trabajo:** Entradas XSS/inyección y longitudes, consulta pública sin datos privados.
 - **Terminado cuando:** Negativos de seguridad pasan en entorno propio/autorizado, scans SAST/SCA/secrets y DAST aplicable adjuntos sin secretos. Sin hallazgo crítico/alto explotable abierto.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Completar DAST aplicable en staging autorizado y revisión independiente de riesgos; los scans locales/CI no certifican ese paso. Falta acreditar identidad técnica/grants G1–G6/G7 y el recorrido desde el corte desplegado; demo pública sin JWT no los sustituye.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Adjuntar/revisar negativos del corte y SAST/SCA/secret scan ya existentes; completar DAST aplicable y revisión de riesgos con Andrés/seguridad en entorno propio/autorizado, corregir/reprobar hallazgos y acreditar la dependencia OPS de la tarea. No confundir controles locales/CI con aceptación de staging. Giuliano ejecuta/adjunta y retesta; Andrés/seguridad y el revisor acuerdan entorno, alcance, riesgos y aceptación.
 
 ### TASK-F007-DOC-001
 
 - **Trabajo:** Actualizar trazabilidad specs↔implementación↔pruebas, enlaces Figma y decisiones resueltas; documentar operación/errores relevantes.
 - **Terminado cuando:** Fuentes vigentes coherentes, evidencias reales y revisión independiente; no marcar funcionalidad terminada con integración pendiente.
-- **Evidencia:** [Auditoría individual, commits, pruebas y relaciones del 28/10/2026](../evidencias/H4-GIULIANO-AUDITORIA-ISSUES-2026-10-28.md). Implementación local y REAL de demo separadas de revisión/despliegue.
-- **Bloqueo / liberación:** Revisión independiente del revisor asignado (Sebastian), con resolución y nueva revisión de las observaciones de Leo. Evidencia del corte desplegado y cierre de las dependencias OPS aplicables; la web pública todavía devolvió 503 el 28/10. Validación independiente de la documentación y cierre de INT/QA-001/QA-002 de esta misma función. Falta acreditar identidad técnica/grants G1–G6/G7 y el recorrido desde el corte desplegado; demo pública sin JWT no los sustituye.
+- **Evidencia:** [Reconciliación individual del 05/11](../evidencias/H4-GIULIANO-F007-CIERRE-2026-11-05.md): commit original, incorporación a develop, PR/reviews/CI y evidencia REAL etiquetada. El historial fechado se conserva debajo.
+- **Bloqueo / liberación:** Revisión independiente y merge de esta actualización en SPECS #16; coherencia de fuentes/specs/evidencias y dependencias INT/QA funcional/QA seguridad originales satisfechas. El texto y el commit documental ya están entregados; no falta redactar la tarea desde cero. Giuliano actualiza; Sebastián/revisor independiente valida documentación; los owners de INT y QA entregan su cierre.
 
+
+## Historial anterior al corte vigente del 05/11
+
+Los pendientes/estados de las notas siguientes corresponden a su fecha; no sustituyen la matriz actual enlazada arriba.
 
 ## Avance H4 de Giuliano — 26/10/2026
 
@@ -110,3 +116,8 @@ Actualizar filas existentes; no crear un segundo conjunto de tareas por variante
 ## Revisión conjunta local con Jim — registro 28/10/2026
 
 Jim comunicó conformidad con el recorrido local de F-006–F-010 en escritorio y móvil, según el mensaje aportado por Giuliano. [Constancia y límites](../evidencias/H4-GIULIANO-REVISION-CONJUNTA-JIM-2026-10-28.md). La revisión técnica de PR corresponde a Sebas en Frontend y Leo en Backend/contrato, según el circuito indicado. La nota registra evidencia funcional local; despliegue, JWT, marcas y precio conservan sus requisitos. El revisor de la matriz de tareas se conserva mientras no exista una actualización formal de esa asignación.
+
+
+## Reconciliación por issue — 03/11/2026
+
+[Evidencia actualizada y bloqueos](../evidencias/H4-GIULIANO-F007-2026-11-03.md). Los registros del 26–28/10 son históricos. Nuevos cambios propios preparados y probados; las seis issues permanecen abiertas conforme a su DoD.
