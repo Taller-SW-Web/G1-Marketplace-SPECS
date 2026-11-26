@@ -66,7 +66,7 @@ Contrato [SPECS #20, H-05](https://github.com/Taller-SW-Web/G1-Marketplace-SPECS
 |---|---|---|
 | Recepción | **REAL reportado:** siete eventos de ejemplo de Ventas, siete IDs únicos en el inbox de Render (`16:05:47–16:05:50 UTC`, 26/11). Esto acredita Ventas → Marketplace, no una traza desde Despacho para los siete | [#318](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/318#issuecomment-7202913749) |
 | Deduplicación | **LAB / CI:** `200`, `duplicate:true` y una fila al repetir `eventId`. **REAL:** sin traza corroborada; el conteo de siete IDs únicos no prueba el caso | [Job PostgreSQL #399](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/45899560721/job/140181721101) · [solicitud de traza](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/320#issuecomment-7204663483) |
-| Reintento con backoff | **LAB / CI:** error de persistencia, `503` sin fila → reintento con mismos IDs → `200` y una fila. **REAL:** #318 reportó reintento tras timeout, sin intervalo acreditado. #320 **NOT_RUN** intermodular: registrar hora de cada intento, intervalo y si el reintento lo disparó Ventas; no inferir una política de backoff a partir de un reintento | [#399](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/399) · [#320: ventana propuesta](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/320#issuecomment-7204603408) |
+| Reintento con backoff | **LAB / CI:** error de persistencia, `503` sin fila → reintento con mismos IDs → `200` y una fila. **REAL:** #318 reportó reintento tras timeout, sin intervalo acreditado. #320 **NOT_RUN** intermodular: registrar hora de cada intento, intervalo y si el reintento lo disparó Ventas; no inferir una política de backoff a partir de un reintento | [#399](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/pull/399) · [#320: ventana propuesta](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/320#issuecomment-7204900998) |
 | Caída/recuperación | **LAB / CI:** recuperación de un fallo de escritura, no de una caída del servicio. Prueba de caída como tal **NOT_RUN**. El arranque en frío reportado no es caída controlada | [CI #399](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/45899560721/job/140181721101) · [#318](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/318#issuecomment-7202913749) |
 
 ```mermaid
@@ -98,7 +98,7 @@ sequenceDiagram
     end
 ```
 
-Diagramas **propuestos para revisión de Sebastián y Giuliano** en [#321](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/321). Describen el contrato y los caminos de fallo, no certifican la ejecución de todos los escenarios. Ventana #320 propuesta: 27/11, 10:00–10:30 Lima, pendiente de confirmaciones y QA aislado. Sin pedido real, fallos en Render compartido o reenvíos a ciegas.
+Diagramas **propuestos para revisión de Sebastián y Giuliano** en [#321](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/321). Describen el contrato y los caminos de fallo, no certifican la ejecución de todos los escenarios. Ventana #320 propuesta: 27/11, 11:30–12:00 Lima, pendiente de confirmación de Ventas y Despacho y de un entorno QA aislado. APIM #394 mantiene las 10:30 Lima. Sin pedido real, fallos en Render compartido o reenvíos a ciegas.
 
 ## Extras después de P1
 
