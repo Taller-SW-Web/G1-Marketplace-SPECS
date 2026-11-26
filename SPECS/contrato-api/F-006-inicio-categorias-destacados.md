@@ -1,5 +1,11 @@
 # Spec de contrato API — F-006 Inicio
 
+## Corte del Hito 5 · decisión del PO del 26/11/2026
+
+El ranking de más vendidos queda fuera de la integración de este hito. Los acuerdos G1–G5 H-02 a H-06 no incluyen ranking y G5 confirmó que no hay endpoint ni contrato. En Inicio, «Más vendidos» muestra el aviso «Pronto podrás consultar el ranking». Los destacados editoriales de `GET /api/v1/catalog/home` conservan su alcance y DTO.
+
+La política de ranking descrita abajo se conserva como referencia histórica para una entrega futura. Para retomarla, acordar un nuevo contrato con G5, con ruta, autorización, reglas de ventas y devoluciones y mapeo SKU a producto en G6. La disponibilidad de destacados editoriales y la integración ordinaria de catálogo conservan sus criterios. [Seguimiento BE #45](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/45).
+
 `GET /api/v1/catalog/home` público: `categories[]` y `featuredProducts[]` con id/nombre/slug/imagen/tarjeta comercial. `featuredProducts[]` es una composición del BFF de Marketplace, no un campo atribuido al contrato actual de Productos. Su composición sigue la prioridad confirmada el 03/11/2026: destacados definidos, históricos más vendidos y aleatorios sólo cuando se confirma que todavía no hay historial. Cada tarjeta se obtiene/valida contra la proyección comercial de Productos; la fuente real del ranking aún debe homologarse (`F-P1-04`). Con la selección automática desactivada se conserva el vacío seguro; con ella habilitada, una selección definida vacía pasa al ranking y una ausencia comprobada de historial permite aleatorios. Un fallo de la fuente no equivale a historial vacío. Se omiten tarjetas no elegibles. `200` admite arreglos vacíos; `503 CATALOG_UNAVAILABLE` cuando no puede obtenerse el catálogo necesario. Integración externa bajo `I-01`.
 
 Ajuste 16/10/2026 solicitado por Giuliano, en revisión: `ProductCardDTO.image` admite `{url, alt}` o `null`. El adaptador transforma `images` omitido o `[]` de G6 en `image: null`; la interfaz muestra un placeholder local. Se conservan identidad, slug y elegibilidad, sin inventar una imagen del proveedor. Un campo de imágenes mal formado o una URL insegura mantiene el error técnico; no se reemplaza por placeholder para ocultarlo. G-FEATURED sigue pendiente.
