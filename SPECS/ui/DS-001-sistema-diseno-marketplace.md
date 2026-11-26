@@ -8,7 +8,7 @@
 |---|---|
 | ID | `DS-001` |
 | Nombre | Sistema de diseño de Inka Athletics |
-| Versión | `0.3.0` |
+| Versión | `0.3.1` |
 | Estado | Dirección visual H5 aprobada por el revisor principal el 24/11/2026; implementación de shell y vistas comerciales habilitada. Biblioteca y aceptación final de componentes pendientes |
 | Custodio | Giuliano Macchiavello |
 | Revisor principal | Jim Segovia |
@@ -483,7 +483,7 @@ Reglas transversales:
 
 El archivo **Sistema de Diseño** enlazado arriba es la biblioteca de Foundations, marca, componentes y patrones. La [carpeta de mockups de vistas](https://www.figma.com/files/team/1686774887312660587/folder/662579480?fuid=1686774885834417394) es un espacio distinto para las pantallas del Marketplace. El archivo de pantallas identificado es [Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups); la página [Inicio, catálogo y producto](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-3) contiene las secciones de Inicio, Catálogo y Ficha. Las specs [V-005](vistas/V-005-inicio.md) y [V-006](vistas/V-006-catalogo-resultados.md) ya enlazan sus respectivas secciones y sus 34 frames desktop/mobile localizados. El [archivo Mockups](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups) contiene la [página Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5), verificada el 18/10; los enlaces representativos de V-010–V-014 figuran en cada spec. La existencia del frame no equivale a aprobación de contenido.
 
-La sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) es la referencia aprobada el 24/11/2026 para shell, inicio, catálogo, ficha, carrito y checkout. El [benchmark](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-565) documenta el análisis previo y no sustituye los frames de entrega. Los enlaces por frame de V-007 y V-008 y de los estados restantes se completan en el seguimiento de [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142); mientras falten, la vista se considera aprobada en dirección visual pero no en trazabilidad frame a frame.
+La sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) es la referencia aprobada el 24/11/2026 para shell, inicio, catálogo, ficha, carrito y checkout. El [benchmark](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-565) documenta el análisis previo y no sustituye los frames de entrega. Los enlaces por frame de V-007 y V-008 y de los estados restantes quedan en seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), con responsable **Giuliano Macchiavello** y revisión de **Jim Segovia**; la aceptación de overlays por captura se mantiene en [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153). Mientras falten esos node IDs, la vista se considera aprobada en dirección visual y composición, pero no en trazabilidad frame a frame; este seguimiento no bloquea la implementación.
 
 Páginas mínimas sugeridas para la biblioteca del sistema de diseño:
 
@@ -574,5 +574,6 @@ Una spec de vista no vuelve a declarar tokens base salvo que proponga un cambio 
 
 | Versión | Fecha | Cambio | Compatibilidad |
 |---|---|---|---|
+| `0.3.1` | 2026-11-25 | Correcciones de revisión H5: el panel de compra de escritorio se documenta como fijo (no opcional), la compra exige SKU vendible, precio confirmado y disponibilidad apta, y los enlaces por frame quedan en seguimiento con responsable en `Taller-SW-Web/G1-Marketplace-Frontend#142`. | Sin cambios de tokens ni contratos. Ajusta redacción y criterios de V-007/V-008; la aceptación de overlays por captura sigue en #153. |
 | `0.3.0` | 2026-11-24 | Dirección visual H5 aprobada en #141 por el revisor principal. Se documentan shell global, inicio, ProductCard con agregado rápido restringido, catálogo, carrito, overlays, skeletons y estados consistentes (cargando, vacío, error, por confirmar, no disponible). V-005 a V-008 quedan habilitadas para implementar. | Sin cambios de tokens, props ni contratos. Los frames aprobados reutilizan Foundations 5.1–5.7. La aceptación de cada vista y de la biblioteca sigue siendo independiente. |
 | `0.2.0` | 2026-10-18 | Identidad Inka Athletics, tokens, tipografía, UI kit preliminar, accesibilidad y gobernanza. | Reemplaza los tokens provisionales de `0.1.0`. |

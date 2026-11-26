@@ -9,14 +9,14 @@
 | ID | `V-008` |
 | Nombre | Carrito |
 | Ruta | `/carrito` |
-| Versión | `0.2.0` |
-| Estado | Aprobada para implementar (dirección visual H5; enlace por frame pendiente) |
+| Versión | `0.3.0` |
+| Estado | Aprobada para implementar (dirección visual H5; enlaces por frame en seguimiento #142) |
 | Responsable | Sebastián Malca |
 | Revisor | Diego Espinoza |
-| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) v`0.3.0` |
+| Sistema de diseño | [`DS-001`](../DS-001-sistema-diseno-marketplace.md) v`0.3.1` |
 | Aprobación visual | [Jim Segovia, 24/11/2026](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/141#issuecomment-7121747860) |
 | Enlace de Figma H5 | [Mockups H5 — carrito](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560) |
-| Enlace de Figma por frame | Pendiente de registro en [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142) |
+| Enlace de Figma por frame | Seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), responsable Giuliano Macchiavello |
 
 ## 2. Propósito, actor y acceso
 
@@ -190,7 +190,7 @@ Cantidad cero nunca elimina: en 1, disminuir queda deshabilitado y la acción �
 
 Los overlays `O-003`, `O-006` y `O-007` se diseñan en sus propias specs.
 
-La dirección visual H5 aprobada el 24/11/2026 está en la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560). Los frames enumerados arriba provienen del corte anterior y se conservan como referencia. El enlace directo por frame del carrito y sus estados se registra en [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142) sin modificar el diseño aprobado.
+La dirección visual H5 aprobada el 24/11/2026 está en la sección [Mockups H5](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=537-560). Los frames enumerados arriba provienen del corte anterior y se conservan como referencia. Los enlaces directos por frame del carrito y sus estados quedan en seguimiento en [Taller-SW-Web/G1-Marketplace-Frontend#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142), con responsable **Giuliano Macchiavello**, hasta que Figma publique los node IDs; la aceptación de overlays por captura se mantiene en [#153](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/153).
 
 ## 13. Criterios de aceptación visual
 
@@ -204,7 +204,7 @@ La dirección visual H5 aprobada el 24/11/2026 está en la sección [Mockups H5]
 - [ ] `UI-V008-008`: Desktop y mobile mantienen controles accesibles y el resumen no oculta líneas ni avisos.
 - [ ] `UI-V008-009`: El resumen desktop sólo es fijo si no tapa pie, avisos ni acciones; en mobile aparece después de las líneas.
 - [ ] `UI-V008-010`: Una línea con precio “por confirmar” se distingue de agotado y de error, y bloquea el checkout con explicación y reintento.
-- [ ] La vista aplica `DS-001` v`0.3.0` y reutiliza el shell, `CartLine`, `QuantityStepper` y `OrderSummary`.
+- [ ] La vista aplica `DS-001` v`0.3.1` y reutiliza el shell, `CartLine`, `QuantityStepper` y `OrderSummary`.
 
 ## 14. Decisiones y pendientes
 
@@ -214,4 +214,4 @@ La dirección visual H5 aprobada el 24/11/2026 está en la sección [Mockups H5]
 | `V-008-OPEN-02` | Confirmar si el resumen desktop será sticky y sus límites de desplazamiento. | UX/UI | Antes del diseño final | **Resuelta** por la dirección visual H5: permitido en desktop con los límites de `UI-V008-009`; no fijo en mobile |
 | `V-008-OPEN-03` | Definir el copy y la recuperación para cada valor de `attention` devuelto por el carrito. | Backend + UX | Antes del diseño final | Abierta |
 | `V-008-OPEN-04` | Homologar consultas externas de precio/disponibilidad usadas para enriquecer líneas (`I-01`). | Backend + módulos dueños | Antes de implementación; informar diseño | Abierta |
-| `V-008-OPEN-05` | Registrar los enlaces directos por frame H5 del carrito y de cada estado. | UX/UI | Antes de la aceptación visual | Abierta |
+| `V-008-OPEN-05` | Registrar los enlaces directos por frame H5 del carrito y de cada estado. | UX/UI (Giuliano Macchiavello) | Antes de la aceptación visual; seguimiento en [#142](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/issues/142) | Abierta |
