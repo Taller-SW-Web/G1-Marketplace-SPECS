@@ -12,6 +12,8 @@ DS-001 v0.2.0 reemplaza los tokens 0.1.0 de las fichas históricas. Las seis ref
 
 **Decisión del PO (2026-10-10), contrastada el 18/10:** FE `main@ec1acfb` ejecuta Next.js `16.4.1`, React `19.3.1` y TypeScript `5.9.3`, con lockfile, Route Handlers y componentes propios/CSS. BE `main@c7e8e8e` ejecuta NestJS `11`, Prisma `5` y módulos de catálogo, carrito, favoritos y checkout; varios proveedores siguen MOCK. No se observaron Mantine, Tabler, TanStack Query ni una librería de formularios en `package.json` del FE. Estas versiones describen código integrado, no un despliegue identificado. Checkout F-022–F-027 conserva componentes propios neutrales al kit; la selección global de DS-001 sigue pendiente para las otras familias.
 
+Antecedente histórico: [evidencia](../../plan/evidencias/H3-GIULIANO/H3-ADAPTACION-BASELINE-NESTJS-2026-10-15.md) de la adaptación al baseline NestJS del 15/10/2026; no acredita despliegue ni integración real.
+
 ## 2. Separación por capas y organización propuesta
 
 ```text
@@ -77,7 +79,7 @@ La protección de ruta React es UX, no autorización. BFF valida JWT, ownership,
 | Componente | Props / eventos principales | Contrato de uso |
 |---|---|---|
 | AppShell / CommercialHeader | sessionState, navItems permitidos; onSearch/onLogin/onLogout | Marca, búsqueda, catálogo, cuenta, favoritos/carrito según DS. Sin enlaces ficticios. |
-| CheckoutHeader / CheckoutProgress | currentStep, completedSteps, orderSucceeded | Propuesta previa de Jim: sólo logo + Dirección/Resumen/Pago/Confirmación, sin perfil ni pago seguro. Sin saltar pasos; V-013 confirmación activa, V-014 completo sólo SUCCEEDED. Cierre visual G-SHELL pendiente antes de pixel final. |
+| CheckoutHeader / CheckoutProgress | currentStep, completedSteps, orderSucceeded | Usar los mockups Figma V-010–V-014 del [canvas Checkout](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=1-5&p=f&t=PXeKrikbDjSdUQ5l-0) como referencia visual del shell; no diseñar otro en paralelo. Mantener las etapas/elementos mostrados, sin señales de pago real ni saltos de paso. V-014 completo sólo con SUCCEEDED. El canvas incluye frames desktop y mobile; G-SHELL no bloquea iniciar FE checkout. La aprobación visual sigue pendiente. |
 | CommercialFooter / CheckoutFooter | approvedLinks, brandAsset, legalText | Anatomía definitiva no formalizada en UI; no crear páginas de ayuda/legal ni enlaces rotos. Propuesta oscura requiere logo inverso aprobado. No tratar pendiente como implementación concluida. |
 | ProductCard | DTO público, favoriteState privado separado; onFavorite | Enlace de producto y botón corazón no anidados. Skeleton/error local, sin carrito rápido no especificado. |
 | ProductGallery / GalleryViewer | medios, índice, opened; onSelect/onClose | F-011/O-002, finitos, fallback y foco. |
@@ -104,7 +106,7 @@ Pruebas comunes: aviso repetido de la misma operación no duplica anuncio; acci�
 |---|---|---|
 | Acceso | V-001–V-004 | Marca/formulario, ayuda y retorno seguro según cada V |
 | Comercial | V-005–V-009 | Navegación comercial y footer por aprobar |
-| Checkout | V-010–V-014 | CheckoutHeader compartido, 4 etapas, footer simplificado por aprobar |
+| Checkout | V-010–V-014 | CheckoutHeader y composición compartida según mockups Figma de checkout, con variantes desktop/mobile. No crear un shell alternativo. |
 | Cuenta/pedidos | V-015–V-017 | Navegación comercial autenticada, datos privados y retorno |
 | Correo | C-001/C-002 | Renderer HTML/texto servidor, sin app shell ni scripts |
 

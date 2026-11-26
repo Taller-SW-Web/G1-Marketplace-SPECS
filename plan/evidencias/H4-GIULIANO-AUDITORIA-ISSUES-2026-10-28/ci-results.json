@@ -1,0 +1,43 @@
+{
+  "dateLima": "2026-10-28",
+  "backend": {
+    "head": "cc9ecab9eee424b0c1b024d778b6f906f1fac2b5",
+    "checks": [
+      {
+        "name": "backend (22)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/40754198231/job/123048599612"
+      },
+      {
+        "name": "verify",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/40754186238/job/123048598979"
+      },
+      {
+        "name": "backend (24)",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Taller-SW-Web/G1-Marketplace-Backend/actions/runs/40754198231/job/123048598933"
+      }
+    ]
+  },
+  "frontend": {
+    "head": "d4be0aa3cf35a2d1e0bda9c40cd9c9bf105dfd16",
+    "checks": [
+      {
+        "name": "web",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/40754206852/job/123048631441"
+      },
+      {
+        "name": "verify",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/actions/runs/40754199113/job/123048603726"
+      }
+    ]
+  }
+}

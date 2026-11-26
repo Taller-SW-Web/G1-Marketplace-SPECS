@@ -13,6 +13,7 @@
 | UI funcional | [F-007](../ui/F-007-buscar-productos-texto.md) |
 | Contrato API | [F-007](../contrato-api/F-007-buscar-productos-texto.md) |
 | Entregables visuales | [V-006](../ui/vistas/V-006-catalogo-resultados.md) |
+| Frames Figma verificados | [Catálogo desktop](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-881); [Catálogo mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=339-1026); [Resultados mobile](https://www.figma.com/design/k6JZRdgbO7YtZXeFqygE8p/Mockups?node-id=360-1734) — 14/10/2026, sin aprobación de fidelidad |
 | Base transversal | [Arquitectura React](ARQUITECTURA-REACT.md), [DS-001 v0.2.0](../ui/DS-001-sistema-diseno-marketplace.md) |
 | Stack | React + TypeScript + Next.js App Router (PO, 2026-10-10); FE main@ec1acfb observado el 18/10: Next.js 16.4.1, React 19.3.1 y TypeScript 5.9.3 con lockfile; kit global pendiente de DS-OPEN-03. Es corte de código, no aprobación de esta spec |
 | Responsables de implementación | Asignación del PO en [plan F-007](../../plan/funcionalidades/F-007-buscar-productos-texto.md); no reemplaza el reparto de mockups |

@@ -12,23 +12,23 @@
 
 ## Entrega de H4 y cierre objetivo
 
-**Objetivo de cierre H4.** Implementar favorito→carrito con selección SKU, precio/cantidad G6, identidad G7 y handoff con Andres; destino confirmado antes de quitar origen y pruebas de replay/fallo sin pérdida.
+**Objetivo de cierre H4.** Implementar favorito→carrito con selección SKU, precio/cantidad G6, identidad G7 y handoff con Andres; destino confirmado conservando favorito y createdAt y pruebas de replay/fallo sin pérdida.
 
 **Cierre base:** S02/H4, semanas 9–11; cierre sólo con gates y prueba en despliegue. El PO establece disponibilidad sin restricción horaria; todo el trabajo propio definido se implementa y prueba en H4. Los límites son contrato, entorno, datos, autorizaciones y calidad. [Inventario H4](../ALCANCE-H4-PRODUCTOS-SEGURIDAD.md) y [S02](../iteraciones/S02-semanas-09-11.md). Registrar diseñado, implementado con datos de prueba, integrado con otro módulo y probado en el despliegue por separado; no inventar contrato ni liberar gates por planificar.
 
 ## 2. Objetivo y límites
 
-Entregar mover favorito al carrito conforme comportamiento/UI/API/React, no una pantalla aislada.
-Producto variable abre ficha, selecciona F-013 y añade F-016; la eliminación del favorito tras ese flujo no está contratada, no hacerla automática. Mover atómico sólo POST F-039 exitoso.
+Entregar agregar al carrito conservando favorito conforme comportamiento/UI/API/React, no una pantalla aislada.
+Decisión solicitada el 28/10/2026: agregar al carrito conserva favorito y createdAt en éxito y fallo. Producto variable abre ficha, selecciona F-013 y añade F-016; tampoco elimina el favorito. Revisión independiente pendiente.
 
 ## 3. Decisiones técnicas
 
 | Área | Trabajo / decisión |
 |---|---|
 | Frontend / render | `MoveWishlistToCartAction`, `WishlistMoveOutcome`; hook `useMoveWishlistToCart`; arquitectura transversal React. |
-| Backend / adaptador | Trasladar producto simple a carrito y borrar favorito sólo tras transacción exitosa; variable: 422 con URL interna y fallo conserva. |
+| Backend / adaptador | Agregar producto simple al carrito conservando favorito y createdAt; variable: 422 con URL interna y fallo conserva. |
 | Persistencia | WishlistItem/CartItem. Siempre modelo lógico vigente, nunca el esquema histórico de dos tablas. |
-| Remoto / caché | Éxito invalida cart/wishlist/quote;422 sólo conserva favorito y navega a URL interna validada. |
+| Remoto / caché | Éxito invalida cart/quote y conserva wishlist;422 sólo conserva favorito y navega a URL interna validada. |
 | Seguridad específica | redirectUrl maliciosa / variante arbitraria, transacción no borra favorito por fallo. |
 | UI Kit | DS-001 v0.2.0; G-STACK pendiente, no fijar versiones no verificadas. |
 
@@ -36,7 +36,7 @@ Producto variable abre ficha, selecciona F-013 y añade F-016; la eliminación d
 
 - Dependencias de comportamiento/flujo: [F-037](F-037-visualizar-favoritos.md), [F-016](F-016-agregar-item-carrito.md).
 - Gates: I-01; consultar [registro](../DECISIONES-Y-BLOQUEOS.md). G-STACK/G-SHELL para interfaz compartida aplicable.
-- Pendientes específicos: I-01; flujo completar traslado variante requiere aclaración adicional si se desea borrar tras adición.
+- Pendientes específicos: I-01; sin eliminación automática del favorito; aceptación independiente pendiente.
 - Responsable/revisor confirman alcance, contrato y criterios de prueba; contrato/fixtures definidos; estados de UI leídos. Mockups no asignan automáticamente código.
 - Si gate afecta operación real, limitar trabajo a componentes puros, fixtures y tests locales. Nunca interpretar eso como integración terminada.
 
@@ -57,7 +57,7 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 - 422 conserva favorito.
 - agotado conserva.
-- POST200 actualiza ambas colecciones.
+- POST200 actualiza carrito y conserva la colección de favoritos.
 - redirectUrl externo rechazado.
 - Cada estado documentado tiene caso verificable y foco/recuperación correctos.
 - Seguridad: redirectUrl maliciosa / variante arbitraria, transacción no borra favorito por fallo.
@@ -67,6 +67,6 @@ Las tareas y el estado real viven únicamente en [seguimiento](../seguimiento/F-
 
 ## 7. Riesgos y recuperación
 
-READY → MOVING → MOVED | VARIANT_REQUIRED | OUT_OF_STOCK | NOT_AVAILABLE | ERROR.
+READY → ADDING → ADDED | VARIANT_REQUIRED | OUT_OF_STOCK | NOT_AVAILABLE | ERROR.
 
 No reintentos ilimitados ni datos locales como fuente externa de verdad. Campos, endpoints y política que sigan abiertos permanecen explícitos; resolver/actualizar spec de origen antes de modificar código. Los riesgos de contrato, entorno y calidad se revisan por operación, sin retirar esta funcionalidad por disponibilidad horaria.

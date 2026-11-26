@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "timestampUtc": "2026-10-27T00:54:42.929942+00:00",
+  "checks": {
+    "gitleaks-version": {
+      "passed": true,
+      "expected": "8.30.1"
+    },
+    "semgrep-version": {
+      "passed": true,
+      "expected": "1.181.0"
+    },
+    "secrets-positive-control": {
+      "passed": true
+    },
+    "sast-positive-control": {
+      "passed": true
+    },
+    "secrets-source": {
+      "passed": true,
+      "findings": []
+    },
+    "secrets-history": {
+      "passed": true,
+      "findings": []
+    },
+    "secrets-artifact": {
+      "passed": true,
+      "findings": []
+    },
+    "sast": {
+      "passed": true,
+      "findings": [],
+      "errorCount": 0,
+      "scannedFiles": 126,
+      "scope": "src and scripts; four local rules, no interfile/taint certification"
+    },
+    "sca-all": {
+      "passed": true,
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "findings": [],
+      "gate": "No high/critical; moderate/low require human acceptance"
+    },
+    "sca-runtime": {
+      "passed": true,
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "findings": [],
+      "gate": "No high/critical; moderate/low require human acceptance"
+    },
+    "license-inventory": {
+      "passed": true,
+      "packages": 268,
+      "review": "Inventory only; no legal approval or automatic license acceptance"
+    }
+  },
+  "base": "e448a20115468c299c68a516d22c6a2c2731aa88",
+  "head": "8f1ff865fbacbaa5a85ff3036d0e2fd0f66b3567",
+  "passed": true
+}

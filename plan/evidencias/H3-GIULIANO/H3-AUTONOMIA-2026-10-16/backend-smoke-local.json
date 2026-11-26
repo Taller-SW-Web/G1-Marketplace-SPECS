@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "compiled-api-liveness",
+    "readiness-down-without-db",
+    "catalog-mock-security-headers-and-cors",
+    "cors-disallowed-origin-without-grant",
+    "invalid-queries-rejected",
+    "search-query-not-in-app-logs"
+  ],
+  "source": "MOCK",
+  "scope": "loopback compiled API; not staging DAST"
+}

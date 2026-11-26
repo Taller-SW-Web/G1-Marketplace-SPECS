@@ -2,11 +2,15 @@
 
 Esta carpeta conserva los recursos que respaldan `../DS-001-sistema-diseno-marketplace.md`. `DS-001` es la fuente normativa; esta carpeta aporta recursos y trazabilidad.
 
+El [catálogo de elementos compartidos](ELEMENTOS-COMPARTIDOS.md) documenta la implementación local, contratos de consumo, responsables y pendientes. Su [changelog](CHANGELOG-COMPARTIDOS.md) registra cambios sin declarar una nueva versión aprobada de DS-001.
+
 ## Estructura actual
 
 ```text
 sistema-diseno/
 ├── README.md
+├── ELEMENTOS-COMPARTIDOS.md
+├── CHANGELOG-COMPARTIDOS.md
 └── assets/
     └── logos/
         ├── inka-athletics-logo-ink.png

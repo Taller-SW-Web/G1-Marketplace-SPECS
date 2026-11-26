@@ -68,7 +68,7 @@ V-013 Creación de la orden
 |---|---|---|---|
 | Resumen | Representación final permitida | Primaria | Sólo lectura; no expone dirección/documento completos innecesariamente. |
 | Contacto | Sólo campos faltantes | Primaria | Datos ya resueltos no se vuelven a solicitar ni muestran como editables. |
-| Aviso | Creación única | Primaria | Explica que el siguiente envío registrará el pedido, sin prometer cobro real. |
+| Aviso | Creación única | Primaria | La preparación sólo registra consentimiento; el simulador se ejecuta después de crear el pedido. No afirma que el pago ya fue aprobado ni promete cobro real. |
 | CTA | “Crear pedido” | Primaria | Una activación; bloqueado mientras se envía o verifica. |
 
 ## 6. Contenido y acciones
@@ -83,7 +83,7 @@ V-013 Creación de la orden
 | Teléfono | Contacto de la orden | Capturar | Falta en perfil autorizado. |
 | Correo | Contacto/notificación | Capturar | Falta en perfil autorizado. |
 | CTA | “Crear pedido” | Enviar operación una vez | Datos válidos y estado `PREPARED`. |
-| Progreso | “Estamos registrando tu pedido” | Informar | `SUBMITTED` en curso. |
+| Progreso | “Estamos registrando tu pedido” | Informar | `SUBMITTED` en curso; el pago simulado aún no se presenta como aprobado. |
 | Verificación | “Estamos verificando tu pedido” | Consultar la operación existente | Resultado incierto. |
 
 ## 7. Estados de la vista
@@ -188,3 +188,4 @@ Los datos son transitorios para crear la orden; la interfaz no afirma que actual
 | `V-013-OPEN-03` | Definir frecuencia, duración y salida del estado “Estamos verificando tu pedido”. | Backend + Producto | Antes del diseño final | Abierta |
 | `V-013-OPEN-04` | Confirmar qué datos de perfil llegan autorizados para decidir los campos faltantes. | Seguridad + Ventas | Antes del diseño final | Abierta |
 | `V-013-OPEN-05` | El `201/CREADO` confirma reserva/cupón; Ventas inicia el simulador y Marketplace consulta `PAGADO`/`ANULADO`. Sin llamada de pago desde G1. | Ventas + Arquitectura | Acordado el 10/10/2026; probar antes de integrar | Contrato resuelto; prueba pendiente |
+| `V-013-OPEN-06` | Los frames muestran “Pago simulado aprobado” antes de crear el pedido, aunque `PREPARED` sólo registra consentimiento. Se conserva Figma sin cambios; el comportamiento/copy implementado debe seguir la regla funcional y no afirmar aprobación anticipada. | Producto + Frontend | Decidido el 2026-10-15 | Cerrado como divergencia visual aceptada; no bloquea implementación |
