@@ -1,5 +1,7 @@
 # F008 — cierre por tarea al 05/11/2026
 
+**Seguimiento del 26/11:** [Evidencia vigente para revisión de catálogo](H4-GIULIANO-CATALOGO-REVISION-2026-11-26.md). Este informe conserva el corte histórico del 05/11.
+
 Responsable: Giuliano. Revisor principal asignado: Sebastián. Esta actualización documenta trabajo entregado y requisitos de cierre; no cambia el DoD, los responsables ni las dependencias. Son seis tareas trabajadas, no seis implementaciones ausentes.
 
 ## Ya realizado y qué permanece
