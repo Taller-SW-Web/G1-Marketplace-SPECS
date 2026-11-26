@@ -1,0 +1,337 @@
+{
+  "schema": 1,
+  "timestampUtc": "2026-11-26T23:10:02.126Z",
+  "targetOrigin": "http://127.0.0.1:3500",
+  "transport": "NEXT_TO_BFF",
+  "expectedSource": "MOCK",
+  "status": "PARTIAL",
+  "counts": {
+    "PASS": 24,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "INCONCLUSIVE": 1
+  },
+  "results": [
+    {
+      "id": "F006-home",
+      "feature": "F006",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 13,
+          "requestId": "05bd795e-ac73-42e9-a7db-6a889c4a20e0",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F006-featured-observed",
+      "feature": "F006",
+      "requests": [],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F006-no-query",
+      "feature": "F006",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 10,
+          "requestId": "b51be2d9-84a4-42d5-8f64-eabcc9ef6434",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F007-positive",
+      "feature": "F007",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 9,
+          "requestId": "6a365fc7-4dce-4de8-8b69-c6901aef49ee",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F007-empty",
+      "feature": "F007",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 11,
+          "requestId": "06f5b2a1-bec2-44ec-b1a8-eff2584b9684",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F007-length-0",
+      "feature": "F007",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 12,
+          "requestId": "109ee4c3-f038-4416-8986-3295100d31c4",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F007-length-1",
+      "feature": "F007",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 11,
+          "requestId": "2494a004-9822-440a-96bf-659f38ed4a06",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F008-masters",
+      "feature": "F008",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 12,
+          "requestId": "4f668eda-9fb8-4220-a217-adb4107e40c7",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F008-category",
+      "feature": "F008",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 14,
+          "requestId": "af49cd8e-97a8-47a6-991e-dbd528cc53d9",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F008-combined",
+      "feature": "F008",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 11,
+          "requestId": "63046bf6-17bd-41bb-bd0d-78b3cb1e7683",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F008-price-protocol",
+      "feature": "F008",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 10,
+          "requestId": "e1e1eba2-b694-45c5-8a23-3bd75c03e026",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F008-negative-0",
+      "feature": "F008",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 8,
+          "requestId": "3f71c78b-6154-4abb-b909-cdc13e414cfa",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F008-negative-1",
+      "feature": "F008",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 7,
+          "requestId": "835822fb-c837-47c8-9f3a-9428093491ec",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F008-negative-2",
+      "feature": "F008",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 10,
+          "requestId": "e47d834f-dfdb-4440-8ee9-cc25d4eff133",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F009-NAME_ASC",
+      "feature": "F009",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 7,
+          "requestId": "d173dfdd-a060-4f43-b7b8-6e5bcf190ea0",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F009-NAME_DESC",
+      "feature": "F009",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 7,
+          "requestId": "0e91fc9c-ae2e-4441-8d9c-05ac3940a40c",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F009-observed-ties",
+      "feature": "F009",
+      "requests": [],
+      "outcome": "INCONCLUSIVE",
+      "code": "NO_EQUAL_NAMES_IN_SAMPLE"
+    },
+    {
+      "id": "F009-invalid-sort",
+      "feature": "F009",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 8,
+          "requestId": "0409484a-7faf-48e7-94c3-e3af3e67abb8",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F010-first",
+      "feature": "F010",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 7,
+          "requestId": "7f2ef58e-6f92-43ed-8eeb-6fcc9ed401ea",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F010-next",
+      "feature": "F010",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 7,
+          "requestId": "37886825-9a31-4724-a098-dbeae08c231c",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F010-last",
+      "feature": "F010",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 6,
+          "requestId": "41a12777-fe8d-4e32-83aa-b011884d19fa",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F010-out-of-range",
+      "feature": "F010",
+      "requests": [
+        {
+          "status": 200,
+          "durationMs": 7,
+          "requestId": "bbcb96ae-b70e-4924-8ba1-91ab52095630",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F010-limit-0",
+      "feature": "F010",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 6,
+          "requestId": "6cb06eb2-be8e-48c0-98e1-c7788d543ea5",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F010-limit-1",
+      "feature": "F010",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 6,
+          "requestId": "ac726f62-ed76-45f2-b45a-0b9cda42d5af",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    },
+    {
+      "id": "F010-limit-2",
+      "feature": "F010",
+      "requests": [
+        {
+          "status": 400,
+          "durationMs": 6,
+          "requestId": "7373594f-4315-4ef1-b01a-9a607d723633",
+          "source": "MOCK"
+        }
+      ],
+      "outcome": "PASS"
+    }
+  ],
+  "authGrantsVerified": false,
+  "deployedShaVerified": false,
+  "groupAcceptanceVerified": false,
+  "limits": [
+    "Read-only public protocol and observed relationships only.",
+    "MOCK is synthetic evidence. REAL header alone does not establish the upstream configuration, grant or deployed SHA.",
+    "Global monetary eligibility and stable ordering require owner/dataset evidence beyond this public projection.",
+    "No browser interaction, DAST, reservations or order operations are executed."
+  ]
+}
