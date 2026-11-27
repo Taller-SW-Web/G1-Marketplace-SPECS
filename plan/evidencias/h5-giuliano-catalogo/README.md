@@ -42,6 +42,8 @@ El BFF local pasó nueve pruebas HTTP en el mismo código base que Render. Las c
 
 Queda provocar de forma autorizada el 503 o timeout de G6 en un entorno integrado y registrar la aceptación por tarea. A las 22:59 Lima, Inicio volvió a entregar 10 categorías y cero destacados en Render y Vercel. [Retest de destacados](retest-destacados.json)
 
+La segunda lectura de Inicio a las 23:09 Lima devolvió HTTP 200 con fuente REAL, diez categorías y cero destacados en ambos entornos. Render conservó el mismo deploy activo. [Trazas de confirmación](retest-destacados-2309.json)
+
 ## Retest de catálogo en Vercel
 
 Entre las 18:16:36 y las 18:18:34 Lima se recorrieron Inicio y Catálogo públicos en Chrome. Las cinco respuestas del proxy Next fueron HTTP 200 con fuente `REAL`. El orden, la paginación y la combinación de filtros se probaron abriendo las URL con los criterios correspondientes y comprobando las tarjetas visibles. [Trazas de navegador](retest-real-vercel.json)
