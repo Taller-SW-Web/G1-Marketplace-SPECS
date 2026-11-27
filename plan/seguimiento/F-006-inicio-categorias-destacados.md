@@ -110,3 +110,16 @@ Actualizar filas existentes; no crear un segundo conjunto de tareas por variante
 ## Revisión conjunta local con Jim — registro 28/10/2026
 
 Jim comunicó conformidad con el recorrido local de F-006–F-010 en escritorio y móvil, según el mensaje aportado por Giuliano. [Constancia y límites](../evidencias/H4-GIULIANO-REVISION-CONJUNTA-JIM-2026-10-28.md). La revisión técnica de PR corresponde a Sebas en Frontend y Leo en Backend/contrato, según el circuito indicado. La nota registra evidencia funcional local; despliegue, JWT, marcas y precio conservan sus requisitos. El revisor de la matriz de tareas se conserva mientras no exista una actualización formal de esa asignación.
+
+
+## Actualización de TASK-F006-INT-001 — destacado editorial REAL — 27/11/2026
+
+El tablero conserva **TASK-F006-INT-001 — Bloqueado** y Backend [#45 permanece abierto](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/issues/45). Se verificó que Backend #44 y OPS #200, #201 y #206 están cerradas; la dependencia formal I-01 y la comprobación REAL de destacados continúan pendientes. No se modifica estado, DoD ni asignación.
+
+G6 aclaró que la selección editorial corresponde a G1 y propuso como candidato de prueba el producto `93f7f500-077d-432e-be98-31cb9ee0d66d`. El comentario de #45 del 26/11 registra Home Render HTTP 200 con fuente REAL, diez categorías y `featuredProducts` vacío. Esa salida no identifica la causa y no se atribuye a G6. El runtime compartido `g1-marketplace-backend` (`main`) no se modificó; el conector no expuso los flags efectivos del servicio.
+
+El BFF ya soporta `CATALOG_FEATURED_ENABLED`, `CATALOG_FEATURED_APPROVED` y `CATALOG_FEATURED_IDS`; la ruta API a retestar es `GET /api/v1/catalog/home` (la ruta proxy web es `/api/catalog/home`). Se añadió un checker que exige un ID explícito, hace un GET sin credenciales y valida HTTP 200, `X-Catalog-Source: REAL`, correlación, `no-store` y presencia única del ID en `featuredProducts`. [Nota Backend y receta reproducible](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/6bc42f7c01d4ed5ebece0f5dd246d1df80d5b2cf/docs/evidencias/H4/giuliano/2026-11-27/TASK-F006-INT-001-editorial-featured.md) · [checker](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/6bc42f7c01d4ed5ebece0f5dd246d1df80d5b2cf/scripts/catalog-h4/check-f006-featured-real.mjs).
+
+La ejecución REAL queda pendiente: OPS/PO debe habilitar un BFF Render aislado con el mismo SHA que se probará y conexión G6 REAL autorizada (`CATALOG_INTEGRATION_APPROVED=true`, endpoint/pin de contrato/modo de autenticación aprobados; `BFF_MODE=real` si aplica el modo `public-read-only`). Allí se configuran temporalmente `CATALOG_SOURCE=real`, `CATALOG_FEATURED_ENABLED=true`, `CATALOG_FEATURED_APPROVED=true`, `CATALOG_FEATURED_IDS=93f7f500-077d-432e-be98-31cb9ee0d66d` y `CATALOG_HOME_FALLBACK_ENABLED=false`; después del GET se restauran los flags. El checker se validó con respuestas sintéticas: presencia esperada PASS, ausencia `EXPECTED_FEATURED_ID_MISSING` y argumento ID omitido rechazado antes de hacer fetch. No se ejecutó contra Render/G6 ni se declara aceptación.
+
+Se intentó comentar #45 con esta aclaración y el enlace de evidencia; GitHub Data devolvió HTTP 403 `Resource not accessible by integration`. Por ello este registro y los enlaces quedan en SPECS; el issue no fue modificado.
