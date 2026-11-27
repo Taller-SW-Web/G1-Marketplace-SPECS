@@ -24,7 +24,23 @@ El 26/11 a las 18:13–18:14 Lima, **11 de 11 lecturas públicas** del BFF de Re
 | Orden | ASC y DESC conservaron el desempate ascendente por `productId` entre los homónimos. |
 | Paginación | Tamaño 1. Páginas 1 y 2 con un ID distinto cada una, total 2. Página 3 vacía, total 2. |
 
-El [503 histórico en BE #53][diag] queda como antecedente. El [retest previo del BFF local contra G7/G6][real-local] aporta nueve lecturas reales anteriores. Las lecturas públicas nuevas acreditan el BFF durante esa ventana. La confirmación del SHA activo, los casos negativos o timeout del entorno acordado y la aceptación de QA por issue conservan su seguimiento.
+El [503 histórico en BE #53][diag] queda como antecedente. El [retest previo del BFF local contra G7/G6][real-local] aporta nueve lecturas reales anteriores. Las lecturas públicas nuevas acreditan el BFF durante esa ventana. El historial de Render identifica el deploy `dep-dc4b7u3l550s738o8jd0` con SHA `f17896d7ee24876ffd33db1bb7dd91d65623ed37`, activo desde las 22:35:30 UTC y durante el retest. [Ficha del deploy](https://dashboard.render.com/web/srv-db05v0navr4c73e9mnug/deploys/dep-dc4b7u3l550s738o8jd0) · [Commit desplegado](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/commit/f17896d7ee24876ffd33db1bb7dd91d65623ed37)
+
+### Validación de fallos
+
+A las 22:59 Lima se verificaron cinco lecturas negativas sobre el Render público. Cada una devolvió HTTP 400, el código esperado y un ID de solicitud que coincide entre cabecera y cuerpo. [Registro por caso](validacion-parametros-render.json)
+
+| Función | Entrada | Código |
+| --- | --- | --- |
+| F-006 | Parámetro `q` en Inicio | `INVALID_PARAMETERS` |
+| F-007 | Búsqueda de 121 caracteres | `INVALID_SEARCH_QUERY` |
+| F-008 | Precio mínimo superior al máximo | `INVALID_PRICE_RANGE` |
+| F-009 | Orden fuera del contrato | `INVALID_SORT` |
+| F-010 | Página negativa | `INVALID_PAGE` |
+
+El BFF local pasó nueve pruebas HTTP en el mismo código base que Render. Las cuatro nuevas ejercitan 503 en Inicio, filtros y búsqueda, además de agotar el plazo de 100 ms del adaptador real de catálogo con transporte G6 simulado. Verifican respuesta pública correlacionada, recuperación al reintentar y ausencia del cuerpo interno del proveedor. En Chrome las pruebas verifican mensajes diferentes para timeout e indisponibilidad, conservación de la búsqueda y retorno del foco. [Suite de Backend](https://github.com/Taller-SW-Web/G1-Marketplace-Backend/blob/29528af0cecde2fe160f931e15cd32d456ba08de/test/catalog-public-read-only.e2e-spec.ts) · [Evidencia de Frontend](https://github.com/Taller-SW-Web/G1-Marketplace-Frontend/blob/feat/h5-overlays-carrito/docs/evidencias/H5/UX-013-014-estados/README.md)
+
+Queda provocar de forma autorizada el 503 o timeout de G6 en un entorno integrado y registrar la aceptación por tarea. A las 22:59 Lima, Inicio volvió a entregar 10 categorías y cero destacados en Render y Vercel. [Retest de destacados](retest-destacados.json)
 
 ## Retest de catálogo en Vercel
 

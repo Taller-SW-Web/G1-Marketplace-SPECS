@@ -1,0 +1,76 @@
+{
+  "origen": "https://g1-marketplace-backend.onrender.com/api/v1/catalog",
+  "casos": [
+    {
+      "funcion": "F006",
+      "ruta": "/home",
+      "entrada": {
+        "q": "polo"
+      },
+      "horaUtc": "2026-11-27T03:59:03.780095+00:00",
+      "codigoEsperado": "INVALID_PARAMETERS",
+      "status": 400,
+      "codigo": "INVALID_PARAMETERS",
+      "requestId": "c3abe1d2-bc08-44f1-ab0e-32e0e98423f9",
+      "trazaCorrelacionada": true,
+      "resultado": "PASS"
+    },
+    {
+      "funcion": "F007",
+      "ruta": "/products",
+      "entrada": {
+        "q": "longitud 121"
+      },
+      "horaUtc": "2026-11-27T03:59:03.780803+00:00",
+      "codigoEsperado": "INVALID_SEARCH_QUERY",
+      "status": 400,
+      "codigo": "INVALID_SEARCH_QUERY",
+      "requestId": "be5fc3f9-dc2b-43d4-ba49-ff229ecdd5ae",
+      "trazaCorrelacionada": true,
+      "resultado": "PASS"
+    },
+    {
+      "funcion": "F008",
+      "ruta": "/products",
+      "entrada": {
+        "minPrice": 80,
+        "maxPrice": 10
+      },
+      "horaUtc": "2026-11-27T03:59:04.077050+00:00",
+      "codigoEsperado": "INVALID_PRICE_RANGE",
+      "status": 400,
+      "codigo": "INVALID_PRICE_RANGE",
+      "requestId": "c6625fc4-10d6-4e20-a771-f4f69f51fa48",
+      "trazaCorrelacionada": true,
+      "resultado": "PASS"
+    },
+    {
+      "funcion": "F009",
+      "ruta": "/products",
+      "entrada": {
+        "sort": "TITLE"
+      },
+      "horaUtc": "2026-11-27T03:59:04.367065+00:00",
+      "codigoEsperado": "INVALID_SORT",
+      "status": 400,
+      "codigo": "INVALID_SORT",
+      "requestId": "ed25b854-1e56-48b6-a69b-b23208cfe2ae",
+      "trazaCorrelacionada": true,
+      "resultado": "PASS"
+    },
+    {
+      "funcion": "F010",
+      "ruta": "/products",
+      "entrada": {
+        "page": -1
+      },
+      "horaUtc": "2026-11-27T03:59:04.443145+00:00",
+      "codigoEsperado": "INVALID_PAGE",
+      "status": 400,
+      "codigo": "INVALID_PAGE",
+      "requestId": "288b417d-efe8-4513-9f28-301a4b6d883f",
+      "trazaCorrelacionada": true,
+      "resultado": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "entorno": "Render",
+    "url": "https://g1-marketplace-backend.onrender.com/api/v1/catalog/home",
+    "horaUtc": "2026-11-27T03:59:19.196454+00:00",
+    "status": 200,
+    "fuente": "REAL",
+    "requestId": "91de5f59-52de-4904-b261-a124c28f0389",
+    "categorias": 10,
+    "destacados": 0
+  },
+  {
+    "entorno": "Vercel",
+    "url": "https://g1-marketplace-frontend.vercel.app/api/catalog/home",
+    "horaUtc": "2026-11-27T03:59:20.976739+00:00",
+    "status": 200,
+    "fuente": "REAL",
+    "requestId": "a01f3113-e9f6-448e-b284-d564eff15211",
+    "categorias": 10,
+    "destacados": 0
+  }
+]
